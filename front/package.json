@@ -1,0 +1,53 @@
+{
+  "name": "Movie-Thing",
+  "title": "Movie Thing",
+  "description": "Indeed, its a movie thing",
+  "version": "0.4.0",
+  "author": {
+    "name": "nickb"
+  },
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-consolidate": "^0.2.0",
+    "gulp-flatten": "^0.3.1",
+    "gulp-iconfont": "^8.0.1",
+    "gulp-imagemin": "^3.2.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-modify-css-urls": "^0.2.2",
+    "gulp-myth": "^1.1.0",
+    "gulp-rename": "^1.2.2",
+    "history": "1.12.0",
+    "paths-js": "0.4.4",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "redux": "^3.6.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^7.0.0",
+    "babel-loader": "^6.4.0",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "cli-table": "^0.3.1",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.12.2",
+    "eslint-loader": "^1.6.1",
+    "node-sass": "^4.5.0",
+    "path": "^0.12.7",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.0.0",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "scripts": {
+    "js": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    "js-prod": "./node_modules/webpack/bin/webpack.js --config ./webpack.config.prod.js"
+  },
+  "keywords": [],
+  "license": "UNLICENSED",
+  "private": true
+}
