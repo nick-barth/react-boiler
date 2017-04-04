@@ -1,0 +1,24 @@
+html {
+	font-family: 'Open Sans Condensed', sans-serif;
+	height:calc(100%);
+	color:#F8F8FF;
+	background: #8E0E00;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to bottom, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to bottom, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.layout {
+
+}
+
+.layout__container {
+	max-width:100rem;
+}
+
+.layout__title {
+	font-size:3.4rem;
+	text-align:center;
+	margin:auto;
+	padding-bottom:5rem;
+	padding-top:2rem;
+}
