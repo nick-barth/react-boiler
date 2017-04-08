@@ -55,7 +55,6 @@ const config = {
 			}
 		}),
 		new webpack.optimize.AggressiveMergingPlugin(),
-		new webpack.optimize.DedupePlugin(),
 		new webpack.optimize.OccurrenceOrderPlugin() // Trying this, not sure if needed/better on dev
 	]
 };

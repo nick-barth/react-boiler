@@ -43,16 +43,6 @@ const config = {
 		{
 			test: /\.css$/,
 			loader: 'style-loader!css-loader'
-		},
-		{
-			test: /\.scss$/,
-			use: [{
-				loader: 'style-loader' // creates style nodes from JS strings
-			}, {
-				loader: 'css-loader' // translates CSS into CommonJS
-			}, {
-				loader: 'sass-loader' // compiles Sass to CSS
-			}]
 		}
 		]
 	},
@@ -62,10 +52,6 @@ const config = {
 		modules: ['./node_modules', './src'],
 		extensions: ['.js', '.jsx']
 	},
-
-	// @todo, test if this is enough or if we need 'cheap-eval-source-map'
-	// Additional doc: https://webpack.github.io/docs/configuration.html#devtool
-	devtool: 'eval',
 
 	// Dev server config
 	devServer: {

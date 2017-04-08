@@ -6,7 +6,10 @@ const gulp = require('gulp');
 const concat = require('gulp-concat');
 const minifyCSS = require('gulp-minify-css');
 const myth = require('gulp-myth');
+const rename = require('gulp-rename');
 const modifyCssUrls = require('gulp-modify-css-urls');
+const iconfont = require('gulp-iconfont');
+const consolidate = require('gulp-consolidate');
 const pkg = require('./package.json');
 
 /*
@@ -14,9 +17,14 @@ const pkg = require('./package.json');
  * ======
  */
 const FILES_CSS         = ['./src/assets/css/**/*.css', './src/components/**/*.css'];
+const FILES_ICONS       = ['./src/components/**/icons/*.svg'];
 const ASSETS_PATH       = '../server/files/assets/';
 const ASSETS_CSS_PATH   = ASSETS_PATH + 'css/';
 const BROWSERS          = ['> 0.25%', 'last 3 versions', 'Firefox ESR', 'Opera 11'];
+
+const ASSETS_ICONS_PATH = ASSETS_PATH + 'icons/';
+const PUBLIC_ICONS_PATH = '/assets/icons/';
+const ICONS_CSS_TPL     = './src/components/icon/icons.tmpl';
 
 /*
  * PRIVATE TASKS
@@ -59,6 +67,44 @@ gulp.task('css.min', function () {
 		.pipe(minifyCSS())
 	    .pipe(gulp.dest(ASSETS_CSS_PATH))
     ;
+});
+
+/*
+ * SVG Icons
+ * --
+ * Generate webfonts from svg icons
+ */
+gulp.task('icons', function () {
+	return gulp.src(FILES_ICONS)
+		.pipe(
+			iconfont({
+				fontName: 'icons',
+				normalize: true,
+				appendCodepoints: true,
+				fontHeight: 1500,
+				centerHorizontally: true,
+				fixedWidth: true,
+				formats: ['ttf', 'eot', 'woff', 'woff2']
+			})
+		)
+		.on('glyphs', function (glyphs) {
+			gulp.src(ICONS_CSS_TPL)
+				.pipe(
+					consolidate('lodash', {
+						glyphs: glyphs,
+						fontName: 'icons',
+						fontPath: ASSETS_ICONS_PATH,
+						webFontPath: PUBLIC_ICONS_PATH,
+						className: 'icon'
+					})
+				)
+				.pipe(rename('icons.css'))
+				.pipe(
+					gulp.dest('./src/components/icon/')
+				);
+		})
+		.pipe(gulp.dest(ASSETS_ICONS_PATH))
+	;
 });
 
 /*
