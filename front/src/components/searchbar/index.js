@@ -16,7 +16,7 @@ class SearchBar extends React.Component {
 		super(props);
 
 		this.state = {
-			value: '2'
+			value: ''
 		};
 
 		this.suggest = _.debounce(this.getSearchResults, 500, {
@@ -31,24 +31,33 @@ class SearchBar extends React.Component {
 
 	/*
 	 * Updates state with search data when it changes
+	 * @PARAM event
 	 */
-	handleChange (value) {
+	handleChange (ev) {
+		const value = ev.target.value;
 
-		console.log(value);
+		this.setState({
+			value: value
+		});
 
 		this.suggest();
+
 	}
 
 	getSearchResults () {
 		const { value } = this.state;
 
-		console.log(this.input);
-
-
 		fetch('http://www.omdbapi.com/?t=' + value)
 		.then(function (response) {
 			return response.json();
+		})
+		.then(function (response) {
+			this.setState({
+				searchResult: response
+			});
 		});
+
+
 	}
 
 	render () {
@@ -58,7 +67,7 @@ class SearchBar extends React.Component {
 				</div>
 				<input className="searchbar__bar" type="text" name="search"
 					value={this.state.value}
-					ref={(input) => this.input = input}
+					onChange={val => this.handleChange(val)}
 				/>
 			</div>
 		);
