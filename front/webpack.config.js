@@ -5,7 +5,7 @@ const webpack = require('webpack');
 // Config
 const ENTRY_POINT = path.resolve(__dirname, 'src/') + '/app.js';
 const HRM_HOST = '0.0.0.0';
-const HRM_PORT = 3000;
+const HRM_PORT = 8777;
 
 process.traceDeprecation = true;
 
@@ -19,7 +19,7 @@ const config = {
 		ENTRY_POINT
 	],
 	output: {
-		path: path.resolve(__dirname, '/files/assets/js/'),
+		path: path.resolve(__dirname, '../server/files/assets/js/'),
 		publicPath: `http://${HRM_HOST}:${HRM_PORT}/`,
 		filename: 'bundle.js',
 		pathinfo: true
