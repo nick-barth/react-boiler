@@ -2,6 +2,7 @@
  * DEPENDENCIES
  * ============
  */
+import _ from 'lodash';
 
 /*
  * ACTION TYPES
@@ -19,15 +20,38 @@ const initalState = {
 };
 
 /*
+ * Expose all action creators
+ */
+export const actions = {
+	toggleLike
+};
+
+/*
+ * Like toggle attempt
+ * --
+ * @param {array} movies
+ * @return {Function} an `actionCreator`
+ */
+function toggleLike (movies) {
+	return dispatch => {
+		dispatch({
+			type: USER_LIKE_TOGGLE,
+			payload: {
+				likedList: movies
+			}
+		});
+	};
+}
+
+/*
  * REDUCER
  * =======
  */
 export function reducer (state = initalState, action) {
 	switch (action.type) {
-
 		case USER_LIKE_TOGGLE:
-			return Object.assign({}, state, {
-				likedList: action.payload.likedList
+			return _.merge({}, state, {
+				likedList: actions.payload.movies
 			});
 
 		default:

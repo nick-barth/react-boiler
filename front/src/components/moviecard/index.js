@@ -4,23 +4,37 @@
 
 // Vendors
 import React from 'react';
+import { connect } from 'react-redux';
+import { actions as userActions } from 'store/user.js';
 
 /*
  * MOVIECARD
  * =========
  */
+
+@connect(
+state => ({
+	likedList: state.user.likedList
+}), {
+	toggleLike: userActions.toggleLike
+}
+)
 class MovieCard extends React.Component {
 
 	static propTypes = {
-		movie: React.PropTypes.object
+		movie: React.PropTypes.object,
+		likedList: React.PropTypes.array.isRequired
 	};
 
 	constructor (props) {
 		super(props);
 
+		console.log(props.likedList);
+
 	}
 
 	handleSave () {
+		console.log('wow');
 
 	}
 
