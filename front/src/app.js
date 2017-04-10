@@ -27,16 +27,3 @@ if (module.hot) {
 		);
 	});
 }
-
-//
-// ReactDOM.render(
-// 	<div className="layout">
-// 		<div className="layout__container">
-// 			<div className="layout__title">
-// 				The Movie Thing
-// 			</div>
-// 			<SearchBar />
-// 		</div>
-// 	</div>,
-// 	document.getElementById('app')
-// );

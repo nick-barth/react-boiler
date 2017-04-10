@@ -40,7 +40,7 @@ export default class LayoutIndex extends React.Component {
 				<SearchBar
 					onChange={(val) => this.handleChange(val)}
 				/>
-				{this.state.movie ? (
+				{this.state.movie.Title ? (
 					<MovieCard
 						movie={this.state.movie}
 					/>

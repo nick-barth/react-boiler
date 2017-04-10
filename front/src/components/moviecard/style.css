@@ -1,0 +1,44 @@
+
+.moviecard__result {
+	max-width: 52rem;
+	margin: auto;
+	display:flex;
+	background:rgba(255,255,255, 0.3);
+}
+
+.moviecard__poster {
+	font-size: 0;
+}
+
+.moviecard__poster img {
+	height:12rem;
+}
+
+.moviecard__info {
+	padding:1rem;
+	position: relative;
+}
+
+.moviecard__title {
+	font-size:1.6rem;
+	font-weight:700;
+}
+
+.moviecard__date {
+
+}
+
+.moviecard__desc {
+
+}
+
+.moviecard__rating {
+
+}
+
+.moviecard__heart {
+	position: absolute;
+	bottom:.5rem;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

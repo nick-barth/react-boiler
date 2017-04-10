@@ -6,8 +6,8 @@
 import React from 'react';
 
 /*
- * TEXT
- * ====
+ * MOVIECARD
+ * =========
  */
 class MovieCard extends React.Component {
 
@@ -20,32 +20,43 @@ class MovieCard extends React.Component {
 
 	}
 
+	handleSave () {
+
+	}
+
+
+
 	render () {
 		const { movie } = this.props;
 
 		return (
-			<div>
-				<div className="searchbar__result">
-					<div className="searchbar__poster">
+			<div className="moviecard">
+				<div className="moviecard__result">
+					<div className="moviecard__poster">
 						{movie.Poster ? (
 							<img src={`${movie.Poster}`} />
 						) : null}
 					</div>
-					<div className="searchbar__info">
-						<div className="searchbar__title">
+					<div className="moviecard__info">
+						<div className="moviecard__title">
 							{movie.Title}
 						</div>
-						<div className="searchbar__date">
+						<div className="moviecard__date">
 							{movie.Year}
 						</div>
-						<div className="searchbar__desc">
+						<div className="moviecard__desc">
 							{movie.Plot}
 						</div>
 						{movie.imdbRating ? (
-							<div className="searchbar__rating">
+							<div className="moviecard__rating">
 								{movie.imdbRating}
 							</div>
 						) : null}
+						<div className="moviecard__heart">
+							<a href="#" onClick={this.handleSave}>
+							  Save movie!
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

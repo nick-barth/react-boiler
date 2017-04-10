@@ -26,39 +26,3 @@
 	padding:.5rem;
 	font-size:1.3rem;
 }
-
-.searchbar__result {
-	max-width: 52rem;
-	margin: auto;
-	display:flex;
-	background:rgba(255,255,255, 0.3);
-}
-
-.searchbar__poster {
-	font-size: 0;
-}
-
-.searchbar__poster img {
-	height:12rem;
-}
-
-.searchbar__info {
-	padding:1rem;
-}
-
-.searchbar__title {
-	font-size:1.6rem;
-	font-weight:700;
-}
-
-.searchbar__date {
-
-}
-
-.searchbar__desc {
-
-}
-
-.searchbar__rating {
-
-}
