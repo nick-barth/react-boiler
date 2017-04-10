@@ -7,16 +7,24 @@ import React from 'react';
 import _ from 'lodash';
 
 /*
- * TEXT
- * ====
+ * SEARCHBAR
+ * ========
  */
+
+
 class SearchBar extends React.Component {
+
+	static propTypes = {
+		onChange: React.PropTypes.func
+	};
 
 	constructor (props) {
 		super(props);
 
+
 		this.state = {
-			value: ''
+			value: '',
+			searchResult: {}
 		};
 
 		this.suggest = _.debounce(this.getSearchResults, 500, {
@@ -48,16 +56,12 @@ class SearchBar extends React.Component {
 		const { value } = this.state;
 
 		fetch('http://www.omdbapi.com/?t=' + value)
-		.then(function (response) {
+		.then(response => {
 			return response.json();
 		})
-		.then(function (response) {
-			this.setState({
-				searchResult: response
-			});
+		.then(response => {
+			this.props.onChange(response);
 		});
-
-
 	}
 
 	render () {
