@@ -13,11 +13,11 @@ import { actions as userActions } from 'store/user.js';
  */
 
 @connect(
-state => ({
-	likedList: state.user.likedList
-}), {
-	toggleLike: userActions.toggleLike
-}
+	state => ({
+		likedList: state.user.likedList
+	}), {
+		toggleLike: userActions.toggleLike
+	}
 )
 class MovieCard extends React.Component {
 
@@ -48,9 +48,7 @@ class MovieCard extends React.Component {
 
 
 	render () {
-		const { movie, likedList } = this.props;
-
-		console.log(likedList);
+		const { movie } = this.props;
 
 		return (
 			<div className="moviecard">
