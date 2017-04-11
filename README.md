@@ -7,6 +7,7 @@ server gonna be @ http://localhost:3000/
 
 1. Server
 ```
+$ npm install
 $ cd server
 $ node app
 ```
