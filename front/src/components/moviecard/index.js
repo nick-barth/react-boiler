@@ -33,19 +33,21 @@ class MovieCard extends React.Component {
 
 	handleSave () {
 		const { likedList, movie, toggleLike } = this.props;
-		const index = likedList.indexOf(movie);
+		const index = likedList.map(item => { return item.Title; }).indexOf(movie.Title);
 
 		if (index === -1) {
 			toggleLike([].concat(likedList, [movie]));
 		}
 		else {
-			toggleLike([].concat(likedList.splice(index, 1)));
+			toggleLike([].concat(likedList.filter(list => { return list.Title !== movie.Title; })));
 		}
 
 	}
 
 	render () {
-		const { movie } = this.props;
+		const { movie, likedList } = this.props;
+
+		console.log(likedList);
 
 		return (
 			<div className="moviecard">
@@ -71,9 +73,15 @@ class MovieCard extends React.Component {
 							</div>
 						) : null}
 						<div className="moviecard__heart">
-							<a href="#" onClick={() => this.handleSave()}>
-							  Save movie!
-							</a>
+							{likedList.some(likedMovie => { return likedMovie.Title === movie.Title; }) ? (
+							<button onClick={() => this.handleSave()}>
+								Unlike Movie
+							</button>
+						) : (
+							<button onClick={() => this.handleSave()}>
+								Like Movie
+							</button>
+						)}
 						</div>
 					</div>
 				</div>

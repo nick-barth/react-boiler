@@ -2,7 +2,6 @@
  * DEPENDENCIES
  * ============
  */
-import _ from 'lodash';
 
 /*
  * ACTION TYPES
@@ -50,10 +49,9 @@ function toggleLike (movies) {
 export function reducer (state = initalState, action) {
 	switch (action.type) {
 		case USER_LIKE_TOGGLE:
-			return _.merge({}, state, {
+			return Object.assign({}, state, {
 				likedList: action.payload.likedList
 			});
-
 		default:
 			return state;
 	}
