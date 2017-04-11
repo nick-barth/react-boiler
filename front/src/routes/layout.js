@@ -20,18 +20,34 @@ export default class LayoutIndex extends React.Component {
 		super(props);
 
 		this.state = {
-			movie: {}
+			search: []
 		};
 	}
 
 	handleChange (val) {
 		this.setState({
-			movie: val
+			search: val.Search
 		});
+	}
+
+	renderSearchResults () {
+		const { search } = this.state;
+
+		return search.map(movie => {
+			return (
+				<MovieCard
+					key={movie.title}
+					movie={movie}
+				/>
+			);
+		});
+
 	}
 
 
 	render () {
+		const { search } = this.state;
+
 		return (
 			<div className="layout">
 				<div className="layout__container">
@@ -44,10 +60,8 @@ export default class LayoutIndex extends React.Component {
 				<SearchBar
 					onChange={(val) => this.handleChange(val)}
 				/>
-				{this.state.movie.Title ? (
-					<MovieCard
-						movie={this.state.movie}
-					/>
+				{search ? (
+					this.renderSearchResults()
 				) : null}
 				</div>
 			</div>

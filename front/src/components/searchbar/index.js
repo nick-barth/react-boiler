@@ -55,7 +55,7 @@ class SearchBar extends React.Component {
 	getSearchResults () {
 		const { value } = this.state;
 
-		fetch('http://www.omdbapi.com/?t=' + value)
+		fetch('http://www.omdbapi.com/?s=' + value)
 		.then(response => {
 			return response.json();
 		})

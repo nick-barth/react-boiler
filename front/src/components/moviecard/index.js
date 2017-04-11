@@ -47,8 +47,6 @@ class MovieCard extends React.Component {
 	render () {
 		const { movie, likedList } = this.props;
 
-		console.log(likedList);
-
 		return (
 			<div className="moviecard">
 				<div className="moviecard__result">
