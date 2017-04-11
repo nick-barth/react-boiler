@@ -13,6 +13,7 @@ $ node app
 ```
 2. Webpack
 ```
+$ npm install
 $ cd front 
 $ npm run js
 ```
