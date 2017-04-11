@@ -8,7 +8,7 @@ import _ from 'lodash';
  * ACTION TYPES
  * ============
  */
-const USER_LIKE_TOGGLE        = 'USER_LIKE_TOGGLE';
+const USER_LIKE_TOGGLE = 'USER_LIKE_TOGGLE';
 
 
 /*

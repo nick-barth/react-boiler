@@ -7,6 +7,7 @@
     "name": "nickb"
   },
   "dependencies": {
+    "babel-eslint": "^7.2.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
     "gulp-consolidate": "^0.2.0",
@@ -21,10 +22,11 @@
     "lodash": "^4.17.4",
     "normalize": "^0.3.1",
     "paths-js": "0.4.4",
-    "react": "^15.4.2",
+    "react": "^15.5.3",
     "react-dom": "^15.5.3",
     "react-redux": "^5.0.3",
-    "react-router": "1.0.0-rc4",
+    "react-router": "^4.0.0",
+    "react-router-dom": "^4.0.0",
     "redux": "^3.6.0",
     "redux-thunk": "^2.2.0"
   },

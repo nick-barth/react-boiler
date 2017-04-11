@@ -5,11 +5,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from './store/index.js';
-import { router } from './routes/all.js';
+import Routes from './routes/all.js';
+
 
 ReactDOM.render(
 	<Provider store={store}>
-		{router}
+		{Routes()}
 	</Provider>,
 	document.getElementById('app')
 );
@@ -21,7 +22,7 @@ if (module.hot) {
 	module.hot.accept('./routes/all.js', () => {
 		ReactDOM.render(
 			<Provider store={store} key={Math.random()}>
-				{require('./routes/all.js').router}
+				{Routes()}
 			</Provider>,
 			document.getElementById('app')
 		);
