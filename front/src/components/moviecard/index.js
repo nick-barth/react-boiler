@@ -22,26 +22,35 @@ state => ({
 class MovieCard extends React.Component {
 
 	static propTypes = {
-		movie: React.PropTypes.object,
-		likedList: React.PropTypes.array.isRequired
+		movie: React.PropTypes.object.isRequired,
+		likedList: React.PropTypes.array.isRequired,
+		toggleLike: React.PropTypes.func.isRequired
 	};
 
 	constructor (props) {
 		super(props);
 
-		console.log(props.likedList);
-
 	}
 
 	handleSave () {
-		console.log('wow');
+		const { likedList, movie, toggleLike } = this.props;
+		const index = likedList.indexOf(movie);
+
+		if (index === -1) {
+			toggleLike([].concat(likedList, [movie]));
+		}
+		else {
+			toggleLike([].concat(likedList.splice(index, 1)));
+		}
 
 	}
 
 
 
 	render () {
-		const { movie } = this.props;
+		const { movie, likedList } = this.props;
+
+		console.log(likedList);
 
 		return (
 			<div className="moviecard">
@@ -67,7 +76,7 @@ class MovieCard extends React.Component {
 							</div>
 						) : null}
 						<div className="moviecard__heart">
-							<a href="#" onClick={this.handleSave}>
+							<a href="#" onClick={() => this.handleSave()}>
 							  Save movie!
 							</a>
 						</div>

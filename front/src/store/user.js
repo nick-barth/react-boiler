@@ -51,7 +51,7 @@ export function reducer (state = initalState, action) {
 	switch (action.type) {
 		case USER_LIKE_TOGGLE:
 			return _.merge({}, state, {
-				likedList: actions.payload.movies
+				likedList: action.payload.likedList
 			});
 
 		default:
