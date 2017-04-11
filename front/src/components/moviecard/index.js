@@ -11,7 +11,6 @@ import { actions as userActions } from 'store/user.js';
  * MOVIECARD
  * =========
  */
-
 @connect(
 	state => ({
 		likedList: state.user.likedList
@@ -44,8 +43,6 @@ class MovieCard extends React.Component {
 		}
 
 	}
-
-
 
 	render () {
 		const { movie } = this.props;
