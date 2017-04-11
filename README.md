@@ -3,6 +3,8 @@ To run or modify the app, follow instructions below:
 
 First, you need to Install [node] and [gulp], then from root:
 
+server gonna be @ http://localhost:3000/
+
 1. Server
 ```
 $ cd server
@@ -21,3 +23,4 @@ $ gulp
 
 [NodeJS]:https://nodejs.org/download/
 [Gulp]:https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
+
