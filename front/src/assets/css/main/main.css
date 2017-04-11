@@ -7,6 +7,11 @@ html {
 	background: linear-gradient(to bottom, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
+a {
+  color: #F8F8FF;
+  text-decoration: none; /* no underline */
+}
+
 .layout {
 
 }
@@ -22,4 +27,11 @@ html {
 	margin:auto;
 	padding-bottom:5rem;
 	padding-top:2rem;
+}
+
+.layout__liked {
+	text-align: center;
+	font-size: 1.5rem;
+	color: white;
+	text-decoration: none;
 }

@@ -4,18 +4,43 @@
 
 // Vendors
 import React from 'react';
+import { connect } from 'react-redux';
 
-import SearchBar from 'components/searchbar';
+import MovieCard from 'components/moviecard';
 
 
 /*
  * LAYOUT - INDEX
  * ============
  */
+@connect(
+	state => ({
+		likedList: state.user.likedList
+	})
+)
 export default class ProfileLayout extends React.Component {
+
+	static propTypes = {
+		likedList: React.PropTypes.array.isRequired
+	};
+
 
 	constructor (props) {
 		super(props);
+
+	}
+
+	renderLikedMovies () {
+		const { likedList } = this.props;
+
+		return likedList.map(movie => {
+			return (
+				<MovieCard
+					key={movie.title}
+					movie={movie}
+				/>
+			);
+		});
 
 	}
 
@@ -24,11 +49,9 @@ export default class ProfileLayout extends React.Component {
 			<div className="layout">
 				<div className="layout__container">
 					<div className="layout__title">
-						The Movie Thing 2
+						Movies I like
 					</div>
-				<SearchBar
-					onChange={(val) => this.handleChange(val)}
-				/>
+					{this.renderLikedMovies()}
 				</div>
 			</div>
 		);

@@ -4,6 +4,7 @@
 
 // Vendors
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import SearchBar from 'components/searchbar';
 import MovieCard from 'components/moviecard';
@@ -36,6 +37,9 @@ export default class LayoutIndex extends React.Component {
 				<div className="layout__container">
 					<div className="layout__title">
 						The Movie Thing
+					</div>
+					<div className="layout__liked">
+						<Link to="/profile">My Liked Movies</Link>
 					</div>
 				<SearchBar
 					onChange={(val) => this.handleChange(val)}
