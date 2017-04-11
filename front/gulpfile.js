@@ -10,7 +10,6 @@ const rename = require('gulp-rename');
 const modifyCssUrls = require('gulp-modify-css-urls');
 const iconfont = require('gulp-iconfont');
 const consolidate = require('gulp-consolidate');
-const pkg = require('./package.json');
 
 /*
  * CONFIG
@@ -45,7 +44,7 @@ gulp.task('css', function () {
 		}))
 		.pipe(modifyCssUrls({
 			modify: function (url) {
-				return url.replace('assets/img', 'assets/' + pkg.version + '/img');
+				return url.replace('assets/img', 'assets/img');
 			}
 		}))
 		.pipe(gulp.dest(ASSETS_CSS_PATH))

@@ -48,38 +48,39 @@ class MovieCard extends React.Component {
 		const { movie, likedList } = this.props;
 
 		return (
-			<div className="moviecard">
-				<div className="moviecard__result">
-					<div className="moviecard__poster">
+			<div className="moviecard__item">
+				<div className="moviecard">
+					<div className="moviecard__result">
 						{movie.Poster ? (
-							<img src={`${movie.Poster}`} />
-						) : null}
-					</div>
-					<div className="moviecard__info">
-						<div className="moviecard__title">
-							{movie.Title}
-						</div>
-						<div className="moviecard__date">
-							{movie.Year}
-						</div>
-						<div className="moviecard__desc">
-							{movie.Plot}
-						</div>
-						{movie.imdbRating ? (
-							<div className="moviecard__rating">
-								{movie.imdbRating}
+							<div className="moviecard__image" style={{ backgroundImage: `url(${movie.Poster})` }}>
 							</div>
 						) : null}
-						<div className="moviecard__heart">
-							{likedList.some(likedMovie => { return likedMovie.Title === movie.Title; }) ? (
-							<button onClick={() => this.handleSave()}>
-								Unlike Movie
-							</button>
-						) : (
-							<button onClick={() => this.handleSave()}>
-								Like Movie
-							</button>
-						)}
+						<div className="moviecard__content">
+							<div className="moviecard__title">
+								{movie.Title}
+							</div>
+							<div className="moviecard__date">
+								{movie.Year}
+							</div>
+							<div className="moviecard__desc">
+								{movie.Plot}
+							</div>
+							{movie.imdbRating ? (
+								<div className="moviecard__rating">
+									{movie.imdbRating}
+								</div>
+							) : null}
+							<div className="moviecard__heart">
+								{likedList.some(likedMovie => { return likedMovie.Title === movie.Title; }) ? (
+								<button onClick={() => this.handleSave()}>
+									Unlike Movie
+								</button>
+							) : (
+								<button onClick={() => this.handleSave()}>
+									Like Movie
+								</button>
+							)}
+							</div>
 						</div>
 					</div>
 				</div>

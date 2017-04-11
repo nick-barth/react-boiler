@@ -5,6 +5,7 @@
 // Vendors
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import MovieCard from 'components/moviecard';
 
@@ -51,7 +52,12 @@ export default class ProfileLayout extends React.Component {
 					<div className="layout__title">
 						Movies I like
 					</div>
-					{this.renderLikedMovies()}
+					<div className="layout__liked">
+						<Link to="/">Back to Search</Link>
+					</div>
+					<div className="layout__grid">
+						{this.renderLikedMovies()}
+					</div>
 				</div>
 			</div>
 		);

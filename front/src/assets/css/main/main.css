@@ -1,14 +1,12 @@
 html {
 	font-family: 'Open Sans Condensed', sans-serif;
 	height:calc(100%);
-	color:#F8F8FF;
-	background: #8E0E00;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to bottom, #1F1C18, #8E0E00);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to bottom, #1F1C18, #8E0E00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	color: #FFFAFA;
+	background: url('/assets/imgs/pink_dust.png');
 }
 
 a {
-  color: #F8F8FF;
+  color: #FFFAFA;
   text-decoration: none; /* no underline */
 }
 
@@ -34,4 +32,12 @@ a {
 	font-size: 1.5rem;
 	color: white;
 	text-decoration: none;
+}
+
+.layout__grid {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
