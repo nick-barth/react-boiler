@@ -1,6 +1,7 @@
 // src/server.js
 const path = require('path');
 const Express = require('express');
+const config = require('./config');
 
 const app = new Express();
 
@@ -13,9 +14,11 @@ app.get('/', (req, res) => {
     return res.render('index.ejs');
 });
 
+console.log(config);
+
 // start the server
-const port = process.env.PORT || 3000;
-const env = process.env.NODE_ENV || 'production';
+const port = config.port;
+const env = config.name;
 
 app.listen(port, err => {
     if (err) {

@@ -1,7 +1,7 @@
 {
-  "name": "Movie-Thing",
-  "title": "Movie Thing",
-  "description": "Indeed, its a movie thing",
+  "name": "Stats Boiler",
+  "title": "Stats Boiler",
+  "description": "Boilerplate for stats websites",
   "version": "0.4.0",
   "author": {
     "name": "nickb"
