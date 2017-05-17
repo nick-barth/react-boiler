@@ -51,20 +51,6 @@ export default class LayoutIndex extends React.Component {
 		return (
 			<div className="layout">
 				<div className="layout__container">
-					<div className="layout__title">
-						The Movie Thing
-					</div>
-					<div className="layout__liked">
-						<Link to="/profile">My Liked Movies</Link>
-					</div>
-					<SearchBar
-						onChange={(val) => this.handleChange(val)}
-					/>
-					<div className="layout__grid">
-						{search ? (
-							this.renderSearchResults()
-						) : null}
-					</div>
 				</div>
 			</div>
 		);
