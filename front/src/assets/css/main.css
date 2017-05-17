@@ -1,12 +1,10 @@
 html {
 	font-family: 'Open Sans Condensed', sans-serif;
 	height:calc(100%);
-	color: #FFFAFA;
-	background: url('/assets/imgs/pink_dust.png');
+	background-color:var(--color-gray-lightest);
 }
 
 a {
-  color: #FFFAFA;
   text-decoration: none; /* no underline */
 }
 

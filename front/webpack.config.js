@@ -58,6 +58,7 @@ const config = {
 		port: HRM_PORT,
 		contentBase: '/',
 		hot: true,
+		disableHostCheck: true,
 		headers: {
 			'Access-Control-Allow-Origin': '*'
 		}
