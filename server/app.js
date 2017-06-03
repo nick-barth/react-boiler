@@ -2,6 +2,7 @@
 const path = require('path');
 const Express = require('express');
 const config = require('./config');
+const api = require('./api');
 
 const app = new Express();
 
@@ -14,7 +15,9 @@ app.get('/', (req, res) => {
     return res.render('index.ejs');
 });
 
-console.log(config);
+// API
+//app.get('/api/champs', api.getAllChamps);
+app.get('/api/champ/:id', api.getChamp);
 
 // start the server
 const port = config.port;
