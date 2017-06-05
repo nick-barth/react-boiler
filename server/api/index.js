@@ -11,6 +11,7 @@ const champ = require('./schemas/champ.js').Champ;
 //connect to database
 const db = mongoose.connect(config.api);
 
+// GET champion
 exports.getChamp = function (req, res) {
     champ.find({id: req.params.id}).exec(function (err, champ) {
     if (err) return handleError(err);
