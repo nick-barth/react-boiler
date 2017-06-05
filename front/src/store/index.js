@@ -8,7 +8,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 // Reducers
-import { reducer as user } from './user.js';
+import { reducer as champion } from './champion.js';
 
 /*
  * Create store
@@ -16,7 +16,7 @@ import { reducer as user } from './user.js';
  * Combines reducers to create global store
  */
 const reducers = combineReducers({
-	user: user
+	champion: champion
 });
 
 const store = applyMiddleware(thunk)(createStore)(

@@ -6,13 +6,14 @@
 import React from 'react';
 
 /*
- * LAYOUT - INDEX
- * ============
+ * LAYOUT - CHAMPION
+ * =================
  */
 export default class ChampionLayout extends React.Component {
 
 	constructor (props) {
 		super(props);
+
 	}
 
 	render () {
