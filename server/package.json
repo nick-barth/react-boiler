@@ -10,11 +10,13 @@
   "license": "ISC",
   "dependencies": {
     "async": "^1.5.0",
+    "bluebird": "^3.5.0",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "inert": "^3.2.0",
     "locale": "0.0.20",
     "mongodb": "^2.2.28",
+    "mongoose": "^4.10.4",
     "path": "^0.12.7",
     "qs": "^6.0.1",
     "react-addons-shallow-compare": "^15.1.0",

@@ -1,18 +1,20 @@
-const config = require('../config');
-const mongoClient = require('mongodb').MongoClient;
-const assert = require('assert');
+//Mongoose
+const mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 
-let db;
+//Config
+const config = require('../config');
+
+//Schemas
+const champ = require('./schemas/champ.js').Champ;
+
 //connect to database
-mongoClient.connect(config.api, function(err, database) {
-  assert.equal(null, err);
-  console.log("Connected correctly to server.");
-  db = database;
-});
+const db = mongoose.connect(config.api);
 
 exports.getChamp = function (req, res) {
-    const results = db.collection('champs').find();
-    results.toArray(function(err, docs){
-        res.send(JSON.stringify(docs));
+    champ.find({id: req.params.id}).exec(function (err, champ) {
+    if (err) return handleError(err);
+    // returns all stories that have Bob's id as their author.
+    res.send(JSON.stringify(champ));
     });
 }
