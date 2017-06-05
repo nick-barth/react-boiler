@@ -1,23 +1,18 @@
-
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import LandingLayout from './layout.js';
-
-
-/*
- * Routes tree
- * ===========
- */
+import ChampionLayout from './champion/layout.js';
 
 function Routes () {
-	return (
-		<Router>
-	       <div>
-	         <Route exact path="/" component={LandingLayout}/>
-	       </div>
-	     </Router>
-	);
+    return (
+        <Router>
+            <div>
+                <Route exact path="/" component={LandingLayout}/>
+                <Route path="/champion" component={ChampionLayout}/>
+            </div>
+        </Router>
+    );
 }
 
 export default Routes;
