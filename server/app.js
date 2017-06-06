@@ -9,7 +9,7 @@ const app = new Express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
-app.use(Express.static(path.join(__dirname, 'files')));
+app.use(Express.static(path.join(__dirname, 'assets')));
 
 // App
 app.get('*', (req, res, next) => {
@@ -32,7 +32,7 @@ app.get('*', (req, res, next) => {
     preloadScripts = [
       // Push entry script first, we need to start loading as soon as possible
       // because we need it immediately
-      entry,
+      entry
     ];
 
     // Append chunk of important routes to the preload list
@@ -40,13 +40,16 @@ app.get('*', (req, res, next) => {
     // or routes deep in site's hierarchy, so not always worth it
     if (req.path === '/') {
       preloadScripts.push(manifest.routes.home);
-    } else {
+    } 
+    else {
       const route = req.path.substr(1);
+      
       if (manifest.routes[route]) {
         preloadScripts.push(manifest.routes[route]);
       }
     }
-  } else {
+  } 
+  else {
     entry = 'main.js';
     preloadScripts = ['vendor.js', entry];
   }
@@ -62,7 +65,7 @@ app.get('*', (req, res, next) => {
 
   res.render('index', {
     webpackManifest,
-    entry,
+    entry
   });
 });
 

@@ -1,15 +1,11 @@
-/*
- * Dependencies
- */
-
 // Vendors
 import React from 'react';
 
 /*
- * LAYOUT - CHAMPION
- * =================
+ * INDEX - CHAMPION
+ * ================
  */
-export default class ChampionLayout extends React.Component {
+export default class ChampionIndex extends React.Component {
 
 	constructor (props) {
 		super(props);
@@ -20,7 +16,7 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div className="layout">
 				<div className="layout__container">
-				fuck
+                Fuck dick
 				</div>
 			</div>
 		);

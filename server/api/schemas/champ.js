@@ -1,9 +1,9 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const champSchema = new mongoose.Schema({
-    name:    String,
-    id:  Number,
-    living:  Boolean,
+    name: String,
+    id: Number,
+    living: Boolean,
     tagline: String,
     img: String,
     stats: {
@@ -21,13 +21,14 @@ const champSchema = new mongoose.Schema({
             start: Number,
             max: Number,
             stars: Number
-        },
+        }
     },
     ability: {
         name: String,
         desc: String
     },
     tips: [{
+        id: Number,
         tip: String,
         up: Number,
         down: Number
@@ -42,5 +43,5 @@ const champSchema = new mongoose.Schema({
 const Champ = mongoose.model('Champ', champSchema);
 
 module.exports = {
-  Champ: Champ
-}
+    Champ: Champ
+};

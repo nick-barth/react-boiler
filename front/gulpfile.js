@@ -7,7 +7,9 @@ const concat = require('gulp-concat');
 const minifyCSS = require('gulp-minify-css');
 const myth = require('gulp-myth');
 const rename = require('gulp-rename');
+const flatten = require('gulp-flatten');
 const modifyCssUrls = require('gulp-modify-css-urls');
+const imagemin = require('gulp-imagemin');
 const iconfont = require('gulp-iconfont');
 const consolidate = require('gulp-consolidate');
 
@@ -16,9 +18,11 @@ const consolidate = require('gulp-consolidate');
  * ======
  */
 const FILES_CSS         = ['./src/assets/css/**/*.css', './src/components/**/*.css'];
+const FILES_IMAGES      = ['./src/components/**/img/*.{svg,jpg,png,gif,jpg}'];
 const FILES_ICONS       = ['./src/components/**/icons/*.svg'];
-const ASSETS_PATH       = '../server/files/assets/';
+const ASSETS_PATH       = '../server/assets/';
 const ASSETS_CSS_PATH   = ASSETS_PATH + 'css/';
+const ASSETS_IMG_PATH= ASSETS_PATH + 'images/';
 const BROWSERS          = ['> 0.25%', 'last 3 versions', 'Firefox ESR', 'Opera 11'];
 
 const ASSETS_ICONS_PATH = ASSETS_PATH + 'icons/';
@@ -66,6 +70,19 @@ gulp.task('css.min', function () {
 		.pipe(minifyCSS())
 	    .pipe(gulp.dest(ASSETS_CSS_PATH))
     ;
+});
+
+/*
+ * Images
+ * --
+ * Move and Compress images
+ */
+gulp.task('images', function () {
+	gulp.src(FILES_IMAGES)
+		.pipe(imagemin())
+		.pipe(flatten({ includeParents: 1 }))
+		.pipe(gulp.dest(ASSETS_IMG_PATH))
+	;
 });
 
 /*
@@ -121,7 +138,7 @@ gulp.task('watch', function () {
 /*
  * Default task
  */
-gulp.task('default', ['watch', 'css', 'css.min']);
+gulp.task('default', ['watch', 'css', 'css.min', 'images']);
 
 /*
  * Build task for production
