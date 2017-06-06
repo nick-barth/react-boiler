@@ -9,8 +9,10 @@ function Routes () {
     return (
         <Router>
             <App>
-                <Route exact path="/" component={LandingIndex}/>
-                <Route path="/champion" component={ChampionIndex}/>
+                <div>
+                    <Route exact path="/" component={LandingIndex}/>
+                    <Route path="/champion" component={ChampionIndex}/>
+                </div>
             </App>
         </Router>
     );
