@@ -1,16 +1,17 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import LandingLayout from './layout.js';
-import ChampionLayout from './champion/layout.js';
+import App from './app.js';
+import LandingIndex from './index.js';
+import ChampionIndex from './champion/index.js';
 
 function Routes () {
     return (
         <Router>
-            <div>
-                <Route exact path="/" component={LandingLayout}/>
-                <Route path="/champion" component={ChampionLayout}/>
-            </div>
+            <App>
+                <Route exact path="/" component={LandingIndex}/>
+                <Route path="/champion" component={ChampionIndex}/>
+            </App>
         </Router>
     );
 }

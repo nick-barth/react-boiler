@@ -6,21 +6,26 @@
 import React from 'react';
 
 /*
- * LAYOUT - CHAMPION
- * =================
+ * LAYOUT - INDEX
+ * ==============
  */
-export default class ChampionLayout extends React.Component {
+export default class App extends React.Component {
 
 	constructor (props) {
 		super(props);
 
+		
+
+		this.state = {
+			search: []
+		};
 	}
 
 	render () {
 		return (
 			<div className="layout">
 				<div className="layout__container">
-				fuck
+				landing layout
 				</div>
 			</div>
 		);
