@@ -6,6 +6,15 @@
 :root {
 
 	/*
+	 * Theme
+	 */
+
+	 --background: #272527;
+	 --main-color: #d22730;
+	 --secondary-color: #e6dbdc;
+
+
+	/*
 	 * Colors
 	 */
 	--color-white:#ffffff;

@@ -23,10 +23,8 @@ export default class App extends React.Component {
 
 	render () {
 		return (
-			<div className="layout">
-				<div className="layout__container">
-				landing layout
-				</div>
+			<div>
+				Fuck
 			</div>
 		);
 	}

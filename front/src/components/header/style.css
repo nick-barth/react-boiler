@@ -1,0 +1,16 @@
+.header {
+    border-bottom:1px solid var(--main-color);
+    display: table;
+    text-align:center;
+    width:100%;
+}
+
+.header__logo-text {
+    font-size:5rem;
+    vertical-align: middle;
+    display:table-cell;
+}
+
+.header__logo-emphasis {
+    color: var(--main-color);
+}
