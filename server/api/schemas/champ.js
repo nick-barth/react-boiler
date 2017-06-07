@@ -3,7 +3,6 @@ const mongoose = require('mongoose');
 const champSchema = new mongoose.Schema({
     name: String,
     id: Number,
-    living: Boolean,
     tagline: String,
     img: String,
     stats: {

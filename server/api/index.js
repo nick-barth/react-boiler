@@ -14,7 +14,15 @@ mongoose.connect(config.api);
 
 // GET champion
 exports.getChamp = function (req, res) {
-    champ.find({ id: req.parms.id }).exec(function (err, champ) {
+    const id = req.params.id;
+
+    champ.find({ id: id }).exec(function (err, champ) {
         res.send(JSON.stringify(champ));
+    });
+};
+
+exports.getAllChamps = function (req, res) {
+    champ.find({}, 'name id img', function (err, champs) {
+        res.send(JSON.stringify(champs));
     });
 };

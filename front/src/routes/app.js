@@ -7,6 +7,7 @@ import React from 'react';
 
 // Components
 import Header from '../components/header/index.js';
+
 /*
  * LAYOUT - INDEX
  * ==============
@@ -23,11 +24,6 @@ export default class LandingLayout extends React.Component {
 	constructor (props) {
 		super(props);
 
-		
-
-		this.state = {
-			search: []
-		};
 	}
 
 	render () {

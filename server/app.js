@@ -70,7 +70,7 @@ app.get('*', (req, res, next) => {
 });
 
 // API
-//app.get('/api/champs', api.getAllChamps);
+app.get('/api/champs', api.getAllChamps);
 app.get('/api/champ/:id', api.getChamp);
 
 // start the server

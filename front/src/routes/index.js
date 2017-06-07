@@ -5,6 +5,8 @@
 // Vendors
 import React from 'react';
 
+import API from 'api';
+
 /*
  * LAYOUT - INDEX
  * ==============
@@ -14,17 +16,16 @@ export default class App extends React.Component {
 	constructor (props) {
 		super(props);
 
-		
+	}
 
-		this.state = {
-			search: []
-		};
+	componentWillMount () {
+		API.champ.getChampions();
 	}
 
 	render () {
 		return (
 			<div>
-				Fuck
+				fuck
 			</div>
 		);
 	}
