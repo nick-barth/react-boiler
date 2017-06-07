@@ -17,12 +17,13 @@ exports.getChamp = function (req, res) {
     const id = req.params.id;
 
     champ.find({ id: id }).exec(function (err, champ) {
-        res.send(JSON.stringify(champ));
+        res.send(champ);
     });
 };
 
 exports.getAllChamps = function (req, res) {
     champ.find({}, 'name id img', function (err, champs) {
-        res.send(JSON.stringify(champs));
+        //todo send in body
+        res.json(champs);
     });
 };

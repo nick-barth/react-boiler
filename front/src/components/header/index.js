@@ -6,8 +6,8 @@
 import React from 'react';
 
 /*
- * SEARCHBAR
- * ========
+ * HEADER
+ * ======
  */
 
 
