@@ -14,16 +14,16 @@ mongoose.connect(config.api);
 
 // GET champion
 exports.getChamp = function (req, res) {
-    const id = req.params.id;
+	const id = req.params.id;
 
-    champ.find({ id: id }).exec(function (err, champ) {
-        res.send(champ);
-    });
+	champ.find({ id: id }).exec(function (err, champ) {
+		res.send(champ);
+	});
 };
 
 exports.getAllChamps = function (req, res) {
-    champ.find({}, 'name id img', function (err, champs) {
-        //todo send in body
-        res.json(champs);
-    });
+	champ.find({}, 'name id img', function (err, champs) {
+		//todo send in body
+		res.json(champs);
+	});
 };
