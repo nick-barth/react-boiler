@@ -9,7 +9,8 @@ body {
 }
 
 a {
-  text-decoration: none; /* no underline */
+	color: inherit;
+	text-decoration: none;
 }
 
 @font-face {
