@@ -1,3 +1,7 @@
+# Abstract
+
+Create a re-usable react/node/mongo boilerplate for a matchup tips/vote website, to re-use for multiple games.  Second is stats, waiting on quakes API before I start to flesh that out.
+
 # Installation
 To run or modify the app, follow instructions below:
 
