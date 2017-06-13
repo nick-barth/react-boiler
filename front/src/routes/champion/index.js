@@ -32,7 +32,6 @@ export default class ChampionLayout extends React.Component {
 		})
 		.catch(res => {
 			console.log(res);
-			console.log('error');
 		});
 	}
 
