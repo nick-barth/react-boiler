@@ -71,7 +71,7 @@ app.get('*', (req, res, next) => {
 
 // API
 app.get('/api/champs', api.getAllChamps);
-app.get('/api/champ/:id', api.getChamp);
+app.get('/api/champ/', api.getChamp);
 
 // start the server
 const port = config.port;

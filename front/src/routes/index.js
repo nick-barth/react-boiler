@@ -30,8 +30,6 @@ export default class App extends React.Component {
 		API.champ.getChampions()
 		.promise
 		.then(res => {
-			console.log('success');
-			console.log(res);
 			this.setState({
 				champions: res.data
 			});
@@ -44,8 +42,6 @@ export default class App extends React.Component {
 
 	render () {
 		const { champions } = this.state;
-
-		console.log(champions);
 
 		return (
 			<div style={{ 'width': '80%', 'margin': 'auto' }}>

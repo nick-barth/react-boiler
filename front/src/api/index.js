@@ -51,7 +51,6 @@ function API () {
 		const promise = new Promise((resolve, reject) => {
 			req.end((err, res) => {
 				// Success
-				console.log(res);
 				if (res && res.ok) {
 					resolve({
 						status: res.status,

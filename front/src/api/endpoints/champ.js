@@ -11,6 +11,7 @@ export default function getAdminAPI (exec) {
 	 * On top for clarity, mind the hoisting
 	 */
 	return {
+		getChampion,
 		getChampions
 	};
 
@@ -19,13 +20,28 @@ export default function getAdminAPI (exec) {
 	/*
 	 * Get all champions
 	 * --
-	 * @param {String} providerId - a provider id
 	 * @return {Promise} from .exec
 	 */
 	function getChampions () {
 		return exec({
 			method: 'get',
 			url: '/champs'
+		});
+	}
+
+	/*
+	 * Get single champion
+	 * --
+	 * @param {String} champ - champion name
+	 * @return {Promise} from .exec
+	 */
+	function getChampion (champ) {
+		return exec({
+			method: 'get',
+			url: '/champ',
+			query: {
+				'name': champ
+			}
 		});
 	}
 
