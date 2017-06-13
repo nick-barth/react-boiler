@@ -25,10 +25,9 @@ $ cd front
 $ gulp
 ```
 
-3. Gulp
+4. Mongo
 ```
-$ cd front
-$ gulp
+$ mongodb
 ```
 
 server gonna be @ http://localhost:3000/
