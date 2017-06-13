@@ -10,7 +10,7 @@ First, you need to Install [node] and [gulp], then from root:
 server gonna be @ http://localhost:3000/
 
 1. Server
-``
+```
 $ cd server
 $ npm install
 $ node app
