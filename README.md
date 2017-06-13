@@ -34,7 +34,7 @@ $ gulp
 server gonna be @ http://localhost:3000/
 
 
-[NodeJS]:https://nodejs.org/download/
+[Node]:https://nodejs.org/download/
 [Gulp]:https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
-[mongo]:https://docs.mongodb.com/manual/installation/
+[Mongodb]:https://docs.mongodb.com/manual/installation/
 
