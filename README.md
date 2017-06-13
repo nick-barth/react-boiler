@@ -5,9 +5,7 @@ Create a re-usable react/node/mongo boilerplate for a matchup tips/vote website,
 # Installation
 To run or modify the app, follow instructions below:
 
-First, you need to Install [node] and [gulp], then from root:
-
-server gonna be @ http://localhost:3000/
+Install [node], [mongodb], and [gulp], then from root:
 
 1. Server
 ```
@@ -27,6 +25,16 @@ $ cd front
 $ gulp
 ```
 
+3. Gulp
+```
+$ cd front
+$ gulp
+```
+
+server gonna be @ http://localhost:3000/
+
+
 [NodeJS]:https://nodejs.org/download/
 [Gulp]:https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
+[mongo]:https://docs.mongodb.com/manual/installation/
 
