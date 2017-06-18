@@ -36,12 +36,9 @@ class Matchup extends React.Component {
 				<div className="list__list">
 					{list.map(item => {
 						return (
-							<div className="list__item" key={item.name}>
-								<div className="list__item-image">
-									<img className="list__item-src" src={`/images/card/${item.name.toLowerCase()}.jpg`}/>
-								</div>
+							<div className="list__item" key={item.author}>
 								<div className="list__item-name">
-									{item.name}
+									{item.tip}
 								</div>
 								<div className="list__item-up">
 									{item.up}

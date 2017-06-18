@@ -86,9 +86,10 @@ app.post('/signup', passport.authenticate('local-signup', {
 
 
 // API
-app.get('/api/matchup', api.getMatchups);
-app.get('/api/champs', api.getAllChamps);
-app.get('/api/champ', api.getChamp);
+app.get('/api/matchup', api.getMatchup);
+app.get('/api/matchups', api.getMatchups);
+app.get('/api/champs', api.getChampions);
+app.get('/api/champ', api.getChampion);
 
 // start the server
 const port = config.port;

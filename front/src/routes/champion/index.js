@@ -7,7 +7,8 @@ import React from 'react';
 import API from 'api';
 
 // Components
-import List from 'components/list/index.js';
+import Matchup from 'components/matchup/index.js';
+import Tips from 'components/tips/index.js';
 
 /*
  * LAYOUT - CHAMPION
@@ -66,9 +67,17 @@ export default class ChampionLayout extends React.Component {
 			<div>
 				{matchups && champ ? (
 					<div>
-						<List
-							title={`Matchups vs ${champ.name}`}
+						<Matchup
+							title={`Worst matchups vs ${champ.name}`}
 							list={matchups}
+						/>
+						<Matchup
+							title={`Best matchups vs ${champ.name}`}
+							list={matchups}
+						/>
+						<Tips
+							title={`Tips for fighting against ${champ.name}`}
+							list={champ.tips}
 						/>
 					</div>
 				) :null}

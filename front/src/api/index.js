@@ -7,6 +7,7 @@ import superagent from 'superagent';
  * Endpoints
  */
 import getChampApi from './endpoints/champ.js';
+import getMatchupApi from './endpoints/matchup.js';
 
 /*
  * CLIENT
@@ -90,7 +91,8 @@ function API () {
 	 * Expose API
 	 */
 	return {
-		champ: getChampApi(exec)
+		champ: getChampApi(exec),
+		matchup: getMatchupApi(exec)
 	};
 
 }

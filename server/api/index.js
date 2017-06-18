@@ -14,7 +14,7 @@ const matchup = require('./schemas/matchup.js').Matchup;
 mongoose.connect(config.api);
 
 // GET champion
-exports.getChamp = function (req, res) {
+exports.getChampion = function (req, res) {
 	const name = req.query.name;
 
 	champ.findOne({ name: new RegExp(name, 'i') }, function (err, champ) {
@@ -23,7 +23,7 @@ exports.getChamp = function (req, res) {
 };
 
 // GET champions
-exports.getAllChamps = function (req, res) {
+exports.getChampions = function (req, res) {
 	champ.find({}, 'name id', function (err, champs) {
 		res.json(champs);
 	});
@@ -34,6 +34,16 @@ exports.getMatchups = function (req, res) {
 	const name = req.query.name;
 
 	matchup.find({ 'champions.name': new RegExp(name, 'i') }, function (err, matchups) {
+		res.json(matchups);
+	});
+};
+
+// GET matchups
+exports.getMatchup = function (req, res) {
+	const champ1 = req.query.champ1;
+	const champ2 = req.query.champ2;
+
+	matchup.find({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
 		res.json(matchups);
 	});
 };
