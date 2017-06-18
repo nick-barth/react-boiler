@@ -31,11 +31,6 @@ const champSchema = new mongoose.Schema({
 		tip: String,
 		up: Number,
 		down: Number
-	}],
-	counter: [{
-		id: Number,
-		up: Number,
-		down: Number
 	}]
 });
 
