@@ -6,6 +6,9 @@
 import React from 'react';
 import API from 'api';
 
+// Components
+import List from 'components/list/index.js';
+
 /*
  * LAYOUT - CHAMPION
  * =================
@@ -19,6 +22,11 @@ export default class ChampionLayout extends React.Component {
 	constructor (props) {
 		super(props);
 
+		this.state = {
+			matchups: [],
+			champ: null
+		};
+
 	}
 
 
@@ -28,7 +36,9 @@ export default class ChampionLayout extends React.Component {
 		API.champ.getChampion(champ)
 		.promise
 		.then(res => {
-			this.champ = res.data;
+			this.setState({
+				champ: res.data
+			});
 		})
 		.catch(res => {
 			console.log(res);
@@ -37,7 +47,11 @@ export default class ChampionLayout extends React.Component {
 		API.champ.getMatchups(champ)
 		.promise
 		.then(res => {
-			this.matchups = res.data;
+			this.setState({
+				matchups: [].concat.apply([],res.data.map(m => {
+					return m.champions.filter(c => c.name.toLowerCase() !== champ);
+				}))
+			});
 		})
 		.catch(res => {
 			console.log(res);
@@ -46,11 +60,18 @@ export default class ChampionLayout extends React.Component {
 
 
 	render () {
+		const { matchups, champ } = this.state;
+
 		return (
-			<div className="layout">
-				<div className="layout__container">
-				champion index
-				</div>
+			<div>
+				{matchups && champ ? (
+					<div>
+						<List
+							title={`Matchups vs ${champ.name}`}
+							list={matchups}
+						/>
+					</div>
+				) :null}
 			</div>
 		);
 	}

@@ -31,7 +31,7 @@ export default class LandingLayout extends React.Component {
 		return (
 			<div className="layout">
 				<Header />
-				{this.props.children}
+					{this.props.children}
 				<Footer />
 			</div>
 		);
