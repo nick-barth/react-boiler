@@ -8,6 +8,7 @@ const config = require('../config');
 
 //Schemas
 const champ = require('./schemas/champ.js').Champ;
+const matchup = require('./schemas/matchup.js').Matchup;
 
 //connect to database
 mongoose.connect(config.api);
@@ -25,5 +26,15 @@ exports.getChamp = function (req, res) {
 exports.getAllChamps = function (req, res) {
 	champ.find({}, 'name id', function (err, champs) {
 		res.json(champs);
+	});
+};
+
+// GET matchups
+exports.getMatchups = function (req, res) {
+	const name = req.query.name;
+
+	matchup.find({ 'champions.name': new RegExp(name, 'i') }, function (err, matchups) {
+		console.log(matchups);
+		res.json(matchups);
 	});
 };

@@ -1,16 +1,18 @@
 const mongoose = require('mongoose');
 
+mongoose.set('debug', true);
+
 const matchupSchema = new mongoose.Schema({
 	champions: [{
-		name: String
-	}],
-	up: Number,
-	down: Number,
-	tips: [{
-		id: Number,
-		tip: String,
+		name: String,
 		up: Number,
 		down: Number
+	}],
+	tips: [{
+		tip: String,
+		up: Number,
+		down: Number,
+		author: String
 	}]
 });
 

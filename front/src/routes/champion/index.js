@@ -33,6 +33,15 @@ export default class ChampionLayout extends React.Component {
 		.catch(res => {
 			console.log(res);
 		});
+
+		API.champ.getMatchups(champ)
+		.promise
+		.then(res => {
+			this.matchups = res.data;
+		})
+		.catch(res => {
+			console.log(res);
+		});
 	}
 
 

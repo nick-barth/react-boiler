@@ -12,7 +12,8 @@ export default function getAdminAPI (exec) {
 	 */
 	return {
 		getChampion,
-		getChampions
+		getChampions,
+		getMatchups
 	};
 
 
@@ -39,6 +40,22 @@ export default function getAdminAPI (exec) {
 		return exec({
 			method: 'get',
 			url: '/champ',
+			query: {
+				'name': champ
+			}
+		});
+	}
+
+	/*
+	 * gets all matchups for a champion
+	 * --
+	 * @param {String} champ - champion name
+	 * @return {Promise} from .exec
+	 */
+	function getMatchups (champ) {
+		return exec({
+			method: 'get',
+			url: '/matchup',
 			query: {
 				'name': champ
 			}
