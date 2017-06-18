@@ -48,7 +48,7 @@
     "sass-loader": "^6.0.3",
     "style-loader": "^0.13.1",
     "webpack": "^2.0.0",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "2.4.5"
   },
   "scripts": {
     "js": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",

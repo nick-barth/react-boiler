@@ -42,6 +42,9 @@ class Login extends React.Component {
 	render () {
 		return (
 			<div className="login">
+				<div className="login__disclaimer">
+					We actually would perfer if you didn't have to make an account, but we have to fight spammers, so this is our most painless option.
+				</div>
 				<div className="login__login">
 					<form onSubmit={this.handleLogin}>
 						<input type="text" value={this.state.login_name} onChange={this.handleChange} />
