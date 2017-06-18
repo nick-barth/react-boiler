@@ -6,6 +6,8 @@
 import React from 'react';
 import API from 'api';
 
+import Login from 'components/login/index.js';
+
 /*
  * LAYOUT - MATCHUP
  * =================
@@ -18,6 +20,10 @@ export default class MatchupIndex extends React.Component {
 
 	constructor (props) {
 		super(props);
+
+		this.state = {
+			matchup: null
+		};
 
 	}
 
@@ -42,7 +48,7 @@ export default class MatchupIndex extends React.Component {
 	render () {
 		return (
 			<div>
-			hey
+				<Login />
 			</div>
 		);
 	}
