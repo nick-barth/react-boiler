@@ -34,7 +34,6 @@ exports.getMatchups = function (req, res) {
 	const name = req.query.name;
 
 	matchup.find({ 'champions.name': new RegExp(name, 'i') }, function (err, matchups) {
-		console.log(matchups);
 		res.json(matchups);
 	});
 };
