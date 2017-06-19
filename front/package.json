@@ -1,7 +1,7 @@
 {
-  "name": "starsboiler",
-  "title": "Stats Boiler",
-  "description": "Boilerplate for stats websites",
+  "name": "quakechampselect",
+  "title": "Quake Champion Select",
+  "description": "Matchup guide for quake",
   "version": "0.4.0",
   "author": {
     "name": "nickb"

@@ -6,6 +6,7 @@ import superagent from 'superagent';
 /*
  * Endpoints
  */
+import getUserApi from './endpoints/user.js';
 import getChampApi from './endpoints/champ.js';
 import getMatchupApi from './endpoints/matchup.js';
 
@@ -92,7 +93,8 @@ function API () {
 	 */
 	return {
 		champ: getChampApi(exec),
-		matchup: getMatchupApi(exec)
+		matchup: getMatchupApi(exec),
+		user: getUserApi(exec)
 	};
 
 }

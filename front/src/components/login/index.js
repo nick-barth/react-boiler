@@ -5,6 +5,8 @@
 // Vendors
 import React from 'react';
 
+import API from 'api';
+
 /*
  * LOGIN
  * =====
@@ -29,12 +31,18 @@ class Login extends React.Component {
 		};
 	}
 
-	handleLogin () {
-		console.log('fuck');
-	}
+	handleSignup (e) {
+		e.preventDefault();
+		const { signupName, signupPw } = this.state;
 
-	handleSignup () {
-		console.log('fuck2');
+		API.user.signup(signupName, signupPw)
+		.promise
+		.then(res => {
+			console.log(res);
+		})
+		.catch(res => {
+			console.log(res);
+		});
 	}
 
 
@@ -45,16 +53,11 @@ class Login extends React.Component {
 				<div className="login__disclaimer">
 					We actually would perfer if you didn't have to make an account, but we have to fight spammers, so this is our most painless option.
 				</div>
-				<div className="login__login">
-					<form onSubmit={this.handleLogin}>
-						<input type="text" value={this.state.login_name} onChange={this.handleChange} />
-						<input type="password" value={this.state.login_pw} onChange={this.handleChange} />
-					</form>
-				</div>
 				<div className="login__signup">
 					<form onSubmit={this.handleSignup}>
-						<input type="text" value={this.state.signup_name} onChange={this.handleChange} />
-						<input type="password" value={this.state.signup_pw} onChange={this.handleChange} />
+						<input type="text" value={this.state.signupName} onChange={this.handleChange} />
+						<input type="password" value={this.state.signupPw} onChange={this.handleChange} />
+						 <input type="submit" value="Submit" />
 					</form>
 				</div>
 			</div>
