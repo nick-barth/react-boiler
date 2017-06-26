@@ -3,15 +3,12 @@ const mongoose = require('mongoose');
 
 mongoose.Promise = require('bluebird');
 
-//Config
-const config = require('../config');
-
 //Schemas
 const champ = require('./schemas/champ.js').Champ;
 const matchup = require('./schemas/matchup.js').Matchup;
 
 //connect to database
-mongoose.connect(config.api);
+mongoose.connect('mongodb://admin_test:test12@ds139262.mlab.com:39262/quakechampselect');
 
 // GET champion
 exports.getChampion = function (req, res) {
