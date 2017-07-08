@@ -3,11 +3,16 @@
  * ============
  */
 
+import API from 'api';
+
 /*
  * ACTION TYPES
  * ============
  */
-const USER_LIKE_TOGGLE = 'USER_LIKE_TOGGLE';
+const FETCH_CHAMP_AND_MATCHUP_ATTEMPT = 'FETCH_CHAMP_AND_MATCHUP_ATTEMPT';
+const FETCH_CHAMP_SUCCESS = 'FETCH_CHAMP_SUCCESS';
+const FETCH_MATCHUP_SUCCESS = 'FETCH_MATCHUP_SUCCESS';
+const UPDATE_MATCHUP = 'UPDATE_MATCHUP';
 
 
 /*
@@ -15,15 +20,69 @@ const USER_LIKE_TOGGLE = 'USER_LIKE_TOGGLE';
  * =============
  */
 const initalState = {
-	likedList: []
+	champion: {},
+	matchups: []
 };
 
 /*
  * Expose all action creators
  */
 export const actions = {
+	fetchChampionAndMatchups,
 	matchUpdate
 };
+
+/*
+ * Fetch place by its id
+ * --
+ * @param {String} id - a place id
+ * @return {ActionCreator}
+ */
+function fetchChampionAndMatchups (champ) {
+	return (dispatch) => {
+
+		dispatch({
+			type: FETCH_CHAMP_AND_MATCHUP_ATTEMPT,
+			payload: {
+				id: champ
+			}
+		});
+
+		API.champ.getChampion(champ)
+		.promise
+		.then(res => {
+			dispatch({
+				type: FETCH_CHAMP_SUCCESS,
+				payload: {
+					champ: res.data
+				}
+			});
+		})
+		.catch(res => {
+			console.log(res);
+		});
+
+		API.matchup.getMatchups(champ)
+		.promise
+		.then(res => {
+			console.log([].concat.apply([],res.data.map(m => {
+				return m.champions.filter(c => c.name.toLowerCase() !== champ);
+			})));
+			dispatch({
+				type: FETCH_MATCHUP_SUCCESS,
+				payload: {
+					matchups: [].concat.apply([],res.data.map(m => {
+						return m.champions.filter(c => c.name.toLowerCase() !== champ);
+					}))
+				}
+			});
+		})
+		.catch(res => {
+			console.log(res);
+		});
+	};
+
+}
 
 /*
  * Changing a matchup
@@ -34,9 +93,10 @@ export const actions = {
 function matchUpdate (champ, update) {
 	return dispatch => {
 		dispatch({
-			type: USER_LIKE_TOGGLE,
+			type: UPDATE_MATCHUP,
 			payload: {
-				likedList: movies
+				champ: champ,
+				update: update
 			}
 		});
 	};
@@ -48,10 +108,38 @@ function matchUpdate (champ, update) {
  */
 export function reducer (state = initalState, action) {
 	switch (action.type) {
-		case USER_LIKE_TOGGLE:
+		case FETCH_CHAMP_AND_MATCHUP_ATTEMPT:
 			return Object.assign({}, state, {
-				likedList: action.payload.likedList
+				isLoadingChamp: true,
+				isLoadingMatchup: true
 			});
+
+		// Try to fetch detail of a place
+		case FETCH_CHAMP_SUCCESS:
+			return Object.assign({}, state, {
+				champion: action.payload.champ,
+				isLoadingChamp: false,
+				errors: []
+			});
+
+		// Successfully fetched place detail
+		case FETCH_MATCHUP_SUCCESS:
+			return Object.assign({}, state, {
+				matchups: action.payload.matchups,
+				isLoadingMatchup: false,
+				errors: []
+			});
+
+		// Failed to retrieve place detail
+		case UPDATE_MATCHUP:
+			return Object.assign({}, state, {
+				current: {
+					id: null,
+					isFetching: false,
+					errors: action.payload.errors
+				}
+			});
+
 		default:
 			return state;
 	}

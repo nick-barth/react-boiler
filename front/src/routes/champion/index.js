@@ -4,7 +4,10 @@
 
 // Vendors
 import React from 'react';
-import API from 'api';
+import { connect } from 'react-redux';
+
+// Store
+import { actions as championActions } from 'store/champion.js';
 
 // Components
 import Matchup from 'components/matchup/index.js';
@@ -14,71 +17,55 @@ import Tips from 'components/tips/index.js';
  * LAYOUT - CHAMPION
  * =================
  */
+@connect(
+	state => ({
+		store: state
+	}), {
+		fetchChampionAndMatchups: championActions.fetchChampionAndMatchups
+	}
+)
 export default class ChampionLayout extends React.Component {
 
 	static propTypes = {
-		match: React.PropTypes.object.isRequired
+		store: React.PropTypes.object.isRequired,
+		match: React.PropTypes.object.isRequired,
+		fetchChampionAndMatchups: React.PropTypes.func.isRequired
 	};
 
 	constructor (props) {
 		super(props);
 
-		this.state = {
-			matchups: [],
-			champ: null
-		};
-
 	}
 
 
-	componentWillMount () {
-		const champ = this.props.match.params.champion;
+	componentDidMount () {
+		const id = this.props.match.params.champ;
 
-		API.champ.getChampion(champ)
-		.promise
-		.then(res => {
-			this.setState({
-				champ: res.data
-			});
-		})
-		.catch(res => {
-			console.log(res);
-		});
-
-		API.matchup.getMatchups(champ)
-		.promise
-		.then(res => {
-			this.setState({
-				matchups: [].concat.apply([],res.data.map(m => {
-					return m.champions.filter(c => c.name.toLowerCase() !== champ);
-				}))
-			});
-		})
-		.catch(res => {
-			console.log(res);
-		});
+		this.props.fetchChampionAndMatchups(id);
 	}
 
 	render () {
-		const { matchups, champ } = this.state;
+		const { matchups, champion } = this.props.store;
+
+		console.log(this.props.store);
 
 		return (
 			<div>
-				{matchups && champ ? (
+				{matchups && champion ? (
 					<div>
 						<Matchup
-							title={`Worst matchups vs ${champ.name}`}
+							title={`Worst matchups vs ${champion.name}`}
 							list={matchups}
-							champ={champ}
+							champ={champion}
 						/>
 						<Matchup
-							title={`Best matchups vs ${champ.name}`}
+							title={`Best matchups vs ${champion.name}`}
 							list={matchups}
-							champ={champ}
+							champ={champion}
 						/>
 						<Tips
-							title={`Tips for fighting against ${champ.name}`}
-							list={champ.tips}
+							title={`Tips for fighting against ${champion.name}`}
+							list={champion.tips}
 						/>
 					</div>
 				) :null}
