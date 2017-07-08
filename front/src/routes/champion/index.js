@@ -39,19 +39,18 @@ export default class ChampionLayout extends React.Component {
 
 
 	componentDidMount () {
-		const id = this.props.match.params.champ;
+		const id = this.props.match.params.champion;
 
 		this.props.fetchChampionAndMatchups(id);
 	}
 
 	render () {
-		const { matchups, champion } = this.props.store;
-
-		console.log(this.props.store);
+		const state = this.props.store.championStore;
+		const { matchups, champion } = state;
 
 		return (
 			<div>
-				{matchups && champion ? (
+				{matchups.length > 0 && champion ? (
 					<div>
 						<Matchup
 							title={`Worst matchups vs ${champion.name}`}

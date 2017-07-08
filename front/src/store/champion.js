@@ -21,7 +21,9 @@ const UPDATE_MATCHUP = 'UPDATE_MATCHUP';
  */
 const initalState = {
 	champion: {},
-	matchups: []
+	matchups: [],
+	isLoadingChamp: false,
+	isLoadingMatchup: false
 };
 
 /*
@@ -40,12 +42,27 @@ export const actions = {
  */
 function fetchChampionAndMatchups (champ) {
 	return (dispatch) => {
-
 		dispatch({
 			type: FETCH_CHAMP_AND_MATCHUP_ATTEMPT,
 			payload: {
 				id: champ
 			}
+		});
+
+		API.matchup.getMatchups(champ)
+		.promise
+		.then(res => {
+			dispatch({
+				type: FETCH_MATCHUP_SUCCESS,
+				payload: {
+					matchups: [].concat.apply([],res.data.map(m => {
+						return m.champions.filter(c => c.name.toLowerCase() !== champ);
+					}))
+				}
+			});
+		})
+		.catch(res => {
+			console.log(res);
 		});
 
 		API.champ.getChampion(champ)
@@ -62,24 +79,6 @@ function fetchChampionAndMatchups (champ) {
 			console.log(res);
 		});
 
-		API.matchup.getMatchups(champ)
-		.promise
-		.then(res => {
-			console.log([].concat.apply([],res.data.map(m => {
-				return m.champions.filter(c => c.name.toLowerCase() !== champ);
-			})));
-			dispatch({
-				type: FETCH_MATCHUP_SUCCESS,
-				payload: {
-					matchups: [].concat.apply([],res.data.map(m => {
-						return m.champions.filter(c => c.name.toLowerCase() !== champ);
-					}))
-				}
-			});
-		})
-		.catch(res => {
-			console.log(res);
-		});
 	};
 
 }
@@ -114,7 +113,7 @@ export function reducer (state = initalState, action) {
 				isLoadingMatchup: true
 			});
 
-		// Try to fetch detail of a place
+		// Successfully fetched champ
 		case FETCH_CHAMP_SUCCESS:
 			return Object.assign({}, state, {
 				champion: action.payload.champ,
@@ -122,7 +121,7 @@ export function reducer (state = initalState, action) {
 				errors: []
 			});
 
-		// Successfully fetched place detail
+		// Successfully fetched matchups of champ
 		case FETCH_MATCHUP_SUCCESS:
 			return Object.assign({}, state, {
 				matchups: action.payload.matchups,
@@ -130,7 +129,7 @@ export function reducer (state = initalState, action) {
 				errors: []
 			});
 
-		// Failed to retrieve place detail
+		// Update of a matchup attempt
 		case UPDATE_MATCHUP:
 			return Object.assign({}, state, {
 				current: {
