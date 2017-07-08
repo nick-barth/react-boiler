@@ -22,16 +22,16 @@ const initalState = {
  * Expose all action creators
  */
 export const actions = {
-	toggleLike
+	matchUpdate
 };
 
 /*
- * Like toggle attempt
+ * Changing a matchup
  * --
  * @param {array} movies
  * @return {Function} an `actionCreator`
  */
-function toggleLike (movies) {
+function matchUpdate (champ, update) {
 	return dispatch => {
 		dispatch({
 			type: USER_LIKE_TOGGLE,

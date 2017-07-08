@@ -44,3 +44,28 @@ exports.getMatchup = function (req, res) {
 		res.json(matchups);
 	});
 };
+
+// Post matchups
+exports.updateMatchup = function (req, res) {
+	const champ1 = req.query.champ1;
+	const champ2 = req.query.champ2;
+	const update = req.query.update;
+
+	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
+		console.log(matchups);
+		const indexOf =  matchups.champions.findIndex(x => x.name === update.name);
+		const set = {};
+
+		set['champions.' + indexOf + '.up'] = update.up;
+		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, { $set: set }, function (err, docs) {
+			if (err) {
+				throw err;
+			}
+
+			res.send({ error: err, affected: docs });
+		});
+	});
+
+
+
+};

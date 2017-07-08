@@ -59,7 +59,6 @@ export default class ChampionLayout extends React.Component {
 		});
 	}
 
-
 	render () {
 		const { matchups, champ } = this.state;
 
@@ -70,10 +69,12 @@ export default class ChampionLayout extends React.Component {
 						<Matchup
 							title={`Worst matchups vs ${champ.name}`}
 							list={matchups}
+							champ={champ}
 						/>
 						<Matchup
 							title={`Best matchups vs ${champ.name}`}
 							list={matchups}
+							champ={champ}
 						/>
 						<Tips
 							title={`Tips for fighting against ${champ.name}`}

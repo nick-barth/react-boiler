@@ -12,12 +12,13 @@ export default function getMatchupApi (exec) {
 	 */
 	return {
 		getMatchups,
-		getMatchup
+		getMatchup,
+		updateMatchup
 	};
 
 
 
-/*
+	/*
 	 * gets all matchups for a champion
 	 * --
 	 * @param {String} champ - champion name
@@ -47,6 +48,24 @@ export default function getMatchupApi (exec) {
 			query: {
 				'champ1': champ1,
 				'champ2': champ2
+			}
+		});
+	}
+
+	/*
+	 *  Updates matchup
+	 * --
+	 * @param {String} champ - champion name
+	 * @return {Promise} from .exec
+	 */
+	function updateMatchup (champ, update) {
+		return exec({
+			method: 'post',
+			url: '/updateMatchup',
+			query: {
+				'champ1': champ.name,
+				'champ2': update.name,
+				'update': update
 			}
 		});
 	}

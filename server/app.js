@@ -86,6 +86,7 @@ app.post('/signup', passport.authenticate('local-signup', {
 
 
 // API
+app.post('/api/updateMatchup', api.updateMatchup);
 app.get('/api/matchup', api.getMatchup);
 app.get('/api/matchups', api.getMatchups);
 app.get('/api/champs', api.getChampions);
