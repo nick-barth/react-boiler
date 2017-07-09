@@ -4,22 +4,32 @@
 
 // Vendors
 import React from 'react';
+import { connect } from 'react-redux';
 
-import API from 'api';
+// Store
+import { actions as championActions } from 'store/champion.js';
 
 /*
  * MATCHUP
  * =======
  */
 
+@connect(
+	state => ({
+		store: state
+	}), {
+		matchUpdate: championActions.matchUpdate
 
+	}
+)
 class Matchup extends React.Component {
 
 
 	static propTypes = {
 		champ: React.PropTypes.object.isRequired,
 		list: React.PropTypes.array.isRequired,
-		title: React.PropTypes.string.isRequired
+		title: React.PropTypes.string.isRequired,
+		matchUpdate: React.PropTypes.func.isRequired
 	};
 
 	constructor (props) {
@@ -32,34 +42,27 @@ class Matchup extends React.Component {
 		</div>
 	*/
 
-	upVote (item) {
+	vote (item, direction) {
 		return function () {
-			const { champ } = this.props;
-			const update = {
-				name: item.name,
-				up: item.up + 1
-			};
+			const { champ, matchUpdate } = this.props;
 
-			API.matchup.updateMatchup(champ, update)
-			.promise
-			.then(res => {
-				console.log(res);
-			})
-			.catch(res => {
-				console.log(res);
-				console.log('error');
-			});
-		};
-	}
+			if (direction) {
+				const update = {
+					name: item.name,
+					up: item.up + 1
+				};
 
-	downVote (item) {
-		return function () {
-			const update = {
-				...item,
-				up: item.up + 1
-			};
+				matchUpdate(champ, update);
+			}
+			else {
+				const update = {
+					name: item.name,
+					down: item.down + 1
+				};
 
-			console.log(update);
+				matchUpdate(champ, update);
+			}
+
 		};
 	}
 
@@ -78,10 +81,10 @@ class Matchup extends React.Component {
 								<div className="list__item-name">
 									{item.name}
 								</div>
-								<div className="list__item-up" onClick={this.upVote(item).bind(this)}>
+								<div className="list__item-up" onClick={this.vote(item, 1).bind(this)}>
 									{item.up}
 								</div>
-								<div className="list__item-down" onClick={this.downVote(item)}>
+								<div className="list__item-down" onClick={this.vote(item, 0).bind(this)}>
 									{item.down}
 								</div>
 							</div>

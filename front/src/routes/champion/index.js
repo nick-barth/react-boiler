@@ -50,7 +50,7 @@ export default class ChampionLayout extends React.Component {
 
 		return (
 			<div>
-				{matchups.length > 0 && champion ? (
+				{matchups.length > 0 && champion.name ? (
 					<div>
 						<Matchup
 							title={`Worst matchups vs ${champion.name}`}

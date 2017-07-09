@@ -12,7 +12,7 @@ import API from 'api';
 const FETCH_CHAMP_AND_MATCHUP_ATTEMPT = 'FETCH_CHAMP_AND_MATCHUP_ATTEMPT';
 const FETCH_CHAMP_SUCCESS = 'FETCH_CHAMP_SUCCESS';
 const FETCH_MATCHUP_SUCCESS = 'FETCH_MATCHUP_SUCCESS';
-const UPDATE_MATCHUP = 'UPDATE_MATCHUP';
+const UPDATE_MATCHUP_SUCCESS = 'UPDATE_MATCHUP_SUCCESS';
 
 
 /*
@@ -91,14 +91,26 @@ function fetchChampionAndMatchups (champ) {
  */
 function matchUpdate (champ, update) {
 	return dispatch => {
-		dispatch({
-			type: UPDATE_MATCHUP,
-			payload: {
-				champ: champ,
-				update: update
-			}
-		});
+		API.matchup.updateMatchup(champ, update)
+			.promise
+			.then(res => {
+				console.log('fuck', res);
+				return dispatch => {
+					dispatch({
+						type: UPDATE_MATCHUP_SUCCESS,
+						payload: {
+							champ: champ,
+							update: update
+						}
+					});
+				};
+			})
+			.catch(res => {
+				console.log(res);
+				console.log('error');
+			});
 	};
+
 }
 
 /*
@@ -130,7 +142,7 @@ export function reducer (state = initalState, action) {
 			});
 
 		// Update of a matchup attempt
-		case UPDATE_MATCHUP:
+		case UPDATE_MATCHUP_SUCCESS:
 			return Object.assign({}, state, {
 				current: {
 					id: null,

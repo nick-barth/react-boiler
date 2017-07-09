@@ -52,11 +52,16 @@ exports.updateMatchup = function (req, res) {
 	const update = req.query.update;
 
 	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
-		console.log(matchups);
 		const indexOf =  matchups.champions.findIndex(x => x.name === update.name);
 		const set = {};
 
-		set['champions.' + indexOf + '.up'] = update.up;
+		if (update.up) {
+			set['champions.' + indexOf + '.up'] = update.up;
+		}
+		else {
+			set['champions.' + indexOf + '.down'] = update.down;
+		}
+
 		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, { $set: set }, function (err, docs) {
 			if (err) {
 				throw err;
