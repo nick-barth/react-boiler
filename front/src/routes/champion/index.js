@@ -39,13 +39,18 @@ export default class ChampionLayout extends React.Component {
 
 	}
 
-
 	componentDidMount () {
 		const id = this.props.match.params.champion;
 
 		this.props.fetchChampionAndMatchups(id);
 	}
 
+	/*
+	* Recording a vote
+	* --
+	* @param {item} Object
+	* @param {direction} Boolean
+	*/
 	vote (item, direction) {
 		return () => {
 			const state = this.props.store.championStore;

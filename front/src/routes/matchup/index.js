@@ -27,7 +27,6 @@ export default class MatchupIndex extends React.Component {
 
 	}
 
-
 	componentWillMount () {
 		const champ1 = this.props.match.params.champion1;
 		const champ2 = this.props.match.params.champion2;
