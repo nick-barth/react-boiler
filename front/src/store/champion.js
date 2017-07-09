@@ -94,16 +94,14 @@ function matchUpdate (champ, update) {
 		API.matchup.updateMatchup(champ, update)
 			.promise
 			.then(res => {
-				console.log('fuck', res);
-				return dispatch => {
-					dispatch({
-						type: UPDATE_MATCHUP_SUCCESS,
-						payload: {
-							champ: champ,
-							update: update
-						}
-					});
-				};
+				dispatch({
+					type: UPDATE_MATCHUP_SUCCESS,
+					payload: {
+						matchups: [].concat.apply([],res.data.map(m => {
+							return m.champions.filter(c => c.name.toLowerCase() !== champ.name.toLowerCase());
+						}))
+					}
+				});
 			})
 			.catch(res => {
 				console.log(res);
@@ -144,11 +142,9 @@ export function reducer (state = initalState, action) {
 		// Update of a matchup attempt
 		case UPDATE_MATCHUP_SUCCESS:
 			return Object.assign({}, state, {
-				current: {
-					id: null,
-					isFetching: false,
-					errors: action.payload.errors
-				}
+				matchups: action.payload.matchups,
+				isLoadingMatchup: false,
+				errors: []
 			});
 
 		default:
