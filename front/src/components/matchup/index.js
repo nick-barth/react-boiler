@@ -23,12 +23,6 @@ class Matchup extends React.Component {
 		super(props);
 	}
 
-	/*
-		<div className="list__item-image">
-			<img className="list__item-src" src={`/images/card/${item.name.toLowerCase()}.jpg`}/>
-		</div>
-	*/
-
 	render () {
 		const { list, title, onChange } = this.props;
 
