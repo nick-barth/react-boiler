@@ -27,7 +27,7 @@ $ cd front
 $ gulp
 ```
 
-server gonna be @ http://localhost:3000/
+server gonna be @ http://localhost:8080/
 
 
 [Node]:https://nodejs.org/download/
