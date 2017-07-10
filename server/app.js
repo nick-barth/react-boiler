@@ -100,5 +100,8 @@ app.listen(port, err => {
 	if (err) {
 		return console.error(err);
 	}
+
+	console.log(process.env.PORT);
+
 	console.info(`Server running on http://localhost:${process.env.PORT || 8080} [${env}]`);
 });
