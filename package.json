@@ -4,8 +4,8 @@
   "description": "Server of the react-boiler",
   "main": "./server/app.js",
   "scripts": {
-	  "postinstall": "cd server && npm install",
-	  "start": "cd server && node app"
+	  "postinstall": "cd server && npm install && cd ../front && npm install",
+	  "start": "cd server && node app "
   },
   "author": "",
   "license": "ISC"
