@@ -4,7 +4,7 @@
   "description": "Server of the react-boiler",
   "main": "./server/app.js",
   "scripts": {
-	  "postinstall": "cd server && npm install && cd ../front && npm install",
+	  "postinstall": "cd server && npm install && cd ../front && npm install && npm run js-prod",
 	  "start": "cd server && node app "
   },
   "author": "",
