@@ -4,7 +4,8 @@
   "description": "Server of the react-boiler",
   "main": "./server/app.js",
   "scripts": {
-	  "postinstall": "cd server && npm install && cd ../front && npm install && npm run js-prod",
+	  "postinstall": "cd server && npm install && cd ../front && npm install",
+	  "build": "NODE_ENV=production webpack --config ./front/webpack.prod.config.js --progress --colors",
 	  "start": "cd server && node app "
   },
   "author": "",
