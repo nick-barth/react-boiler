@@ -93,7 +93,7 @@ app.get('/api/champs', api.getChampions);
 app.get('/api/champ', api.getChampion);
 
 // start the server
-const port = config.port;
+const port = process.env.PORT || 8080;
 const env = config.name;
 
 app.listen(port, err => {
@@ -103,5 +103,5 @@ app.listen(port, err => {
 
 	console.log(process.env.PORT);
 
-	console.info(`Server running on http://localhost:${process.env.PORT || 8080} [${env}]`);
+	console.info(`Server running on http://localhost:${port} [${env}]`);
 });
