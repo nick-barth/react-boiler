@@ -2,7 +2,7 @@
   "name": "react-boiler-server",
   "version": "1.0.0",
   "description": "Server of the react-boiler",
-  "main": "server/app.js",
+  "main": "./server/app.js",
   "scripts": {
 	  "postinstall": "cd server && npm install"
   },
