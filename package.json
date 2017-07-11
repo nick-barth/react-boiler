@@ -4,7 +4,6 @@
   "description": "Server of the react-boiler",
   "main": "./server/app.js",
   "scripts": {
-	  "heroku-postbuild": "webpack -p --config ./front/webpack.config.prod.js --progress",
 	  "start": "cd server && node app "
   },
   "author": "",
