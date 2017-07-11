@@ -28,7 +28,7 @@ function API () {
 
 
 		const { method, data, query, formData } = xhrConfig;
-		const url = 'https://localhost:8080/api' + xhrConfig.url;
+		const url = 'https://warm-beyond-70631.herokuapp.com/api' + xhrConfig.url;
 		const req = superagent[method.toLowerCase()](url); // Create request object
 
 
