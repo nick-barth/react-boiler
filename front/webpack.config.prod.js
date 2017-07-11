@@ -13,7 +13,7 @@ const config = {
 		ENTRY_POINT
 	],
 	output: {
-		path: path.resolve(__dirname, '../server/files/assets/js/'),
+		path: path.resolve(__dirname, '../server/assets/js'),
 		filename: 'bundle.js',
 		pathinfo: true
 	},
