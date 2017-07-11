@@ -28,7 +28,7 @@ function API () {
 
 
 		const { method, data, query, formData } = xhrConfig;
-		const url = 'http://localhost:8080/api' + xhrConfig.url;
+		const url = 'https://localhost:8080/api' + xhrConfig.url;
 		const req = superagent[method.toLowerCase()](url); // Create request object
 
 
