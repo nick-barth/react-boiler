@@ -51,7 +51,7 @@
     "webpack-dev-server": "2.4.5"
   },
   "scripts": {
-    "js": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
+    //"js": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "js-prod": "./node_modules/webpack/bin/webpack.js --config ./webpack.config.prod.js",
     "js-win": "webpack-dev-server"
   },
