@@ -4,11 +4,8 @@
   "description": "Server of the react-boiler",
   "main": "./server/app.js",
   "scripts": {
-    "start": "cd server && node app"
+    "start": "cd server && npm install && node app"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "webpack": "^3.1.0"
-  }
+  "license": "ISC"
 }
