@@ -4,10 +4,11 @@ const Express = require('express');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-
-
 const config = require('./config');
 const api = require('./api');
+
+const port = process.env.PORT || 8080;
+const env = config.name;
 
 const app = new Express();
 
@@ -26,7 +27,6 @@ app.get('*', (req, res, next) => {
 		next();
 		return;
 	}
-
 	let preloadScripts;
 	let entry;
 	let webpackManifest;
@@ -74,7 +74,8 @@ app.get('*', (req, res, next) => {
 
 	res.render('index', {
 		webpackManifest,
-		entry
+		entry,
+		env
 	});
 });
 
@@ -92,16 +93,10 @@ app.get('/api/matchups', api.getMatchups);
 app.get('/api/champs', api.getChampions);
 app.get('/api/champ', api.getChampion);
 
-// start the server
-const port = process.env.PORT || 8080;
-const env = config.name;
-
 app.listen(port, err => {
 	if (err) {
 		return console.error(err);
 	}
-
-	console.log(process.env.PORT);
 
 	console.info(`Server running on http://localhost:${port} [${env}]`);
 });

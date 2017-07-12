@@ -10,6 +10,9 @@ import getUserApi from './endpoints/user.js';
 import getChampApi from './endpoints/champ.js';
 import getMatchupApi from './endpoints/matchup.js';
 
+//Data
+import { env } from 'data';
+
 /*
  * CLIENT
  * ======
@@ -28,7 +31,7 @@ function API () {
 
 
 		const { method, data, query, formData } = xhrConfig;
-		const url = 'https://warm-beyond-70631.herokuapp.com/api' + xhrConfig.url;
+		const url = (env === 'local' ? 'https://localhost:8080/api' : 'https://warm-beyond-70631.herokuapp.com/api') + xhrConfig.url;
 		const req = superagent[method.toLowerCase()](url); // Create request object
 
 

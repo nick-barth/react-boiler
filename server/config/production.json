@@ -1,5 +1,4 @@
 {
-	"name": "local",
-	"api": "mongodb://localhost:27017/test",
-	"port": 8080
+	"name": "production",
+	"api": "mongodb://localhost:27017/test"
 }
