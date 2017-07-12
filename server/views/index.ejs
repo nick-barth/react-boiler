@@ -14,8 +14,8 @@
 		<div id="app"></div>
 
 		<script type="text/javascript">
-			window.env = <%= env %>;
-		</script>
+      		window.env = <%- JSON.stringify(env) %>;
+    	</script>
 
 		<script type="text/javascript" src="https://cdn.polyfill.io/v2/polyfill.min.js?features=Intl.~locale.{{ lang }}"></script>
 
