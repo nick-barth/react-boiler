@@ -2,6 +2,7 @@ html {
 	font-family: 'Rajdhani', sans-serif;
 	background-color:var(--color-gray-lightest);
 	color: var(--secondary-color);
+	font-size: 22px;
 }
 
 body {
