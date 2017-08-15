@@ -1,15 +1,18 @@
 .header {
-    display: table;
-    text-align:center;
-    width:100%;
+	display: table;
+	text-align: center;
+	width: 100%;
+	padding: var(--modular-xxl) 0 var(--modular-xl) 0;
 }
 
 .header__logo-text {
-    font-size:5rem;
-    vertical-align: middle;
-    display:table-cell;
+	font-size: var(--modular-xxl);
+	vertical-align: middle;
+	display: table-cell;
+	font-weight: 700;
+	line-height: 0;
 }
 
 .header__logo-emphasis {
-    color: var(--main-color);
+	color: var(--main-color);
 }
