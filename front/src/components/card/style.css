@@ -25,6 +25,7 @@
 .card__name {
 	position:absolute;
 	font-size: 2rem;
+	text-transform: uppercase;
 	bottom:1rem;
 	right:.3rem;
 	z-index:4;
