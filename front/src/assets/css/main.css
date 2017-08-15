@@ -1,16 +1,49 @@
-/* Modular Scale Values for typography and spacing: http://www.modularscale.com/?1&&1.618 */
-
 html {
 	font-family: 'Rajdhani', sans-serif;
-	background-color:var(--color-gray-lightest);
+	background-color: var(--color-gray-lightest);
 	color: var(--secondary-color);
 	font-size: var(--modular-base);
 	line-height: 140%;
 	font-weight: 500;
 }
 
+@font-face {
+	font-family:"Rajdhani";
+	font-style: normal;
+	font-weight: 300;
+	src:url("/fonts/Rajdhani-Light.ttf");
+}
+
+@font-face {
+	font-family:"Rajdhani";
+	font-style: normal;
+	font-weight: 400;
+	src:url("/fonts/Rajdhani-Regular.ttf");
+}
+
+@font-face {
+	font-family:"Rajdhani";
+	font-style: normal;
+	font-weight: 500;
+	src:url("/fonts/Rajdhani-Medium.ttf");
+}
+
+@font-face {
+	font-family:"Rajdhani";
+	font-style: normal;
+	font-weight: 600;
+	src:url("/fonts/Rajdhani-SemiBold.ttf");
+}
+
+@font-face {
+	font-family:"Rajdhani";
+	font-style: normal;
+	font-weight: 700;
+	src:url("/fonts/Rajdhani-Bold.ttf");
+}
+
 body {
-	margin:0;
+	margin: 0;
 }
 
 a {
@@ -20,7 +53,6 @@ a {
 
 .layout {
 	background-color: var(--background);
-	max-width:100%;
+	max-width: 100%;
 	margin: auto;
 }
-
