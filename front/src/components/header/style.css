@@ -2,6 +2,8 @@
     display: table;
     text-align:center;
     width:100%;
+    padding: var(--modular-xxl) 0 var(--modular-xl) 0;
+    
 }
 
 .header__logo-text {
@@ -9,6 +11,7 @@
     vertical-align: middle;
     display:table-cell;
     font-weight: 700;
+    line-height: 0;
 }
 
 .header__logo-emphasis {
