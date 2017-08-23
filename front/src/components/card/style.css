@@ -1,16 +1,13 @@
 .card__flexbox {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	/* or space-around */
-	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 1px;
+	grid-row-gap: 1px;
 }
 
 .card {
 	position: relative;
 	border: 1px solid var(--color-gray-medium-light);
-	flex-grow: 1;
-	width: 25%;
 	margin: 5px;
 	/* and that, will result in a 10px gap */
 	cursor: pointer;
