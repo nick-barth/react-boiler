@@ -1,7 +1,7 @@
 .footer {
-	padding: var(--modular-l);
-	text-align:center;
-	font-size:  var(--modular-s);
+	padding: var(--modular-s);
+	text-align: center;
+	font-size: var(--modular-s);
 	line-height: 140%;
-	border-top:1px solid var(--main-color);
+	border-top: 1px solid var(--main-color);
 }

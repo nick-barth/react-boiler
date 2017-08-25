@@ -2,11 +2,11 @@
 	display: table;
 	text-align: center;
 	width: 100%;
-	padding: var(--modular-xxl) 0 var(--modular-xl) 0;
+	padding: var(--modular-l) 0 var(--modular-base) 0;
 }
 
 .header__logo-text {
-	font-size: var(--modular-xxl);
+	font-size: var(--modular-base);
 	vertical-align: middle;
 	display: table-cell;
 	font-weight: 700;

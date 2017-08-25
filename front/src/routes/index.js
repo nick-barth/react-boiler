@@ -44,7 +44,7 @@ export default class App extends React.Component {
 		const { champions } = this.state;
 
 		return (
-			<div style={{ 'width': '80%', 'margin': 'auto' }}>
+			<div style={{ 'width': '100%', 'margin': 'auto' }}>
 			{champions ? (
 				<div className="card__flexbox">
 				{champions.map(champ => {
