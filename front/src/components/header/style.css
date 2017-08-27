@@ -19,9 +19,15 @@
 
 @media (--tablet) {
 	.header {
-		padding: var(--modular-xxl) 0 var(--modular-xl) 0;
+		margin: var(--modular-xl) 0 var(--modular-l) 0;
 	}
 	.header__logo-text {
 		font-size: var(--modular-xl);
+	}
+}
+
+@media (--tablet-large) {
+	.header__logo-text {
+		font-size: var(--modular-xxl);
 	}
 }

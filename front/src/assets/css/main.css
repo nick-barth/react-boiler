@@ -1,6 +1,6 @@
 html {
 	font-family: 'Rajdhani', sans-serif;
-	background-color: var(--color-gray-lightest);
+	background-color: var(--background);
 	color: var(--secondary-color);
 	font-size: var(--modular-base);
 	line-height: 140%;

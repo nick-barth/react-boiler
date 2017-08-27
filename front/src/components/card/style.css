@@ -48,3 +48,19 @@
 		right: var(--modular-xxs);
 	}
 }
+
+@media (--tablet-large) {
+	.card__flexbox {
+		grid-template-columns: 1fr 1fr 1fr;
+		-ms-grid-columns: 1fr 1fr 1fr;
+		margin: 0 var(--modular-base) var(--modular-xl);
+	}
+	.card {
+		margin: 0 calc(var(--modular-s) / 2) var(--modular-s);
+	}
+	.card__name {
+		font-size: var(--modular-l);
+		bottom: var(--modular-base);
+		right: var(--modular-xxs);
+	}
+}
