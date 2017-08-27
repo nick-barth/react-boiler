@@ -32,7 +32,7 @@
 
 @media (--desktop-small) {
 	.card__name {
-		font-size: var(--modular-xxs);
+		font-size: var(--modular-l);
 	}
 }
 
