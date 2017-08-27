@@ -2,11 +2,11 @@
 	display: table;
 	text-align: center;
 	width: 100%;
-	padding: var(--modular-l) 0 var(--modular-base) 0;
+	padding: var(--modular-xl) 0 var(--modular-l) 0;
 }
 
 .header__logo-text {
-	font-size: var(--modular-base);
+	font-size: var(--modular-l);
 	vertical-align: middle;
 	display: table-cell;
 	font-weight: 700;
@@ -15,4 +15,13 @@
 
 .header__logo-emphasis {
 	color: var(--main-color);
+}
+
+@media (--tablet) {
+	.header {
+		padding: var(--modular-xxl) 0 var(--modular-xl) 0;
+	}
+	.header__logo-text {
+		font-size: var(--modular-xl);
+	}
 }

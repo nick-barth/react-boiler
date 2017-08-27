@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	-ms-grid-columns: 1fr 1fr;
-	margin: 0 calc(var(--modular-xxs) / 2) 1.618rem;
+	margin: 0 calc(var(--modular-xxs) / 2) var(--modular-l);
 }
 
 .card {
@@ -30,13 +30,21 @@
 	line-height: 0;
 }
 
-@media (--desktop-small) {
-	.card__name {
-		font-size: var(--modular-l);
-	}
-}
-
 .card__bg {
 	max-width: 100%;
 	transition: all .4s;
+}
+
+@media (--tablet) {
+	.card__flexbox {
+		margin: 0 calc(var(--modular-s) / 2) var(--modular-xl);
+	}
+	.card {
+		margin: 0 calc(var(--modular-s) / 2) var(--modular-s);
+	}
+	.card__name {
+		font-size: var(--modular-l);
+		bottom: var(--modular-base);
+		right: var(--modular-xxs);
+	}
 }
