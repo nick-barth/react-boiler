@@ -17,6 +17,10 @@
 	color: var(--main-color);
 }
 
+.header__logo-thin-font {
+	font-weight: 500;
+}
+
 @media (--tablet) {
 	.header {
 		margin: var(--modular-xl) 0 var(--modular-l) 0;
