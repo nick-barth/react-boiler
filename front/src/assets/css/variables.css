@@ -7,6 +7,7 @@
 	/*
 	 * Modular Scale - 1.618 (Golden Ratio)
 	 */
+	--modular-xxxs: 0.09rem;
 	--modular-xxs: 0.146rem;
 	--modular-xs: 0.382rem;
 	--modular-s: 0.618rem;
@@ -32,6 +33,7 @@
 	--color-gray-medium-light: #dddddd;
 	--color-gray-medium: #eaeaea;
 	--color-gray-dark: #555555;
+	--color-gray-darker: #3f3f3f;
 	/*
 	 * Texts
 	 */

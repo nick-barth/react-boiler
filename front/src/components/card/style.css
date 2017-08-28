@@ -9,7 +9,7 @@
 
 .card {
 	position: relative;
-	border: 1px solid var(--color-gray-medium-light);
+	border: 1px outset var(--color-gray-darker);
 	cursor: pointer;
 	overflow: hidden;
 	line-height: 0;
@@ -36,6 +36,9 @@
 }
 
 @media (--tablet) {
+	.card {
+		border-width: 0.09rem;
+	}
 	.card__css-grid {
 		grid-column-gap: var(--modular-xs);
 		grid-row-gap: var(--modular-xs);
