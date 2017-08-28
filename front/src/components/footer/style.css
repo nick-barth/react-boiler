@@ -1,13 +1,19 @@
 .footer {
-	padding: var(--modular-s) var(--modular-base);
+	padding: var(--modular-s);
 	text-align: center;
 	font-size: var(--modular-s);
 	line-height: 140%;
 	border-top: 1px solid var(--main-color);
 }
 
-@media (--tablet-large){
+@media (--tablet) {
 	.footer {
 		padding: var(--modular-base) var(--modular-xl);
+	}
+}
+
+@media (--tablet-large) {
+	.footer {
+		padding: var(--modular-base) var(--modular-xxxl);
 	}
 }
