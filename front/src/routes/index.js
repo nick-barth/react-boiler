@@ -46,7 +46,7 @@ export default class App extends React.Component {
 		return (
 			<div style={{ 'width': '100%', 'margin': 'auto' }}>
 			{champions ? (
-				<div className="card__flexbox">
+				<div className="card__css-grid">
 				{champions.map(champ => {
 					return (
 						<Card

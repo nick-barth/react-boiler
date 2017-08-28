@@ -1,4 +1,4 @@
-.card__flexbox {
+.card__css-grid {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	-ms-grid-columns: 1fr 1fr;
@@ -36,7 +36,7 @@
 }
 
 @media (--tablet) {
-	.card__flexbox {
+	.card__css-grid {
 		margin: 0 calc(var(--modular-s) / 2) var(--modular-xl);
 	}
 	.card {
@@ -50,7 +50,7 @@
 }
 
 @media (--tablet-large) {
-	.card__flexbox {
+	.card__css-grid {
 		grid-template-columns: 1fr 1fr 1fr;
 		-ms-grid-columns: 1fr 1fr 1fr;
 		margin: 0 var(--modular-base) var(--modular-xl);
