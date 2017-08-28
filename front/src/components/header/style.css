@@ -20,7 +20,7 @@
 
 @media (--tablet) {
 	.header {
-		margin: var(--modular-xl) 0 var(--modular-l) 0;
+		margin: var(--modular-l) 0 var(--modular-base) 0;
 	}
 	.header__logo-text {
 		font-size: var(--modular-xl);
@@ -28,6 +28,9 @@
 }
 
 @media (--tablet-large) {
+	.header {
+		margin: var(--modular-xl) 0 var(--modular-l) 0;
+	}
 	.header__logo-text {
 		font-size: var(--modular-xxl);
 	}
