@@ -1,6 +1,7 @@
 html {
 	font-family: 'Rajdhani', sans-serif;
-	background-color: var(--background);
+	background-image: url(/images/textures/background-texture.jpg);
+	background-repeat: repeat;
 	color: var(--secondary-color);
 	font-size: var(--modular-base);
 	line-height: 140%;
@@ -52,7 +53,6 @@ a {
 }
 
 .layout {
-	background-color: var(--background);
 	max-width: 100%;
 	margin: auto;
 	overflow-x: hidden;

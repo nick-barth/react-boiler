@@ -18,7 +18,8 @@
 	/*
 	 * Theme
 	 */
-	--background: #191719;
+	--background-texture: url("/front/src/assets/images/background-texture.jpg");
+	--background-color: #191719;
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
 	/*
