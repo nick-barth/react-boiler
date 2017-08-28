@@ -1,6 +1,6 @@
 html {
 	font-family: 'Rajdhani', sans-serif;
-	background-image: url(/images/textures/background-texture.jpg);
+	background-image: var(--background-texture);
 	background-repeat: repeat;
 	color: var(--secondary-color);
 	font-size: var(--modular-base);
