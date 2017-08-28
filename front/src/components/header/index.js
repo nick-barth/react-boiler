@@ -21,7 +21,7 @@ class Header extends React.Component {
 		return (
 			<div className="header">
                 <div className="header__logo-text">
-                    <span className="header__logo-emphasis">QUAKE</span><span className="header__logo-thinner">CHAMPSELECT</span>
+                    <span className="header__logo-emphasis">QUAKE</span>CHAMPSELECT
                 </div>
 			</div>
 		);
