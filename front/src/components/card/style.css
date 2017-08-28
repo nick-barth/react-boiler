@@ -2,14 +2,14 @@
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	-ms-grid-columns: 1fr 1fr;
-	margin: 0 calc(var(--modular-xxs) / 2) var(--modular-l);
+	grid-column-gap: var(--modular-xxs);
+	grid-row-gap: var(--modular-xxs);
+	margin: 0 var(--modular-xxs) var(--modular-l);
 }
 
 .card {
 	position: relative;
 	border: 1px solid var(--color-gray-medium-light);
-	margin: 0 calc(var(--modular-xxs) / 2) var(--modular-xxs);
-	/* and that, will result in a 10px gap */
 	cursor: pointer;
 	overflow: hidden;
 	line-height: 0;
@@ -37,10 +37,9 @@
 
 @media (--tablet) {
 	.card__css-grid {
-		margin: 0 calc(var(--modular-s) / 2) var(--modular-xl);
-	}
-	.card {
-		margin: 0 calc(var(--modular-s) / 2) var(--modular-s);
+		grid-column-gap: var(--modular-xs);
+		grid-row-gap: var(--modular-xs);
+		margin: 0 var(--modular-s) var(--modular-xl);
 	}
 	.card__name {
 		font-size: var(--modular-l);
@@ -53,10 +52,9 @@
 	.card__css-grid {
 		grid-template-columns: 1fr 1fr 1fr;
 		-ms-grid-columns: 1fr 1fr 1fr;
+		grid-column-gap: var(--modular-xs);
+		grid-row-gap: var(--modular-xs);
 		margin: 0 var(--modular-base) var(--modular-xl);
-	}
-	.card {
-		margin: 0 calc(var(--modular-s) / 2) var(--modular-s);
 	}
 	.card__name {
 		font-size: var(--modular-l);
