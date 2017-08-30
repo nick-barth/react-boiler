@@ -58,3 +58,9 @@ a {
 	background-image: var(--background-texture);
 	background-repeat: repeat;
 }
+
+@media (--tablet-large) {
+	.layout {
+		background-image: var(--background-texture-desktop);
+	}
+}

@@ -19,7 +19,8 @@
 	/*
 	 * Theme
 	 */
-	--background-texture: url(/images/textures/background-texture.jpg);
+	--background-texture: url(/images/textures/background-texture-mobile.jpg);
+	--background-texture-desktop: url(/images/textures/background-texture-desktop.jpg);	
 	--background-color: #191719;
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;

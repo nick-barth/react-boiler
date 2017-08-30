@@ -4,7 +4,8 @@
 	-ms-grid-columns: 1fr 1fr;
 	grid-column-gap: var(--modular-xxs);
 	grid-row-gap: var(--modular-xxs);
-	margin: 0 var(--modular-xxs) var(--modular-l);
+	margin: 0 0 var(--modular-l);
+	padding: 0 var(--modular-xs);
 }
 
 .card {
@@ -42,7 +43,8 @@
 	.card__css-grid {
 		grid-column-gap: var(--modular-xs);
 		grid-row-gap: var(--modular-xs);
-		margin: 0 var(--modular-s) var(--modular-xl);
+		margin: 0 0 var(--modular-xl);
+		padding: 0 var(--modular-xl);
 	}
 	.card__name {
 		font-size: var(--modular-l);
@@ -57,7 +59,8 @@
 		-ms-grid-columns: 1fr 1fr 1fr;
 		grid-column-gap: var(--modular-xs);
 		grid-row-gap: var(--modular-xs);
-		margin: 0 var(--modular-base) var(--modular-xl);
+		margin: 0 0 var(--modular-xl);
+		padding: 0 var(--modular-xxl);
 	}
 	.card__name {
 		font-size: var(--modular-l);
