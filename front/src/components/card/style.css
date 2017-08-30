@@ -44,7 +44,7 @@
 		grid-gap: var(--modular-xs);
 		margin: 0 0 var(--modular-xl);
 		padding: 0 var(--modular-s);
-		grid-auto-rows: 120px;
+		grid-auto-rows: 140px;
 	}
 	.card__name {
 		font-size: var(--modular-base);
