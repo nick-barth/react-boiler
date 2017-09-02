@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
 
-mongoose.set('debug', true);
-
 const matchupSchema = new mongoose.Schema({
 	champions: [{
 		name: String,

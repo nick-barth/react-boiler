@@ -21,7 +21,7 @@ exports.getChampion = function (req, res) {
 
 // GET champions
 exports.getChampions = function (req, res) {
-	champ.find({}, 'name id', function (err, champs) {
+	champ.find({}, 'name id tagline', function (err, champs) {
 		res.json(champs);
 	});
 };
