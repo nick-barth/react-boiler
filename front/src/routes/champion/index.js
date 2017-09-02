@@ -37,6 +37,8 @@ export default class ChampionLayout extends React.Component {
 	constructor (props) {
 		super(props);
 
+		this.vote = this.vote.bind(this);
+
 	}
 
 	componentDidMount () {
@@ -89,13 +91,13 @@ export default class ChampionLayout extends React.Component {
 							title={`Worst matchups vs ${champion.name}`}
 							list={matchups}
 							champ={champion}
-							onChange={this.vote.bind(this)}
+							onChange={this.vote}
 						/>
 						<Matchup
 							title={`Best matchups vs ${champion.name}`}
 							list={matchups}
 							champ={champion}
-							onChange={this.vote.bind(this)}
+							onChange={this.vote}
 						/>
 						<Tips
 							title={`Tips for fighting against ${champion.name}`}
