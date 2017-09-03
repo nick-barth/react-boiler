@@ -33,7 +33,7 @@ class Login extends React.Component {
 	handleSignup (e) {
 		e.preventDefault();
 
-		API.user.signup(this.state.signupName, this.state.signupPassword)
+		API.user.signin(this.state.signupName, this.state.signupPassword)
 		.promise
 		.then(res => {
 			console.log(res);

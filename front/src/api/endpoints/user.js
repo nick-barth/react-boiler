@@ -11,21 +11,23 @@ export default function getUserApi (exec) {
 	 * On top for clarity, mind the hoisting
 	 */
 	return {
-		signup
+		signup,
+		signin
 	};
 
+	function signin (username, password) {
 
+		return exec({
+			method: 'post',
+			url: '/signin',
+			data: {
+				'username': username,
+				'password': password
+			}
+		});
+	}
 
-/*
-	 * gets all matchups for a champion
-	 * --
-	 * @param {String} champ - champion name
-	 * @return {Promise} from .exec
-	 */
 	function signup (username, password) {
-
-		console.log(username);
-		console.log(password);
 
 		return exec({
 			method: 'post',

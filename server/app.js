@@ -85,7 +85,13 @@ app.get('*', (req, res, next) => {
 
 app.post('/api/signup',
 	passport.authenticate('local-signup'),
-	function (err, req, res) {
+	function (req, res, err) {
+		res.sendStatus(200);
+	});
+
+app.post('/api/signin',
+	passport.authenticate('local-signin'),
+	function (req, res, err) {
 		res.sendStatus(200);
 	});
 
