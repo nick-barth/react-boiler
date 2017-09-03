@@ -10,6 +10,7 @@ const matchup = require('./schemas/matchup.js').Matchup;
 //connect to database
 mongoose.connect('mongodb://admin_test:test12@ds139262.mlab.com:39262/quakechampselect');
 
+
 // GET champion
 exports.getChampion = function (req, res) {
 	const name = req.query.name;

@@ -23,10 +23,14 @@ export default function getUserApi (exec) {
 	 * @return {Promise} from .exec
 	 */
 	function signup (username, password) {
+
+		console.log(username);
+		console.log(password);
+
 		return exec({
 			method: 'post',
 			url: '/signup',
-			query: {
+			data: {
 				'username': username,
 				'password': password
 			}

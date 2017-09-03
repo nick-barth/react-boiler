@@ -3,9 +3,12 @@ const path = require('path');
 const Express = require('express');
 const passport = require('passport');
 const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
 const session = require('express-session');
 const config = require('./config');
 const api = require('./api');
+
+ require('./api/utils/passport')(passport);
 
 const port = process.env.PORT || 8080;
 const env = config.name;
@@ -16,6 +19,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.use(cookieParser());
+app.use(bodyParser());
 app.use(Express.static(path.join(__dirname, 'assets')));
 app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
 app.use(passport.initialize());
@@ -79,12 +83,11 @@ app.get('*', (req, res, next) => {
 	});
 });
 
-app.post('/signup', passport.authenticate('local-signup', {
-	successRedirect: '/profile', // redirect to the secure profile section
-	failureRedirect: '/signup' // redirect back to the signup page if there is an error
-}));
-
-
+app.post('/api/signup',
+	passport.authenticate('local-signup'),
+	function (err, req, res) {
+		res.sendStatus(200);
+	});
 
 // API
 app.post('/api/updateMatchup', api.updateMatchup);
@@ -92,6 +95,7 @@ app.get('/api/matchup', api.getMatchup);
 app.get('/api/matchups', api.getMatchups);
 app.get('/api/champs', api.getChampions);
 app.get('/api/champ', api.getChampion);
+
 
 app.listen(port, err => {
 	if (err) {

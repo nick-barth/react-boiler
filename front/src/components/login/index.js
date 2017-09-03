@@ -20,22 +20,20 @@ class Login extends React.Component {
 		super(props);
 
 		this.state = {
-			login: {
-				name: null,
-				password: null
-			},
-			signup: {
-				name: null,
-				password: null
-			}
+			loginName: '',
+			loginPassword: '',
+			signupName: 'Longjohn',
+			signupPassword: 'silver'
 		};
+
+		this.handleSignup = this.handleSignup.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleSignup (e) {
 		e.preventDefault();
-		const { signupName, signupPw } = this.state;
 
-		API.user.signup(signupName, signupPw)
+		API.user.signup(this.state.signupName, this.state.signupPassword)
 		.promise
 		.then(res => {
 			console.log(res);
@@ -45,6 +43,12 @@ class Login extends React.Component {
 		});
 	}
 
+	handleChange (e) {
+		const change = {};
+
+		change[e.target.name] = e.target.value;
+		this.setState(change);
+	}
 
 
 	render () {
@@ -55,8 +59,8 @@ class Login extends React.Component {
 				</div>
 				<div className="login__signup">
 					<form onSubmit={this.handleSignup}>
-						<input type="text" value={this.state.signupName} onChange={this.handleChange} />
-						<input type="password" value={this.state.signupPw} onChange={this.handleChange} />
+						<input type="text" value={this.state.signupName} name="signupName" onChange={this.handleChange} />
+						<input type="password" value={this.state.signupPassword} name="signupPassword" onChange={this.handleChange} />
 						 <input type="submit" value="Submit" />
 					</form>
 				</div>
