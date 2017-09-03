@@ -47,7 +47,7 @@ export default class MatchupIndex extends React.Component {
 	render () {
 		return (
 			<div>
-				<Login />
+				//TODO: MATCHUP
 			</div>
 		);
 	}
