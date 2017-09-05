@@ -4,47 +4,57 @@
 
 // Vendors
 import React from 'react';
+import { connect } from 'react-redux';
 
-import API from 'api';
+//Store
+import { actions as userActions } from 'store/user.js';
 
 /*
  * LOGIN
  * =====
  */
 
-
+@connect(
+	state => ({
+		store: state
+	}), {
+		login: userActions.login
+	}
+)
 class Login extends React.Component {
 
+	static propTypes = {
+		login: React.PropTypes.func.isRequired
+	};
 
 	constructor (props) {
 		super(props);
 
 		this.state = {
-			login: {
-				name: null,
-				password: null
-			},
-			signup: {
-				name: null,
-				password: null
-			}
+			loginName: '',
+			loginPassword: '',
+			signupName: 'Longjohn',
+			signupPassword: 'silver'
 		};
+
+		this.handleSignup = this.handleSignup.bind(this);
+		this.handleChange = this.handleChange.bind(this);
 	}
 
 	handleSignup (e) {
 		e.preventDefault();
-		const { signupName, signupPw } = this.state;
 
-		API.user.signup(signupName, signupPw)
-		.promise
-		.then(res => {
-			console.log(res);
-		})
-		.catch(res => {
-			console.log(res);
-		});
+
+
+		this.props.login(this.state.signupName, this.state.signupPassword);
 	}
 
+	handleChange (e) {
+		const change = {};
+
+		change[e.target.name] = e.target.value;
+		this.setState(change);
+	}
 
 
 	render () {
@@ -55,8 +65,8 @@ class Login extends React.Component {
 				</div>
 				<div className="login__signup">
 					<form onSubmit={this.handleSignup}>
-						<input type="text" value={this.state.signupName} onChange={this.handleChange} />
-						<input type="password" value={this.state.signupPw} onChange={this.handleChange} />
+						<input type="text" value={this.state.signupName} name="signupName" onChange={this.handleChange} />
+						<input type="password" value={this.state.signupPassword} name="signupPassword" onChange={this.handleChange} />
 						 <input type="submit" value="Submit" />
 					</form>
 				</div>

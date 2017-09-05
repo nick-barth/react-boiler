@@ -10,6 +10,7 @@ const matchup = require('./schemas/matchup.js').Matchup;
 //connect to database
 mongoose.connect('mongodb://admin_test:test12@ds139262.mlab.com:39262/quakechampselect');
 
+
 // GET champion
 exports.getChampion = function (req, res) {
 	const name = req.query.name;
@@ -21,7 +22,7 @@ exports.getChampion = function (req, res) {
 
 // GET champions
 exports.getChampions = function (req, res) {
-	champ.find({}, 'name id', function (err, champs) {
+	champ.find({}, 'name id tagline', function (err, champs) {
 		res.json(champs);
 	});
 };
@@ -50,6 +51,7 @@ exports.updateMatchup = function (req, res) {
 	const champ1 = req.query.champ1;
 	const champ2 = req.query.champ2;
 	const update = req.query.update;
+	const user = req.query.user;
 
 	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
 		const indexOf =  matchups.champions.findIndex(x => x.name === update.name);
@@ -66,6 +68,11 @@ exports.updateMatchup = function (req, res) {
 			if (err) {
 				throw err;
 			}
+
+			matchup.findOneAndUpdate({ 'user.username': new RegExp(user, 'i') }, function (err, user) {
+				console.log(user);
+
+			});
 
 			matchup.find({ 'champions.name': new RegExp(champ1, 'i') }, function (err, matchups) {
 				res.json(matchups);
