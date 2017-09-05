@@ -6,15 +6,22 @@
 import React from 'react';
 import API from 'api';
 
+import { connect } from 'react-redux';
+
 import Login from 'components/login/index.js';
 
 /*
  * LAYOUT - MATCHUP
  * =================
  */
+
+@connect(
+	s => ({ store: s })
+)
 export default class MatchupIndex extends React.Component {
 
 	static propTypes = {
+		store: React.PropTypes.object.isRequired,
 		match: React.PropTypes.object.isRequired
 	};
 
@@ -47,7 +54,7 @@ export default class MatchupIndex extends React.Component {
 	render () {
 		return (
 			<div>
-				//TODO: MATCHUP
+				<Login />
 			</div>
 		);
 	}

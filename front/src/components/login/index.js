@@ -4,17 +4,28 @@
 
 // Vendors
 import React from 'react';
+import { connect } from 'react-redux';
 
-import API from 'api';
+//Store
+import { actions as userActions } from 'store/user.js';
 
 /*
  * LOGIN
  * =====
  */
 
-
+@connect(
+	state => ({
+		store: state
+	}), {
+		login: userActions.login
+	}
+)
 class Login extends React.Component {
 
+	static propTypes = {
+		login: React.PropTypes.func.isRequired
+	};
 
 	constructor (props) {
 		super(props);
@@ -33,14 +44,9 @@ class Login extends React.Component {
 	handleSignup (e) {
 		e.preventDefault();
 
-		API.user.signin(this.state.signupName, this.state.signupPassword)
-		.promise
-		.then(res => {
-			console.log(res);
-		})
-		.catch(res => {
-			console.log(res);
-		});
+
+
+		this.props.login(this.state.signupName, this.state.signupPassword);
 	}
 
 	handleChange (e) {

@@ -59,6 +59,8 @@ export default class ChampionLayout extends React.Component {
 			const { matchUpdate } = this.props;
 			const { champion } = state;
 
+			console.log(this.props.store);
+
 			if (direction) {
 				const update = {
 					name: item.name,

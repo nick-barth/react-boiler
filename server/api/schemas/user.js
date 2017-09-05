@@ -7,7 +7,11 @@ const userSchema = mongoose.Schema({
 	local: {
 		username: String,
 		password: String
-	}
+	},
+	votes: [{
+		champions: Array,
+		direction: Number
+	}]
 });
 
 // methods ======================
