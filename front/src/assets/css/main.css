@@ -55,12 +55,12 @@ a {
 	max-width: 100%;
 	margin: auto;
 	overflow-x: hidden;
-	background-image: var(--background-texture);
+	background-image: var(--background-texture-small);
 	background-repeat: repeat;
 }
 
 @media (--tablet-large) {
 	.layout {
-		background-image: var(--background-texture-desktop);
+		background-image: var(--background-texture-medium);
 	}
 }
