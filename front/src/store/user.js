@@ -1,18 +1,8 @@
 /*
- * DEPENDENCIES
- * ============
- */
-
-import API from 'api';
-
-/*
  * ACTION TYPES
  * ============
  */
-const FETCH_CHAMP_AND_MATCHUP_ATTEMPT = 'FETCH_CHAMP_AND_MATCHUP_ATTEMPT';
-const FETCH_CHAMP_SUCCESS = 'FETCH_CHAMP_SUCCESS';
-const FETCH_MATCHUP_SUCCESS = 'FETCH_MATCHUP_SUCCESS';
-const UPDATE_MATCHUP_SUCCESS = 'UPDATE_MATCHUP_SUCCESS';
+const SET_RECORDS = 'SET_RECORDS';
 
 
 /*
@@ -41,7 +31,7 @@ export const actions = {
 function setRecords (records) {
 	return (dispatch) => {
 		dispatch({
-			type: FETCH_CHAMP_AND_MATCHUP_ATTEMPT,
+			type: SET_RECORDS,
 			payload: {
 				records: records
 			}
@@ -56,7 +46,7 @@ function setRecords (records) {
  */
 export function reducer (state = initalState, action) {
 	switch (action.type) {
-		case FETCH_CHAMP_AND_MATCHUP_ATTEMPT:
+		case SET_RECORDS:
 			return Object.assign({}, state, {
 				records: action.payload.records
 			});
