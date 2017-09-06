@@ -18,3 +18,9 @@
 		padding: var(--modular-base) var(--modular-xxxl);
 	}
 }
+
+@media (--desktop-small) {
+	.footer {
+		padding: var(--modular-base) 11.089rem;
+	}
+}

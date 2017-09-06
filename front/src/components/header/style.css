@@ -35,3 +35,12 @@
 		font-size: var(--modular-xxl);
 	}
 }
+
+@media (--desktop-medium) {
+	.header {
+		margin: var(--modular-xxl) 0 var(--modular-xl) 0;
+	}
+	.header__logo-text {
+		font-size: var(--modular-xxl);
+	}
+}

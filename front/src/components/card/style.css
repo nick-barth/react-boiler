@@ -94,3 +94,24 @@
 		grid-gap: var(--modular-s);	
 	}
 }
+
+@media (--desktop-medium) {
+	.card__css-grid {
+		grid-gap: var(--modular-base);
+	}
+}
+
+@media (--desktop-large) {
+	.card__css-grid {
+		padding: 0 var(--modular-xxxl);
+		margin: 0 0 var(--modular-xl);
+	}
+}
+
+@media (--desktop-xlarge) {
+	.card__css-grid {
+		margin: 0 0 var(--modular-xxl);
+		padding: 0 11.089rem;
+		grid-gap: var(--modular-base);		
+	}
+}
