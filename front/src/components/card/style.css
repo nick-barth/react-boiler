@@ -2,7 +2,7 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	-ms-grid-columns: repeat(2, 1fr);
-	grid-gap: var(--modular-xs);
+	grid-gap: var(--modular-xxs);
 	margin: 0 0 var(--modular-l);
 	padding: 0 var(--modular-xs);
 }
@@ -55,8 +55,8 @@
 
 @media (--tablet) {
 	.card__css-grid {
-		grid-template-columns: repeat(2, 1fr);
-		-ms-grid-columns: repeat(2, 1fr);
+		grid-template-columns: repeat(3, 1fr);
+		-ms-grid-columns: repeat(3, 1fr);
 		grid-gap: var(--modular-xs);
 		margin: 0 0 var(--modular-xl);
 		padding: 0 var(--modular-s);
@@ -79,9 +79,18 @@
 	.card__css-grid {
 		grid-template-columns: repeat(4, 1fr);
 		-ms-grid-columns: repeat(4, 1fr);
+		padding: 0 var(--modular-l);
+	
 	}
 	.card__name {
-		bottom: var(--modular-base);
-		right: var(--modular-xxs);
+		bottom: 2.9rem;
+		padding: .7rem;
+	}
+}
+
+@media (--desktop-small) {
+	.card__css-grid {
+		padding: 0 var(--modular-xxl);
+		grid-gap: var(--modular-s);	
 	}
 }
