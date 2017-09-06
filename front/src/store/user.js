@@ -11,7 +11,7 @@ const SET_RECORDS = 'SET_RECORDS';
  */
 const initalState = {
 	records: {
-		matchups: []
+		matchupVotes: []
 	}
 };
 
@@ -23,9 +23,9 @@ export const actions = {
 };
 
 /*
- * Fetch place by its id
+ * Set Records
  * --
- * @param {String} id - a place id
+ * @param {Object} records
  * @return {ActionCreator}
  */
 function setRecords (records) {

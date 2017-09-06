@@ -6,8 +6,6 @@
 import React from 'react';
 import API from 'api';
 
-import Login from 'components/login/index.js';
-
 /*
  * LAYOUT - MATCHUP
  * =================

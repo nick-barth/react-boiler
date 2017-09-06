@@ -19,7 +19,8 @@ export default class LandingLayout extends React.Component {
 	 * Validate props
 	 */
 	static propTypes = {
-		children: React.PropTypes.element
+		children: React.PropTypes.element,
+		setRecords: React.PropTypes.func
 	};
 
 	constructor (props) {

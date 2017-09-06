@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 
 // Store
 import { actions as championActions } from 'store/champion.js';
+import { actions as userActions } from 'store/user.js';
 
 // Components
 import Matchup from 'components/matchup/index.js';
@@ -22,7 +23,9 @@ import Tips from 'components/tips/index.js';
 		store: state
 	}), {
 		fetchChampionAndMatchups: championActions.fetchChampionAndMatchups,
-		matchUpdate: championActions.matchUpdate
+		matchUpdate: championActions.matchUpdate,
+		setRecords: userActions.setRecords
+
 	}
 )
 export default class ChampionLayout extends React.Component {
@@ -31,7 +34,8 @@ export default class ChampionLayout extends React.Component {
 		store: React.PropTypes.object.isRequired,
 		match: React.PropTypes.object.isRequired,
 		fetchChampionAndMatchups: React.PropTypes.func.isRequired,
-		matchUpdate: React.PropTypes.func.isRequired
+		matchUpdate: React.PropTypes.func.isRequired,
+		setRecords: React.PropTypes.func.isRequired
 	};
 
 	constructor (props) {
@@ -42,9 +46,14 @@ export default class ChampionLayout extends React.Component {
 	}
 
 	componentDidMount () {
+		const { fetchChampionAndMatchups, setRecords } = this.props;
 		const id = this.props.match.params.champion;
 
-		this.props.fetchChampionAndMatchups(id);
+		fetchChampionAndMatchups(id);
+
+		if (localStorage.getItem('quakechampionselect')) {
+			setRecords(JSON.parse(localStorage.getItem('quakechampionselect')));
+		}
 	}
 
 	/*
@@ -80,8 +89,8 @@ export default class ChampionLayout extends React.Component {
 	}
 
 	render () {
-		const state = this.props.store.championStore;
-		const { matchups, champion } = state;
+		const { store } = this.props;
+		const { matchups, champion } = store.championStore;
 
 		return (
 			<div>
@@ -92,12 +101,7 @@ export default class ChampionLayout extends React.Component {
 							list={matchups}
 							champ={champion}
 							onChange={this.vote}
-						/>
-						<Matchup
-							title={`Best matchups vs ${champion.name}`}
-							list={matchups}
-							champ={champion}
-							onChange={this.vote}
+							records={store.userStore.records.matchupVotes}
 						/>
 						<Tips
 							title={`Tips for fighting against ${champion.name}`}
