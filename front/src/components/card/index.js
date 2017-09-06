@@ -34,7 +34,12 @@ class Card extends React.Component {
 					{champ.name}
 				</div>
 				<img className="card__bg" src={`images/card/${champ.name.toLowerCase()}.jpg`}/>
+				<div className="card__tag-line">
+					{champ.tagline}
+					<div className="card__accent"></div>				
+				</div>
 			</Link>
+				
 		);
 	}
 }
