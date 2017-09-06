@@ -30,7 +30,6 @@
 	line-height: 0;
 	background-color: rgba(210, 39, 48, 0.8);
 	padding: .45rem;
-	letter-spacing: 1px;	
 }
 
 .card__bg {
@@ -44,32 +43,35 @@
 	padding: var(--modular-s) 0;
 	font-size: var(--modular-s);
 	text-transform: uppercase;
-	border-bottom: 1px;
-	border-bottom-color: var(--main-color);
-	border-bottom-style: solid;
 }
 
-card__accent {
+.card__accent {
+	position: absolute;
 	width: 100%;
 	background-color: var(--main-color);
 	height: 1px;
+	bottom: 0;
 }
 
 @media (--tablet) {
-	.card {
-		border-width: 0.09rem;
-	}
 	.card__css-grid {
-		grid-template-columns: repeat(3, 1fr);
-		-ms-grid-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		-ms-grid-columns: repeat(2, 1fr);
 		grid-gap: var(--modular-xs);
 		margin: 0 0 var(--modular-xl);
 		padding: 0 var(--modular-s);
 	}
 	.card__name {
 		font-size: var(--modular-base);
-		bottom: var(--modular-base);
-		right: var(--modular-xxs);
+		bottom: 2.9rem;
+		padding: .7rem;
+	}
+	.card__tag-line {
+		font-size: var(--modular-base);	
+		padding: var(--modular-base) 0;	
+	}
+	.card__accent {
+		height: 2px;
 	}
 }
 
