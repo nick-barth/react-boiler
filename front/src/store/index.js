@@ -9,6 +9,7 @@ import thunk from 'redux-thunk';
 
 // Reducers
 import { reducer as championStore } from './champion.js';
+import { reducer as userStore } from './user.js';
 
 /*
  * Create store
@@ -16,6 +17,7 @@ import { reducer as championStore } from './champion.js';
  * Combines reducers to create global store
  */
 const reducers = combineReducers({
+	userStore: userStore,
 	championStore: championStore
 });
 
