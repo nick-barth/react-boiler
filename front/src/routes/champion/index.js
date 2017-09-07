@@ -64,9 +64,9 @@ export default class ChampionLayout extends React.Component {
 	*/
 	vote (item, direction) {
 		return () => {
-			const state = this.props.store.championStore;
+			const { championStore, userStore } = this.props.store;
 			const { matchUpdate } = this.props;
-			const { champion } = state;
+			const { champion } = championStore;
 
 			if (direction) {
 				const update = {
@@ -85,12 +85,21 @@ export default class ChampionLayout extends React.Component {
 				matchUpdate(champion, update);
 			}
 
+			userStore.records.matchups.push([item.name, champion.name]);
+
+			this.props.setRecords(userStore.records.matchups, 'matchups');
+			localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
+
 		};
 	}
 
 	render () {
 		const { store } = this.props;
 		const { matchups, champion } = store.championStore;
+
+		console.log(store.userStore);
+
+		localStorage.clear();
 
 		return (
 			<div>
@@ -101,7 +110,7 @@ export default class ChampionLayout extends React.Component {
 							list={matchups}
 							champ={champion}
 							onChange={this.vote}
-							records={store.userStore.records.matchupVotes}
+							records={store.userStore.records.matchups}
 						/>
 						<Tips
 							title={`Tips for fighting against ${champion.name}`}

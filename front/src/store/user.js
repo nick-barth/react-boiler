@@ -11,7 +11,7 @@ const SET_RECORDS = 'SET_RECORDS';
  */
 const initalState = {
 	records: {
-		matchupVotes: []
+		matchups: []
 	}
 };
 
@@ -28,12 +28,13 @@ export const actions = {
  * @param {Object} records
  * @return {ActionCreator}
  */
-function setRecords (records) {
+function setRecords (records, type) {
 	return (dispatch) => {
 		dispatch({
 			type: SET_RECORDS,
 			payload: {
-				records: records
+				records: records,
+				type: type
 			}
 		});
 	};
@@ -48,7 +49,9 @@ export function reducer (state = initalState, action) {
 	switch (action.type) {
 		case SET_RECORDS:
 			return Object.assign({}, state, {
-				records: action.payload.records
+				records: {
+					[action.payload.type]: action.payload.records
+				}
 			});
 
 		default:

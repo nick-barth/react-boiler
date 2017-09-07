@@ -39,8 +39,6 @@ class Matchup extends React.Component {
 							return record.includes(item.name) && record.includes(champ.name);
 						});
 
-						console.log(duplicates);
-
 						const canVote = duplicates.length === 0;
 
 						console.log(canVote);
