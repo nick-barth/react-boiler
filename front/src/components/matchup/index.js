@@ -4,6 +4,7 @@
 
 // Vendors
 import React from 'react';
+import _ from 'lodash';
 
 /*
  * MATCHUP
@@ -16,7 +17,8 @@ class Matchup extends React.Component {
 		champ: React.PropTypes.object.isRequired,
 		list: React.PropTypes.array.isRequired,
 		title: React.PropTypes.string.isRequired,
-		onChange: React.PropTypes.func.isRequired
+		onChange: React.PropTypes.func.isRequired,
+		records: React.PropTypes.object.isRequired
 	};
 
 	constructor (props) {
@@ -24,7 +26,7 @@ class Matchup extends React.Component {
 	}
 
 	render () {
-		const { list, title, onChange } = this.props;
+		const { list, title, onChange, records, champ } = this.props;
 
 		return (
 			<div className="list">
@@ -33,6 +35,13 @@ class Matchup extends React.Component {
 				</div>
 				<div className="list__list">
 					{list.map(item => {
+						const duplicates = records.filter(record => {
+							return record.includes(item.name) && record.includes(champ.name);
+						});
+
+						const canVote = duplicates.length === 0;
+
+						console.log(canVote);
 						return (
 							<div className="list__item" key={item.name}>
 								<div className="list__item-name">

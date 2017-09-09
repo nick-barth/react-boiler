@@ -25,6 +25,7 @@ export default class LandingLayout extends React.Component {
 	static propTypes = {
 		store: React.PropTypes.object.isRequired,
 		children: React.PropTypes.element
+
 	};
 
 	constructor (props) {

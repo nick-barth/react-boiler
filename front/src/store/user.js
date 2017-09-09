@@ -1,66 +1,40 @@
 /*
- * DEPENDENCIES
- * ============
- */
-
-import API from 'api';
-
-/*
  * ACTION TYPES
  * ============
  */
-const USER_LOGIN_ATTEMPT = 'USER_LOGIN_ATTEMPT';
-const USER_LOGIN_FAILURE = 'USER_LOGIN_FAILURE';
-const USER_LOGIN_SUCCESS = 'USER_LOGIN_SUCCESS';
-
+const SET_RECORDS = 'SET_RECORDS';
 
 /*
  * INITIAL STATE
  * =============
  */
 const initalState = {
-	user: {}
+	records: {
+		matchups: []
+	}
 };
 
 /*
  * Expose all action creators
  */
 export const actions = {
-	login
+	setRecords
 };
 
 /*
- * Fetch place by its id
+ * Set Records
  * --
- * @param {String} id - a place id
+ * @param {Object} records
  * @return {ActionCreator}
  */
-function login (user, password) {
+function setRecords (records, type) {
 	return (dispatch) => {
 		dispatch({
-			type: USER_LOGIN_ATTEMPT,
+			type: SET_RECORDS,
 			payload: {
-				user: user
+				records: records,
+				type: type
 			}
-		});
-
-		API.user.signin(user, password)
-		.promise
-		.then(res => {
-			dispatch({
-				type: USER_LOGIN_SUCCESS,
-				payload: {
-					user: res.data.username
-				}
-			});
-		})
-		.catch(res => {
-			dispatch({
-				type: USER_LOGIN_FAILURE,
-				payload: {
-					errors: res.errors
-				}
-			});
 		});
 	};
 
@@ -72,23 +46,12 @@ function login (user, password) {
  */
 export function reducer (state = initalState, action) {
 	switch (action.type) {
-		case USER_LOGIN_ATTEMPT:
-			return Object.assign({}, state, {
-				isLoggingIn: true
-			});
 
-		// Successfully fetched champ
-		case USER_LOGIN_SUCCESS:
+		case SET_RECORDS:
 			return Object.assign({}, state, {
-				user: action.payload.user,
-				isLoggingIn: false,
-				errors: []
-			});
-
-		// Successfully fetched matchups of champ
-		case USER_LOGIN_FAILURE:
-			return Object.assign({}, state, {
-				errors: action.payload.errors
+				records: {
+					[action.payload.type]: action.payload.records
+				}
 			});
 
 		default:

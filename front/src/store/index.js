@@ -17,8 +17,8 @@ import { reducer as userStore } from './user.js';
  * Combines reducers to create global store
  */
 const reducers = combineReducers({
-	championStore: championStore,
-	user: userStore
+	userStore: userStore,
+	championStore: championStore
 });
 
 const store = applyMiddleware(thunk)(createStore)(
