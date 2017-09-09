@@ -4,7 +4,6 @@
  */
 const SET_RECORDS = 'SET_RECORDS';
 
-
 /*
  * INITIAL STATE
  * =============
@@ -47,6 +46,7 @@ function setRecords (records, type) {
  */
 export function reducer (state = initalState, action) {
 	switch (action.type) {
+
 		case SET_RECORDS:
 			return Object.assign({}, state, {
 				records: {

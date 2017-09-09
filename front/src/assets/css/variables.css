@@ -7,6 +7,7 @@
 	/*
 	 * Modular Scale - 1.618 (Golden Ratio)
 	 */
+	--modular-xxxs: 0.09rem;
 	--modular-xxs: 0.146rem;
 	--modular-xs: 0.382rem;
 	--modular-s: 0.618rem;
@@ -14,10 +15,14 @@
 	--modular-l: 1.618rem;
 	--modular-xl: 2.618rem;
 	--modular-xxl: 4.236rem;
+	--modular-xxxl: 6.854rem;
 	/*
 	 * Theme
 	 */
-	--background: #272527;
+	--background-texture-small: url(/images/textures/background-texture-small.jpg);
+	--background-texture-medium: url(/images/textures/background-texture-medium.jpg);	
+	--background-texture-large: url(/images/textures/background-texture-large.jpg);	
+	--background-color: #191719;
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
 	/*
@@ -30,6 +35,7 @@
 	--color-gray-medium-light: #dddddd;
 	--color-gray-medium: #eaeaea;
 	--color-gray-dark: #555555;
+	--color-gray-darker: #3f3f3f;
 	/*
 	 * Texts
 	 */

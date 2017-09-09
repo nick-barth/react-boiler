@@ -1,7 +1,26 @@
 .footer {
-	padding: var(--modular-l);
-	text-align:center;
-	font-size:  var(--modular-s);
+	padding: var(--modular-s);
+	text-align: center;
+	font-size: var(--modular-s);
 	line-height: 140%;
-	border-top:1px solid var(--main-color);
+	box-shadow: 0 0 12px 0 var(--main-color);
+	background: var(--background-color);
+}
+
+@media (--tablet) {
+	.footer {
+		padding: var(--modular-base) var(--modular-xl);
+	}
+}
+
+@media (--tablet-large) {
+	.footer {
+		padding: var(--modular-base) var(--modular-xxxl);
+	}
+}
+
+@media (--desktop-small) {
+	.footer {
+		padding: var(--modular-base) 11.089rem;
+	}
 }
