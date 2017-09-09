@@ -52,7 +52,7 @@ export default class ChampionLayout extends React.Component {
 		fetchChampionAndMatchups(id);
 
 		if (localStorage.getItem('quakechampionselect')) {
-			setRecords(JSON.parse(localStorage.getItem('quakechampionselect')));
+			setRecords(JSON.parse(localStorage.getItem('quakechampionselect')), 'matchups');
 		}
 	}
 
@@ -100,8 +100,6 @@ export default class ChampionLayout extends React.Component {
 		const { matchups, champion } = store.championStore;
 
 		console.log(store.userStore);
-
-		localStorage.clear();
 
 		return (
 			<div>

@@ -41,16 +41,15 @@ class Matchup extends React.Component {
 
 						const canVote = duplicates.length === 0;
 
-						console.log(canVote);
 						return (
 							<div className="list__item" key={item.name}>
 								<div className="list__item-name">
 									{item.name}
 								</div>
-								<div className="list__item-up" onClick={onChange(item, 1)}>
+								<div className="list__item-up" onClick={canVote ? onChange(item, 1) : null}>
 									{item.up}
 								</div>
-								<div className="list__item-down" onClick={onChange(item, 0)}>
+								<div className="list__item-down" onClick={canVote ? onChange(item, 0) : null}>
 									{item.down}
 								</div>
 							</div>
