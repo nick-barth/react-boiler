@@ -4,7 +4,6 @@
 
 // Vendors
 import React from 'react';
-import { connect } from 'react-redux';
 
 // Components
 import Header from '../components/header/index.js';
@@ -14,9 +13,6 @@ import Footer from '../components/footer/index.js';
  * LAYOUT - INDEX
  * ==============
  */
-@connect(
-	s => ({ store: s })
-)
 export default class LandingLayout extends React.Component {
 
 	/*
@@ -30,8 +26,6 @@ export default class LandingLayout extends React.Component {
 
 	constructor (props) {
 		super(props);
-
-		console.log(props.store);
 
 	}
 
