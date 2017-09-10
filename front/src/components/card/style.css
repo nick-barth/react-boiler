@@ -55,8 +55,8 @@
 
 @media (--tablet) {
 	.card__css-grid {
-		grid-template-columns: repeat(3, 1fr);
-		-ms-grid-columns: repeat(3, 1fr);
+		grid-template-columns: repeat(2, 1fr);
+		-ms-grid-columns: repeat(2, 1fr);
 		grid-gap: var(--modular-xs);
 		margin: 0 0 var(--modular-xl);
 		padding: 0 var(--modular-s);
@@ -77,8 +77,8 @@
 
 @media (--tablet-large) {
 	.card__css-grid {
-		grid-template-columns: repeat(4, 1fr);
-		-ms-grid-columns: repeat(4, 1fr);
+		grid-template-columns: repeat(3, 1fr);
+		-ms-grid-columns: repeat(3, 1fr);
 		padding: 0 var(--modular-l);
 	
 	}
@@ -88,15 +88,10 @@
 	}
 }
 
-@media (--desktop-small) {
-	.card__css-grid {
-		padding: 0 var(--modular-xxl);
-		grid-gap: var(--modular-s);	
-	}
-}
-
 @media (--desktop-medium) {
 	.card__css-grid {
+		grid-template-columns: repeat(4, 1fr);
+		-ms-grid-columns: repeat(4, 1fr);
 		grid-gap: var(--modular-base);
 	}
 }
