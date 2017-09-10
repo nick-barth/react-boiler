@@ -68,8 +68,6 @@ export default class ChampionLayout extends React.Component {
 			const { matchUpdate } = this.props;
 			const { champion } = championStore;
 
-			console.log(this.props.store);
-
 			if (direction) {
 				const update = {
 					name: item.name,
@@ -98,8 +96,6 @@ export default class ChampionLayout extends React.Component {
 	render () {
 		const { store } = this.props;
 		const { matchups, champion } = store.championStore;
-
-		console.log(store.userStore);
 
 		return (
 			<div>

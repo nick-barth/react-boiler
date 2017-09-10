@@ -35,10 +35,7 @@ class Matchup extends React.Component {
 				</div>
 				<div className="list__list">
 					{list.map(item => {
-						const duplicates = records.filter(record => {
-							return record.includes(item.name) && record.includes(champ.name);
-						});
-
+						const duplicates = records.filter(record => record.includes(item.name) && record.includes(champ.name));
 						const canVote = duplicates.length === 0;
 
 						return (
