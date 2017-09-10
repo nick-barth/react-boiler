@@ -30,6 +30,7 @@ class Card extends React.Component {
 
 		return (
 			<Link to={`/champion/${champ.name.toLowerCase()}`} className="card">
+				<div className="card__overlay"></div>
 				<div className="card__name">
 					{champ.name}
 				</div>

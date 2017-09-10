@@ -16,8 +16,17 @@
 	line-height: 0;
 }
 
-.card:hover>.card__bg {
-	transform: scale(1.4);
+.card:hover .card__tag-line, .card:hover .card__name {
+	opacity: 0;
+}
+
+.card:hover .card__overlay {
+	opacity: 100;
+}
+
+.card:hover .card__bg {
+	transform: scale(1.5) rotate(3deg);
+	transition-timing-function: ease-in;
 }
 
 .card__name {
@@ -25,16 +34,19 @@
 	font-weight: 600;
 	font-size: var(--modular-s);
 	text-transform: uppercase;
-	bottom: 1.7rem;
+	bottom: 2.1rem;
 	z-index: 4;
 	line-height: 0;
 	background-color: rgba(210, 39, 48, 0.8);
 	padding: .45rem;
+	transition: all .15s;
+	pointer-events: none;
 }
 
 .card__bg {
 	max-width: 100%;
-	transition: all .4s;
+	transition: all .2s;
+	pointer-events: none;
 }
 
 .card__tag-line {
@@ -43,6 +55,8 @@
 	padding: var(--modular-s) 0;
 	font-size: var(--modular-s);
 	text-transform: uppercase;
+	transition: all .15s;
+	pointer-events: none;
 }
 
 .card__accent {
@@ -50,7 +64,19 @@
 	width: 100%;
 	background-color: var(--main-color);
 	height: 1px;
-	bottom: 0;
+	top: 0;
+	transition: all .15s;
+}
+
+.card__overlay {
+	opacity: 0;
+	width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+	position: absolute;
+	z-index: 10;
+	transition: all .3s .1s;
+	pointer-events: none;	
 }
 
 @media (--tablet) {
@@ -63,7 +89,7 @@
 	}
 	.card__name {
 		font-size: var(--modular-base);
-		bottom: 2.9rem;
+		bottom: 3.3rem;
 		padding: .7rem;
 	}
 	.card__tag-line {
@@ -83,8 +109,7 @@
 	
 	}
 	.card__name {
-		bottom: 2.9rem;
-		padding: .7rem;
+		bottom: 3rem;
 	}
 }
 
@@ -100,6 +125,9 @@
 	.card__css-grid {
 		padding: 0 var(--modular-xxxl);
 		margin: 0 0 var(--modular-xl);
+	}
+	.card__name {
+		bottom: 3.3rem;
 	}
 }
 
