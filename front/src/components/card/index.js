@@ -40,7 +40,6 @@ class Card extends React.Component {
 					{champ.tagline}
 					<div className="card__accent"></div>				
 				</div>
-
 			</Link>
 				
 		);
