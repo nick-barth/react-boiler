@@ -22,24 +22,23 @@ class Card extends React.Component {
 
 	constructor (props) {
 		super(props);
-
-	}
+	};
 
 	render () {
 		const { champ } = this.props;
 
 		return (
 			<Link to={`/champion/${champ.name.toLowerCase()}`} className="card">
-				<div className="card__overlay"></div>
+				<div className="card__overlay" />
 				<div className="card__name">
 					{champ.name}
 				</div>
 				<img className="card__bg" src={`images/card/${champ.name.toLowerCase()}.jpg`}/>
-				<object data="images/card/target.svg" type="image/svg+xml" className="card__hover-target"></object>				
 				<div className="card__tag-line">
 					{champ.tagline}
-					<div className="card__accent"></div>				
+					<div className="card__accent" />			
 				</div>
+				<object data="images/card/target.svg" type="image/svg+xml" className="card__hover-target" />
 			</Link>
 				
 		);

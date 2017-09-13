@@ -27,6 +27,12 @@
 
 @media (--desktop-medium) {
 	.footer {
+		padding: var(--modular-base) 15rem;
+	}
+}
+
+@media (--desktop-large) {
+	.footer {
 		padding: var(--modular-base) 25rem;
 	}
 }
