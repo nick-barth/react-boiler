@@ -17,9 +17,9 @@ class Matchup extends React.Component {
 	static propTypes = {
 		list: React.PropTypes.array.isRequired,
 		title: React.PropTypes.string.isRequired,
-		records: React.PropTypes.array.isRequried,
+		records: React.PropTypes.array.isRequired,
 		onChange: React.PropTypes.func.isRequired,
-		champion: React.propTypes.object.isRequired
+		champion: React.PropTypes.object.isRequired
 	};
 
 	constructor (props) {
