@@ -5,11 +5,7 @@
 // Vendors
 import React from 'react';
 
-// API
-import API from 'api';
-
 // Components
-import Card from 'components/card/index.js';
 import ChampionGrid from 'components/championGrid/index.js'
 
 /*
@@ -17,10 +13,7 @@ import ChampionGrid from 'components/championGrid/index.js'
  * ==============
  */
 export default class App extends React.Component {
-
-
 	render () {
-
 		return (
 			<ChampionGrid />
 		);
