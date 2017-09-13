@@ -46,7 +46,7 @@ export default class ChampionGrid extends React.Component {
 		return (
 			<div style={{ 'width': '100%', 'margin': 'auto' }}>
 			{champions ? (
-				<div className="card__css-grid">
+				<div className="champion-grid">
 				{champions.map(champ => {
 					return (
 						<Card
