@@ -35,13 +35,11 @@
 	background-color: rgba(210, 39, 48, 0.8);
 	padding: .45rem;
 	transition: all .2s;
-	pointer-events: none;
 }
 
 .card__bg {
 	max-width: 100%;
 	transition: all .2s ease-in;
-	pointer-events: none;
 }
 
 .card__tag-line {
@@ -51,7 +49,6 @@
 	font-size: var(--modular-s);
 	text-transform: uppercase;
 	transition: all .2s;
-	pointer-events: none;
 }
 
 .card__accent {
@@ -71,7 +68,6 @@
 	position: absolute;
 	z-index: 10;
 	transition: all .2s;
-	pointer-events: none;	
 }
 
 .card:hover .card__overlay {
@@ -91,6 +87,7 @@
 	transform: scale(0);
 	opacity: 0;
 	fill: #ffffff;
+	pointer-events: none;	
 }
 
 .card:hover .card__hover-target {
