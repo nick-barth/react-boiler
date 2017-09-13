@@ -62,7 +62,7 @@ export default class ChampionLayout extends React.Component {
 	* @param {item} Object
 	* @param {direction} Boolean
 	*/
-	vote (item, direction) {
+	matchupVote (item, direction) {
 		return () => {
 			const { championStore, userStore } = this.props.store;
 			const { matchUpdate } = this.props;
@@ -93,6 +93,10 @@ export default class ChampionLayout extends React.Component {
 		};
 	}
 
+	tipsVote () {
+		console.log('wow');
+	}
+
 	render () {
 		const { store } = this.props;
 		const { matchups, champion } = store.championStore;
@@ -105,12 +109,15 @@ export default class ChampionLayout extends React.Component {
 							title={`Worst matchups vs ${champion.name}`}
 							list={matchups}
 							champ={champion}
-							onChange={this.vote}
+							onChange={this.matchuopVote}
 							records={store.userStore.records.matchups}
 						/>
 						<Tips
 							title={`Tips for fighting against ${champion.name}`}
+							champ={champion}
 							list={champion.tips}
+							records={store.userStore.records.records}
+							onChange={this.tipsVote}
 						/>
 					</div>
 				) :null}

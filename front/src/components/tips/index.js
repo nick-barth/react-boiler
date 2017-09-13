@@ -16,7 +16,10 @@ class Matchup extends React.Component {
 
 	static propTypes = {
 		list: React.PropTypes.array.isRequired,
-		title: React.PropTypes.string.isRequired
+		title: React.PropTypes.string.isRequired,
+		records: React.PropTypes.array.isRequried,
+		onChange: React.PropTypes.func.isRequired,
+		champion: React.propTypes.object.isRequired
 	};
 
 	constructor (props) {
@@ -26,7 +29,7 @@ class Matchup extends React.Component {
 
 
 	render () {
-		const { list, title } = this.props;
+		const { list, title, records, onChange, champion } = this.props;
 
 		return (
 			<div className="list">
@@ -35,12 +38,15 @@ class Matchup extends React.Component {
 				</div>
 				<div className="list__list">
 					{list.map(item => {
+						const duplicates = records.filter(record => record.includes(item.name) && record.includes(champion.name));
+						const canVote = duplicates.length === 0;
+
 						return (
 							<div className="list__item" key={item.author}>
 								<div className="list__item-name">
 									{item.tip}
 								</div>
-								<div className="list__item-up">
+								<div className="list__item-up" onClick={canVote ? onChange(item, 1) : null}>
 									{item.up}
 								</div>
 								<div className="list__item-down">
