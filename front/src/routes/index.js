@@ -10,6 +10,7 @@ import API from 'api';
 
 // Components
 import Card from 'components/card/index.js';
+import ChampionGrid from 'components/championGrid/index.js'
 
 /*
  * LAYOUT - INDEX
@@ -17,47 +18,11 @@ import Card from 'components/card/index.js';
  */
 export default class App extends React.Component {
 
-	constructor (props) {
-		super(props);
-
-		this.state = {
-			champions: []
-		};
-
-	}
-
-	componentWillMount () {
-		API.champ.getChampions()
-		.promise
-		.then(res => {
-			this.setState({
-				champions: res.data
-			});
-		})
-		.catch(res => {
-			console.log(res);
-			console.log('error');
-		});
-	}
 
 	render () {
-		const { champions } = this.state;
 
 		return (
-			<div style={{ 'width': '100%', 'margin': 'auto' }}>
-			{champions ? (
-				<div className="card__css-grid">
-				{champions.map(champ => {
-					return (
-						<Card
-							key={champ.id}
-							champ={champ}
-						/>
-					);
-				})}
-				</div>
-			) : null}
-			</div>
+			<ChampionGrid />
 		);
 	}
 
