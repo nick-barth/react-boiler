@@ -35,10 +35,12 @@ class Card extends React.Component {
 					{champ.name}
 				</div>
 				<img className="card__bg" src={`images/card/${champ.name.toLowerCase()}.jpg`}/>
+				<object data="images/card/target.svg" type="image/svg+xml" className="card__hover-target"></object>				
 				<div className="card__tag-line">
 					{champ.tagline}
 					<div className="card__accent"></div>				
 				</div>
+
 			</Link>
 				
 		);
