@@ -45,10 +45,10 @@ class Matchup extends React.Component {
 								<div className="list__item-name">
 									{item.name}
 								</div>
-								<div className="list__item-up" onClick={canVote ? onChange(item, 1) : null}>
+								<div className="list__item-up" onClick={canVote ? () => onChange(item, 1) : null}>
 									{item.up}
 								</div>
-								<div className="list__item-down" onClick={canVote ? onChange(item, 0) : null}>
+								<div className="list__item-down" onClick={canVote ? () => onChange(item, 0) : null}>
 									{item.down}
 								</div>
 							</div>

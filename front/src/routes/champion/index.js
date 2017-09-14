@@ -41,8 +41,6 @@ export default class ChampionLayout extends React.Component {
 	constructor (props) {
 		super(props);
 
-		this.matchupVote = this.matchupVote.bind(this);
-
 	}
 
 	componentDidMount () {
@@ -63,36 +61,32 @@ export default class ChampionLayout extends React.Component {
 	* @param {direction} Boolean
 	*/
 	matchupVote (item, direction) {
-		return () => {
-			const { championStore, userStore } = this.props.store;
-			const { matchUpdate } = this.props;
-			const { champion } = championStore;
 
-			console.log(item);
+		const { championStore, userStore } = this.props.store;
+		const { matchUpdate } = this.props;
+		const { champion } = championStore;
 
-			if (direction) {
-				const update = {
-					name: item.name,
-					up: item.up + 1
-				};
+		if (direction) {
+			const update = {
+				name: item.name,
+				up: item.up + 1
+			};
 
-				matchUpdate(champion, update);
-			}
-			else {
-				const update = {
-					name: item.name,
-					down: item.down + 1
-				};
+			matchUpdate(champion, update);
+		}
+		else {
+			const update = {
+				name: item.name,
+				down: item.down + 1
+			};
 
-				matchUpdate(champion, update);
-			}
+			matchUpdate(champion, update);
+		}
 
-			userStore.records.matchups.push({ champions: [item.name, champion.name], direction: direction });
+		userStore.records.matchups.push({ champions: [item.name, champion.name], direction: direction });
 
-			this.props.setRecords(userStore.records.matchups, 'matchups');
-			localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
-
-		};
+		this.props.setRecords(userStore.records.matchups, 'matchups');
+		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
 	}
 
 	tipsVote () {
@@ -118,7 +112,7 @@ export default class ChampionLayout extends React.Component {
 							title={`Worst matchups vs ${champion.name}`}
 							list={matchups}
 							champ={champion}
-							onChange={this.matchupVote}
+							onChange={(item, direction) => this.matchupVote(item, direction)}
 							records={store.userStore.records.matchups}
 						/>
 				) :null}
