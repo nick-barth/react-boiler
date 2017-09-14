@@ -20,11 +20,12 @@
 	font-weight: 600;
 	font-size: var(--modular-s);
 	text-transform: uppercase;
-	bottom: 1.25rem;
+	bottom: 1.35rem;
 	z-index: 10;
 	line-height: 0;
 	background-color: var(--main-color);
-	padding: .45rem;
+	padding: var(--modular-xxs) var(--modular-xs);
+	line-height: var(--modular-s);
 	transition: all .2s ease-in;
 }
 
@@ -36,13 +37,14 @@
 .card__tag-line {
 	position: relative;
 	text-align: center;
-	padding: var(--modular-s) 0;
+	padding: var(--modular-xs) 0;
 	font-size: calc(var(--modular-s) * .85);
 	text-transform: uppercase;
 	transition: all .2s ease-in;
 	width: 100%;
 	background-color: var(--background-color);
 	z-index: 10;
+	line-height: var(--modular-s);
 }
 
 .card__accent {
@@ -91,12 +93,12 @@
 	}
 	.card__name {
 		font-size: var(--modular-base);
-		bottom: 2rem;
-		padding: .7rem;
+		bottom: 1.8rem;
+		padding: .5rem var(--modular-s);
 	}
 	.card__tag-line {
 		font-size: calc(var(--modular-base) * .85);
-		padding: var(--modular-base) 0;	
+		padding: var(--modular-s) 0;	
 	}
 	.card__accent {
 		height: 2px;
@@ -114,19 +116,19 @@
 		bottom: 0;
 	}
 	.card__tag-line {
-		transform: translateY(95%);
+		transform: translateY(1.7rem);
 		position: absolute;
 		bottom: 0;
 	}
 	.card:hover .card__name {
-		transform: translateY(-2rem);		
+		transform: translateY(-1.7rem);		
 	}
 	.card__hover-target {
 		display: block;
-		height: 70px;
-		width: 70px;
-		margin-top: -35px;
-		margin-left: -35px;
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
 		left: 50%;
 		position: absolute;
 		top: 35%;
@@ -139,22 +141,22 @@
 	}
 	.card:hover .card__hover-target {
 		transform: scale(1);	
-		height: 50px;
-		width: 50px;
-		margin-top: -25px;
-		margin-left: -25px;
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
 		animation: rotateTarget;
 		animation-duration: 7.5s;
 		animation-timing-function: linear;
 		animation-iteration-count: infinite;
-		animation-delay: .35s;
+		animation-delay: .36s;
 		opacity: 100;
 	}
 	.card:hover .card__bg {
 		transform: scale(1.5) rotate(8deg);
 	}
 	.card:hover .card__tag-line {
-		transform: translateY(0%);
+		transform: translateY(0);
 	}
 	.card:hover .card__overlay {
 		opacity: 100;
@@ -163,9 +165,7 @@
 
 @media (--desktop-medium) {
 	.card__css-grid {
-		grid-template-columns: repeat(4, 1fr);
-		-ms-grid-columns: repeat(4, 1fr);
-		grid-gap: var(--modular-base);
+		padding: 0 var(--modular-xxl);		
 	}
 }
 
@@ -173,6 +173,10 @@
 	.card__css-grid {
 		padding: 0 var(--modular-xxxl);
 		margin: 0 0 var(--modular-xl);
+		grid-template-columns: repeat(4, 1fr);
+		-ms-grid-columns: repeat(4, 1fr);
+		grid-gap: var(--modular-s);
+		
 	}
 }
 
