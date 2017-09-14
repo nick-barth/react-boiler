@@ -20,7 +20,7 @@
 	font-weight: 600;
 	font-size: var(--modular-s);
 	text-transform: uppercase;
-	bottom: 2rem;
+	bottom: 1.25rem;
 	z-index: 10;
 	line-height: 0;
 	background-color: var(--main-color);
@@ -37,7 +37,7 @@
 	position: relative;
 	text-align: center;
 	padding: var(--modular-s) 0;
-	font-size: .5rem;
+	font-size: calc(var(--modular-s) * .85);
 	text-transform: uppercase;
 	transition: all .2s ease-in;
 	width: 100%;
@@ -91,11 +91,11 @@
 	}
 	.card__name {
 		font-size: var(--modular-base);
-		bottom: 3.3rem;
+		bottom: 2rem;
 		padding: .7rem;
 	}
 	.card__tag-line {
-		font-size: .7rem;	
+		font-size: calc(var(--modular-base) * .85);
 		padding: var(--modular-base) 0;	
 	}
 	.card__accent {
@@ -111,13 +111,15 @@
 	
 	}
 	.card__name {
-		bottom: 1.9rem;
+		bottom: 0;
 	}
 	.card__tag-line {
-		transform: translateY(94%);
+		transform: translateY(95%);
 		position: absolute;
-		font-size: .8rem;
 		bottom: 0;
+	}
+	.card:hover .card__name {
+		transform: translateY(-2rem);		
 	}
 	.card__hover-target {
 		display: block;
@@ -127,7 +129,7 @@
 		margin-left: -35px;
 		left: 50%;
 		position: absolute;
-		top: 37.5%;
+		top: 35%;
 		z-index: 10;
 		transition: .35s linear;
 		transform: scale(0);
