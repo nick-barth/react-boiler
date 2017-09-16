@@ -12,8 +12,14 @@ import Card from 'components/card/index.js';
  * LAYOUT - INDEX
  * ==============
  */
-export default class ChampionGrid extends React.Component {
-
+export default class ChampionGrid extends React.Component {	
+	static defaultProps = {
+		champions: []
+	};
+	
+	static propTypes = {
+		champions: React.PropTypes.array.isRequired
+	};
 	
 	render () {
 		
@@ -35,12 +41,3 @@ export default class ChampionGrid extends React.Component {
 		);
 	}
 }
-
-ChampionGrid.defaultProps = {
-	champions: []
-  };
-
-ChampionGrid.propTypes = {
-	champions: React.PropTypes.array.isRequired
-  };
-  
