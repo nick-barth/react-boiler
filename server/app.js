@@ -17,6 +17,11 @@ const app = new Express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
+app.use((req, res, next) => {
+	res.header('Access-Control-Allow-Origin', '*');
+	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+	next();
+});
 
 app.use(cookieParser());
 app.use(bodyParser());
@@ -38,7 +43,7 @@ app.get('*', (req, res, next) => {
 
 	// Asset preloading
 	// These headers may be picked by supported CDNs or other reverse-proxies and push the assets via HTTP/2
-	// To disable PUSH, append "; nopush"
+	// To disable PUSH, append '; nopush"
 	// More details: https://blog.cloudflare.com/announcing-support-for-http-2-server-push-2/
 	const linkHeaders = [...preloadScripts.map(script => `\</js/${script}\>; rel=preload; as=script`)];
 
