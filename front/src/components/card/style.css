@@ -1,14 +1,9 @@
 .card {
 	position: relative;
-	background-color: var(--background-color);
 	border: 1px outset var(--color-gray-darker);
 	cursor: pointer;
 	overflow: hidden;
 	line-height: 0;
-}
-
-.card:hover>.card__bg {
-	transform: scale(1.4);
 }
 
 .card__name {
@@ -16,24 +11,31 @@
 	font-weight: 600;
 	font-size: var(--modular-s);
 	text-transform: uppercase;
-	bottom: 1.7rem;
-	z-index: 4;
+	bottom: 1.35rem;
+	z-index: 10;
 	line-height: 0;
-	background-color: rgba(210, 39, 48, 0.8);
-	padding: .45rem;
+	background-color: var(--main-color);
+	padding: var(--modular-xxs) var(--modular-xs);
+	line-height: var(--modular-s);
+	transition: all .2s ease-in;
 }
 
 .card__bg {
 	max-width: 100%;
-	transition: all .4s;
+	transition: all .2s ease-in;
 }
 
 .card__tag-line {
 	position: relative;
 	text-align: center;
-	padding: var(--modular-s) 0;
-	font-size: var(--modular-s);
+	padding: var(--modular-xs) 0;
+	font-size: calc(var(--modular-s) * .85);
 	text-transform: uppercase;
+	transition: all .2s ease-in;
+	width: 100%;
+	background-color: var(--background-color);
+	z-index: 10;
+	line-height: var(--modular-s);
 }
 
 .card__accent {
@@ -41,18 +43,46 @@
 	width: 100%;
 	background-color: var(--main-color);
 	height: 1px;
-	bottom: 0;
+	top: 0;
+	transition: all .2s ease-in;
 }
+
+.card__overlay {
+	opacity: 0;
+	width: 100%;
+    height: 100%;
+    background-color: var(--overlay-background);
+	position: absolute;
+	z-index: 10;
+	transition: all .2s ease-in;
+}
+
+.card__hover-target {
+	display: none;
+}
+
+/*
+ * Animations
+ */
+
+@keyframes rotateTarget {
+	from {transform: rotate(0deg);}
+	to {transform: rotate(360deg);}	
+}
+
+/*
+ * Media Queries
+ */
 
 @media (--tablet) {
 	.card__name {
 		font-size: var(--modular-base);
-		bottom: 2.9rem;
-		padding: .7rem;
+		bottom: 1.8rem;
+		padding: .5rem var(--modular-s);
 	}
 	.card__tag-line {
-		font-size: var(--modular-base);	
-		padding: var(--modular-base) 0;	
+		font-size: calc(var(--modular-base) * .85);
+		padding: var(--modular-s) 0;	
 	}
 	.card__accent {
 		height: 2px;
@@ -61,7 +91,52 @@
 
 @media (--tablet-large) {
 	.card__name {
-		bottom: 2.9rem;
-		padding: .7rem;
+		bottom: 0;
+	}
+	.card__tag-line {
+		transform: translateY(1.7rem);
+		position: absolute;
+		bottom: 0;
+	}
+	.card:hover .card__name {
+		transform: translateY(-1.7rem);		
+	}
+	.card__hover-target {
+		display: block;
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
+		left: 50%;
+		position: absolute;
+		top: 35%;
+		z-index: 10;
+		transition: .35s linear;
+		transform: scale(0);
+		opacity: 0;
+		fill: #ffffff;
+		pointer-events: none;
+	}
+	.card:hover .card__hover-target {
+		transform: scale(1);	
+		height: 60px;
+		width: 60px;
+		margin-top: -30px;
+		margin-left: -30px;
+		animation: rotateTarget;
+		animation-duration: 7.5s;
+		animation-timing-function: linear;
+		animation-iteration-count: infinite;
+		animation-delay: .36s;
+		opacity: 100;
+	}
+	.card:hover .card__bg {
+		transform: scale(1.5) rotate(8deg);
+	}
+	.card:hover .card__tag-line {
+		transform: translateY(0);
+	}
+	.card:hover .card__overlay {
+		opacity: 100;
 	}
 }
