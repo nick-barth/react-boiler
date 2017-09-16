@@ -11,8 +11,8 @@ import { actions as championActions } from 'store/champion.js';
 import { actions as userActions } from 'store/user.js';
 
 // Components
-import Matchup from 'components/matchup/index.js';
-//import Tips from 'components/tips/index.js';
+//import Matchup from 'components/matchup/index.js';
+import Tips from 'components/tips/index.js';
 
 /*
  * LAYOUT - CHAMPION
@@ -100,21 +100,21 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div>
 				{matchups.length > 0 && champion.name ? (
-						// <Tips
-						// 	title={`Tips for fighting against ${champion.name}`}
-						// 	champion={champion}
-						// 	list={champion.tips}
-						// 	records={store.userStore.records.tips}
-						// 	onChange={() => this.tipsVote}
-						// 	key={champion.name}
-						// />
-						<Matchup
-							title={`Worst matchups vs ${champion.name}`}
-							list={matchups}
-							champ={champion}
-							onChange={(item, direction) => this.matchupVote(item, direction)}
-							records={store.userStore.records.matchups}
+						<Tips
+							title={`Tips for ${champion.name}`}
+							champion={champion}
+							list={champion.tips}
+							records={store.userStore.records.tips}
+							onChange={() => this.tipsVote}
+							key={champion.name}
 						/>
+						// <Matchup
+						// 	title={`Worst matchups vs ${champion.name}`}
+						// 	list={matchups}
+						// 	champ={champion}
+						// 	onChange={(item, direction) => this.matchupVote(item, direction)}
+						// 	records={store.userStore.records.matchups}
+						// />
 				) :null}
 			</div>
 		);
