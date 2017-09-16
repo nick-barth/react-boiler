@@ -3,9 +3,9 @@
  * -
  */
 
-:root {
+ :root {
 	/*
-	 * Modular Scale - 1.618 (Golden Ratio)
+	 * Modular Scale
 	 */
 	--modular-xxxs: 0.09rem;
 	--modular-xxs: 0.146rem;
@@ -25,6 +25,7 @@
 	--background-color: #191719;
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
+	--overlay-background: rgba(0, 0, 0, 0.6);
 	/*
 	 * Colors
 	 */
