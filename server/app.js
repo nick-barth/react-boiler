@@ -60,6 +60,7 @@ app.get('*', (req, res, next) => {
 // API
 app.post('/api/updateMatchup', api.updateMatchup);
 app.post('/api/champ/addTip', api.addTip);
+app.post('/api/champ/updateTip', api.updateTip);
 app.get('/api/matchup', api.getMatchup);
 app.get('/api/matchups', api.getMatchups);
 app.get('/api/champs', api.getChampions);

@@ -27,7 +27,6 @@ const champSchema = new mongoose.Schema({
 		desc: String
 	},
 	tips: [{
-		id: Number,
 		tip: String,
 		up: Number,
 		down: Number

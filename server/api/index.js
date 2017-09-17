@@ -58,6 +58,23 @@ exports.addTip = function (req, res) {
 	});
 };
 
+// Add tip
+exports.updateTip = function (req, res) {
+	const id = req.body.id;
+	const direction = req.body.direction;
+
+	if (direction === 1) {
+		champ.findOneAndUpdate({ 'tips._id': id }, {  $inc: { 'tips.$.up': 1 } }, function (err, docs) {
+			res.json(docs);
+		});
+	}
+	else {
+		champ.findOneAndUpdate({ 'tips._id': id }, {  $inc: { 'tips.$.down': 1 } }, function (err, docs) {
+			res.json(docs);
+		});
+	}
+};
+
 // Post matchups
 exports.updateMatchup = function (req, res) {
 	const champ1 = req.query.champ1;
