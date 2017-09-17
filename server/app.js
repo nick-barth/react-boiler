@@ -57,20 +57,9 @@ app.get('*', (req, res, next) => {
 	});
 });
 
-app.post('/api/signup',
-	passport.authenticate('local-signup'),
-	function (req, res, err) {
-		res.status(200).send({ username: req.body.username });
-	});
-
-app.post('/api/signin',
-	passport.authenticate('local-signin'),
-	function (req, res, err) {
-		res.status(200).send({ username: req.body.username });
-	});
-
 // API
 app.post('/api/updateMatchup', api.updateMatchup);
+app.post('/api/champ/addTip', api.addTip);
 app.get('/api/matchup', api.getMatchup);
 app.get('/api/matchups', api.getMatchups);
 app.get('/api/champs', api.getChampions);

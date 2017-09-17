@@ -4,25 +4,35 @@
 
 // Vendors
 import React from 'react';
+import { connect } from 'react-redux';
 
 import Form from 'components/form/index.js';
 import Button from 'components/button/index.js';
+
+// Store
+import { actions as championActions } from 'store/champion.js';
 
 /*
  * MATCHUP
  * =======
  */
 
-
-class Matchup extends React.Component {
+@connect(
+	state => ({
+		store: state
+	}), {
+		addTip: championActions.addTip
+	}
+)
+class Tips extends React.Component {
 
 
 	static propTypes = {
-		list: React.PropTypes.array.isRequired,
 		title: React.PropTypes.string.isRequired,
 		records: React.PropTypes.array,
-		onChange: React.PropTypes.func.isRequired,
-		champion: React.PropTypes.object.isRequired
+		champion: React.PropTypes.object,
+		matchup: React.PropTypes.array,
+		addTip: React.PropTypes.func.isRequired
 	};
 
 	constructor (props) {
@@ -34,7 +44,11 @@ class Matchup extends React.Component {
 	}
 
 	saveTip () {
-		console.log('wow');
+		const { champion, addTip } = this.props;
+		const { text } = this.state;
+
+		addTip(champion.name, text);
+
 	}
 
 
@@ -71,4 +85,4 @@ class Matchup extends React.Component {
 	}
 }
 
-export default Matchup;
+export default Tips;

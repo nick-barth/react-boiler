@@ -46,6 +46,18 @@ exports.getMatchup = function (req, res) {
 	});
 };
 
+// Add tip
+exports.addTip = function (req, res) {
+	const name = req.body.champ;
+	const tip = req.body.tip;
+
+	champ.findOne({ name: new RegExp(name, 'i') }, function (err, champ) {
+		champ.tips.push({ tip: tip, up: 0, down: 0 });
+		champ.save();
+		res.json(champ);
+	});
+};
+
 // Post matchups
 exports.updateMatchup = function (req, res) {
 	const champ1 = req.query.champ1;
@@ -73,7 +85,6 @@ exports.updateMatchup = function (req, res) {
 			});
 		});
 	});
-
 
 
 };

@@ -13,7 +13,7 @@ const FETCH_CHAMP_AND_MATCHUP_ATTEMPT = 'FETCH_CHAMP_AND_MATCHUP_ATTEMPT';
 const FETCH_CHAMP_SUCCESS = 'FETCH_CHAMP_SUCCESS';
 const FETCH_MATCHUP_SUCCESS = 'FETCH_MATCHUP_SUCCESS';
 const UPDATE_MATCHUP_SUCCESS = 'UPDATE_MATCHUP_SUCCESS';
-
+const CHAMP_ADD_TIP_SUCCESS = 'CHAMP_ADD_TIP_SUCCESS';
 
 /*
  * INITIAL STATE
@@ -23,7 +23,8 @@ const initalState = {
 	champion: {},
 	matchups: [],
 	isLoadingChamp: false,
-	isLoadingMatchup: false
+	isLoadingMatchup: false,
+	tips: []
 };
 
 /*
@@ -31,7 +32,8 @@ const initalState = {
  */
 export const actions = {
 	fetchChampionAndMatchups,
-	matchUpdate
+	matchUpdate,
+	addTip
 };
 
 /*
@@ -111,6 +113,26 @@ function matchUpdate (champ, update) {
 
 }
 
+function addTip (champ, tip) {
+	return dispatch => {
+		API.champ.addTip(champ, tip)
+			.promise
+			.then(res => {
+				dispatch({
+					type: CHAMP_ADD_TIP_SUCCESS,
+					payload: {
+						tips: res.data
+					}
+				});
+			})
+			.catch(res => {
+				console.log(res);
+				console.log('error');
+			});
+	};
+
+}
+
 /*
  * REDUCER
  * =======
@@ -145,6 +167,12 @@ export function reducer (state = initalState, action) {
 				matchups: action.payload.matchups,
 				isLoadingMatchup: false,
 				errors: []
+			});
+
+				// Update of a matchup attempt
+		case CHAMP_ADD_TIP_SUCCESS:
+			return Object.assign({}, state, {
+				tips: action.payload.tips
 			});
 
 		default:
