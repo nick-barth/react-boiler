@@ -22,7 +22,8 @@ import { actions as championActions } from 'store/champion.js';
 	state => ({
 		store: state
 	}), {
-		addTip: championActions.addTip
+		addTip: championActions.addTip,
+		updateTip: championActions.updateTip
 	}
 )
 class Tips extends React.Component {
@@ -33,8 +34,11 @@ class Tips extends React.Component {
 		records: React.PropTypes.array,
 		champion: React.PropTypes.object,
 		matchup: React.PropTypes.array,
+		tips: React.PropTypes.array.isRequired,
+
+		//Store
 		addTip: React.PropTypes.func.isRequired,
-		tips: React.PropTypes.array.isRequired
+		updateTip: React.PropTypes.func.isRequired
 	};
 
 	static defaultProps = {
@@ -59,10 +63,10 @@ class Tips extends React.Component {
 	}
 
 	onVote (item, direction) {
-		console.log('bound');
 		return () => {
-			console.log(item);
-			console.log(direction);
+			const { updateTip } = this.props;
+
+			updateTip(item._id, direction);
 		};
 	}
 
@@ -70,8 +74,6 @@ class Tips extends React.Component {
 
 	render () {
 		const { title, tips, records } = this.props;
-
-		console.log(tips);
 
 		return (
 			<div className="tips">

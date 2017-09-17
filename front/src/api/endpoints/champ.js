@@ -13,7 +13,8 @@ export default function getChampionApi (exec) {
 	return {
 		getChampion,
 		getChampions,
-		addTip
+		addTip,
+		updateTip
 	};
 
 
@@ -60,6 +61,24 @@ export default function getChampionApi (exec) {
 			data: {
 				'champ': champ,
 				'tip': tip
+			}
+		});
+	}
+
+	/*
+	 * Add champion tip
+	 * --
+	 * @param {String} champ - champion name
+	 * @param {tipo} tip - tip string
+	 * @return {Promise} from .exec
+	 */
+	function updateTip (id, direction) {
+		return exec({
+			method: 'post',
+			url: '/champ/updateTip',
+			data: {
+				'id': id,
+				'direction': direction
 			}
 		});
 	}
