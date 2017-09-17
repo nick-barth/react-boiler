@@ -107,6 +107,7 @@ export default class ChampionLayout extends React.Component {
 							records={store.userStore.records.tips}
 							onChange={() => this.tipsVote}
 							key={champion.name}
+							tips={champion.tips}
 						/>
 						// <Matchup
 						// 	title={`Worst matchups vs ${champion.name}`}
