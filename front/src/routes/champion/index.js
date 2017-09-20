@@ -13,7 +13,7 @@ import { actions as userActions } from 'store/user.js';
 // Components
 import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
-import ChampHeader from 'components/champheader/index.js';
+import ChampBanner from 'components/champbanner/index.js';
 
 /*
  * LAYOUT - CHAMPION
@@ -102,7 +102,7 @@ export default class ChampionLayout extends React.Component {
 			<div>
 				{matchups.length > 0 && champion.name ? (
 					<div>
-						<ChampHeader 
+						<ChampBanner
 						champ={champion}
 						key={champion.id}						
 						/>
