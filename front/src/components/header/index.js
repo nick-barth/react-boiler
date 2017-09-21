@@ -20,6 +20,7 @@ class Header extends React.Component {
 	render () {
 		return (
 			<div className="header">
+				<img className="header__logo" src={'images/main/logo.svg'}/>
                 <div className="header__logo-text">
                     <span className="header__logo-emphasis">QUAKE</span>CHAMPSELECT
                 </div>
