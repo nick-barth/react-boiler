@@ -11,7 +11,7 @@ import { actions as championActions } from 'store/champion.js';
 import { actions as userActions } from 'store/user.js';
 
 // Components
-import Matchup from 'components/matchup/index.js';
+//import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
 
 /*
@@ -41,8 +41,6 @@ export default class ChampionLayout extends React.Component {
 	constructor (props) {
 		super(props);
 
-		this.vote = this.vote.bind(this);
-
 	}
 
 	componentDidMount () {
@@ -62,35 +60,37 @@ export default class ChampionLayout extends React.Component {
 	* @param {item} Object
 	* @param {direction} Boolean
 	*/
-	vote (item, direction) {
-		return () => {
-			const { championStore, userStore } = this.props.store;
-			const { matchUpdate } = this.props;
-			const { champion } = championStore;
+	matchupVote (item, direction) {
 
-			if (direction) {
-				const update = {
-					name: item.name,
-					up: item.up + 1
-				};
+		const { championStore, userStore } = this.props.store;
+		const { matchUpdate } = this.props;
+		const { champion } = championStore;
 
-				matchUpdate(champion, update);
-			}
-			else {
-				const update = {
-					name: item.name,
-					down: item.down + 1
-				};
+		if (direction) {
+			const update = {
+				name: item.name,
+				up: item.up + 1
+			};
 
-				matchUpdate(champion, update);
-			}
+			matchUpdate(champion, update);
+		}
+		else {
+			const update = {
+				name: item.name,
+				down: item.down + 1
+			};
 
-			userStore.records.matchups.push([item.name, champion.name]);
+			matchUpdate(champion, update);
+		}
 
-			this.props.setRecords(userStore.records.matchups, 'matchups');
-			localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
+		userStore.records.matchups.push({ champions: [item.name, champion.name], direction: direction });
 
-		};
+		this.props.setRecords(userStore.records.matchups, 'matchups');
+		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
+	}
+
+	tipsVote () {
+		console.log('wow');
 	}
 
 	render () {
@@ -100,22 +100,26 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div>
 				{matchups.length > 0 && champion.name ? (
-					<div>
-						<Matchup
-							title={`Worst matchups vs ${champion.name}`}
-							list={matchups}
-							champ={champion}
-							onChange={this.vote}
-							records={store.userStore.records.matchups}
-						/>
 						<Tips
-							title={`Tips for fighting against ${champion.name}`}
+							title={`Tips for ${champion.name}`}
+							champion={champion}
 							list={champion.tips}
+							records={store.userStore.records.tips}
+							onChange={() => this.tipsVote}
+							key={champion.name}
+							tips={champion.tips}
 						/>
-					</div>
+						// <Matchup
+						// 	title={`Worst matchups vs ${champion.name}`}
+						// 	list={matchups}
+						// 	champ={champion}
+						// 	onChange={(item, direction) => this.matchupVote(item, direction)}
+						// 	records={store.userStore.records.matchups}
+						// />
 				) :null}
 			</div>
 		);
 	}
 
 }
+

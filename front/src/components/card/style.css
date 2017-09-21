@@ -45,6 +45,7 @@
 	height: 1px;
 	top: 0;
 	transition: all .2s ease-in;
+
 }
 
 .card__overlay {
@@ -97,6 +98,7 @@
 		transform: translateY(1.7rem);
 		position: absolute;
 		bottom: 0;
+
 	}
 	.card:hover .card__name {
 		transform: translateY(-1.7rem);		
@@ -117,6 +119,7 @@
 		fill: #ffffff;
 		pointer-events: none;
 	}
+  
 	.card:hover .card__hover-target {
 		transform: scale(1);	
 		height: 60px;

@@ -46,12 +46,40 @@ exports.getMatchup = function (req, res) {
 	});
 };
 
+// Add tip
+exports.addTip = function (req, res) {
+	const name = req.body.champ;
+	const tip = req.body.tip;
+
+	champ.findOne({ name: new RegExp(name, 'i') }, function (err, champ) {
+		champ.tips.push({ tip: tip, up: 0, down: 0 });
+		champ.save();
+		res.json(champ);
+	});
+};
+
+// Add tip
+exports.updateTip = function (req, res) {
+	const id = req.body.id;
+	const direction = req.body.direction;
+
+	if (direction === 1) {
+		champ.findOneAndUpdate({ 'tips._id': id }, {  $inc: { 'tips.$.up': 1 } }, function (err, docs) {
+			res.json(docs);
+		});
+	}
+	else {
+		champ.findOneAndUpdate({ 'tips._id': id }, {  $inc: { 'tips.$.down': 1 } }, function (err, docs) {
+			res.json(docs);
+		});
+	}
+};
+
 // Post matchups
 exports.updateMatchup = function (req, res) {
 	const champ1 = req.query.champ1;
 	const champ2 = req.query.champ2;
 	const update = req.query.update;
-	const user = req.query.user;
 
 	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
 		const indexOf =  matchups.champions.findIndex(x => x.name === update.name);
@@ -69,17 +97,11 @@ exports.updateMatchup = function (req, res) {
 				throw err;
 			}
 
-			matchup.findOneAndUpdate({ 'user.username': new RegExp(user, 'i') }, function (err, user) {
-				console.log(user);
-
-			});
-
 			matchup.find({ 'champions.name': new RegExp(champ1, 'i') }, function (err, matchups) {
 				res.json(matchups);
 			});
 		});
 	});
-
 
 
 };

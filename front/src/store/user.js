@@ -10,7 +10,8 @@ const SET_RECORDS = 'SET_RECORDS';
  */
 const initalState = {
 	records: {
-		matchups: []
+		matchups: [],
+		tips: []
 	}
 };
 

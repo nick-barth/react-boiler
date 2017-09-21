@@ -6,11 +6,11 @@ secret.json
 *.crx
 *.pem
 
-server/files/assets/js/*
-server/files/assets/css/*
-server/files/assets/img/*
-!server/files/assets/img/_core*
-server/files/assets/icons/*
+server/assets/js/*
+server/assets/css/*
+server/assets/img/*
+!server/assets/img/_core*
+server/assets/icons/*
 
 node_modules/*
 front/node_modules/*

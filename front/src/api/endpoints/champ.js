@@ -12,7 +12,9 @@ export default function getChampionApi (exec) {
 	 */
 	return {
 		getChampion,
-		getChampions
+		getChampions,
+		addTip,
+		updateTip
 	};
 
 
@@ -41,6 +43,42 @@ export default function getChampionApi (exec) {
 			url: '/champ',
 			query: {
 				'name': champ
+			}
+		});
+	}
+
+	/*
+	 * Add champion tip
+	 * --
+	 * @param {String} champ - champion name
+	 * @param {tipo} tip - tip string
+	 * @return {Promise} from .exec
+	 */
+	function addTip (champ, tip) {
+		return exec({
+			method: 'post',
+			url: '/champ/addTip',
+			data: {
+				'champ': champ,
+				'tip': tip
+			}
+		});
+	}
+
+	/*
+	 * Add champion tip
+	 * --
+	 * @param {String} champ - champion name
+	 * @param {tipo} tip - tip string
+	 * @return {Promise} from .exec
+	 */
+	function updateTip (id, direction) {
+		return exec({
+			method: 'post',
+			url: '/champ/updateTip',
+			data: {
+				'id': id,
+				'direction': direction
 			}
 		});
 	}

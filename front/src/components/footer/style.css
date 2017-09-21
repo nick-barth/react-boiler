@@ -21,6 +21,18 @@
 
 @media (--desktop-small) {
 	.footer {
-		padding: var(--modular-base) 11.089rem;
+		padding: var(--modular-base) 11rem;
+	}
+}
+
+@media (--desktop-medium) {
+	.footer {
+		padding: var(--modular-base) 15rem;
+	}
+}
+
+@media (--desktop-large) {
+	.footer {
+		padding: var(--modular-base) 25rem;
 	}
 }
