@@ -1,0 +1,17 @@
+.form__input-el {
+    background: var(--background-color);
+    overflow: hidden;
+    border: 1px solid #d22730;
+    min-width: 99%;
+    color: var(--secondary-color);
+    text-transform: uppercase;
+    font-size: calc(var(--modular-base) * .85);
+    font-family: 'Rajdhani';
+    min-height: 4rem;
+    margin-bottom: var(--modular-xxs);
+}
+
+.form__input-el:focus {
+    outline: none;
+    box-shadow: 0 0 6px 0 var(--main-color);
+}

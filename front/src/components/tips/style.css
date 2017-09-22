@@ -6,7 +6,7 @@
 
 .tips__title {
     color: var(--main-color);
-    margin: 0 0 var(--modular-base);
+    margin: 0 0 var(--modular-s);
     font-weight: 600;    
 }
 
@@ -22,6 +22,10 @@
     background: var(--background-color);
     margin-bottom: var(--modular-xs);
     border-bottom: solid 1px var(--main-color);
+}
+
+.tips__tip:last-child {
+    margin-bottom: var(--modular-base);
 }
 
 .tips__tip-name {
@@ -44,6 +48,7 @@
 .vote-container {
     display: flex;
     justify-content: flex-end;
+    
 }
 
 .vote {
@@ -52,5 +57,17 @@
 }
 
 .vote__item-up {
-    margin: 0 1rem;
+    margin: 0 1rem 0 0;
+}
+
+.vote__up-arrow {
+    width: .8rem;
+    height: .8rem;
+    margin: 0 5px 0 0;
+}
+
+.vote__down-arrow {
+    width: .8rem;
+    height: .8rem;
+    margin: 0 5px 0 0;
 }
