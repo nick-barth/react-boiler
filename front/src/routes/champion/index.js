@@ -101,7 +101,7 @@ export default class ChampionLayout extends React.Component {
 			<div>
 				{matchups.length > 0 && champion.name ? (
 						<Tips
-							title={`Tips for ${champion.name}`}
+							title={`${champion.name} tips`}
 							champion={champion}
 							list={champion.tips}
 							records={store.userStore.records.tips}

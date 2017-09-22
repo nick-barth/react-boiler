@@ -86,9 +86,9 @@ class Tips extends React.Component {
 						const canVote = records.length === 0 || duplicates.length === 0;
 
 						return (
-							<div className="tips_tip" key={item._id}>
-								<div className="tips_tip-name">
-									<span className="tips__tip-name_big-white-quote">"</span>{item.tip}<span className="tips__tip-name_big-red-quote">"</span>
+							<div className="tips__tip" key={item._id}>
+								<div className="tips__tip-name">
+									<span className="tips__tip-name_big-red-quote">"</span>{item.tip}<span className="tips__tip-name_big-white-quote">"</span>
 								</div>
 								<Vote
 									voteInfo={item}

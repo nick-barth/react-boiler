@@ -5,9 +5,9 @@
 }
 
 .tips__title {
-    font-size: var(--modular-l);
     color: var(--main-color);
-    margin: 0 0 var(--modular-base);   
+    margin: 0 0 var(--modular-base);
+    font-weight: 600;    
 }
 
 .tips__list {
@@ -17,22 +17,28 @@
     margin: 0;
 }
 
-.tips_tip {
+.tips__tip {
     padding: var(--modular-s) var(--modular-xs);
     background: var(--background-color);
     margin-bottom: var(--modular-xs);
     border-bottom: solid 1px var(--main-color);
 }
 
+.tips__tip-name {
+    font-size: calc(var(--modular-base) * .85);
+}
+
 .tips__tip-name_big-white-quote {
-    font-size: var(--modular-l);
+    font-size: var(--modular-base);
     font-weight: 700;
+    margin: 0 0 0 3px;
 }
 
 .tips__tip-name_big-red-quote {
-    font-size: var(--modular-l);
+    font-size: var(--modular-base);
     color: var(--main-color);
-    font-weight: 600;
+    font-weight: 700;
+    margin: 0 3px 0 0;    
 }
 
 .vote-container {
