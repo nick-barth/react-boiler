@@ -88,7 +88,7 @@ class Tips extends React.Component {
 						return (
 							<div className="tips_tip" key={item._id}>
 								<div className="tips_tip-name">
-									{item.tip}
+									<span className="tips__tip-name_big-white-quote">"</span>{item.tip}<span className="tips__tip-name_big-red-quote">"</span>
 								</div>
 								<Vote
 									voteInfo={item}
