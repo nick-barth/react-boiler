@@ -1,0 +1,26 @@
+.vote-container {
+    display: flex;
+    justify-content: flex-end;
+    
+}
+
+.vote {
+    display: flex;
+    font-weight: 600;
+}
+
+.vote__item-up {
+    margin: 0 1rem 0 0;
+}
+
+.vote__up-arrow {
+    width: .8rem;
+    height: .8rem;
+    margin: 0 7px 0 0;
+}
+
+.vote__down-arrow {
+    width: .8rem;
+    height: .8rem;
+    margin: 0 7px 0 0;
+}

@@ -63,7 +63,7 @@
     background-size: 0% 100%;
     line-height: 0;
     width: 100%;
-    margin: 0 0 var(--modular-l);
+    margin: 0 0 var(--modular-xl);
     cursor: pointer;
 }
 
@@ -81,29 +81,7 @@
 	outline: none;
 }
 
-.vote-container {
-    display: flex;
-    justify-content: flex-end;
-    
-}
+/*
+ * Media Queries
+ */
 
-.vote {
-    display: flex;
-    font-weight: 600;
-}
-
-.vote__item-up {
-    margin: 0 1rem 0 0;
-}
-
-.vote__up-arrow {
-    width: .8rem;
-    height: .8rem;
-    margin: 0 7px 0 0;
-}
-
-.vote__down-arrow {
-    width: .8rem;
-    height: .8rem;
-    margin: 0 7px 0 0;
-}
