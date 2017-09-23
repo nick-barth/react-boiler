@@ -47,7 +47,11 @@
 }
 
 .navbar-container__button:hover {
-	box-shadow: 0 0 24px 0px var(--main-color);
+	box-shadow: 0 0 18px 0px var(--main-color);
+}
+
+.navbar-container__button:active {
+	transform: translateY(2px);
 }
 
 .navbar-container__icon {
