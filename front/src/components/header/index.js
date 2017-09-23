@@ -21,7 +21,7 @@ class Header extends React.Component {
 	render () {
 		return (
 			<div className="navbar-container">
-				<div className="navbar-container__navbar">
+				<div className="navbar">
 					<div className="logo">
 						<img className="logo__img" src='../images/icons/logo.svg'/>
 						<div className="logo__text">
@@ -29,8 +29,8 @@ class Header extends React.Component {
 						</div>
 					</div>
 					<Link to={'/'}>
-						<div className="navbar-container__button">
-							<img className="navbar-container__icon" src='../images/icons/champ-grid-icon.svg'/>
+						<div className="navbar__button">
+							<img className="navbar__icon" src='../images/icons/champ-grid-icon.svg'/>
 							ALL CHAMPIONS				
 						</div>
 					</Link>
