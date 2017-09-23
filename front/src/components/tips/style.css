@@ -20,7 +20,7 @@
 
 .tips__tip {
     padding: var(--modular-s) var(--modular-xs);
-    background: var(--background-color);
+    background: var(--overlay-background);
     margin-bottom: var(--modular-xs);
     border-bottom: solid 1px var(--main-color);
 }

@@ -6,7 +6,7 @@
 }
 
 .form__input-el {
-    background: var(--background-color);
+    background: var(--overlay-background);
     overflow: hidden;
     border: 1px solid #d22730;
     min-width: 99%;
@@ -15,7 +15,7 @@
     font-size: calc(var(--modular-base) * .85);
     font-family: 'Rajdhani';
     min-height: 4rem;
-    margin-bottom: var(--modular-xxs);
+    margin-bottom: var(--modular-xs);
 }
 
 .form__input-el:focus {
