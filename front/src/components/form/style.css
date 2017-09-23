@@ -23,11 +23,3 @@
     box-shadow: 0 0 6px 0 var(--main-color);
 }
 
-@media (--desktop-medium) {
-    .form__title {
-        font-size: var(--modular-l);
-    }
-    .form__input-el {
-        font-size: var(--modular-base);
-    }
-}
