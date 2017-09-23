@@ -1,8 +1,8 @@
 .button__button {
 	border: 2px solid var(--main-color);
 	font-size: var(--modular-s);
-	padding: var(--modular-s) var(--modular-s);
-	transition: all .4s ease-out;
+	padding: var(--modular-base) var(--modular-base);
+	transition: all .25s ease-out;
     font-family: 'Rajdhani';
     text-transform: uppercase;
     color: var(--main-color);
@@ -10,12 +10,12 @@
     margin: 0 0 var(--modular-xl);
     background: var(--background-color);
     background-image: linear-gradient(var(--main-color), var(--main-color));
-    background-position: 50% 50%;
     background-repeat: no-repeat;
-    background-size: 0% 100%;
+    background-position: 50% 0%;
+    background-size: 100% 0%;
     line-height: 0;
-    width: 100%;
     cursor: pointer;
+    align-self: flex-start;
 }
 
 .button__button:hover {
@@ -34,7 +34,6 @@
 
 @media (--desktop-medium) {
     .button__button {
-        font-size: var(--modular-base);
-        padding: var(--modular-s) var(--modular-s);
+        font-size: calc(var(--modular-base) * .85);
     }
 }
