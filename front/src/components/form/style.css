@@ -15,10 +15,19 @@
     font-size: calc(var(--modular-base) * .85);
     font-family: 'Rajdhani';
     min-height: 4rem;
-    margin: 0 0 var(--modular-xs);
+    margin: 0 0 var(--modular-s);
 }
 
 .form__input-el:focus {
     outline: none;
     box-shadow: 0 0 6px 0 var(--main-color);
+}
+
+@media (--desktop-medium) {
+    .form__title {
+        font-size: var(--modular-l);
+    }
+    .form__input-el {
+        font-size: var(--modular-base);
+    }
 }

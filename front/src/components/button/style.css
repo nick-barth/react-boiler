@@ -2,7 +2,7 @@
 	border: 2px solid var(--main-color);
 	font-size: var(--modular-s);
 	padding: var(--modular-s) var(--modular-s);
-	transition: all .3s ease;
+	transition: all .4s ease-out;
     font-family: 'Rajdhani';
     text-transform: uppercase;
     color: var(--main-color);
@@ -30,4 +30,11 @@
 
 .button__button:focus {
 	outline: none;
+}
+
+@media (--desktop-medium) {
+    .button__button {
+        font-size: var(--modular-base);
+        padding: var(--modular-s) var(--modular-s);
+    }
 }
