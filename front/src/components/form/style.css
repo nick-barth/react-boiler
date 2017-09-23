@@ -2,20 +2,20 @@
     color: var(--main-color);
     margin: 0 0 var(--modular-base);
     font-weight: 600;
-    font-size: var(--modular-l);
+    font-size: calc(var(--modular-l) * .85);
 }
 
 .form__input-el {
     background: var(--overlay-background);
     overflow: hidden;
     border: 1px solid #d22730;
-    min-width: 99%;
+    min-width: 100%;
     color: var(--secondary-color);
     text-transform: uppercase;
     font-size: calc(var(--modular-base) * .85);
     font-family: 'Rajdhani';
     min-height: 4rem;
-    margin-bottom: var(--modular-xs);
+    margin: 0 0 var(--modular-xs);
 }
 
 .form__input-el:focus {

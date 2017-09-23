@@ -94,11 +94,12 @@ class Tips extends React.Component {
 									voteInfo={item}
 									upVote={canVote ? this.onVote(item, 1) : null}
 									downVote={canVote ? this.onVote(item, 0) : null}
-								/>
+								/>						
 							</div>
 						);
 					})}
 				</ul>
+				<button className="tips__show-more-btn">show more</button>
 				<Form
 					onSubmit={e => {
 						e.preventDefault();

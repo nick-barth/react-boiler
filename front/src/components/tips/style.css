@@ -1,14 +1,14 @@
 .tips {
     text-transform: uppercase;
     padding: 0 var(--modular-s);
-    font-weight: 500;
+    font-weight: 400;
 }
 
 .tips__title {
     color: var(--main-color);
     margin: 0 0 var(--modular-base);
     font-weight: 600;
-    font-size: var(--modular-l);
+    font-size: calc(var(--modular-l) * .85);
 }
 
 .tips__list {
@@ -26,7 +26,7 @@
 }
 
 .tips__tip:last-child {
-    margin-bottom: var(--modular-l);
+    margin: 0 0 var(--modular-base);
 }
 
 .tips__tip-name {
@@ -44,6 +44,41 @@
     color: var(--main-color);
     font-weight: 700;
     margin: 0 3px 0 0;    
+}
+
+.tips__show-more-btn {
+    border: 2px solid var(--main-color);
+	font-size: var(--modular-s);
+	padding: var(--modular-s) var(--modular-s);
+	transition: all .3s ease;
+    font-family: 'Rajdhani';
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-weight: 600;
+    margin: 0 0 var(--modular-l);
+    background: var(--background-color);
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 0% 100%;
+    line-height: 0;
+    width: 100%;
+    margin: 0 0 var(--modular-l);
+    cursor: pointer;
+}
+
+.tips__show-more-btn:hover {
+    background-size: 100% 100%;
+    color: var(--secondary-color);
+    box-shadow: 0 0 6px 0 var(--main-color);    
+}
+
+.tips__show-more-btn:active {
+	transform: translateY(2px);
+}
+
+.tips__show-more-btn:focus {
+	outline: none;
 }
 
 .vote-container {
@@ -64,11 +99,11 @@
 .vote__up-arrow {
     width: .8rem;
     height: .8rem;
-    margin: 0 5px 0 0;
+    margin: 0 7px 0 0;
 }
 
 .vote__down-arrow {
     width: .8rem;
     height: .8rem;
-    margin: 0 5px 0 0;
+    margin: 0 7px 0 0;
 }
