@@ -1,0 +1,25 @@
+.button__button {
+	border: 1px solid var(--main-color);
+	font-size: var(--modular-base);
+	padding: calc(var(--modular-s) * .5) var(--modular-s);
+	transition: all .15s ease;
+    box-shadow: 0 0 6px 0 var(--main-color);
+    font-family: 'Rajdhani';
+    background: var(--background-color);
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-weight: 500;
+    margin: 0 0 var(--modular-l);
+}
+
+.button__button:hover {
+	box-shadow: 0 0 14px 0px var(--main-color);
+}
+
+.button__button:active {
+	transform: translateY(2px);
+}
+
+.button__button:focus {
+	outline: none;
+}

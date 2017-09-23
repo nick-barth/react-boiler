@@ -45,7 +45,9 @@ class Form extends React.Component {
 		const { children } = this.props;
 
 		return (
+			
 			<form onSubmit={e => this.handleSubmit(e)} className="form" action="" method="post">
+				<div className="form__title">Submit a tip</div>
 				{children}
 			</form>
 		);

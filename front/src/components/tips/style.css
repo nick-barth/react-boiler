@@ -6,8 +6,9 @@
 
 .tips__title {
     color: var(--main-color);
-    margin: 0 0 var(--modular-s);
-    font-weight: 600;    
+    margin: 0 0 var(--modular-base);
+    font-weight: 600;
+    font-size: var(--modular-l);
 }
 
 .tips__list {
@@ -25,7 +26,7 @@
 }
 
 .tips__tip:last-child {
-    margin-bottom: var(--modular-base);
+    margin-bottom: var(--modular-l);
 }
 
 .tips__tip-name {
