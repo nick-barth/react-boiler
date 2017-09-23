@@ -30,7 +30,7 @@ class Header extends React.Component {
 					</div>
 					<Link to={'/'}>
 						<div className="navbar__button">
-							<img className="navbar__icon" src='../images/icons/champ-grid-icon.svg'/>
+							<i className="fa fa-th navbar__button__icon" aria-hidden="true"></i>
 							ALL CHAMPIONS				
 						</div>
 					</Link>
