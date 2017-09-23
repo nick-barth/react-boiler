@@ -4,6 +4,7 @@
 	margin: 0 0 var(--modular-l);
 	border-bottom:1px solid var(--main-color);
 	box-shadow: 0 0 6px 0 var(--main-color);
+	z-index: 10;
 }
 
 .navbar-container__navbar {
