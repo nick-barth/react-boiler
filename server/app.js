@@ -3,6 +3,7 @@ const path = require('path');
 const Express = require('express');
 const config = require('./config');
 const api = require('./api');
+const cors = require('cors');
 
 const port = process.env.PORT || 8080;
 const env = config.name;
@@ -12,6 +13,7 @@ const app = new Express();
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(Express.static(path.join(__dirname, 'assets')));
+app.use(cors());
 
 // App
 app.get('*', (req, res, next) => {
@@ -22,7 +24,7 @@ app.get('*', (req, res, next) => {
 	let webpackManifest;
 
 	const entry = 'bundle.js';
-	const preloadScripts = ['vendor.js', entry];
+	const preloadScripts = [entry];
 
 	// Asset preloading
 	// These headers may be picked by supported CDNs or other reverse-proxies and push the assets via HTTP/2
