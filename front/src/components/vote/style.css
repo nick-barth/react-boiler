@@ -6,21 +6,27 @@
 
 .vote {
     display: flex;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 .vote__item-up {
     margin: 0 1rem 0 0;
 }
 
-.vote__up-arrow {
+.vote__up-arrow, .vote__down-arrow {
     width: .8rem;
     height: .8rem;
     margin: 0 7px 0 0;
 }
 
-.vote__down-arrow {
-    width: .8rem;
-    height: .8rem;
-    margin: 0 7px 0 0;
-}
+@media (--desktop-small) {
+    .vote {
+        font-size: calc(var(--modular-l) * .75);
+    }
+    .vote__up-arrow, .vote__down-arrow {
+        width: 1rem;
+        height: 1rem;
+        margin: 0 7px 0 0;
+    }
+ }
+ 

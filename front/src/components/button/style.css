@@ -40,3 +40,10 @@
         align-self: center;
     }
 }
+
+@media (--desktop-small) {
+    .button__button {
+        font-size: calc(var(--modular-base) * .85);
+        padding: var(--modular-base) var(--modular-l);        
+    }
+}
