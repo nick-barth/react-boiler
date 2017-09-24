@@ -1,14 +1,8 @@
 // src/server.js
 const path = require('path');
 const Express = require('express');
-const passport = require('passport');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
-const session = require('express-session');
 const config = require('./config');
 const api = require('./api');
-
- require('./api/utils/passport')(passport);
 
 const port = process.env.PORT || 8080;
 const env = config.name;
@@ -17,18 +11,7 @@ const app = new Express();
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-	next();
-});
-
-app.use(cookieParser());
-app.use(bodyParser());
 app.use(Express.static(path.join(__dirname, 'assets')));
-app.use(session({ secret: 'ilovescotchscotchyscotchscotch' })); // session secret
-app.use(passport.initialize());
-app.use(passport.session()); // persistent login sessions
 
 // App
 app.get('*', (req, res, next) => {
@@ -38,7 +21,7 @@ app.get('*', (req, res, next) => {
 	}
 	let webpackManifest;
 
-	const entry = 'main.js';
+	const entry = 'bundle.js';
 	const preloadScripts = ['vendor.js', entry];
 
 	// Asset preloading
