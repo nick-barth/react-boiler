@@ -12,10 +12,11 @@ import Button from 'components/button/index.js';
 
 // Store
 import { actions as championActions } from 'store/champion.js';
+import { actions as userActions } from 'store/user.js';
 
 /*
- * MATCHUP
- * =======
+ * TIPS
+ * ====
  */
 
 @connect(
@@ -23,7 +24,8 @@ import { actions as championActions } from 'store/champion.js';
 		store: state
 	}), {
 		addTip: championActions.addTip,
-		updateTip: championActions.updateTip
+		updateTip: championActions.updateTip,
+		setRecords: userActions.setRecords
 	}
 )
 class Tips extends React.Component {
@@ -37,8 +39,10 @@ class Tips extends React.Component {
 		tips: React.PropTypes.array.isRequired,
 
 		//Store
+		store: React.PropTypes.object.isRequired,
 		addTip: React.PropTypes.func.isRequired,
-		updateTip: React.PropTypes.func.isRequired
+		updateTip: React.PropTypes.func.isRequired,
+		setRecords: React.PropTypes.func.isRequired
 	};
 
 	static defaultProps = {
@@ -64,16 +68,30 @@ class Tips extends React.Component {
 
 	onVote (item, direction) {
 		return () => {
-			const { updateTip, champion } = this.props;
+			const { updateTip, champion, store } = this.props;
+			const { userStore } = store;
 
 			updateTip(champion.name, item.tip, direction);
+
+			console.log(userStore.records);
+
+			userStore.records.tips.push({ champion: champion.name, tip: item.tip, direction: direction });
+
+			console.log(userStore);
+
+			this.props.setRecords(userStore.records.tips, 'tips');
+			localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
+
 		};
+
 	}
 
 
 
 	render () {
 		const { title, tips, records } = this.props;
+
+		localStorage.clear();
 
 		return (
 			<div className="tips">
@@ -82,20 +100,20 @@ class Tips extends React.Component {
 				</div>
 				<ul className="tips__list">
 					{tips.map(item => {
-						const duplicates = records.filter(record => record.champions.tips.includes(tips.text));
+						const duplicates = records.filter(record => record.tip === item.tip);
 						const canVote = records.length === 0 || duplicates.length === 0;
 
 						return (
-							<div className="tips_tip" key={item._id}>
+							<li className="tips_tip" key={Math.random()}>
 								<div className="tips_tip-name">
 									{item.tip}
 								</div>
 								<Vote
 									voteInfo={item}
-									upVote={canVote ? this.onVote(item, 1) : null}
-									downVote={canVote ? this.onVote(item, 0) : null}
+									upVote={canVote ? this.onVote(item, 1) : console.log('nice try')}
+									downVote={canVote ? this.onVote(item, 0) : console.log('nicetry')}
 								/>
-							</div>
+							</li>
 						);
 					})}
 				</ul>

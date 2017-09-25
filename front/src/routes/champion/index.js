@@ -86,7 +86,7 @@ export default class ChampionLayout extends React.Component {
 		userStore.records.matchups.push({ champions: [item.name, champion.name], direction: direction });
 
 		this.props.setRecords(userStore.records.matchups, 'matchups');
-		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
+		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
 	}
 
 	render () {
