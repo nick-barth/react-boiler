@@ -59,7 +59,7 @@ exports.getMatchup = function (req, res) {
 			return err;
 		}
 		else if (matchups.length !== 0) {
-			res.json(matchups);
+			res.json(matchups[0]);
 		}
 		else {
 			champ.findOne({ name: new RegExp(champ1, 'i') }, function (err, doc) {
@@ -71,15 +71,16 @@ exports.getMatchup = function (req, res) {
 									{
 										name: champ1,
 										up: 0,
-										down: 0
+										down: 0,
+										tips: []
 									},
 									{
 										name: champ2,
 										up: 0,
-										down: 0
+										down: 0,
+										tips: []
 									}
-								],
-								tips: []
+								]
 							});
 
 							newMatchup.save(function (err) {
@@ -151,6 +152,38 @@ exports.updateMatchup = function (req, res) {
 			});
 		});
 	});
+
+	// Add tip
+	exports.addMatchupTip = function (req, res) {
+		const champ1 = req.query.champ1;
+		const champ2 = req.query.champ2;
+		const tip = req.body.tip;
+
+		 matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, champ) {
+			matchup.tips.push({ tip: tip, up: 0, down: 0 });
+			matchup.save();
+			res.json(matchup);
+		});
+	};
+
+	// Add tip
+	exports.updateMatchupTip = function (req, res) {
+		const champ1 = req.query.champ1;
+		const champ2 = req.query.champ2;
+		const tip = req.body.tip;
+		const direction = req.body.direction;
+
+		if (direction === 1) {
+			matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, {  $inc: { 'tips.$.up': 1 } }, { new: true }, function (err, docs) {
+				res.json(docs);
+			});
+		}
+		else {
+			matchup.findOneAndUpdate({ name: new RegExp(name, 'i'), 'tips.tip': tip }, {  $inc: { 'tips.$.down': 1 } }, { new: true }, function (err, docs) {
+				res.json(docs);
+			});
+		}
+	};
 
 
 };

@@ -37,8 +37,6 @@ class Tips extends React.Component {
 	render () {
 		const { title, list, records, onVote, onAdd } = this.props;
 
-		console.log(records);
-
 		return (
 			<div className="tips">
 				<div className="tips__title">
