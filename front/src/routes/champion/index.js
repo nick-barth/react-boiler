@@ -95,7 +95,7 @@ export default class ChampionLayout extends React.Component {
 
 	render () {
 		const { store } = this.props;
-		const { matchups, champion } = store.championStore;
+		const { matchups, champion, errors } = store.championStore;
 
 		return (
 			<div>
@@ -116,6 +116,11 @@ export default class ChampionLayout extends React.Component {
 						// 	onChange={(item, direction) => this.matchupVote(item, direction)}
 						// 	records={store.userStore.records.matchups}
 						// />
+				) :null}
+				{errors.length > 0 ? (
+					<div>
+						No Champion Found
+					</div>
 				) :null}
 			</div>
 		);

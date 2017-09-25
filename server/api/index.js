@@ -16,7 +16,13 @@ exports.getChampion = function (req, res) {
 	const name = req.query.name;
 
 	champ.findOne({ name: new RegExp(name, 'i') }, function (err, champ) {
-		res.json(champ);
+		if (champ) {
+			res.json(champ);
+		}
+		else {
+			res.status(500);
+			res.json({ 'error': true });
+		}
 	});
 };
 
@@ -32,7 +38,14 @@ exports.getMatchups = function (req, res) {
 	const name = req.query.name;
 
 	matchup.find({ 'champions.name': new RegExp(name, 'i') }, function (err, matchups) {
-		res.json(matchups);
+		if (matchups) {
+			res.json(matchups);
+		}
+		else {
+			res.status(500);
+			res.json({ 'error': true });
+		}
+
 	});
 };
 

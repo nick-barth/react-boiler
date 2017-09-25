@@ -55,8 +55,6 @@ export default class MatchupIndex extends React.Component {
 		const { champion1, champion2 } = this.props.match.params;
 		const { matchup } = this.state;
 
-		console.log(matchup);
-
 		return (
 			<div>
 				wow
