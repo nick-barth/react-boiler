@@ -73,11 +73,7 @@ class Tips extends React.Component {
 
 			updateTip(champion.name, item.tip, direction);
 
-			console.log(userStore.records);
-
 			userStore.records.tips.push({ champion: champion.name, tip: item.tip, direction: direction });
-
-			console.log(userStore);
 
 			this.props.setRecords(userStore.records.tips, 'tips');
 			localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
@@ -90,8 +86,6 @@ class Tips extends React.Component {
 
 	render () {
 		const { title, tips, records } = this.props;
-
-		localStorage.clear();
 
 		return (
 			<div className="tips">
@@ -110,8 +104,8 @@ class Tips extends React.Component {
 								</div>
 								<Vote
 									voteInfo={item}
-									upVote={canVote ? this.onVote(item, 1) : console.log('nice try')}
-									downVote={canVote ? this.onVote(item, 0) : console.log('nicetry')}
+									upVote={canVote ? this.onVote(item, 1) : () => null}
+									downVote={canVote ? this.onVote(item, 0) : () => null}
 								/>
 							</li>
 						);
