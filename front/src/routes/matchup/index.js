@@ -52,10 +52,22 @@ export default class MatchupIndex extends React.Component {
 
 
 	render () {
+		const { champion1, champion2 } = this.props.match.params;
+		const { matchup } = this.state;
+
+		console.log(matchup);
+
 		return (
 			<div>
-				<Login />
+				wow
 			</div>
+				// <Matchup
+				// 	title={`${champion1} vs ${champion2}`}
+				// 	list={matchups}
+				// 	champ={champion}
+				// 	onChange={(item, direction) => this.matchupVote(item, direction)}
+				// 	records={store.userStore.records.matchups}
+				// />
 		);
 	}
 

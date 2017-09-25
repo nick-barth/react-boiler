@@ -42,7 +42,42 @@ exports.getMatchup = function (req, res) {
 	const champ2 = req.query.champ2;
 
 	matchup.find({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
-		res.json(matchups);
+		if (err) {
+			return err;
+		}
+		else if (matchups.length !== 0) {
+			res.json(matchups);
+		}
+		else {
+			champ.findOne({ name: new RegExp(champ1, 'i') }, function (err, doc) {
+				if (doc) {
+					champ.findOne({ name: new RegExp(champ2, 'i') }, function (err, doc2) {
+						if (doc2) {
+							const newMatchup = new matchup({
+								champions: [
+									{
+										name: champ1,
+										up: 0,
+										down: 0
+									},
+									{
+										name: champ2,
+										up: 0,
+										down: 0
+									}
+								],
+								tips: []
+							});
+
+							newMatchup.save(function (err) {
+								res.json(newMatchup);
+							});
+						}
+					});
+				}
+			});
+		}
+
 	});
 };
 
