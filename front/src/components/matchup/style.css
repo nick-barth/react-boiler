@@ -1,3 +1,27 @@
-.list {
-border: 1px solid var(--color-white);
+.list__flex {
+    display: flex;
+}
+
+.matchup-card {
+    border: 1px solid var(--main-color);
+}
+
+.list__champ-img {
+    width: 75px;
+}
+
+.list__item {
+    display: inline-block;
+}
+
+.list__item-name {
+    display: inline-block;
+}
+
+.list__item-up {
+    display: inline-block;    
+}
+
+.list__item-down {
+    display: inline-block;    
 }

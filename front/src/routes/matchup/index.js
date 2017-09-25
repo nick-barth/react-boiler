@@ -11,6 +11,12 @@ import { connect } from 'react-redux';
 import Login from 'components/login/index.js';
 
 /*
+ * Components
+ */
+
+import Matchup from 'components/matchup/index.js';
+
+/*
  * LAYOUT - MATCHUP
  * =================
  */
@@ -56,16 +62,13 @@ export default class MatchupIndex extends React.Component {
 		const { matchup } = this.state;
 
 		return (
-			<div>
-				wow
-			</div>
-				// <Matchup
-				// 	title={`${champion1} vs ${champion2}`}
-				// 	list={matchups}
-				// 	champ={champion}
-				// 	onChange={(item, direction) => this.matchupVote(item, direction)}
-				// 	records={store.userStore.records.matchups}
-				// />
+				 <Matchup
+				 	title={`${champion1} vs ${champion2}`}
+				 	list={matchups}
+				 	champ={champion}
+				 	onChange={(item, direction) => this.matchupVote(item, direction)}
+				 	records={store.userStore.records.matchups}
+				 />
 		);
 	}
 
