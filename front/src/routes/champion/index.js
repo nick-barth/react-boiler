@@ -89,10 +89,6 @@ export default class ChampionLayout extends React.Component {
 		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
 	}
 
-	tipsVote () {
-		console.log('wow');
-	}
-
 	render () {
 		const { store } = this.props;
 		const { matchups, champion, errors } = store.championStore;

@@ -108,16 +108,17 @@ exports.addTip = function (req, res) {
 
 // Add tip
 exports.updateTip = function (req, res) {
-	const id = req.body.id;
+	const name = req.body.name;
+	const tip = req.body.tip;
 	const direction = req.body.direction;
 
 	if (direction === 1) {
-		champ.findOneAndUpdate({ 'tips._id': id }, {  $inc: { 'tips.$.up': 1 } }, function (err, docs) {
+		champ.findOneAndUpdate({ name: new RegExp(name, 'i'), 'tips.tip': tip }, {  $inc: { 'tips.$.up': 1 } }, { new: true }, function (err, docs) {
 			res.json(docs);
 		});
 	}
 	else {
-		champ.findOneAndUpdate({ 'tips._id': id }, {  $inc: { 'tips.$.down': 1 } }, function (err, docs) {
+		champ.findOneAndUpdate({ name: new RegExp(name, 'i'), 'tips.tip': tip }, {  $inc: { 'tips.$.down': 1 } }, { new: true }, function (err, docs) {
 			res.json(docs);
 		});
 	}

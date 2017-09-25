@@ -4,6 +4,7 @@ const Express = require('express');
 const config = require('./config');
 const api = require('./api');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 
 const port = process.env.PORT || 8080;
 const env = config.name;
@@ -14,6 +15,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(Express.static(path.join(__dirname, 'assets')));
 app.use(cors());
+app.use(bodyParser.json());
 
 // App
 app.get('*', (req, res, next) => {

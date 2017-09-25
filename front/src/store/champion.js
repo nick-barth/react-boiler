@@ -27,7 +27,6 @@ const initalState = {
 	matchups: [],
 	isLoadingChamp: false,
 	isLoadingMatchup: false,
-	tips: [],
 	errors: []
 };
 
@@ -136,7 +135,7 @@ function addTip (champ, tip) {
 				dispatch({
 					type: CHAMP_ADD_TIP_SUCCESS,
 					payload: {
-						tips: res.data
+						tips: res.data.tips
 					}
 				});
 			})
@@ -148,15 +147,15 @@ function addTip (champ, tip) {
 
 }
 
-function updateTip (id, direction) {
+function updateTip (name, tip, direction) {
 	return dispatch => {
-		API.champ.updateTip(id, direction)
+		API.champ.updateTip(name, tip, direction)
 			.promise
 			.then(res => {
 				dispatch({
 					type: CHAMP_UPDATE_TIP_SUCCESS,
 					payload: {
-						tips: res.data
+						tips: res.data.tips
 					}
 				});
 			})
@@ -212,12 +211,18 @@ export function reducer (state = initalState, action) {
 				// Update of a matchup attempt
 		case CHAMP_ADD_TIP_SUCCESS:
 			return Object.assign({}, state, {
-				tips: action.payload.tips
+				champion: {
+					...state.champion,
+					tips: action.payload.tips
+				}
 			});
 
 		case CHAMP_UPDATE_TIP_SUCCESS:
 			return Object.assign({}, state, {
-				tips: action.payload.tips
+				champion: {
+					...state.champion,
+					tips: action.payload.tips
+				}
 			});
 
 		default:

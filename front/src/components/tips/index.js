@@ -64,9 +64,9 @@ class Tips extends React.Component {
 
 	onVote (item, direction) {
 		return () => {
-			const { updateTip } = this.props;
+			const { updateTip, champion } = this.props;
 
-			updateTip(item._id, direction);
+			updateTip(champion.name, item.tip, direction);
 		};
 	}
 

@@ -72,12 +72,13 @@ export default function getChampionApi (exec) {
 	 * @param {tipo} tip - tip string
 	 * @return {Promise} from .exec
 	 */
-	function updateTip (id, direction) {
+	function updateTip (name, tip, direction) {
 		return exec({
 			method: 'post',
 			url: '/champ/updateTip',
 			data: {
-				'id': id,
+				'name': name,
+				'tip': tip,
 				'direction': direction
 			}
 		});
