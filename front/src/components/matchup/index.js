@@ -42,18 +42,20 @@ class Matchup extends React.Component {
 
 						return (
 							<div className="matchup-card__container">
-							<div className="matchup-card__champ-img-container">
-								<img className="matchup-card__champ-img" src={`../images/card/${item.name.toLowerCase()}.jpg`} />
-							</div>
 							<div className="matchup-card__champ-name">
 									{item.name}
+							</div>
+							<div className="matchup-card__champ-img-container">
+								<img className="matchup-card__champ-img" src={`../images/card/${item.name.toLowerCase()}.jpg`} />
 							</div>
 							<div className="matchup-card__item" key={item.name}>
 
 								<div className="matchup-card__vote">
+									<img className="matchup-card__up-arrow" src='../images/icons/up-arrow.svg'/>
 									<div className="matchup-card__item-up" onClick={canVote ? () => onChange(item, 1) : null}>
 										{item.up}
 									</div>
+									<img className="matchup-card__down-arrow" src="../images/icons/down-arrow.svg"/>
 									<div className="matchup-card__item-down" onClick={canVote ? () => onChange(item, 0) : null}>
 										{item.down}
 									</div>
