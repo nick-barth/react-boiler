@@ -48,11 +48,13 @@ class Matchup extends React.Component {
 								<div className="matchup-card__champ-name">
 									{item.name}
 								</div>
-								<div className="matchup-card__item-up" onClick={canVote ? () => onChange(item, 1) : null}>
-									{item.up}
-								</div>
-								<div className="matchup-card__item-down" onClick={canVote ? () => onChange(item, 0) : null}>
-									{item.down}
+								<div className="matchup-card__vote">
+									<div className="matchup-card__item-up" onClick={canVote ? () => onChange(item, 1) : null}>
+										{item.up}
+									</div>
+									<div className="matchup-card__item-down" onClick={canVote ? () => onChange(item, 0) : null}>
+										{item.down}
+									</div>
 								</div>
 							</div>
 						</div>

@@ -1,5 +1,7 @@
 .matchup-card__container {
     display: flex;
+    border-bottom: 1px solid var(--main-color);
+    background: rgba(0, 0, 0, 0.7);
 }
 
 .matchup-card__item {
@@ -10,3 +12,26 @@
     width: auto;
     height: 50px;
 }
+
+.matchup-card__vote {
+    display: flex;
+    font-weight: 500;
+}
+
+.matchup-card__item-up {
+    margin: 0 1rem 0 0;
+}
+
+.matchup-card__up-arrow, .matchup-card__down-arrow {
+    width: .8rem;
+    height: .8rem;
+    margin: 0 7px 0 0;
+}
+
+@media (--desktop-small) {
+    .matchup-card__up-arrow, .matchup-card__down-arrow {
+        width: .9rem;
+        height: .9rem;
+        margin: 0 7px 0 0;
+    }
+ }
