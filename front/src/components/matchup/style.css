@@ -1,27 +1,12 @@
-.list__flex {
+.matchup-card__container {
     display: flex;
 }
 
-.matchup-card {
-    border: 1px solid var(--main-color);
+.matchup-card__item {
+    display: flex;
 }
 
-.list__champ-img {
-    width: 75px;
-}
-
-.list__item {
-    display: inline-block;
-}
-
-.list__item-name {
-    display: inline-block;
-}
-
-.list__item-up {
-    display: inline-block;    
-}
-
-.list__item-down {
-    display: inline-block;    
+.matchup-card__champ-img {
+    width: auto;
+    height: 50px;
 }

@@ -29,27 +29,33 @@ class Matchup extends React.Component {
 		const { list, title, onChange, records, champ } = this.props;
 
 		return (
-			<div className="list">
-				<div className="list__title">
+			<div className="matchup-card">
+				<div className="matchup-card__header">Matchups</div>
+				<div className="matchup-card__title">
+					
 					{title}
 				</div>
-				<div className="list__list">
+				<div className="matchup-card__list">
 					{list.map(item => {
 						const duplicates = records.filter(record => record.champions.includes(item.name) && record.champions.includes(champ.name));
 						const canVote = records.length === 0 || duplicates.length === 0;
 
 						return (
-							<div className="list__item" key={item.name}>
-								<div className="list__item-name">
+							<div className="matchup-card__container">
+							<img className="matchup-card__champ-img" src={`../images/card/${item.name.toLowerCase()}.jpg`} />
+							
+							<div className="matchup-card__item" key={item.name}>
+								<div className="matchup-card__champ-name">
 									{item.name}
 								</div>
-								<div className="list__item-up" onClick={canVote ? () => onChange(item, 1) : () => null}>
+								<div className="matchup-card__item-up" onClick={canVote ? () => onChange(item, 1) : null}>
 									{item.up}
 								</div>
-								<div className="list__item-down" onClick={canVote ? () => onChange(item, 0) : () => null}>
+								<div className="matchup-card__item-down" onClick={canVote ? () => onChange(item, 0) : null}>
 									{item.down}
 								</div>
 							</div>
+						</div>
 						);
 					})}
 				</div>

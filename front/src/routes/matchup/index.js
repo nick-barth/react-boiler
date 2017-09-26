@@ -11,12 +11,6 @@ import { connect } from 'react-redux';
 import Login from 'components/login/index.js';
 
 /*
- * Components
- */
-
-import Matchup from 'components/matchup/index.js';
-
-/*
  * LAYOUT - MATCHUP
  * =================
  */
