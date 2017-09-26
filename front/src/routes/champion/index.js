@@ -135,7 +135,7 @@ export default class ChampionLayout extends React.Component {
 								onVote={(item, direction) => this.tipVote(item, direction)}
 								onAdd={(text) => this.addTip(text)}
 							/>
-							<div style={{ 'width': '100%', 'margin': 'auto', 'display': 'flex', 'justify-content': 'space-between' }}>
+							<div style={{ 'width': '100%', 'margin': 'auto', 'display': 'flex' }}>
 								<Matchup
 									title={`Weak vs`}
 									list={matchups}

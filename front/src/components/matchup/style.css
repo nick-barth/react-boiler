@@ -8,14 +8,26 @@
     display: flex;
 }
 
+.matchup-card__champ-name {
+    position: absolute;
+}
+
+.matchup-card__champ-img-container {
+    overflow: hidden;
+}
+
 .matchup-card__champ-img {
-    width: auto;
+    width: 60px;
     height: 50px;
+    object-fit: cover;
+    object-position: 50% 50%;
+    transform: scale(1.4);
 }
 
 .matchup-card__vote {
     display: flex;
     font-weight: 500;
+    z-index: 10;
 }
 
 .matchup-card__item-up {
