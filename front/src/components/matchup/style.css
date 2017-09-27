@@ -50,6 +50,41 @@
     margin: 0 7px 0 0;
 }
 
+.matchup-card__show-more-btn {
+    border: 2px solid var(--main-color);
+	font-size: var(--modular-s);
+	padding: var(--modular-s) var(--modular-s);
+	transition: all .25s ease-out;
+    font-family: 'Rajdhani';
+    text-transform: uppercase;
+    color: var(--main-color);
+    font-weight: 600;
+    margin: 0 0 var(--modular-l);
+    background: var(--background-color);
+    background-image: linear-gradient(var(--main-color), var(--main-color));
+    background-position: 50% 0%;
+    background-size: 100% 0%;
+    background-repeat: no-repeat;
+    line-height: 0;
+    width: 100%;
+    margin: 0 0 var(--modular-xl);
+    cursor: pointer;
+}
+
+.matchup-card__show-more-btn:hover {
+    background-size: 100% 100%;
+    color: var(--secondary-color);
+    box-shadow: 0 0 6px 0 var(--main-color);    
+}
+
+.matchup-card__show-more-btn:active {
+	transform: translateY(2px);
+}
+
+.matchup-card__show-more-btn:focus {
+	outline: none;
+}
+
 @media (--desktop-small) {
     .matchup-card__up-arrow, .matchup-card__down-arrow {
         width: .9rem;
