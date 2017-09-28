@@ -59,8 +59,8 @@ class Tips extends React.Component {
 								</div>
 								<Vote
 									voteInfo={item}
-									upVote={canVote ? onVote(item, 1) : () => null}
-									downVote={canVote ? onVote(item, 0) : () => null}
+									upVote={canVote ? () => onVote(item.tip, 1) : () => null}
+									downVote={canVote ? () => onVote(item.tip, 0) : () => null}
 								/>
 							</li>
 						);

@@ -64,19 +64,24 @@ export default class MatchupIndex extends React.Component {
 
 	}
 
-	onTipVote (champion1, champion2, tip, direction) {
-		return () => {
+	onTipVote (champion1, champion2) {
+		console.log('binding');
+		return (tip, direction) => {
 			const { updateMatchupTip, store } = this.props;
 			const { userStore, championStore } = store;
 			const { champion } = championStore;
 
+			console.log(champion1);
+			console.log(champion2);
+			console.log(tip);
 
-			updateMatchupTip(champion.name, tip, direction);
+
+			updateMatchupTip(champion1, champion2, tip, direction);
 
 			userStore.records.tips.push({ champion: champion.name, tip: tip, direction: direction });
 
-			this.props.setRecords(userStore.records.tips, 'tips');
-			localStorage.setItem('quakechampionselectTips', JSON.stringify(userStore.records));
+			this.props.setRecords(userStore.records.matchupTips, 'matchupTips');
+			localStorage.setItem('quakechampionselectMatchupTips', JSON.stringify(userStore.records));
 
 		};
 
@@ -94,13 +99,13 @@ export default class MatchupIndex extends React.Component {
 					<div>
 						<Tips
 							title={`Tips for playing ${champion1} vs. ${champion2}`}
-							onVote={(champion1, champion2, tip, direction) => this.onTipVote(champion1, champion2, tip, direction)}
+							onVote={this.onTipVote(champion1, champion2)}
 							onAdd={(text) => this.onAddTip(champion1, champion2, text)}
 							list={matchup.champions.find(matchup => matchup.name === champion1).tips}
 						/>
 						<Tips
 							title={`Tips for playing ${champion2} vs. ${champion1}`}
-							onVote={(item, direction) => this.onTipVote(item, direction)}
+							onVote={() => this.onTipVote(champion2, champion1)}
 							onAdd={(text) => this.onAddTip(text)}
 							list={matchup.champions.find(matchup => matchup.name === champion2).tips}
 						/>

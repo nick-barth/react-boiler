@@ -146,13 +146,21 @@ exports.updateMatchupTip = function (req, res) {
 	const direction = req.body.direction;
 
 	if (direction === 1) {
-		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] }, 'tips.tip': tip }, {  $inc: { 'tips.$.up': 1 } }, { new: true }, function (err, docs) {
-			res.json(docs);
+		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, { new: true }, function (err, matchup) {
+			const updatedTip = matchup.champions.find(m => m.name === champ1).tips.find(t => t.tip === tip);
+
+			updatedTip.up = updatedTip.up + 1;
+			matchup.save();
+			res.json(matchup);
 		});
 	}
 	else {
-		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] }, 'tips.tip': tip }, {  $inc: { 'tips.$.down': 1 } }, { new: true }, function (err, docs) {
-			res.json(docs);
+		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, { new: true }, function (err, matchup) {
+			const updatedTip = matchup.champions.find(m => m.name === champ1).tips.find(t => t.tip === tip);
+
+			updatedTip.down = updatedTip.down - 1;
+			matchup.save();
+			res.json(matchup);
 		});
 	}
 };

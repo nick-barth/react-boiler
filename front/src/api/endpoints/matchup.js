@@ -81,8 +81,8 @@ export default function getMatchupApi (exec) {
 	function updateMatchupTip (champ1, champ2, tip, direction) {
 		return exec({
 			method: 'post',
-			url: 'matchup/updateTip',
-			query: {
+			url: '/matchup/updateTip',
+			data: {
 				'champ1': champ1,
 				'champ2': champ2,
 				'tip': tip,
