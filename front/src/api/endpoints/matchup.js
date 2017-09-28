@@ -63,7 +63,7 @@ export default function getMatchupApi (exec) {
 	function updateMatchup (champ, update) {
 		return exec({
 			method: 'post',
-			url: '/updateMatchup',
+			url: '/matchup/update',
 			query: {
 				'champ1': champ.name,
 				'champ2': update.name,

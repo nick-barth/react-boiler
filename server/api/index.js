@@ -125,6 +125,35 @@ exports.updateChampTip = function (req, res) {
 	}
 };
 
+// Post matchups
+exports.updateMatchup = function (req, res) {
+	const champ1 = req.query.champ1;
+	const champ2 = req.query.champ2;
+	const update = req.query.update;
+
+	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
+		const indexOf =  matchups.champions.findIndex(x => x.name === update.name);
+		const set = {};
+
+		if (update.up) {
+			set['champions.' + indexOf + '.up'] = update.up;
+		}
+		else {
+			set['champions.' + indexOf + '.down'] = update.down;
+		}
+
+		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, { $set: set }, function (err, docs) {
+			if (err) {
+				throw err;
+			}
+
+			matchup.find({ 'champions.name': new RegExp(champ1, 'i') }, function (err, matchups) {
+				res.json(matchups);
+			});
+		});
+	});
+};
+
 // Add tip
 exports.addMatchupTip = function (req, res) {
 	const champ1 = req.body.champ1;
@@ -158,7 +187,7 @@ exports.updateMatchupTip = function (req, res) {
 		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, { new: true }, function (err, matchup) {
 			const updatedTip = matchup.champions.find(m => m.name === champ1).tips.find(t => t.tip === tip);
 
-			updatedTip.down = updatedTip.down - 1;
+			updatedTip.down = updatedTip.down + 1;
 			matchup.save();
 			res.json(matchup);
 		});

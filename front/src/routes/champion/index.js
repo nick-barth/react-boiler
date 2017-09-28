@@ -11,8 +11,8 @@ import { actions as championActions } from 'store/champion.js';
 import { actions as userActions } from 'store/user.js';
 
 // Components
-//import Matchup from 'components/matchup/index.js';
-import Tips from 'components/tips/index.js';
+import Matchup from 'components/matchup/index.js';
+//import Tips from 'components/tips/index.js';
 
 /*
  * LAYOUT - CHAMPION
@@ -48,15 +48,11 @@ export default class ChampionLayout extends React.Component {
 	}
 
 	componentDidMount () {
-		const { fetchChampionAndMatchups, setRecords } = this.props;
+		const { fetchChampionAndMatchups } = this.props;
 		const id = this.props.match.params.champion;
 
 		fetchChampionAndMatchups(id);
 
-		if (localStorage.getItem('quakechampionselect')) {
-			setRecords(JSON.parse(localStorage.getItem('quakechampionselectMatchups')), 'matchups');
-			setRecords(JSON.parse(localStorage.getItem('quakechampionselectTips')), 'tips');
-		}
 	}
 
 	/*
@@ -91,7 +87,7 @@ export default class ChampionLayout extends React.Component {
 		userStore.records.matchups.push({ champions: [item.name, champion.name], direction: direction });
 
 		this.props.setRecords(userStore.records.matchups, 'matchups');
-		localStorage.setItem('quakechampionselectMatchups', JSON.stringify(userStore.records));
+		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
 	}
 
 	addTip (text) {
@@ -114,7 +110,7 @@ export default class ChampionLayout extends React.Component {
 			userStore.records.tips.push({ champion: champion.name, tip: item.tip, direction: direction });
 
 			this.props.setRecords(userStore.records.tips, 'tips');
-			localStorage.setItem('quakechampionselectTips', JSON.stringify(userStore.records));
+			localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
 
 		};
 
@@ -127,20 +123,20 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div>
 				{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
-						<Tips
-							title={`Tips for ${champion.name}`}
-							list={champion.tips}
-							records={store.userStore.records.tips}
-							onVote={(item, direction) => this.tipVote(item, direction)}
-							onAdd={(text) => this.addTip(text)}
-						/>
-						// <Matchup
-						// 	title={`Worst matchups vs ${champion.name}`}
-						// 	list={matchups}
-						// 	champ={champion}
-						// 	onChange={(item, direction) => this.matchupVote(item, direction)}
-						// 	records={store.userStore.records.matchups}
+						// <Tips
+						// 	title={`Tips for ${champion.name}`}
+						// 	list={champion.tips}
+						// 	records={store.userStore.records.tips}
+						// 	onVote={(item, direction) => this.tipVote(item, direction)}
+						// 	onAdd={(text) => this.addTip(text)}
 						// />
+						<Matchup
+							title={`Worst matchups vs ${champion.name}`}
+							list={matchups}
+							champ={champion}
+							onChange={(item, direction) => this.matchupVote(item, direction)}
+							records={store.userStore.records.matchups}
+						/>
 				) :null}
 				{errors.length > 0 ? (
 					<div>

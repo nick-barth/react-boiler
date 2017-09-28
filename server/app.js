@@ -47,6 +47,7 @@ app.get('*', (req, res, next) => {
 // API
 
 // POST
+app.post('/api/matchup/update', api.updateMatchup);
 app.post('/api/matchup/addTip', api.addMatchupTip);
 app.post('/api/matchup/updateTip', api.updateMatchupTip);
 app.post('/api/champ/addTip', api.addChampTip);
