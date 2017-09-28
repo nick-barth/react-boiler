@@ -95,7 +95,7 @@ exports.getMatchup = function (req, res) {
 	});
 };
 
-// Add tip
+// POST champ tip
 exports.addChampTip = function (req, res) {
 	const name = req.body.champ;
 	const tip = req.body.tip;
@@ -107,7 +107,7 @@ exports.addChampTip = function (req, res) {
 	});
 };
 
-// Add tip
+// Post Updating champ tip
 exports.updateChampTip = function (req, res) {
 	const name = req.body.name;
 	const tip = req.body.tip;
@@ -125,7 +125,7 @@ exports.updateChampTip = function (req, res) {
 	}
 };
 
-// Post matchups
+// POST updating champion matchup
 exports.updateMatchup = function (req, res) {
 	const champ1 = req.query.champ1;
 	const champ2 = req.query.champ2;
@@ -154,7 +154,7 @@ exports.updateMatchup = function (req, res) {
 	});
 };
 
-// Add tip
+// POST adding matchup tip
 exports.addMatchupTip = function (req, res) {
 	const champ1 = req.body.champ1;
 	const champ2 = req.body.champ2;
@@ -167,7 +167,7 @@ exports.addMatchupTip = function (req, res) {
 	});
 };
 
-// update Matchup tip
+// POST updating matchup tip
 exports.updateMatchupTip = function (req, res) {
 	const champ1 = req.body.champ1;
 	const champ2 = req.body.champ2;
