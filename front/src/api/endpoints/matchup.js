@@ -18,8 +18,6 @@ export default function getMatchupApi (exec) {
 		addMatchupTip
 	};
 
-
-
 	/*
 	 * gets all matchups for a champion
 	 * --
@@ -37,9 +35,10 @@ export default function getMatchupApi (exec) {
 	}
 
 	/*
-	 * Get single champion
+	 * Get matchup between 2 champiosn
 	 * --
-	 * @param {String} champ - champion name
+	 * @param {String} champ1 - champion1 name
+	 * @param {String} champ2 - champion2 name
 	 * @return {Promise} from .exec
 	 */
 	function getMatchup (champ1, champ2) {
@@ -58,6 +57,7 @@ export default function getMatchupApi (exec) {
 	 *  Updates matchup
 	 * --
 	 * @param {String} champ - champion name
+	 * @param {object} update - updates to votes
 	 * @return {Promise} from .exec
 	 */
 	function updateMatchup (champ, update) {
@@ -73,9 +73,12 @@ export default function getMatchupApi (exec) {
 	}
 
 	/*
-	 *  Updates matchup
+	 *  Updates matchup tip
 	 * --
-	 * @param {String} champ - champion name
+	 * @param {String} champ1 - champion1 name
+	 * @param {String} champ2 - champion2 name
+	 * @param {String} tip - tip to be updates
+	 * @param {Boolean} direction - direction of vote
 	 * @return {Promise} from .exec
 	 */
 	function updateMatchupTip (champ1, champ2, tip, direction) {
@@ -92,9 +95,10 @@ export default function getMatchupApi (exec) {
 	}
 
 	/*
-	 * Add champion tip
+	 * Add matchup tip
 	 * --
-	 * @param {String} champ - champion name
+	 * @param {String} champ1 - champion1 name
+	 * @param {String} champ2 - champion2 name
 	 * @param {tipo} tip - tip string
 	 * @return {Promise} from .exec
 	 */

@@ -55,7 +55,7 @@ export default class ChampionLayout extends React.Component {
 
 	}
 
-	/*
+   /*
 	* Recording a vote
 	* --
 	* @param {item} Object
@@ -90,6 +90,11 @@ export default class ChampionLayout extends React.Component {
 		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
 	}
 
+   /*
+	* Adding a tip
+	* --
+	* @param {text} String
+	*/
 	addTip (text) {
 		const { addTip } = this.props;
 		const { champion } = this.props.store.championStore;
@@ -98,6 +103,13 @@ export default class ChampionLayout extends React.Component {
 
 	}
 
+   /*
+	* Voting on a tip
+	* Curried function
+	* --
+	* @param {item} Object
+	* @param {direction} Boolean
+	*/
 	tipVote (item, direction) {
 		return () => {
 			const { updateTip, store } = this.props;
