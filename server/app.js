@@ -45,9 +45,14 @@ app.get('*', (req, res, next) => {
 });
 
 // API
-app.post('/api/updateMatchup', api.updateMatchup);
-app.post('/api/champ/addTip', api.addTip);
-app.post('/api/champ/updateTip', api.updateTip);
+
+// POST
+app.post('/api/matchup/addTip', api.addMatchupTip);
+app.post('/api/matchup/updateTip', api.updateMatchupTip);
+app.post('/api/champ/addTip', api.addChampTip);
+app.post('/api/champ/updateTip', api.updateChampTip);
+
+// GET
 app.get('/api/matchup', api.getMatchup);
 app.get('/api/matchups', api.getMatchups);
 app.get('/api/champs', api.getChampions);

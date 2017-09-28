@@ -98,15 +98,14 @@ export default function getMatchupApi (exec) {
 	 * @param {tipo} tip - tip string
 	 * @return {Promise} from .exec
 	 */
-	function addMatchupTip (champ1, champ2, tip, direction) {
+	function addMatchupTip (champ1, champ2, tip) {
 		return exec({
 			method: 'post',
 			url: '/matchup/addTip',
 			data: {
 				'champ1': champ1,
 				'champ2': champ2,
-				'tip': tip,
-				'direction': direction
+				'tip': tip
 			}
 		});
 	}

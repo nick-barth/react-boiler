@@ -58,13 +58,13 @@ function getMatchup (champ1, champ2) {
 
 function addMatchupTip (champ1, champ2, tip) {
 	return dispatch => {
-		API.matchup.addTip(champ1, champ2, tip)
+		API.matchup.addMatchupTip(champ1, champ2, tip)
 			.promise
 			.then(res => {
 				dispatch({
 					type: MATCHUP_ADD_TIP_SUCCESS,
 					payload: {
-						tips: res.data.tips
+						matchup: res.data
 					}
 				});
 			})

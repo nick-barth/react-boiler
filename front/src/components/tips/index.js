@@ -25,6 +25,11 @@ class Tips extends React.Component {
 		onAdd: React.PropTypes.func.isRequired
 	};
 
+	static defaultProps = {
+		records: []
+	};
+
+
 
 	constructor (props) {
 		super(props);
@@ -78,7 +83,7 @@ class Tips extends React.Component {
 				</Form>
 				<Button
 					submit
-					click={() => this.saveTip()}
+					click={() => onAdd(this.state.text)}
 				/>
 			</div>
 		);

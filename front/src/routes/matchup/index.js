@@ -22,9 +22,9 @@ import Tips from 'components/tips/index.js';
 	state => ({
 		store: state
 	}), {
-		addTip: matchupActions.addTip,
+		addMatchupTip: matchupActions.addMatchupTip,
 		getMatchup: matchupActions.getMatchup,
-		updateTip: matchupActions.updateTip,
+		updateMatchupTip: matchupActions.updateMatchupTip,
 		setRecords: userActions.setRecords
 	}
 )
@@ -34,8 +34,8 @@ export default class MatchupIndex extends React.Component {
 		store: React.PropTypes.object.isRequired,
 		match: React.PropTypes.object.isRequired,
 		getMatchup: React.PropTypes.func.isRequired,
-		addTip: React.PropTypes.func.isRequired,
-		updateTip: React.PropTypes.func.isRequired,
+		addMatchupTip: React.PropTypes.func.isRequired,
+		updateMatchupTip: React.PropTypes.func.isRequired,
 		setRecords: React.PropTypes.func.isRequired
 	};
 
@@ -57,21 +57,21 @@ export default class MatchupIndex extends React.Component {
 
 	}
 
-	addTip (champion1, champion2, text) {
-		const { addTip } = this.props;
+	onAddTip (champion1, champion2, text) {
+		const { addMatchupTip } = this.props;
 
-		addTip(champion1, champion2, text);
+		addMatchupTip(champion1, champion2, text);
 
 	}
 
-	tipVote (champion1, champion2, tip, direction) {
+	onTipVote (champion1, champion2, tip, direction) {
 		return () => {
-			const { updateTip, store } = this.props;
+			const { updateMatchupTip, store } = this.props;
 			const { userStore, championStore } = store;
 			const { champion } = championStore;
 
 
-			updateTip(champion.name, tip, direction);
+			updateMatchupTip(champion.name, tip, direction);
 
 			userStore.records.tips.push({ champion: champion.name, tip: tip, direction: direction });
 
@@ -94,15 +94,15 @@ export default class MatchupIndex extends React.Component {
 					<div>
 						<Tips
 							title={`Tips for playing ${champion1} vs. ${champion2}`}
-							onVote={(champion1, champion2, tip, direction) => this.tipVote(champion1, champion2, tip, direction)}
-							onAdd={(text) => this.addTip(champion1, champion2, text)}
-							list={matchup.champions.find(matchup => matchup.champion === champion1.name).tips}
+							onVote={(champion1, champion2, tip, direction) => this.onTipVote(champion1, champion2, tip, direction)}
+							onAdd={(text) => this.onAddTip(champion1, champion2, text)}
+							list={matchup.champions.find(matchup => matchup.name === champion1).tips}
 						/>
 						<Tips
 							title={`Tips for playing ${champion2} vs. ${champion1}`}
-							onVote={(item, direction) => this.tipVote(item, direction)}
-							onAdd={(text) => this.addTip(text)}
-							list={matchup.champions.find(matchup => matchup.champion === champion2.name).tips}
+							onVote={(item, direction) => this.onTipVote(item, direction)}
+							onAdd={(text) => this.onAddTip(text)}
+							list={matchup.champions.find(matchup => matchup.name === champion2).tips}
 						/>
 					</div>
 				) : null}
