@@ -127,31 +127,30 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div>
 				{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
-						<div>
-							<Tips
-								title={`Tips for ${champion.name}`}
-								list={champion.tips}
-								records={store.userStore.records.tips}
-								onVote={(item, direction) => this.tipVote(item, direction)}
-								onAdd={(text) => this.addTip(text)}
-							/>
-							<div style={{ 'width': '100%', 'margin': 'auto', 'display': 'flex' }}>
-								<Matchup
-									title={`Weak vs`}
-									list={matchups}
-									champ={champion}
-									onChange={(item, direction) => this.matchupVote(item, direction)}
-									records={store.userStore.records.matchups}
-								/>
-								<Matchup
-									title={`Strong vs`}
-									list={matchups}
-									champ={champion}
-									onChange={(item, direction) => this.matchupVote(item, direction)}
-									records={store.userStore.records.matchups}
-								/>
-							</div>
-						 </div>
+					<div style={{ 'width': '100%', 'margin': 'auto' }}>
+						<Tips
+							title={`Tips for ${champion.name}`}
+							list={champion.tips}
+							records={store.userStore.records.tips}
+							onVote={(item, direction) => this.tipVote(item, direction)}
+							onAdd={(text) => this.addTip(text)}
+						/>
+						<div className="matchups-header">matchups</div>
+						<Matchup
+							title={`${champion.name} is strong vs`}
+							list={matchups}
+							champ={champion}
+							onChange={(item, direction) => this.matchupVote(item, direction)}
+							records={store.userStore.records.matchups}
+						/>
+						<Matchup
+							title={`${champion.name} is weak vs`}
+							list={matchups}
+							champ={champion}
+							onChange={(item, direction) => this.matchupVote(item, direction)}
+							records={store.userStore.records.matchups}
+						/>
+					</div>
 				) :null}
 				{errors.length > 0 ? (
 					<div>
@@ -161,6 +160,5 @@ export default class ChampionLayout extends React.Component {
 			</div>
 		);
 	}
-
 }
 
