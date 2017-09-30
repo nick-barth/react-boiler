@@ -127,7 +127,7 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div>
 				{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
-					<div style={{ 'width': '100%', 'margin': 'auto' }}>
+					<div style={{ 'width': '100%' }}>
 						<Tips
 							title={`Tips for ${champion.name}`}
 							list={champion.tips}
@@ -135,21 +135,25 @@ export default class ChampionLayout extends React.Component {
 							onVote={(item, direction) => this.tipVote(item, direction)}
 							onAdd={(text) => this.addTip(text)}
 						/>
-						<div className="matchups-header">matchups</div>
-						<Matchup
-							title={`${champion.name} is strong vs`}
-							list={matchups}
-							champ={champion}
-							onChange={(item, direction) => this.matchupVote(item, direction)}
-							records={store.userStore.records.matchups}
-						/>
-						<Matchup
-							title={`${champion.name} is weak vs`}
-							list={matchups}
-							champ={champion}
-							onChange={(item, direction) => this.matchupVote(item, direction)}
-							records={store.userStore.records.matchups}
-						/>
+						<div className="matchups-header">matchups</div>						
+						<div className="matchups-container">
+						<div className="matchups-container2">
+							<Matchup
+								title={`${champion.name} is strong vs`}
+								list={matchups}
+								champ={champion}
+								onChange={(item, direction) => this.matchupVote(item, direction)}
+								records={store.userStore.records.matchups}
+							/>
+							<Matchup
+								title={`${champion.name} is weak vs`}
+								list={matchups}
+								champ={champion}
+								onChange={(item, direction) => this.matchupVote(item, direction)}
+								records={store.userStore.records.matchups}
+							/>
+							</div>
+						</div>
 					</div>
 				) :null}
 				{errors.length > 0 ? (

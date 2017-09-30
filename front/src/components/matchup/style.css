@@ -1,31 +1,37 @@
+
+.matchups-container {
+    display: flex;
+    justify-content: center;
+}
+
+.matchups-container2 {
+    display: flex;
+    flex-direction: column;
+}
+
 .matchups-header {
     font-size: calc(var(--modular-l) * .85);
     font-weight: 600;
     color: var(--main-color);
-    margin: 0 0 var(--modular-s);
     text-transform: uppercase;
+    text-align: center;
 }
 
 .matchups {
     text-transform: uppercase;
-    display: flex;  
-    flex-direction: column;
-    margin: auto;
-    max-width: 27rem;
-    padding: 0 var(--modular-s);  
+    padding: 0 calc(var(--modular-s) / 2) 0;
 }
 
 .matchups__title {
     margin-bottom: var(--modular-xs);
 }
 
-.matchups__list {
-    margin: 0;
-}
-
 .matchups__matchup-card {
     display: flex;
     border-bottom: 1px solid var(--main-color);
+    border-left: 1px outset var(--color-gray-darker);
+    border-right: 1px outset var(--color-gray-darker);
+    border-top: 1px outset var(--color-gray-darker);
     background: rgba(0, 0, 0, 0.7);
     margin-bottom: var(--modular-xs);
 }
@@ -37,6 +43,7 @@
 .matchups__item {
     display: flex;
     width: 100%;
+    font-size: calc(var(--modular-l) * .75);
 }
 
 .matchups__champ-name {
@@ -53,6 +60,7 @@
 
 .matchups__champ-img-container {
     overflow: hidden;
+    min-width: 7rem;
 }
 
 .matchups__champ-img {
@@ -85,8 +93,8 @@
 }
 
 .matchups__up-arrow, .matchups__down-arrow {
-    width: .8rem;
-    height: .8rem;
+    width: 1rem;
+    height: 1rem;
     margin: 0 7px 0 0;
     align-self: center;
 }
@@ -126,14 +134,23 @@
 	outline: none;
 }
 
-@media (--desktop-small) {
+ /*
+ * Media Queries
+ */
+
+ @media (--tablet-large) {
+    .matchups-container2 {
+        flex-direction: row;
+    }
+ }
+
+ /* @media (--desktop-small) {
+    .matchups__vote {
+        font-size: calc(var(--modular-l) * .75);
+    }
     .matchups__up-arrow, .matchups__down-arrow {
         width: .9rem;
         height: .9rem;
         margin: 0 7px 0 0;
     }
- }
-
- /*
- * Media Queries
- */
+ } */
