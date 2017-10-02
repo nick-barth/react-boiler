@@ -33,7 +33,7 @@ class Button extends React.Component {
 		const { submit } = this.props;
 
 		return (
-			<button type={submit ? 'submit' : 'button'} onClick={e => this.handleClick(e)} ref="button">
+			<button className="button__button" type={submit ? 'submit' : 'button'} onClick={e => this.handleClick(e)} ref="button">
 				Submit
 			</button>
 		);

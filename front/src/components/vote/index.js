@@ -26,12 +26,16 @@ class Vote extends React.Component {
 		const { voteInfo, upVote, downVote } = this.props;
 
 		return (
-			<div className="vote">
-				<div className="vote__item-up" onClick={() => upVote()}>
-					{voteInfo.up}
-				</div>
-				<div className="vote__item-down" onClick={() => downVote()}>
-					{voteInfo.down}
+			<div className="vote-container">
+				<div className="vote">
+					<div className="vote__item-up" onClick={() => upVote()}>
+						<img className="vote__up-arrow" src='../images/icons/up-arrow.svg'/>
+						{voteInfo.up}
+					</div>
+					<div className="vote__item-down" onClick={() => downVote()}>
+						<img className="vote__down-arrow" src="../images/icons/down-arrow.svg"/>
+						{voteInfo.down}
+					</div>
 				</div>
 			</div>
 		);

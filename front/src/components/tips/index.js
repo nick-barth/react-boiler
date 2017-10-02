@@ -53,7 +53,8 @@ class Tips extends React.Component {
 						const canVote = records.length === 0 || duplicates.length === 0;
 
 						return (
-							<li className="tips_tip" key={Math.random()}>
+
+							<li className="tips__tip" key={Math.random()}>
 								<div className="tips_tip-name">
 									{item.tip}
 								</div>
@@ -63,9 +64,11 @@ class Tips extends React.Component {
 									downVote={canVote ? () => onVote(item.tip, 0) : () => null}
 								/>
 							</li>
+
 						);
 					})}
 				</ul>
+				<button className="tips__show-more-btn">show more</button>
 				<Form
 					onSubmit={e => {
 						e.preventDefault();
