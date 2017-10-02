@@ -5,6 +5,7 @@
 // Vendors
 import React from 'react';
 import _ from 'lodash';
+import { Link } from 'react-router-dom';
 
 /*
  * MATCHUP
@@ -39,24 +40,30 @@ class Matchup extends React.Component {
 
 						return (
 							<div className="matchups__matchup-card">
-								<div className="matchups__champ-name">
-										{item.name}
-								</div>
-								<div className="matchups__champ-img-container">
-									<img className="matchups__champ-img" src={`../images/card/${item.name.toLowerCase()}.jpg`} />
-								</div>
+								<Link to={`/champion/${item.name.toLowerCase()}`} className="matchups__link">
+									<div className="matchups__champ-name">
+											{item.name}
+									</div>			
+
+
+									<div className="matchups__champ-img-container">
+										<img className="matchups__champ-img" src={`../images/card/${item.name.toLowerCase()}.jpg`} />
+									
+									</div>
+								</Link>
+
 								<div className="matchups__item" key={item.name}>
 
 									<div className="matchups__vote">
-										<div className="matchups__vote-up-flex">
+										<div className="matchups__vote-up-flex" onClick={canVote ? () => onChange(item, 1) : null}>
 											<img className="matchups__up-arrow" src='../images/icons/up-arrow.svg'/>
-											<div className="matchups__item-up" onClick={canVote ? () => onChange(item, 1) : null}>
+											<div className="matchups__item-up">
 												{item.up}
 											</div>
 										</div>
-										<div className="matchups__vote-down-flex">
+										<div className="matchups__vote-down-flex" onClick={canVote ? () => onChange(item, 0) : null}>
 											<img className="matchups__down-arrow" src="../images/icons/down-arrow.svg"/>
-											<div className="matchups__item-down" onClick={canVote ? () => onChange(item, 0) : null}>
+											<div className="matchups__item-down">
 												{item.down}
 											</div>
 										</div>

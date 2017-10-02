@@ -136,23 +136,23 @@ export default class ChampionLayout extends React.Component {
 							onAdd={(text) => this.addTip(text)}
 						/>
 						<div className="matchups-header">matchups</div>						
-						<div className="matchups-container">
-						<div className="matchups-container2">
-							<Matchup
-								title={`${champion.name} is strong vs`}
-								list={matchups}
-								champ={champion}
-								onChange={(item, direction) => this.matchupVote(item, direction)}
-								records={store.userStore.records.matchups}
-							/>
-							<Matchup
-								title={`${champion.name} is weak vs`}
-								list={matchups}
-								champ={champion}
-								onChange={(item, direction) => this.matchupVote(item, direction)}
-								records={store.userStore.records.matchups}
-							/>
-							</div>
+						<div className="matchups-wrapper">
+							<div className="matchups-flex">
+								<Matchup
+									title={`${champion.name} is strong vs`}
+									list={matchups}
+									champ={champion}
+									onChange={(item, direction) => this.matchupVote(item, direction)}
+									records={store.userStore.records.matchups}
+								/>
+								<Matchup
+									title={`${champion.name} is weak vs`}
+									list={matchups}
+									champ={champion}
+									onChange={(item, direction) => this.matchupVote(item, direction)}
+									records={store.userStore.records.matchups}
+								/>
+								</div>
 						</div>
 					</div>
 				) :null}
