@@ -15,7 +15,7 @@ import { actions as userActions } from 'store/user.js';
 import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
 import Spinner from 'components/spinner/index.js';
-import ChampBanner from 'components/champbanner/index.js';
+import Banner from 'components/banner/index.js';
 
 /*
  * LAYOUT - CHAMPION
@@ -148,16 +148,10 @@ export default class ChampionLayout extends React.Component {
 
 		return (
 			<div>
-				{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
+				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
 					<div style={{ 'width': '100%' }}>
-						<Tips
-							title={`Tips for ${champion.name}`}
-							list={champion.tips}
-							records={store.userStore.records.tips}
-							onVote={(item, direction) => this.tipVote(item, direction)}
-							onAdd={(text) => this.addTip(text)}
-						/>
-						<div className="matchups-header">matchups</div>						
+						<Banner champ={champion} />
+						<div className="matchups-header">matchups</div>
 						<div className="matchups-wrapper">
 							<div className="matchups-flex">
 								<Matchup
@@ -176,6 +170,13 @@ export default class ChampionLayout extends React.Component {
 								/>
 								</div>
 						</div>
+						<Tips
+							title={`Tips for ${champion.name}`}
+							list={champion.tips}
+							records={store.userStore.records.tips}
+							onVote={(item, direction) => this.tipVote(item, direction)}
+							onAdd={(text) => this.addTip(text)}
+						/>
 					</div>
 				) :null}
 				{errors.length > 0 ? (
