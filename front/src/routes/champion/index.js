@@ -14,6 +14,7 @@ import { actions as userActions } from 'store/user.js';
 
 // import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
+import Matchup from 'components/matchup/index.js';
 import Spinner from 'components/spinner/index.js';
 import ChampBanner from 'components/champbanner/index.js';
 import Adcontainer from 'components/adcontainer/index.js';
@@ -158,6 +159,7 @@ export default class ChampionLayout extends React.Component {
 							key={champion.id}
 						/>
 					{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
+						<div>
 							<Tips
 								title={`Tips for ${champion.name}`}
 								list={champion.tips}
@@ -178,7 +180,9 @@ export default class ChampionLayout extends React.Component {
 								records={store.userStore.records.matchups}
 							/>
 						</div>
-				) :null}
+					) : null}
+				</div>
+				) : null}
 				{errors.length > 0 ? (
 					<div>
 						No Champion Found

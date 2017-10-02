@@ -20,8 +20,8 @@ class Header extends React.Component {
 
 	render () {
 		return (
-			<div className="navbar-container">
-				<div className="navbar">
+			<div className="header-container">
+				<div className="header">
 					<div className="logo">
 						<img className="logo__img" src="/images/icons/logo.svg"/>
 						<div className="logo__text">
@@ -29,8 +29,8 @@ class Header extends React.Component {
 						</div>
 					</div>
 					<Link to={'/'}>
-						<div className="navbar__button">
-							<i className="fa fa-th navbar__button__icon" aria-hidden="true" />
+						<div className="header__button">
+							<i className="fa fa-th header__button__icon" aria-hidden="true" />
 							ALL CHAMPIONS
 						</div>
 					</Link>
