@@ -145,9 +145,6 @@ export default class ChampionLayout extends React.Component {
 		const { store } = this.props;
 		const { matchups, champion, errors, isLoadingChamp, isLoadingMatchup } = store.championStore;
 
-		console.log(matchups);
-		console.log(champion);
-
 		return (
 			<div>
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
