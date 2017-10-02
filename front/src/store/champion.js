@@ -102,14 +102,17 @@ function fetchChampionAndMatchups (champ) {
 /*
  * Changing a matchup
  * --
- * @param {array} movies
+ * @param {array} matchupChange
  * @return {Function} an `actionCreator`
  */
 function matchUpdate (champ, update) {
 	return dispatch => {
+		console.log('dispatch!');
 		API.matchup.updateMatchup(champ, update)
 			.promise
 			.then(res => {
+				console.log('res');
+				console.log('we here', champ);
 				dispatch({
 					type: UPDATE_MATCHUP_SUCCESS,
 					payload: {

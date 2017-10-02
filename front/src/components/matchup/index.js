@@ -15,7 +15,7 @@ class Matchup extends React.Component {
 
 
 	static propTypes = {
-		champ: React.PropTypes.object.isRequired,
+		champ: React.PropTypes.object,
 		list: React.PropTypes.array.isRequired,
 		title: React.PropTypes.string.isRequired,
 		onChange: React.PropTypes.func.isRequired,
@@ -26,11 +26,12 @@ class Matchup extends React.Component {
 		super(props);
 	}
 
+
 	render () {
 		const { list, title, onChange, records, champ } = this.props;
 
 		return (
-			<div className="matchups">	
+			<div className="matchups">
 					<div className="matchups__title">
 						{title}
 					</div>
@@ -43,12 +44,12 @@ class Matchup extends React.Component {
 								<Link to={`/champion/${item.name.toLowerCase()}`} className="matchups__link">
 									<div className="matchups__champ-name">
 											{item.name}
-									</div>			
+									</div>
 
 
 									<div className="matchups__champ-img-container">
-										<img className="matchups__champ-img" src={`../images/card/${item.name.toLowerCase()}.jpg`} />
-									
+										<img className="matchups__champ-img" src={`/images/card/${item.name.toLowerCase()}.jpg`} />
+
 									</div>
 								</Link>
 
@@ -56,13 +57,13 @@ class Matchup extends React.Component {
 
 									<div className="matchups__vote">
 										<div className="matchups__vote-up-flex" onClick={canVote ? () => onChange(item, 1) : null}>
-											<img className="matchups__up-arrow" src='../images/icons/up-arrow.svg'/>
+											<img className="matchups__up-arrow" src="/images/icons/up-arrow.svg"/>
 											<div className="matchups__item-up">
 												{item.up}
 											</div>
 										</div>
 										<div className="matchups__vote-down-flex" onClick={canVote ? () => onChange(item, 0) : null}>
-											<img className="matchups__down-arrow" src="../images/icons/down-arrow.svg"/>
+											<img className="matchups__down-arrow" src="/images/icons/down-arrow.svg"/>
 											<div className="matchups__item-down">
 												{item.down}
 											</div>
