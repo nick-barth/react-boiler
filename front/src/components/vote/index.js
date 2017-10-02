@@ -13,9 +13,8 @@ class Vote extends React.Component {
 
 	static propTypes = {
 		voteInfo: React.PropTypes.object.isRequired,
-		upVote: React.PropTypes.func,
-		downVote: React.PropTypes.func,
-		canVote: React.PropTypes.bool
+		upVote: React.PropTypes.func.isRequired,
+		downVote: React.PropTypes.func.isRequired
 	};
 
 	constructor (props) {
@@ -29,7 +28,7 @@ class Vote extends React.Component {
 			<div className="vote-container">
 				<div className="vote">
 					<div className="vote__item-up" onClick={() => upVote()}>
-						<img className="vote__up-arrow" src='../images/icons/up-arrow.svg'/>
+						<img className="vote__up-arrow" src="../images/icons/up-arrow.svg"/>
 						{voteInfo.up}
 					</div>
 					<div className="vote__item-down" onClick={() => downVote()}>

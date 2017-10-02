@@ -26,7 +26,8 @@
     background: var(--overlay-background);
     margin-bottom: var(--modular-xs);
     border: 1px outset var(--color-gray-darker);
-    border-bottom: solid 1px var(--main-color);    
+    border-bottom: solid 1px var(--main-color);
+	list-style:none;
 }
 
 .tips__tip:last-child {
@@ -47,7 +48,7 @@
     font-size: var(--modular-base);
     color: var(--main-color);
     font-weight: 600;
-    margin: 0 3px 0 0;    
+    margin: 0 3px 0 0;
 }
 
 .tips__show-more-btn {
@@ -91,18 +92,17 @@
     }
     .tips__show-more-btn {
         font-size: calc(var(--modular-base) * .85);
-        padding: calc(var(--modular-base) * .85);        
+        padding: calc(var(--modular-base) * .85);
     }
     .tips__show-more-btn:hover {
         background-size: 100% 100%;
         color: var(--secondary-color);
-        box-shadow: 0 0 6px 0 var(--main-color);    
+        box-shadow: 0 0 6px 0 var(--main-color);
     }
     .tips__show-more-btn:active {
         transform: translateY(2px);
     }
     .tips__tip-name_big-red-quote, .tips__tip-name_big-white-quote {
-        font-size: calc(var(--modular-l) * .85);  
+        font-size: calc(var(--modular-l) * .85);
     }
  }
- 

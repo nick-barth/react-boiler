@@ -129,7 +129,7 @@ function matchUpdate (champ, update) {
 
 function addTip (champ, tip) {
 	return dispatch => {
-		API.champ.addTip(champ, tip)
+		API.champ.addChampTip(champ, tip)
 			.promise
 			.then(res => {
 				dispatch({
@@ -149,7 +149,7 @@ function addTip (champ, tip) {
 
 function updateTip (name, tip, direction) {
 	return dispatch => {
-		API.champ.updateTip(name, tip, direction)
+		API.champ.updateChampTip(name, tip, direction)
 			.promise
 			.then(res => {
 				dispatch({

@@ -15,7 +15,9 @@ class Button extends React.Component {
 
 	static propTypes = {
 		click: React.PropTypes.func.isRequired,
-		submit: React.PropTypes.bool
+		submit: React.PropTypes.bool,
+		text: React.PropTypes.string.isRequired,
+		classes: React.PropTypes.string
 	};
 
 	constructor (props) {
@@ -30,11 +32,11 @@ class Button extends React.Component {
 	}
 
 	render () {
-		const { submit } = this.props;
+		const { submit, text, classes } = this.props;
 
 		return (
-			<button className="button__button" type={submit ? 'submit' : 'button'} onClick={e => this.handleClick(e)} ref="button">
-				Submit
+			<button className={`button__button ${classes}`} type={submit ? 'submit' : 'button'} onClick={e => this.handleClick(e)} ref="button">
+				{text}
 			</button>
 		);
 	}
