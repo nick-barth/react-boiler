@@ -4,6 +4,7 @@
 
 // Vendors
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 /*
  * HEADER
@@ -19,11 +20,23 @@ class Header extends React.Component {
 
 	render () {
 		return (
-			<div className="header">
-                <div className="header__logo-text">
-                    <span className="header__logo-emphasis">QUAKE</span>CHAMPSELECT
-                </div>
+			<div className="navbar-container">
+				<div className="navbar">
+					<div className="logo">
+						<img className="logo__img" src="/images/icons/logo.svg"/>
+						<div className="logo__text">
+							<span className="logo__text_emphasis">QUAKE</span>CHAMPSELECT
+						</div>
+					</div>
+					<Link to={'/'}>
+						<div className="navbar__button">
+							<i className="fa fa-th navbar__button__icon" aria-hidden="true" />
+							ALL CHAMPIONS
+						</div>
+					</Link>
+				</div>
 			</div>
+
 		);
 	}
 }

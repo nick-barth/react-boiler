@@ -17,15 +17,17 @@ class Card extends React.Component {
 
 
 	static propTypes = {
-		champ: React.PropTypes.object.isRequired
+		champ: React.PropTypes.object.isRequired,
+		icon: React.PropTypes.node.isRequired
 	};
 
 	constructor (props) {
 		super(props);
-	};
+
+	}
 
 	render () {
-		const { champ } = this.props;
+		const { champ, icon } = this.props;
 
 		return (
 			<Link to={`/champion/${champ.name.toLowerCase()}`} className="card">
@@ -36,11 +38,11 @@ class Card extends React.Component {
 				<img className="card__bg" src={`images/card/${champ.name.toLowerCase()}.jpg`}/>
 				<div className="card__tag-line">
 					{champ.tagline}
-					<div className="card__accent" />			
+					<div className="card__accent" />
 				</div>
-				<object data="images/card/target.svg" type="image/svg+xml" className="card__hover-target" />
+				{icon}
 			</Link>
-				
+
 		);
 	}
 }

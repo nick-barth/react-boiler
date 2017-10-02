@@ -12,7 +12,7 @@ import API from 'api';
 const FETCH_CHAMP_AND_MATCHUP_ATTEMPT = 'FETCH_CHAMP_AND_MATCHUP_ATTEMPT';
 const FETCH_CHAMP_AND_MATCHUP_FAILURE = 'FETCH_CHAMP_AND_MATCHUP_FAILURE';
 const FETCH_CHAMP_SUCCESS = 'FETCH_CHAMP_SUCCESS';
-const FETCH_MATCHUP_SUCCESS = 'FETCH_MATCHUP_SUCCESS';
+const FETCH_MATCHUPS_SUCCESS = 'FETCH_MATCHUPS_SUCCESS';
 const UPDATE_MATCHUP_SUCCESS = 'UPDATE_MATCHUP_SUCCESS';
 const CHAMP_ADD_TIP_SUCCESS = 'CHAMP_ADD_TIP_SUCCESS';
 const CHAMP_UPDATE_TIP_SUCCESS = 'CHAMP_UPDATE_TIP_SUCCESS';
@@ -59,7 +59,7 @@ function fetchChampionAndMatchups (champ) {
 		.promise
 		.then(res => {
 			dispatch({
-				type: FETCH_MATCHUP_SUCCESS,
+				type: FETCH_MATCHUPS_SUCCESS,
 				payload: {
 					matchups: [].concat.apply([],res.data.map(m => {
 						return m.champions.filter(c => c.name.toLowerCase() !== champ);
@@ -129,7 +129,7 @@ function matchUpdate (champ, update) {
 
 function addTip (champ, tip) {
 	return dispatch => {
-		API.champ.addTip(champ, tip)
+		API.champ.addChampTip(champ, tip)
 			.promise
 			.then(res => {
 				dispatch({
@@ -149,7 +149,7 @@ function addTip (champ, tip) {
 
 function updateTip (name, tip, direction) {
 	return dispatch => {
-		API.champ.updateTip(name, tip, direction)
+		API.champ.updateChampTip(name, tip, direction)
 			.promise
 			.then(res => {
 				dispatch({
@@ -193,7 +193,7 @@ export function reducer (state = initalState, action) {
 			});
 
 		// Successfully fetched matchups of champ
-		case FETCH_MATCHUP_SUCCESS:
+		case FETCH_MATCHUPS_SUCCESS:
 			return Object.assign({}, state, {
 				matchups: action.payload.matchups,
 				isLoadingMatchup: false,

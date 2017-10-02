@@ -15,6 +15,7 @@ import Advertisement from '../components/adcontainer/advertisement/index.js';
  * LAYOUT - INDEX
  * ==============
  */
+
 export default class LandingLayout extends React.Component {
 
 	/*
@@ -23,7 +24,6 @@ export default class LandingLayout extends React.Component {
 	static propTypes = {
 		store: React.PropTypes.object,
 		children: React.PropTypes.element
-
 	};
 
 	constructor (props) {
