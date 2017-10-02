@@ -1,6 +1,5 @@
 .footer {
 	padding: var(--modular-s);
-	text-align: center;
 	font-size: var(--modular-s);
 	line-height: 140%;
 	border-top:1px solid var(--main-color);
@@ -8,32 +7,8 @@
 	background: var(--background-color);
 }
 
-@media (--tablet) {
-	.footer {
-		padding: var(--modular-base) var(--modular-xl);
-	}
-}
-
-@media (--tablet-large) {
-	.footer {
-		padding: var(--modular-base) var(--modular-xxxl);
-	}
-}
-
-@media (--desktop-small) {
-	.footer {
-		padding: var(--modular-base) 11rem;
-	}
-}
-
-@media (--desktop-medium) {
-	.footer {
-		padding: var(--modular-base) 15rem;
-	}
-}
-
-@media (--desktop-large) {
-	.footer {
-		padding: var(--modular-base) 25rem;
-	}
+.footer__text {
+	max-width: 30rem;
+	text-align: center;
+	margin: 0 auto 0;	
 }

@@ -53,16 +53,6 @@
 	font-weight: 500;
 }
 
-.navbar__button:hover {
-    background-size: 100% 100%;
-    color: var(--secondary-color);
-    box-shadow: 0 0 12px 0 var(--main-color); 
-}
-
-.navbar__button:active {
-	transform: translateY(2px);
-}
-
 .navbar__button__icon {
 	margin: 0 6px 0 0;
 }
@@ -107,6 +97,14 @@
 @media (--desktop-small) {
 	.navbar-container {
 		margin: 0 0 5rem;
+	}
+	.navbar__button:hover {
+		background-size: 100% 100%;
+		color: var(--secondary-color);
+		box-shadow: 0 0 12px 0 var(--main-color); 
+	}	
+	.navbar__button:active {
+		transform: translateY(2px);
 	}
 }
 
