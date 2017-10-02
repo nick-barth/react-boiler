@@ -7,7 +7,7 @@ class Advertisement extends React.Component {
 
     render() {
         return (
-            <div className={this.props.aspect}>{this.props.children}</div>
+            <div className={this.props.ad}>{this.props.children}</div>
         );
     }
 };
