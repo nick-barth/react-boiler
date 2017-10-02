@@ -122,16 +122,6 @@
     cursor: pointer;
 }
 
-.matchups__show-more-btn:hover {
-    background-size: 100% 100%;
-    color: var(--secondary-color);
-    box-shadow: 0 0 6px 0 var(--main-color);    
-}
-
-.matchups__show-more-btn:active {
-	transform: translateY(2px);
-}
-
 .matchups__show-more-btn:focus {
 	outline: none;
 }
@@ -158,5 +148,16 @@
     }
     .matchups__item {
         width: 10rem;
+    }
+ }
+
+ @media (--desktop-small) {
+    .matchups__show-more-btn:hover {
+        background-size: 100% 100%;
+        color: var(--secondary-color);
+        box-shadow: 0 0 6px 0 var(--main-color);    
+    }
+    .matchups__show-more-btn:active {
+        transform: translateY(2px);
     }
  }
