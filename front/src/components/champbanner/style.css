@@ -1,0 +1,69 @@
+.champ-banner {
+    width: 100%;
+    display: block;
+    position: relative;
+    line-height: 0;
+    box-shadow: 0 0 5px 0 var(--main-color);
+    border-top: 1px solid #d22730;
+    border-bottom: 1px solid #d22730;    
+    margin: 0 0 var(--modular-l);
+}
+
+.champ-banner__name {
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    font-weight: 700;
+    font-size: var(--modular-l);
+    text-shadow: 1px 1px 8px var(--main-color);
+    padding: 0 var(--modular-s);
+}
+
+.champ-banner__img {
+    height: 4.5rem;
+    width: 100%;
+    object-fit: cover;
+    object-position: 100% 0;
+}
+
+/*
+ * Media Queries
+ */
+
+@media (--tablet) {
+    .champ-banner__img {
+        height: 8rem;
+    }
+    .champ-banner__name {
+        font-size: calc(var(--modular-xl) * .85);
+        padding: 0 var(--modular-base);     
+    }
+}
+
+@media (--desktop-small) {
+    .champ-banner__name {
+        font-size: var(--modular-xl);
+        padding: 0;
+        text-align: center;
+        width: 100%;
+        letter-spacing: .5rem;
+    }
+    .champ-banner {
+        margin: 0 0 var(--modular-xl);        
+    }
+}
+
+@media (--desktop-large) {
+    .champ-banner__img {
+        height: 10rem;
+    }
+    .champ-banner__name {
+        font-size: calc(var(--modular-xxl) * .85);
+    }
+}
+
+@media (--desktop-xlarge) {
+    .champ-banner__img {
+        height: 11rem;
+    }
+}
