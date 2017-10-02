@@ -11,8 +11,10 @@ import { actions as championActions } from 'store/champion.js';
 import { actions as userActions } from 'store/user.js';
 
 // Components
-//import Matchup from 'components/matchup/index.js';
+import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
+import Adcontainer from 'components/adcontainer/index.js';
+import Advertisement from 'components/advertisement/index.js';
 
 /*
  * LAYOUT - CHAMPION
@@ -127,20 +129,27 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div>
 				{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
-						<Tips
-							title={`Tips for ${champion.name}`}
-							list={champion.tips}
-							records={store.userStore.records.tips}
-							onVote={(item, direction) => this.tipVote(item, direction)}
-							onAdd={(text) => this.addTip(text)}
-						/>
-						// <Matchup
-						// 	title={`Worst matchups vs ${champion.name}`}
-						// 	list={matchups}
-						// 	champ={champion}
-						// 	onChange={(item, direction) => this.matchupVote(item, direction)}
-						// 	records={store.userStore.records.matchups}
-						// />
+						<div>
+							<Tips
+								title={`Tips for ${champion.name}`}
+								list={champion.tips}
+								records={store.userStore.records.tips}
+								onVote={(item, direction) => this.tipVote(item, direction)}
+								onAdd={(text) => this.addTip(text)}
+							/>
+							<Adcontainer location="ad-container-horizontal">
+								<Advertisement aspect="ad-horizontal-example">
+									check out this relevant ad that you should click on
+								</Advertisement>
+							</Adcontainer>
+							<Matchup
+								title={`Worst matchups vs ${champion.name}`}
+								list={matchups}
+								champ={champion}
+								onChange={(item, direction) => this.matchupVote(item, direction)}
+								records={store.userStore.records.matchups}
+							/>
+						</div>
 				) :null}
 				{errors.length > 0 ? (
 					<div>

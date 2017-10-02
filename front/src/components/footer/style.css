@@ -5,6 +5,7 @@
 	line-height: 140%;
 	box-shadow: 0 0 12px 0 var(--main-color);
 	background: var(--background-color);
+	grid-area: footer;
 }
 
 @media (--tablet) {

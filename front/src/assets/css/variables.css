@@ -19,9 +19,7 @@
 	/*
 	 * Theme
 	 */
-	--background-texture-small: url(/images/textures/background-texture-small.jpg);
-	--background-texture-medium: url(/images/textures/background-texture-medium.jpg);	
-	--background-texture-large: url(/images/textures/background-texture-large.jpg);	
+	--background-texture: url(/images/textures/background-texture-large.jpg);	
 	--background-color: #191719;
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;

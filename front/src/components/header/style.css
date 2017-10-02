@@ -3,6 +3,7 @@
 	text-align: center;
 	width: 100%;
 	padding: var(--modular-xl) 0 var(--modular-l) 0;
+	grid-area: header;
 }
 
 .header__logo-text {
