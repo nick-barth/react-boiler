@@ -53,6 +53,18 @@ export default class ChampionLayout extends React.Component {
 
 		fetchChampionAndMatchups(id);
 
+		const { setRecords } = this.props;
+
+		if (localStorage.getItem('quakechampionselect')) {
+			const storage = JSON.parse(localStorage.getItem('quakechampionselect'));
+
+			if (storage) {
+				setRecords(storage.matchups, 'matchups');
+				setRecords(storage.tips, 'tips');
+				setRecords(storage.matchupTips, 'matchupTips');
+			}
+
+		}
 	}
 
    /*

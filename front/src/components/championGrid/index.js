@@ -22,7 +22,7 @@ export default class ChampionGrid extends React.Component {
 	};
 
 	render () {
-		const icon = <object data="images/card/target.svg" type="image/svg+xml" className="card__hover-target" />;
+		const icon = <img src="images/card/target.svg" type="image/svg+xml" className="card__hover-target" />;
 
 		return (
 			<div style={{ 'width': '100%', 'margin': 'auto' }}>
