@@ -25,19 +25,30 @@ class Tips extends React.Component {
 		onAdd: React.PropTypes.func.isRequired
 	};
 
+	static defaultProps = {
+		records: []
+	};
+
+
 
 	constructor (props) {
 		super(props);
 
 		this.state = {
-			text: ''
+			text: '',
+			visibleTips: 3
 		};
+	}
+
+	showMore () {
+		this.setState({
+			visibleTips: this.state.visibleTips + 3
+		});
 	}
 
 	render () {
 		const { title, list, records, onVote, onAdd } = this.props;
-
-		console.log(records);
+		const { visibleTips } = this.state;
 
 		return (
 			<div className="tips">
@@ -45,24 +56,32 @@ class Tips extends React.Component {
 					{title}
 				</div>
 				<ul className="tips__list">
-					{list.map(item => {
+					{list.slice(0, visibleTips).map(item => {
 						const duplicates = records.filter(record => record.tip === item.tip);
 						const canVote = records.length === 0 || duplicates.length === 0;
 
 						return (
-							<li className="tips_tip" key={Math.random()}>
+							<li className="tips__tip" key={Math.random()}>
 								<div className="tips_tip-name">
 									{item.tip}
 								</div>
 								<Vote
 									voteInfo={item}
-									upVote={canVote ? onVote(item, 1) : () => null}
-									downVote={canVote ? onVote(item, 0) : () => null}
+									upVote={canVote ? onVote(item.tip, 1) : () => null}
+									downVote={canVote ? onVote(item.tip, 0) : () => null}
 								/>
 							</li>
+
 						);
 					})}
 				</ul>
+				{list.length > visibleTips ?
+					<Button
+						click={() => this.showMore()}
+						classes="tips__show-more-btn"
+						text="show more"
+					/>
+				: null}
 				<Form
 					onSubmit={e => {
 						e.preventDefault();
@@ -80,7 +99,8 @@ class Tips extends React.Component {
 				</Form>
 				<Button
 					submit
-					click={() => this.saveTip()}
+					click={() => onAdd(this.state.text)}
+					text="Submit"
 				/>
 			</div>
 		);

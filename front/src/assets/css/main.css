@@ -51,16 +51,31 @@ a {
 	text-decoration: none;
 }
 
-.layout {
-	max-width: 100%;
-	margin: auto;
-	overflow-x: hidden;
-	background-image: var(--background-texture-small);
+
+.grid {
+	background-image: var(--background-texture);
 	background-repeat: repeat;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto;
+	grid-template-areas: 
+	"header"
+	"main"
+	"footer";
+	margin: 0 var(--modular-xs);
+	grid-gap: var(--modular-xs);	
+}
+
+.layout {
+	grid-area: main;
 }
 
 @media (--tablet-large) {
-	.layout {
-		background-image: var(--background-texture-medium);
+	.grid {
+		grid-template-columns: auto 1fr auto;
+		grid-template-areas: 
+		"header header header"
+		"ad-container-left main ad-container-right"
+		"footer footer footer";
 	}
 }

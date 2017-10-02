@@ -1,0 +1,26 @@
+.ad-container-left {
+    grid-area: ad-container-left;
+    display: none;   
+}
+
+.ad-container-right {
+    grid-area: ad-container-right;
+    display: none;
+}
+
+.ad-container-horizontal {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 var(--modular-xl);
+    border: 2px solid white;
+}
+
+@media (--desktop-small) {
+	.ad-container-right, .ad-container-left  {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: auto;
+        border: 2px solid white;
+    }
+}
