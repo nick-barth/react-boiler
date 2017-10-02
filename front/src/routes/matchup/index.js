@@ -90,6 +90,13 @@ export default class MatchupIndex extends React.Component {
 			<div>
 				{Object.keys(matchup).length > 0 ? (
 					<div>
+             <Matchup
+              title={`${champion1} vs ${champion2}`}
+              list={matchups}
+              champ={champion}
+              onChange={(item, direction) => this.matchupVote(item, direction)}
+              records={store.userStore.records.matchups}
+             />
 						<Tips
 							title={`Tips for playing ${champion1} vs. ${champion2}`}
 							onVote={this.onTipVote(champion1, champion2)}
