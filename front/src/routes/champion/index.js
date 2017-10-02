@@ -149,26 +149,20 @@ export default class ChampionLayout extends React.Component {
 				{matchups.length > 0 && champion.name ? (
 					<div>
 						<ChampBanner
-						champ={champion}
-						key={champion.id}						
+							champ={champion}
+							key={champion.id}
 						/>
-				{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
-						<Tips
-							title={`Tips for ${champion.name}`}
-							list={champion.tips}
-							records={store.userStore.records.tips}
-							onVote={(item, direction) => this.tipVote(item, direction)}
-							onAdd={(text) => this.addTip(text)}
-						/>
-						{/* <Matchup
-						 	title={`Worst matchups vs ${champion.name}`}
-						 	list={matchups}
-						 	champ={champion}
-						 	onChange={(item, direction) => this.matchupVote(item, direction)}
-						 	records={store.userStore.records.matchups}
-						 /> */}
+					{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
+							<Tips
+								title={`Tips for ${champion.name}`}
+								list={champion.tips}
+								records={store.userStore.records.tips}
+								onVote={(item, direction) => this.tipVote(item, direction)}
+								onAdd={(text) => this.addTip(text)}
+							/>
+					) : null}
 					</div>
-				) :null}
+				) : null}
 				{errors.length > 0 ? (
 					<div>
 						No Champion Found
