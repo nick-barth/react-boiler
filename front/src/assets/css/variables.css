@@ -19,8 +19,9 @@
 	/*
 	 * Theme
 	 */
-	--background-texture-large: url(/images/textures/background-texture-large.jpg);	
-	--background-color: #0E0E0E;
+
+	--background-texture: url(/images/textures/background-texture-large.jpg);	
+	--background-color: #191719;
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
 	--overlay-background: rgba(0, 0, 0, 0.7);
