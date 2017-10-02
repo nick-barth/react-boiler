@@ -13,8 +13,8 @@ class Vote extends React.Component {
 
 	static propTypes = {
 		voteInfo: React.PropTypes.object.isRequired,
-		upVote: React.PropTypes.func.isRequired,
-		downVote: React.PropTypes.func.isRequired,
+		upVote: React.PropTypes.func,
+		downVote: React.PropTypes.func,
 		canVote: React.PropTypes.bool
 	};
 

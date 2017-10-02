@@ -6,7 +6,6 @@ secret.json
 *.crx
 *.pem
 
-server/assets/js/*
 server/assets/css/*
 server/assets/img/*
 !server/assets/img/_core*

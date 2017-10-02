@@ -4,47 +4,32 @@
 
 // Vendors
 import React from 'react';
-import { connect } from 'react-redux';
 
 import Form from 'components/form/index.js';
 import Vote from 'components/vote/index.js';
 import Button from 'components/button/index.js';
 
-// Store
-import { actions as championActions } from 'store/champion.js';
-
 /*
- * MATCHUP
- * =======
+ * TIPS
+ * ====
  */
 
-@connect(
-	state => ({
-		store: state
-	}), {
-		addTip: championActions.addTip,
-		updateTip: championActions.updateTip
-	}
-)
 class Tips extends React.Component {
 
 
 	static propTypes = {
 		title: React.PropTypes.string.isRequired,
 		records: React.PropTypes.array,
-		champion: React.PropTypes.object,
-		matchup: React.PropTypes.array,
-		tips: React.PropTypes.array.isRequired,
-
-		//Store
-		addTip: React.PropTypes.func.isRequired,
-		updateTip: React.PropTypes.func.isRequired
+		list: React.PropTypes.array.isRequired,
+		onVote: React.PropTypes.func.isRequired,
+		onAdd: React.PropTypes.func.isRequired
 	};
 
 	static defaultProps = {
-		tips: [],
 		records: []
 	};
+
+
 
 	constructor (props) {
 		super(props);
@@ -54,26 +39,8 @@ class Tips extends React.Component {
 		};
 	}
 
-	saveTip () {
-		const { champion, addTip } = this.props;
-		const { text } = this.state;
-
-		addTip(champion.name, text);
-
-	}
-
-	onVote (item, direction) {
-		return () => {
-			const { updateTip } = this.props;
-
-			updateTip(item._id, direction);
-		};
-	}
-
-
-
 	render () {
-		const { title, tips, records } = this.props;
+		const { title, list, records, onVote, onAdd } = this.props;
 
 		return (
 			<div className="tips">
@@ -81,21 +48,23 @@ class Tips extends React.Component {
 					{title}
 				</div>
 				<ul className="tips__list">
-					{tips.map(item => {
-						const duplicates = records.filter(record => record.champions.tips.includes(tips.text));
+					{list.map(item => {
+						const duplicates = records.filter(record => record.tip === item.tip);
 						const canVote = records.length === 0 || duplicates.length === 0;
 
 						return (
-							<div className="tips__tip" key={item._id}>
-								<div className="tips__tip-name">
-									<span className="tips__tip-name_big-red-quote">"</span>{item.tip}<span className="tips__tip-name_big-white-quote">"</span>
+
+							<li className="tips__tip" key={Math.random()}>
+								<div className="tips_tip-name">
+									{item.tip}
 								</div>
 								<Vote
 									voteInfo={item}
-									upVote={canVote ? this.onVote(item, 1) : null}
-									downVote={canVote ? this.onVote(item, 0) : null}
-								/>						
-							</div>
+									upVote={canVote ? () => onVote(item.tip, 1) : () => null}
+									downVote={canVote ? () => onVote(item.tip, 0) : () => null}
+								/>
+							</li>
+
 						);
 					})}
 				</ul>
@@ -103,7 +72,7 @@ class Tips extends React.Component {
 				<Form
 					onSubmit={e => {
 						e.preventDefault();
-						this.saveTip();
+						onAdd(this.state.text);
 					}}
 				>
 					<Form.Input
@@ -117,7 +86,7 @@ class Tips extends React.Component {
 				</Form>
 				<Button
 					submit
-					click={() => this.saveTip()}
+					click={() => onAdd(this.state.text)}
 				/>
 			</div>
 		);
