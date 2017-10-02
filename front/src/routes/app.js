@@ -51,7 +51,6 @@ export default class LandingLayout extends React.Component {
 			const storage = JSON.parse(localStorage.getItem('quakechampionselect'));
 
 			if (storage) {
-				console.log(storage);
 				setRecords(storage.matchups, 'matchups');
 				setRecords(storage.tips, 'tips');
 				setRecords(storage.matchupTips, 'matchupTips');
