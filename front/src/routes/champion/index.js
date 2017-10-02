@@ -13,6 +13,7 @@ import { actions as userActions } from 'store/user.js';
 // Components
 // import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
+import Spinner from 'components/spinner/index.js';
 import ChampBanner from 'components/champbanner/index.js';
 
 /*
@@ -142,11 +143,14 @@ export default class ChampionLayout extends React.Component {
 
 	render () {
 		const { store } = this.props;
-		const { matchups, champion, errors } = store.championStore;
+		const { matchups, champion, errors, isLoadingChamp, isLoadingMatchup } = store.championStore;
+
+		console.log(matchups);
+		console.log(champion);
 
 		return (
 			<div>
-				{matchups.length > 0 && champion.name ? (
+				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
 					<div>
 						<ChampBanner
 							champ={champion}
@@ -167,7 +171,7 @@ export default class ChampionLayout extends React.Component {
 					<div>
 						No Champion Found
 					</div>
-				) :null}
+				) : <Spinner />}
 			</div>
 		);
 	}

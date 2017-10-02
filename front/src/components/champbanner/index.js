@@ -4,17 +4,16 @@
 
 // Vendors
 import React from 'react';
-import _ from 'lodash';
 
 /*
- * MATCHUP
- * =======
+ * CHAMPBANNER
+ * ===========
  */
 class ChampBanner extends React.Component {
 
 
 	static propTypes = {
-		champ: React.PropTypes.object.isRequired,
+		champ: React.PropTypes.object.isRequired
 	};
 
 	constructor (props) {
@@ -26,8 +25,8 @@ class ChampBanner extends React.Component {
 
 		return (
                 <div className="champ-banner">
-                    <div className="champ-banner__name">{champ.name}</div>				
-                    <img className="champ-banner__img" src={`../images/champbanner/champbanner-${champ.name.toLowerCase()}.jpg`} />				
+                    <div className="champ-banner__name">{champ.name}</div>
+                    <img className="champ-banner__img" src={`../images/champbanner/champbanner-${champ.name.toLowerCase()}.jpg`} />
                 </div>
 		);
 	}
