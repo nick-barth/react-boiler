@@ -22,29 +22,36 @@
 		grid-template-columns: repeat(3, 1fr);
 		-ms-grid-columns: repeat(3, 1fr);
 		padding: 0 var(--modular-l);
+		margin: 0 0 var(--modular-xxl);	
+	}
+}
+
+@media (--desktop-small) {
+	.champion-grid {
+		margin: 0 0 5rem;
 	}
 }
 
 @media (--desktop-medium) {
 	.champion-grid {
-		padding: 0 var(--modular-xxl);
+		padding: 0 var(--modular-xxl);	
+		margin: 0 0 var(--modular-xxxl);		
 	}
 }
 
 @media (--desktop-large) {
 	.champion-grid {
 		padding: 0 var(--modular-xxxl);
-		margin: 0 0 var(--modular-xl);
 		grid-template-columns: repeat(4, 1fr);
 		-ms-grid-columns: repeat(4, 1fr);
 		grid-gap: var(--modular-s);
+		margin: 0 0 8rem;		
 	}
 }
 
 @media (--desktop-xlarge) {
 	.champion-grid {
-		margin: 0 0 var(--modular-xxl);
-		padding: 0 11.089rem;
+		padding: 0 11rem;
 		grid-gap: var(--modular-base);	
 	}
 }
