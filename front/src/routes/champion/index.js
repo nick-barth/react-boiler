@@ -25,7 +25,9 @@ import ChampBanner from 'components/champbanner/index.js';
 	}), {
 		fetchChampionAndMatchups: championActions.fetchChampionAndMatchups,
 		matchUpdate: championActions.matchUpdate,
-		setRecords: userActions.setRecords
+		setRecords: userActions.setRecords,
+		addTip: championActions.addTip,
+		updateTip: championActions.updateTip
 
 	}
 )
@@ -36,7 +38,9 @@ export default class ChampionLayout extends React.Component {
 		match: React.PropTypes.object.isRequired,
 		fetchChampionAndMatchups: React.PropTypes.func.isRequired,
 		matchUpdate: React.PropTypes.func.isRequired,
-		setRecords: React.PropTypes.func.isRequired
+		setRecords: React.PropTypes.func.isRequired,
+		addTip: React.PropTypes.func.isRequired,
+		updateTip: React.PropTypes.func.isRequired
 	};
 
 	constructor (props) {
@@ -45,17 +49,26 @@ export default class ChampionLayout extends React.Component {
 	}
 
 	componentDidMount () {
-		const { fetchChampionAndMatchups, setRecords } = this.props;
+		const { fetchChampionAndMatchups } = this.props;
 		const id = this.props.match.params.champion;
 
 		fetchChampionAndMatchups(id);
 
+		const { setRecords } = this.props;
+
 		if (localStorage.getItem('quakechampionselect')) {
-			setRecords(JSON.parse(localStorage.getItem('quakechampionselect')), 'matchups');
+			const storage = JSON.parse(localStorage.getItem('quakechampionselect'));
+
+			if (storage) {
+				setRecords(storage.matchups, 'matchups');
+				setRecords(storage.tips, 'tips');
+				setRecords(storage.matchupTips, 'matchupTips');
+			}
+
 		}
 	}
 
-	/*
+   /*
 	* Recording a vote
 	* --
 	* @param {item} Object
@@ -87,16 +100,49 @@ export default class ChampionLayout extends React.Component {
 		userStore.records.matchups.push({ champions: [item.name, champion.name], direction: direction });
 
 		this.props.setRecords(userStore.records.matchups, 'matchups');
-		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records.matchups));
+		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
 	}
 
-	tipsVote () {
-		console.log('wow');
+   /*
+	* Adding a tip
+	* --
+	* @param {text} String
+	*/
+	addTip (text) {
+		const { addTip } = this.props;
+		const { champion } = this.props.store.championStore;
+
+		addTip(champion.name, text);
+
+	}
+
+   /*
+	* Voting on a tip
+	* Curried function
+	* --
+	* @param {item} Object
+	* @param {direction} Boolean
+	*/
+	tipVote (item, direction) {
+		return () => {
+			const { updateTip, store } = this.props;
+			const { userStore, championStore } = store;
+			const { champion } = championStore;
+
+			updateTip(champion.name, item, direction);
+
+			userStore.records.tips.push({ champion: champion.name, tip: item, direction: direction });
+
+			this.props.setRecords(userStore.records.tips, 'tips');
+			localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
+
+		};
+
 	}
 
 	render () {
 		const { store } = this.props;
-		const { matchups, champion } = store.championStore;
+		const { matchups, champion, errors } = store.championStore;
 
 		return (
 			<div>
@@ -106,14 +152,13 @@ export default class ChampionLayout extends React.Component {
 						champ={champion}
 						key={champion.id}						
 						/>
+				{matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
 						<Tips
 							title={`Tips for ${champion.name}`}
-							champion={champion}
 							list={champion.tips}
 							records={store.userStore.records.tips}
-							onChange={() => this.tipsVote}
-							key={champion.name}
-							tips={champion.tips}
+							onVote={(item, direction) => this.tipVote(item, direction)}
+							onAdd={(text) => this.addTip(text)}
 						/>
 						{/* <Matchup
 						 	title={`Worst matchups vs ${champion.name}`}
@@ -122,6 +167,11 @@ export default class ChampionLayout extends React.Component {
 						 	onChange={(item, direction) => this.matchupVote(item, direction)}
 						 	records={store.userStore.records.matchups}
 						 /> */}
+					</div>
+				) :null}
+				{errors.length > 0 ? (
+					<div>
+						No Champion Found
 					</div>
 				) :null}
 			</div>

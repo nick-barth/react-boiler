@@ -10,11 +10,13 @@ import API from 'api';
  * ============
  */
 const FETCH_CHAMP_AND_MATCHUP_ATTEMPT = 'FETCH_CHAMP_AND_MATCHUP_ATTEMPT';
+const FETCH_CHAMP_AND_MATCHUP_FAILURE = 'FETCH_CHAMP_AND_MATCHUP_FAILURE';
 const FETCH_CHAMP_SUCCESS = 'FETCH_CHAMP_SUCCESS';
-const FETCH_MATCHUP_SUCCESS = 'FETCH_MATCHUP_SUCCESS';
+const FETCH_MATCHUPS_SUCCESS = 'FETCH_MATCHUPS_SUCCESS';
 const UPDATE_MATCHUP_SUCCESS = 'UPDATE_MATCHUP_SUCCESS';
 const CHAMP_ADD_TIP_SUCCESS = 'CHAMP_ADD_TIP_SUCCESS';
 const CHAMP_UPDATE_TIP_SUCCESS = 'CHAMP_UPDATE_TIP_SUCCESS';
+
 
 /*
  * INITIAL STATE
@@ -25,7 +27,7 @@ const initalState = {
 	matchups: [],
 	isLoadingChamp: false,
 	isLoadingMatchup: false,
-	tips: []
+	errors: []
 };
 
 /*
@@ -57,7 +59,7 @@ function fetchChampionAndMatchups (champ) {
 		.promise
 		.then(res => {
 			dispatch({
-				type: FETCH_MATCHUP_SUCCESS,
+				type: FETCH_MATCHUPS_SUCCESS,
 				payload: {
 					matchups: [].concat.apply([],res.data.map(m => {
 						return m.champions.filter(c => c.name.toLowerCase() !== champ);
@@ -66,7 +68,12 @@ function fetchChampionAndMatchups (champ) {
 			});
 		})
 		.catch(res => {
-			console.log(res);
+			dispatch({
+				type: FETCH_CHAMP_AND_MATCHUP_FAILURE,
+				payload: {
+					error: 'No Matchups Found'
+				}
+			});
 		});
 
 		API.champ.getChampion(champ)
@@ -80,7 +87,12 @@ function fetchChampionAndMatchups (champ) {
 			});
 		})
 		.catch(res => {
-			console.log(res);
+			dispatch({
+				type: FETCH_CHAMP_AND_MATCHUP_FAILURE,
+				payload: {
+					error: 'No Champion Found'
+				}
+			});
 		});
 
 	};
@@ -117,13 +129,13 @@ function matchUpdate (champ, update) {
 
 function addTip (champ, tip) {
 	return dispatch => {
-		API.champ.addTip(champ, tip)
+		API.champ.addChampTip(champ, tip)
 			.promise
 			.then(res => {
 				dispatch({
 					type: CHAMP_ADD_TIP_SUCCESS,
 					payload: {
-						tips: res.data
+						tips: res.data.tips
 					}
 				});
 			})
@@ -135,15 +147,15 @@ function addTip (champ, tip) {
 
 }
 
-function updateTip (id, direction) {
+function updateTip (name, tip, direction) {
 	return dispatch => {
-		API.champ.updateTip(id, direction)
+		API.champ.updateChampTip(name, tip, direction)
 			.promise
 			.then(res => {
 				dispatch({
 					type: CHAMP_UPDATE_TIP_SUCCESS,
 					payload: {
-						tips: res.data
+						tips: res.data.tips
 					}
 				});
 			})
@@ -161,6 +173,11 @@ function updateTip (id, direction) {
  */
 export function reducer (state = initalState, action) {
 	switch (action.type) {
+		case FETCH_CHAMP_AND_MATCHUP_FAILURE:
+			return Object.assign({}, state, {
+				errors: [action.payload.error]
+			});
+
 		case FETCH_CHAMP_AND_MATCHUP_ATTEMPT:
 			return Object.assign({}, state, {
 				isLoadingChamp: true,
@@ -176,7 +193,7 @@ export function reducer (state = initalState, action) {
 			});
 
 		// Successfully fetched matchups of champ
-		case FETCH_MATCHUP_SUCCESS:
+		case FETCH_MATCHUPS_SUCCESS:
 			return Object.assign({}, state, {
 				matchups: action.payload.matchups,
 				isLoadingMatchup: false,
@@ -194,12 +211,18 @@ export function reducer (state = initalState, action) {
 				// Update of a matchup attempt
 		case CHAMP_ADD_TIP_SUCCESS:
 			return Object.assign({}, state, {
-				tips: action.payload.tips
+				champion: {
+					...state.champion,
+					tips: action.payload.tips
+				}
 			});
 
 		case CHAMP_UPDATE_TIP_SUCCESS:
 			return Object.assign({}, state, {
-				tips: action.payload.tips
+				champion: {
+					...state.champion,
+					tips: action.payload.tips
+				}
 			});
 
 		default:

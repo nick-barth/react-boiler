@@ -11,7 +11,8 @@ const SET_RECORDS = 'SET_RECORDS';
 const initalState = {
 	records: {
 		matchups: [],
-		tips: []
+		tips: [],
+		matchupTips: []
 	}
 };
 
@@ -51,6 +52,7 @@ export function reducer (state = initalState, action) {
 		case SET_RECORDS:
 			return Object.assign({}, state, {
 				records: {
+					...state.records,
 					[action.payload.type]: action.payload.records
 				}
 			});
