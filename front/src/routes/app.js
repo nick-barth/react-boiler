@@ -9,7 +9,7 @@ import React from 'react';
 import Header from '../components/header/index.js';
 import Footer from '../components/footer/index.js';
 import Adcontainer from '../components/adcontainer/index.js';
-import Advertisement from '../components/advertisement/index.js';
+import Advertisement from '../components/adcontainer/advertisement/index.js';
 
 /*
  * LAYOUT - INDEX

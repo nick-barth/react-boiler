@@ -14,7 +14,7 @@ import { actions as userActions } from 'store/user.js';
 import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
 import Adcontainer from 'components/adcontainer/index.js';
-import Advertisement from 'components/advertisement/index.js';
+import Advertisement from 'components/adcontainer/advertisement/index.js';
 
 /*
  * LAYOUT - CHAMPION
