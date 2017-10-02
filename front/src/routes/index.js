@@ -9,7 +9,7 @@ import React from 'react';
 import API from 'api';
 
 // Components
-import ChampionGrid from 'components/championGrid/index.js'
+import ChampionGrid from 'components/championGrid/index.js';
 
 /*
  * LAYOUT - INDEX
@@ -42,7 +42,7 @@ export default class App extends React.Component {
 
 	render () {
 		return (
-			<ChampionGrid champions={ this.state.champions } />
+			<ChampionGrid champions={this.state.champions} />
 		);
 	}
 

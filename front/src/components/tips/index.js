@@ -75,11 +75,13 @@ class Tips extends React.Component {
 						);
 					})}
 				</ul>
-				<Button
-					click={this.showMore}
-					classes="tips__show-more-btn"
-					text="show more"
-				/>
+				{list.length > visibleTips ?
+					<Button
+						click={() => this.showMore()}
+						classes="tips__show-more-btn"
+						text="show more"
+					/>
+				: null}
 				<Form
 					onSubmit={e => {
 						e.preventDefault();

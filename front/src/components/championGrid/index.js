@@ -12,17 +12,18 @@ import Card from 'components/card/index.js';
  * LAYOUT - INDEX
  * ==============
  */
-export default class ChampionGrid extends React.Component {	
+export default class ChampionGrid extends React.Component {
 	static defaultProps = {
 		champions: []
 	};
-	
+
 	static propTypes = {
 		champions: React.PropTypes.array.isRequired
 	};
-	
+
 	render () {
-		
+		const icon = <object data="images/card/target.svg" type="image/svg+xml" className="card__hover-target" />;
+
 		return (
 			<div style={{ 'width': '100%', 'margin': 'auto' }}>
 			{this.props.champions ? (
@@ -32,6 +33,7 @@ export default class ChampionGrid extends React.Component {
 						<Card
 							key={champ.id}
 							champ={champ}
+							icon={icon}
 						/>
 					);
 				})}
