@@ -13,6 +13,7 @@
     margin: 0 0 var(--modular-base);
     font-weight: 600;
     font-size: calc(var(--modular-l) * .85);
+    text-align: center;
 }
 
 .tips__list {
@@ -24,7 +25,8 @@
     padding: var(--modular-s) var(--modular-xs);
     background: var(--overlay-background);
     margin-bottom: var(--modular-xs);
-    border-bottom: solid 1px var(--main-color);
+    border: 1px outset var(--color-gray-darker);
+    border-bottom: solid 1px var(--main-color);    
 }
 
 .tips__tip:last-child {
@@ -69,16 +71,6 @@
     cursor: pointer;
 }
 
-.tips__show-more-btn:hover {
-    background-size: 100% 100%;
-    color: var(--secondary-color);
-    box-shadow: 0 0 6px 0 var(--main-color);    
-}
-
-.tips__show-more-btn:active {
-	transform: translateY(2px);
-}
-
 .tips__show-more-btn:focus {
 	outline: none;
 }
@@ -89,7 +81,7 @@
 
  @media (--desktop-small) {
     .tips {
-        max-width: 31rem;
+        max-width: 37rem;
     }
     .tips__title {
         font-size: var(--modular-l);
@@ -100,6 +92,14 @@
     .tips__show-more-btn {
         font-size: calc(var(--modular-base) * .85);
         padding: calc(var(--modular-base) * .85);        
+    }
+    .tips__show-more-btn:hover {
+        background-size: 100% 100%;
+        color: var(--secondary-color);
+        box-shadow: 0 0 6px 0 var(--main-color);    
+    }
+    .tips__show-more-btn:active {
+        transform: translateY(2px);
     }
     .tips__tip-name_big-red-quote, .tips__tip-name_big-white-quote {
         font-size: calc(var(--modular-l) * .85);  

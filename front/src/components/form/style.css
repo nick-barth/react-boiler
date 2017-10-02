@@ -3,6 +3,7 @@
     margin: 0 0 var(--modular-base);
     font-weight: 600;
     font-size: calc(var(--modular-l) * .85);
+    text-align: center;
 }
 
 .form__input-el {
