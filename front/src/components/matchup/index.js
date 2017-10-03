@@ -4,7 +4,6 @@
 
 // Vendors
 import React from 'react';
-import _ from 'lodash';
 import { Link } from 'react-router-dom';
 
 /*
@@ -75,7 +74,7 @@ class Matchup extends React.Component {
 					})}
 					<button className="matchups__show-more-btn">show more</button>
 			</div>
-			);
+		);
 	}
 }
 
