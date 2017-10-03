@@ -23,8 +23,6 @@ app.get('*', (req, res, next) => {
 		next();
 		return;
 	}
-	let webpackManifest;
-
 	const entry = 'bundle.js';
 	const preloadScripts = [entry];
 
@@ -38,7 +36,6 @@ app.get('*', (req, res, next) => {
 	res.set('Link', linkHeaders);
 
 	res.render('index', {
-		webpackManifest,
 		entry,
 		env
 	});
