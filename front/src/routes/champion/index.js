@@ -11,7 +11,7 @@ import { actions as championActions } from 'store/champion.js';
 import { actions as userActions } from 'store/user.js';
 
 // Components
-import Matchup from 'components/matchup/index.js';
+import Matchups from 'components/matchups/index.js';
 import Tips from 'components/tips/index.js';
 import Spinner from 'components/spinner/index.js';
 import Banner from 'components/banner/index.js';
@@ -156,14 +156,14 @@ export default class ChampionLayout extends React.Component {
 						<div className="matchups-header">matchups</div>
 						<div className="matchups-wrapper">
 							<div className="matchups-flex">
-								<Matchup
+								<Matchups
 									title={`${champion.name} is strong vs`}
 									list={matchups}
 									champ={champion}
 									onChange={(item, direction) => this.matchupVote(item, direction)}
 									records={store.userStore.records.matchups}
 								/>
-								<Matchup
+								<Matchups
 									title={`${champion.name} is weak vs`}
 									list={matchups}
 									champ={champion}
