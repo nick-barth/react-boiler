@@ -12,6 +12,7 @@ import API from 'api';
 const FETCH_MATCHUP_SUCCESS = 'FETCH_MATCHUP_SUCCESS';
 const MATCHUP_UPDATE_TIP_SUCCESS = 'MATCHUP_UPDATE_TIP_SUCCESS';
 const MATCHUP_ADD_TIP_SUCCESS = 'MATCHUP_ADD_TIP_SUCCESS';
+const UPDATE_MATCHUP_SUCCESS = 'UPDATE_MATCHUP_SUCCESS';
 
 
 /*
@@ -28,7 +29,8 @@ const initalState = {
 export const actions = {
 	getMatchup,
 	addMatchupTip,
-	updateMatchupTip
+	updateMatchupTip,
+	matchupUpdate
 };
 
 /*
@@ -96,6 +98,27 @@ function updateMatchupTip (champ1, champ2, tip, direction) {
 
 }
 
+
+function matchupUpdate (champ, update) {
+	return dispatch => {
+		API.matchup.updateMatchup(champ, update)
+			.promise
+			.then(res => {
+				dispatch({
+					type: UPDATE_MATCHUP_SUCCESS,
+					payload: {
+						matchup: res.data[0]
+					}
+				});
+			})
+			.catch(res => {
+				console.log(res);
+				console.log('error');
+			});
+	};
+
+}
+
 /*
  * REDUCER
  * =======
@@ -114,6 +137,11 @@ export function reducer (state = initalState, action) {
 			});
 
 		case MATCHUP_UPDATE_TIP_SUCCESS:
+			return Object.assign({}, state, {
+				matchup: action.payload.matchup
+			});
+
+		case UPDATE_MATCHUP_SUCCESS:
 			return Object.assign({}, state, {
 				matchup: action.payload.matchup
 			});

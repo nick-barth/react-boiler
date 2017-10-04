@@ -49,6 +49,7 @@ app.post('/api/matchup/addTip', api.addMatchupTip);
 app.post('/api/matchup/updateTip', api.updateMatchupTip);
 app.post('/api/champ/addTip', api.addChampTip);
 app.post('/api/champ/updateTip', api.updateChampTip);
+app.post('/api/champ/updateChampMatchup', api.updateChampMatchup);
 
 // GET
 app.get('/api/matchup', api.getMatchup);

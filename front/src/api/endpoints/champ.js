@@ -14,7 +14,8 @@ export default function getChampionApi (exec) {
 		getChampion,
 		getChampions,
 		addChampTip,
-		updateChampTip
+		updateChampTip,
+		updateChampMatchup
 	};
 
 
@@ -43,6 +44,25 @@ export default function getChampionApi (exec) {
 			url: '/champ',
 			query: {
 				'name': champ
+			}
+		});
+	}
+
+	/*
+	 *  Updates champ matchup
+	 * --
+	 * @param {String} champ - champion name
+	 * @param {object} update - updates to votes
+	 * @return {Promise} from .exec
+	 */
+	function updateChampMatchup (champ, update) {
+		return exec({
+			method: 'post',
+			url: '/champ/updateChampMatchup',
+			query: {
+				'champ1': champ.name,
+				'champ2': update.name,
+				'update': update
 			}
 		});
 	}

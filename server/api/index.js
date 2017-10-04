@@ -162,7 +162,7 @@ exports.updateChampTip = function (req, res) {
 };
 
 // POST updating champion matchup
-exports.updateMatchup = function (req, res) {
+exports.updateChampMatchup = function (req, res) {
 	const champ1 = req.query.champ1;
 	const champ2 = req.query.champ2;
 	const update = req.query.update;
@@ -184,6 +184,36 @@ exports.updateMatchup = function (req, res) {
 			}
 
 			matchup.find({ 'champions.name': new RegExp(champ1, 'i') }, function (err, matchups) {
+				res.json(matchups);
+			});
+		});
+	});
+};
+
+
+// POST updating champion matchup
+exports.updateMatchup = function (req, res) {
+	const champ1 = req.query.champ1;
+	const champ2 = req.query.champ2;
+	const update = req.query.update;
+
+	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
+		const indexOf =  matchups.champions.findIndex(x => x.name === update.name);
+		const set = {};
+
+		if (update.up) {
+			set['champions.' + indexOf + '.up'] = update.up;
+		}
+		else {
+			set['champions.' + indexOf + '.down'] = update.down;
+		}
+
+		matchup.findOneAndUpdate({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, { $set: set }, function (err, docs) {
+			if (err) {
+				throw err;
+			}
+
+			matchup.find({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchups) {
 				res.json(matchups);
 			});
 		});

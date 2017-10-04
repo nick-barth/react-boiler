@@ -7,7 +7,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // Store
-import { actions as championActions } from 'store/champion.js';
 import { actions as matchupActions } from 'store/matchup.js';
 import { actions as userActions } from 'store/user.js';
 
@@ -16,7 +15,7 @@ import Tips from 'components/tips/index.js';
 import Matchup from 'components/matchup/index.js';
 
 // Utils
-import { unformatChampName, formatChampName } from 'utils/championName';
+import { unformatChampName } from 'utils/championName';
 
 /*
  * LAYOUT - MATCHUP
@@ -29,7 +28,7 @@ import { unformatChampName, formatChampName } from 'utils/championName';
 	}), {
 		addMatchupTip: matchupActions.addMatchupTip,
 		getMatchup: matchupActions.getMatchup,
-		matchUpdate: championActions.matchUpdate,
+		matchupUpdate: matchupActions.matchupUpdate,
 		updateMatchupTip: matchupActions.updateMatchupTip,
 		setRecords: userActions.setRecords
 	}
@@ -40,7 +39,7 @@ export default class MatchupIndex extends React.Component {
 		store: React.PropTypes.object.isRequired,
 		match: React.PropTypes.object.isRequired,
 		getMatchup: React.PropTypes.func.isRequired,
-		matchUpdate: React.PropTypes.func.isRequired,
+		matchupUpdate: React.PropTypes.func.isRequired,
 		addMatchupTip: React.PropTypes.func.isRequired,
 		updateMatchupTip: React.PropTypes.func.isRequired,
 		setRecords: React.PropTypes.func.isRequired
@@ -94,36 +93,33 @@ export default class MatchupIndex extends React.Component {
 	* @param {direction} Boolean
 	*/
 	matchupVote (item, direction) {
-		const { userStore } = this.props.store;
-		const { matchUpdate } = this.props;
+		const { matchupUpdate } = this.props;
 		const { matchup } = this.props.store.matchupStore;
 
-		const champ1 = matchup.champions.filter(c => c.name !== item.name)[0];
-		const champ2 = item;
+		const champ2 = matchup.champions.filter(c => c.name !== item.name)[0];
+		const champ1 = item;
 
 		if (direction) {
 			const update = {
 				name: champ1.name,
-				up: matchup.champions.filter(c => c.name !== champ2.name)[0].up + 1
+				up: champ1.up + 1
 			};
 
-			console.log(update);
-
-			matchUpdate(champ1, update);
+			matchupUpdate(champ2, update);
 		}
 		else {
 			const update = {
-				name: item.name,
-				down: matchup.champions.filter(c => c.name === item.name)[0].down + 1
+				name: champ1.name,
+				down: champ1.down + 1
 			};
 
-			matchUpdate(item, update);
+			matchupUpdate(champ2, update);
 		}
 
-		userStore.records.matchups.push({ champions: [item.name, item.name], direction: direction });
+		//userStore.records.matchups.push({ champions: [champ1.name, champ2.name], direction: direction });
 
-		this.props.setRecords(userStore.records.matchups, 'matchups');
-		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
+		// this.props.setRecords(userStore.records.matchups, 'matchups');
+		// localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
 	}
 
 
@@ -131,8 +127,6 @@ export default class MatchupIndex extends React.Component {
 		const { store } = this.props;
 		const { champion1, champion2 } = this.props.match.params;
 		const { matchup } = this.props.store.matchupStore;
-
-		localStorage.clear();
 
 		return (
 			<div>
