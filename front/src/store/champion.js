@@ -129,6 +129,29 @@ function matchUpdate (champ, update) {
 
 }
 
+// // TODO THIS STUFF
+// function matchUpdate (champ, update) {
+// 	return dispatch => {
+// 		API.matchup.updateMatchup(champ, update)
+// 			.promise
+// 			.then(res => {
+// 				dispatch({
+// 					type: UPDATE_MATCHUP_SUCCESS,
+// 					payload: {
+// 						matchups: [].concat.apply([],res.data.map(m => {
+// 							return m.champions.filter(c => c.name.toLowerCase() !== champ.name.toLowerCase());
+// 						}))
+// 					}
+// 				});
+// 			})
+// 			.catch(res => {
+// 				console.log(res);
+// 				console.log('error');
+// 			});
+// 	};
+
+// }
+
 function addTip (champ, tip) {
 	return dispatch => {
 		API.champ.addChampTip(champ, tip)
@@ -204,6 +227,7 @@ export function reducer (state = initalState, action) {
 
 		// Update of a matchup attempt
 		case UPDATE_MATCHUP_SUCCESS:
+			console.log(action.payload.matchups);
 			return Object.assign({}, state, {
 				matchups: action.payload.matchups,
 				isLoadingMatchup: false,

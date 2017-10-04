@@ -150,7 +150,7 @@ export default class ChampionLayout extends React.Component {
 
 		return (
 			<div>
-				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name && champion.tips.length > 0 ? (
+				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
 					<div style={{ 'width': '100%' }}>
 						<Banner champ={champion} />
 						<div className="matchups-header">matchups</div>

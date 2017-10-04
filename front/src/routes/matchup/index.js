@@ -16,7 +16,7 @@ import Tips from 'components/tips/index.js';
 import Matchup from 'components/matchup/index.js';
 
 // Utils
-import unformatChampName from 'utils/championName';
+import { unformatChampName, formatChampName } from 'utils/championName';
 
 /*
  * LAYOUT - MATCHUP
@@ -94,30 +94,33 @@ export default class MatchupIndex extends React.Component {
 	* @param {direction} Boolean
 	*/
 	matchupVote (item, direction) {
-		const champion1 = this.props.match.params.champion1;
-		const champion2 = this.props.match.params.champion2;
 		const { userStore } = this.props.store;
 		const { matchUpdate } = this.props;
 		const { matchup } = this.props.store.matchupStore;
 
+		const champ1 = matchup.champions.filter(c => c.name !== item.name)[0];
+		const champ2 = item;
+
 		if (direction) {
 			const update = {
-				name: champion2,
-				up: matchup.champions.filter(c => c.name === champion2)[0].up + 1
+				name: champ1.name,
+				up: matchup.champions.filter(c => c.name !== champ2.name)[0].up + 1
 			};
 
-			matchUpdate(matchup.champions.filter(c => c.name === champion2)[0], update);
+			console.log(update);
+
+			matchUpdate(champ1, update);
 		}
 		else {
 			const update = {
-				name: champion2,
-				down: matchup.champions.filter(c => c.name === champion2)[0].down + 1
+				name: item.name,
+				down: matchup.champions.filter(c => c.name === item.name)[0].down + 1
 			};
 
-			matchUpdate(matchup.champions.filter(c => c.name === champion2)[0], update);
+			matchUpdate(item, update);
 		}
 
-		userStore.records.matchups.push({ champions: [champion1, champion2], direction: direction });
+		userStore.records.matchups.push({ champions: [item.name, item.name], direction: direction });
 
 		this.props.setRecords(userStore.records.matchups, 'matchups');
 		localStorage.setItem('quakechampionselect', JSON.stringify(userStore.records));
@@ -128,6 +131,8 @@ export default class MatchupIndex extends React.Component {
 		const { store } = this.props;
 		const { champion1, champion2 } = this.props.match.params;
 		const { matchup } = this.props.store.matchupStore;
+
+		localStorage.clear();
 
 		return (
 			<div>

@@ -28,7 +28,7 @@ exports.getChampion = function (req, res) {
 
 // GET champions
 exports.getChampions = function (req, res) {
-	champ.find({}, 'name id tagline', function (err, champs) {
+	champ.find({}, 'name tagline', function (err, champs) {
 		res.json(champs);
 	});
 };
@@ -38,6 +38,42 @@ exports.getMatchups = function (req, res) {
 	const name = req.query.name;
 
 	matchup.find({ 'champions.name': new RegExp(name, 'i') }, function (err, matchups) {
+		champ.find({}, 'name tagline', function (err, champs) {
+			if ((champs.length - 1) !== matchups.length) {
+				const done = matchups.reduce((acc, mup) => {
+					const doneChamp = mup.champions.filter(c => c.name !== name);
+
+					return acc.concat(doneChamp[0].name);
+				}, []);
+
+				const matchupsToCreate = champs.filter(champ => {
+					return ((champ.name !== name) && !done.includes(champ.name));
+				});
+
+				matchupsToCreate.forEach(opp => {
+					const newMatchup = new matchup({
+						champions: [
+							{
+								name: opp.name,
+								up: 0,
+								down: 0,
+								tips: []
+							},
+							{
+								name: name,
+								up: 0,
+								down: 0,
+								tips: []
+							}
+						]
+					});
+
+					newMatchup.save();
+				});
+
+
+			}
+		});
 		if (matchups) {
 			res.json(matchups);
 		}

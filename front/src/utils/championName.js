@@ -10,5 +10,5 @@ export function formatChampName (champName) {
 }
 
 export function unformatChampName (champName) {
-	return champName.replace('_', / /g);
+	return champName.replace('_', ' ');
 }
