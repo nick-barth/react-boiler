@@ -4,8 +4,10 @@
 
 // Vendors
 import React from 'react';
-
 import { Link } from 'react-router-dom';
+
+// Utils
+import { formatChampName } from 'utils/championName.js';
 
 /*
  * CARD
@@ -30,12 +32,12 @@ class Card extends React.Component {
 		const { champ, icon } = this.props;
 
 		return (
-			<Link to={`/champion/${champ.name.toLowerCase()}`} className="card">
+			<Link to={`/champion/${formatChampName(champ.name)}`} className="card">
 				<div className="card__overlay" />
 				<div className="card__name">
 					{champ.name}
 				</div>
-				<img className="card__bg" src={`images/card/${champ.name.toLowerCase()}.jpg`}/>
+				<img className="card__bg" src={`images/card/${formatChampName(champ.name)}.jpg`}/>
 				<div className="card__tag-line">
 					{champ.tagline}
 					<div className="card__accent" />

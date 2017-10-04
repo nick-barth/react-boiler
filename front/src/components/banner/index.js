@@ -5,6 +5,8 @@
 // Vendors
 import React from 'react';
 
+import { formatChampName } from 'utils/championName.js';
+
 /*
  * Banner
  * ===========
@@ -26,7 +28,7 @@ class Banner extends React.Component {
 		return (
                 <div className="banner">
                     <div className="banner__name">{champ.name}</div>
-                    <img className="banner__img" src={`../images/banner/banner-${champ.name.toLowerCase()}.jpg`} />
+                    <img className="banner__img" src={`../images/banner/banner-${formatChampName(champ.name)}.jpg`} />
                 </div>
 		);
 	}

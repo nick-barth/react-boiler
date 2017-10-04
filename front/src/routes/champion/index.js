@@ -11,11 +11,13 @@ import { actions as championActions } from 'store/champion.js';
 import { actions as userActions } from 'store/user.js';
 
 // Components
-
 import Matchup from 'components/matchup/index.js';
 import Tips from 'components/tips/index.js';
 import Spinner from 'components/spinner/index.js';
 import Banner from 'components/banner/index.js';
+
+// Utils
+import { unformatChampName } from 'utils/championName';
 
 /*
  * LAYOUT - CHAMPION
@@ -52,9 +54,9 @@ export default class ChampionLayout extends React.Component {
 
 	componentDidMount () {
 		const { fetchChampionAndMatchups } = this.props;
-		const id = this.props.match.params.champion;
+		const name = this.props.match.params.champion;
 
-		fetchChampionAndMatchups(id);
+		fetchChampionAndMatchups(unformatChampName(name));
 
 		const { setRecords } = this.props;
 

@@ -6,6 +6,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Utils
+import { formatChampName } from 'utils/championName';
+
 /*
  * MATCHUP
  * =======
@@ -40,14 +43,14 @@ class Matchup extends React.Component {
 
 						return (
 							<div className="matchups__matchup-card">
-								<Link to={`/champion/${item.name.toLowerCase()}`} className="matchups__link">
+								<Link to={`/champion/${formatChampName(item.name)}`} className="matchups__link">
 									<div className="matchups__champ-name">
 											{item.name}
 									</div>
 
 
 									<div className="matchups__champ-img-container">
-										<img className="matchups__champ-img" src={`/images/card/${item.name.toLowerCase()}.jpg`} />
+										<img className="matchups__champ-img" src={`/images/card/${formatChampName(item.name)}.jpg`} />
 
 									</div>
 								</Link>

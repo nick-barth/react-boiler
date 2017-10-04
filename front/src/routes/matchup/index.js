@@ -15,6 +15,9 @@ import { actions as userActions } from 'store/user.js';
 import Tips from 'components/tips/index.js';
 import Matchup from 'components/matchup/index.js';
 
+// Utils
+import unformatChampName from 'utils/championName';
+
 /*
  * LAYOUT - MATCHUP
  * =================
@@ -57,7 +60,7 @@ export default class MatchupIndex extends React.Component {
 		const champ2 = this.props.match.params.champion2;
 		const { getMatchup } = this.props;
 
-		getMatchup(champ1, champ2);
+		getMatchup(unformatChampName(champ1), unformatChampName(champ2));
 
 	}
 

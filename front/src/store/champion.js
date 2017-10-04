@@ -105,14 +105,13 @@ function fetchChampionAndMatchups (champ) {
  * @param {array} matchupChange
  * @return {Function} an `actionCreator`
  */
+
+// TODO THIS STUFF
 function matchUpdate (champ, update) {
 	return dispatch => {
-		console.log('dispatch!');
 		API.matchup.updateMatchup(champ, update)
 			.promise
 			.then(res => {
-				console.log('res');
-				console.log('we here', champ);
 				dispatch({
 					type: UPDATE_MATCHUP_SUCCESS,
 					payload: {
