@@ -8,7 +8,7 @@ const champ = require('./schemas/champ.js').Champ;
 const matchup = require('./schemas/matchup.js').Matchup;
 
 //connect to database
-mongoose.connect('mongodb://admin_test:test12@ds139262.mlab.com:39262/quakechampselect');
+mongoose.connect('mongodb://nick:mongoPassword@45.79.217.226/quakechamp');
 
 
 // GET champion
