@@ -138,6 +138,7 @@ exports.addChampTip = function (req, res) {
 
 	if (tip === '' || tip === null) {
 		res.status(500).send('ERROR: EMPTY TIP');
+		return;
 	}
 
 	champ.findOne({ name: new RegExp(name, 'i') }, function (err, champ) {
@@ -232,6 +233,7 @@ exports.addMatchupTip = function (req, res) {
 
 	if (tip === '' || tip === null) {
 		res.status(500).send('ERROR: EMPTY TIP');
+		return;
 	}
 
 	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchup) {
