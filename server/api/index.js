@@ -136,6 +136,10 @@ exports.addChampTip = function (req, res) {
 	const name = req.body.champ;
 	const tip = req.body.tip;
 
+	if (tip === '' || tip === null) {
+		res.status(500).send('ERROR: EMPTY TIP');
+	}
+
 	champ.findOne({ name: new RegExp(name, 'i') }, function (err, champ) {
 		champ.tips.push({ tip: tip, up: 0, down: 0 });
 		champ.save();
@@ -225,6 +229,10 @@ exports.addMatchupTip = function (req, res) {
 	const champ1 = req.body.champ1;
 	const champ2 = req.body.champ2;
 	const tip = req.body.tip;
+
+	if (tip === '' || tip === null) {
+		res.status(500).send('ERROR: EMPTY TIP');
+	}
 
 	matchup.findOne({ 'champions.name': { $all: [new RegExp(champ1, 'i'), new RegExp(champ2, 'i')] } }, function (err, matchup) {
 		matchup.champions.find(m => m.name === champ1).tips.push({ tip: tip, up: 0, down: 0 });
