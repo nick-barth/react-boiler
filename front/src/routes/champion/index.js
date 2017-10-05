@@ -53,8 +53,18 @@ export default class ChampionLayout extends React.Component {
 	}
 
 	componentDidMount () {
+		this.fetchPageInfo(this.props.match.params.champion);
+
+	}
+
+	componentWillReceiveProps (nextProps) {
+		if (this.props.match.params.champion !== nextProps.match.params.champion) {
+			this.fetchPageInfo(nextProps.match.params.champion);
+		}
+	}
+
+	fetchPageInfo (name) {
 		const { fetchChampionAndMatchups } = this.props;
-		const name = this.props.match.params.champion;
 
 		fetchChampionAndMatchups(unformatChampName(name));
 
@@ -71,6 +81,7 @@ export default class ChampionLayout extends React.Component {
 
 		}
 	}
+
 
    /*
 	* Recording a vote
