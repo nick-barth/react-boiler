@@ -160,7 +160,7 @@ export default class ChampionLayout extends React.Component {
 		const { matchups, champion, errors, isLoadingChamp, isLoadingMatchup } = store.championStore;
 
 		return (
-			<div>
+			<section>
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
 					<div style={{ 'width': '100%' }}>
 						<Banner champ={champion} />
@@ -197,7 +197,7 @@ export default class ChampionLayout extends React.Component {
 						No Champion Found
 					</div>
 				) : <Spinner />}
-			</div>
+			</section>
 		);
 	}
 }

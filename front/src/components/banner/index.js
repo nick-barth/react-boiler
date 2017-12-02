@@ -26,10 +26,10 @@ class Banner extends React.Component {
 		const { champ } = this.props;
 
 		return (
-                <div className="banner">
-                    <div className="banner__name">{champ.name}</div>
-                    <img className="banner__img" src={`../images/banner/banner-${formatChampName(champ.name)}.jpg`} />
-                </div>
+			<header className="banner">
+				<div className="banner__name">{champ.name}</div>
+				<img className="banner__img" src={`../images/banner/banner-${formatChampName(champ.name)}.jpg`} />
+			</header>
 		);
 	}
 }

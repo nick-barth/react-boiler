@@ -1,15 +1,15 @@
 import React from 'react';
 
 class Adcontainer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+	static propTypes = {
+		location: React.PropTypes.string.isRequired
+	};
 
-    render() {
-        return (
-            <div className={this.props.location}>{this.props.children}</div>
-        );
-    }
-};
+	render () {
+		return (
+            <aside className={this.props.location}>{this.props.children}</aside>
+		);
+	}
+}
 
 export default Adcontainer;
