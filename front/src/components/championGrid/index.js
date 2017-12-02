@@ -28,7 +28,7 @@ export default class ChampionGrid extends React.Component {
 		const icon = <img src="images/championGrid/card_icon.svg" type="image/svg+xml" className="card__hover-target" />;
 
 		return (
-			<div style={{ 'width': '100%', 'margin': 'auto' }}>
+			<section style={{ 'width': '100%', 'margin': 'auto' }}>
 			{!isLoading && champions ? (
 				<div className="champion-grid">
 				{champions.map(champ => {
@@ -42,7 +42,7 @@ export default class ChampionGrid extends React.Component {
 				})}
 				</div>
 			) : <Spinner />}
-			</div>
+			</section>
 		);
 	}
 }
