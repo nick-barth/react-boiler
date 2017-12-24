@@ -9,6 +9,9 @@ import { Link } from 'react-router-dom';
 // Utils
 import { formatChampName } from 'utils/championName';
 
+// Components
+import Linegraph from 'components/linegraph/index.js';
+
 /*
  * MATCHUPS
  * ========
@@ -34,15 +37,16 @@ class Matchups extends React.Component {
 
 		return (
 			<div className="matchups">
-					<div className="matchups__title">
-						{title}
-					</div>
-					{list.map(item => {
-						const duplicates = records.filter(record => record.champions.includes(item.name) && record.champions.includes(champ.name));
-						const canVote = records.length === 0 || duplicates.length === 0;
+				<div className="matchups__title">
+					{title}
+				</div>
+				{list.map(item => {
+					const duplicates = records.filter(record => record.champions.includes(item.name) && record.champions.includes(champ.name));
+					const canVote = records.length === 0 || duplicates.length === 0;
 
-						return (
-							<div className="matchups__matchup-card">
+					return (
+						<div className="matchups__matchup-card">
+							<div className="matchups__matchup-info">
 								<Link to={`/champion/${formatChampName(item.name)}`} className="matchups__link">
 									<div className="matchups__champ-name">
 											{item.name}
@@ -73,8 +77,10 @@ class Matchups extends React.Component {
 									</div>
 								</div>
 							</div>
-						);
-					})}
+							<Linegraph item={item} />
+						</div>
+					);
+				})}
 					<button className="matchups__show-more-btn">show more</button>
 			</div>
 		);

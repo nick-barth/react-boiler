@@ -1,0 +1,25 @@
+.line-graph {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 20px;
+	background: var(--color-gray-lighter);
+	position: relative;
+}
+
+.line-graph__up-vote-percent {
+	height: 100%;
+	background: var(--main-color);
+	transition: all .25s ease-out;
+}
+
+.line-graph__text {
+	display: flex;
+	justify-content: space-between;
+	padding: 0 var(--modular-s);
+	align-items: center;
+	font-size: var(--modular-s);
+	color: var(--secondary-color);
+	width: 100%;
+	position: absolute;
+}

@@ -7,20 +7,20 @@
 	/*
 	 * Modular Scale
 	 */
-	--modular-xxxs: 0.09rem;
-	--modular-xxs: 0.146rem;
-	--modular-xs: 0.382rem;
-	--modular-s: 0.618rem;
-	--modular-base: 21px;
-	--modular-l: 1.618rem;
-	--modular-xl: 2.618rem;
-	--modular-xxl: 4.236rem;
-	--modular-xxxl: 6.854rem;
+	--modular-xxxs: .41rem;
+	--modular-xxs: .512rem;
+	--modular-xs: .64rem;;
+	--modular-s: .8rem;
+	--modular-base: 1rem;
+	--modular-l: 1.25rem;
+	--modular-xl: 1.563rem;
+	--modular-xxl: 1.953rem;
+	--modular-xxxl: 2.441rem;
 	/*
 	 * Theme
 	 */
 
-	--background-texture: url(/images/textures/background-texture-large.jpg);	
+	--background-texture: url(/images/textures/background-texture-large.jpg);
 	--background-color: #191719;
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
