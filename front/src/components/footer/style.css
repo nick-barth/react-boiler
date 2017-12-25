@@ -3,7 +3,7 @@
 	font-size: var(--modular-s);
 	line-height: 140%;
 	border-top:1px solid var(--main-color);
-	box-shadow: 0 0 6px 0 var(--main-color);
+	box-shadow: var(--box-shadow);
 	background: var(--background-color);
 	grid-area: footer;
 }
@@ -11,7 +11,7 @@
 .footer__text {
 	max-width: 30rem;
 	text-align: center;
-	margin: 0 auto 0;	
+	margin: 0 auto 0;
 }
 
 @media (--desktop-large) {

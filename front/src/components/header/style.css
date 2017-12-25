@@ -3,7 +3,7 @@
 	background-color: var(--background-color);
 	margin: 0 0 var(--modular-l);
 	border-bottom:1px solid var(--main-color);
-	box-shadow: 0 0 6px 0 var(--main-color);
+	box-shadow: var(--box-shadow);
 	z-index: 10;
 	grid-area: header;
 }
@@ -96,7 +96,7 @@
 	.header__button:hover {
 		background-size: 100% 100%;
 		color: var(--secondary-color);
-		box-shadow: 0 0 12px 0 var(--main-color);
+		box-shadow: var(--box-shadow);
 	}
 	.header__button:active {
 		transform: translateY(2px);

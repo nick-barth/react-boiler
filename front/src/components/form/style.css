@@ -21,7 +21,7 @@
 
 .form__input-el:focus {
     outline: none;
-    box-shadow: 0 0 6px 0 var(--main-color);
+    box-shadow: var(--box-shadow);
 }
 
 @media (--desktop-small){

@@ -22,7 +22,7 @@
 .button__button:hover {
     background-size: 100% 100%;
     color: var(--secondary-color);
-    box-shadow: 0 0 6px 0 var(--main-color);    
+    box-shadow: var(--box-shadow);
 }
 
 .button__button:active {
@@ -44,6 +44,6 @@
 @media (--desktop-small) {
     .button__button {
         font-size: calc(var(--modular-base) * .85);
-        padding: var(--modular-base) var(--modular-l);        
+        padding: var(--modular-base) var(--modular-l);
     }
 }

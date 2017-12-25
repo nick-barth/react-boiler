@@ -25,6 +25,7 @@
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
 	--overlay-background: rgba(0, 0, 0, 0.7);
+	--box-shadow: 0 0 3px 0 var(--main-color);
 	/*
 	 * Colors
 	 */
