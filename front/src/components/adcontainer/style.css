@@ -1,6 +1,6 @@
 .ad-container-left {
     grid-area: ad-container-left;
-    display: none;   
+    display: none;
 }
 
 .ad-container-right {
@@ -15,7 +15,7 @@
     border: 2px solid white;
 }
 
-@media (--desktop-small) {
+@media (--desktop) {
 	.ad-container-right, .ad-container-left  {
         display: flex;
         flex-direction: column;

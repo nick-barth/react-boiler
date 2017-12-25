@@ -41,7 +41,7 @@
     }
 }
 
-@media (--desktop-small) {
+@media (--desktop) {
     .button__button {
         font-size: calc(var(--modular-base) * .85);
         padding: var(--modular-base) var(--modular-l);

@@ -24,7 +24,7 @@
     box-shadow: var(--box-shadow);
 }
 
-@media (--desktop-small){
+@media (--desktop) {
     .form__title {
         font-size: var(--modular-l);
     }

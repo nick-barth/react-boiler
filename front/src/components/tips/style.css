@@ -80,7 +80,7 @@
  * Media Queries
  */
 
- @media (--desktop-small) {
+ @media (--desktop) {
     .tips {
         max-width: 37rem;
     }

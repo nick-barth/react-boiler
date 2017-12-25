@@ -40,7 +40,7 @@
     }
 }
 
-@media (--desktop-small) {
+@media (--desktop) {
     .banner__name {
         font-size: var(--modular-xl);
         padding: 0;
@@ -62,8 +62,3 @@
     }
 }
 
-@media (--desktop-xlarge) {
-    .banner__img {
-        height: 11rem;
-    }
-}

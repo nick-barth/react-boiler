@@ -74,6 +74,17 @@ a {
 	grid-area: main;
 }
 
+/***
+ * Media queries
+ * -
+ */
+
+ @media (--tablet) {
+	 :root {
+		 font-size: 20px;
+	 }
+}
+
 @media (--tablet-large) {
 	.grid {
 		grid-template-columns: auto 1fr auto;
@@ -81,5 +92,11 @@ a {
 		"header header header"
 		"ad-container-left main ad-container-right"
 		"footer footer footer";
+	}
+}
+
+@media (--desktop-large) {
+	:root {
+		font-size: 22px;
 	}
 }

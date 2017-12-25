@@ -1,7 +1,7 @@
 .vote-container {
     display: flex;
     justify-content: flex-end;
-    
+
 }
 
 .vote {
@@ -19,7 +19,7 @@
     margin: 0 7px 0 0;
 }
 
-@media (--desktop-small) {
+@media (--desktop) {
     .vote {
         font-size: calc(var(--modular-l) * .75);
     }
