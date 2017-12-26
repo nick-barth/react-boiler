@@ -40,6 +40,7 @@
 	background-color: var(--background-color);
 	z-index: 10;
 	line-height: var(--modular-s);
+	border-bottom: var(--main-color) solid 1px;
 }
 
 .card__accent {
@@ -96,6 +97,8 @@
 @media (--desktop) {
 	.card__name {
 		bottom: 0;
+		font-size: var(--modular-l);
+		line-height: var(--modular-xxl);
 	}
 	.card:hover .card__name {
 		transform: translateY(-32px);
@@ -106,7 +109,7 @@
 		bottom: 0;
 	}
 	.card__image-container {
-		height: 7.5rem;
+		height: 7.7rem;
 	}
 	.card:hover .card__image-container {
 		transform: scale(1.3) rotate(6deg);
