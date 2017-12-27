@@ -51,12 +51,7 @@ class Matchups extends React.Component {
 									<div className="matchups__champ-name">
 											{item.name}
 									</div>
-
-
-									<div className="matchups__champ-img-container">
-										<img className="matchups__champ-img" src={`/images/card/${formatChampName(item.name)}.jpg`} />
-
-									</div>
+									<div style={{ 'background-image': `url("../images/card/${formatChampName(item.name)}.jpg")` }} className="matchups__champ-img-container" />
 								</Link>
 
 								<div className="matchups__item" key={item.name}>
