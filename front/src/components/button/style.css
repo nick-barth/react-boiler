@@ -19,12 +19,6 @@
     width: 100%;
 }
 
-.button__button:hover {
-    background-size: 100% 100%;
-    color: var(--secondary-color);
-    box-shadow: 0 0 6px 0 var(--main-color);    
-}
-
 .button__button:active {
 	transform: translateY(2px);
 }
@@ -44,6 +38,11 @@
 @media (--desktop-small) {
     .button__button {
         font-size: calc(var(--modular-base) * .85);
-        padding: var(--modular-base) var(--modular-l);        
-    }
+        padding: var(--modular-base) var(--modular-l);
+	}
+	.button__button:hover {
+		background-size: 100% 100%;
+		color: var(--secondary-color);
+		box-shadow: 0 0 6px 0 var(--main-color);
+	}
 }

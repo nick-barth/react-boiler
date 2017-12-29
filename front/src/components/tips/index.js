@@ -101,6 +101,7 @@ class Tips extends React.Component {
 					submit
 					click={() => onAdd(this.state.text)}
 					text="Submit"
+					classes="tips__form-btn"
 				/>
 			</div>
 		);
