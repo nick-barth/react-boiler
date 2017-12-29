@@ -25,7 +25,6 @@ export default class ChampionGrid extends React.Component {
 
 	render () {
 		const { isLoading, champions } = this.props;
-		const icon = <img src="images/championGrid/card_icon.svg" type="image/svg+xml" className="card__hover-target" />;
 
 		return (
 			<div style={{ 'width': '100%', 'margin': 'auto' }}>
@@ -36,7 +35,6 @@ export default class ChampionGrid extends React.Component {
 						<Card
 							key={champ.id}
 							champ={champ}
-							icon={icon}
 						/>
 					);
 				})}

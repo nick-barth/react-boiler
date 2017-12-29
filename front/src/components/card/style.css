@@ -16,7 +16,7 @@
 	text-transform: uppercase;
 	bottom: 24px;
 	z-index: 20;
-	background-color: #d227307d;
+	background: var(--card-name-background);
 	line-height: var(--modular-l);
 	transition: all .2s ease-in;
 	text-shadow: var(--text-shadow);

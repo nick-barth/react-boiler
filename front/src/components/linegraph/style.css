@@ -1,25 +1,25 @@
-.line-graph {
+.line-graph-wrapper {
 	display: flex;
-	flex-direction: column;
-	width: 100%;
-	height: 20px;
-	background: var(--color-gray-lighter);
+	flex-direction: row;
+}
+
+.line-graph {
+	flex-basis: 100%;
+	height: .8rem;
+	background: #262626;
 	position: relative;
 }
 
 .line-graph__up-vote-percent {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	box-sizing: border-box;
 	height: 100%;
-	background: var(--main-color);
-	transition: all .25s ease-out;
+	transition: all .5s ease-out;
+	box-shadow: var(--box-shadow-inset);
 }
 
-.line-graph__text {
-	display: flex;
-	justify-content: space-between;
-	padding: 0 var(--modular-s);
-	align-items: center;
-	font-size: var(--modular-s);
-	color: var(--secondary-color);
-	width: 100%;
-	position: absolute;
+.line-graph__up-vote-percent-text {
+	font-size: var(--modular-xs);
 }

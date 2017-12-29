@@ -165,7 +165,6 @@ export default class ChampionLayout extends React.Component {
 					<div style={{ 'width': '100%' }}>
 						<Banner champ={champion} />
 						<div className="matchups-header">matchups</div>
-						<div className="matchups-wrapper">
 							<div className="matchups-flex">
 								<Matchups
 									title={`${champion.name} is strong vs`}
@@ -182,7 +181,6 @@ export default class ChampionLayout extends React.Component {
 									records={store.userStore.records.matchups}
 								/>
 								</div>
-						</div>
 						<Tips
 							title={`Tips for ${champion.name}`}
 							list={champion.tips}

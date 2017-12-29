@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import { formatChampName } from 'utils/championName';
 
 // Components
-import Linegraph from 'components/linegraph/index.js';
+import MatchupCard from 'components/matchupcard/index.js';
 
 /*
  * MATCHUPS
@@ -31,7 +31,6 @@ class Matchups extends React.Component {
 		super(props);
 	}
 
-
 	render () {
 		const { list, title, onChange, records, champ } = this.props;
 
@@ -44,36 +43,20 @@ class Matchups extends React.Component {
 					const duplicates = records.filter(record => record.champions.includes(item.name) && record.champions.includes(champ.name));
 					const canVote = records.length === 0 || duplicates.length === 0;
 
+					//Get total votes
+					const totalVotes = item.up + item.down;
+
+					//Get upvote percentage
+					const upVotePercent = (item.up === item.down) ? 50 : (item.up / totalVotes).toFixed(4) * 100;
+
 					return (
-						<div className="matchups__matchup-card">
-							<div className="matchups__matchup-info">
-								<Link to={`/champion/${formatChampName(item.name)}`} className="matchups__link">
-									<div className="matchups__champ-name">
-											{item.name}
-									</div>
-									<div style={{ 'background-image': `url("../images/card/${formatChampName(item.name)}.jpg")` }} className="matchups__champ-img-container" />
-								</Link>
-
-								<div className="matchups__item" key={item.name}>
-
-									<div className="matchups__vote">
-										<div className="matchups__vote-up-flex" onClick={canVote ? () => onChange(item, 1) : null}>
-											<img className="matchups__up-arrow" src="/images/icons/up-arrow.svg"/>
-											<div className="matchups__item-up">
-												{item.up}
-											</div>
-										</div>
-										<div className="matchups__vote-down-flex" onClick={canVote ? () => onChange(item, 0) : null}>
-											<img className="matchups__down-arrow" src="/images/icons/down-arrow.svg"/>
-											<div className="matchups__item-down">
-												{item.down}
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<Linegraph item={item} />
-						</div>
+						<MatchupCard
+							item={item}
+							onChange={onChange}
+							canVote={canVote}
+							totalVotes={totalVotes}
+							upVotePercent={upVotePercent}
+						/>
 					);
 				})}
 					<button className="matchups__show-more-btn">show more</button>

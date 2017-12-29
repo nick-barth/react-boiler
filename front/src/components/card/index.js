@@ -20,7 +20,6 @@ class Card extends React.Component {
 
 	static propTypes = {
 		champ: React.PropTypes.object.isRequired,
-		icon: React.PropTypes.node.isRequired
 	};
 
 	constructor (props) {
@@ -29,7 +28,7 @@ class Card extends React.Component {
 	}
 
 	render () {
-		const { champ, icon } = this.props;
+		const { champ } = this.props;
 
 		return (
 			<Link to={`/champion/${formatChampName(champ.name)}`} className="card">
@@ -42,7 +41,6 @@ class Card extends React.Component {
 					{champ.tagline}
 					<div className="card__accent" />
 				</div>
-				{icon}
 			</Link>
 
 		);
