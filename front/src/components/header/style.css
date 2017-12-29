@@ -29,8 +29,8 @@
 }
 
 .logo__img {
-	width: calc(var(--modular-base) + .2rem);
-	height: calc(var(--modular-base) + .2rem);
+	width: calc(var(--modular-base) + .1rem);
+	height: calc(var(--modular-base) + .1rem);
 	margin: 0 .2rem 0 0;
 }
 

@@ -29,6 +29,7 @@
 	width: 100%;
 	background-size: 100%;
 	background-position: center -10px;
+	border-right: black 1px solid;
 }
 
 .matchup-card__champ-name {
@@ -42,7 +43,7 @@
 	transition: all .2s ease-in;
 	bottom: 0;
 	padding: 0;
-	background: var(--card-name-background);
+	background: var(--main-color);
 	text-shadow: var(--text-shadow);
 	height: 30%;
 	align-items: center;

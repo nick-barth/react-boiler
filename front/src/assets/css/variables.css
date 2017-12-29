@@ -24,11 +24,10 @@
 	--background-color: rgb(19, 19, 19);
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
-	--card-name-background: rgba(210,39,48,.3);
 	--overlay-background: rgba(0, 0, 0, 0.7);
 	--box-shadow: 0 0 3px 0 var(--main-color);
 	--box-shadow-inset: inset 0.5rem 0.7rem 16px rgba(0, 0, 0, 0.35);
-	--text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+	--text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 	/*
 	 * Colors
 	 */
