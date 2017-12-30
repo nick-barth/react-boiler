@@ -159,6 +159,19 @@ export default class ChampionLayout extends React.Component {
 		const { store } = this.props;
 		const { matchups, champion, errors, isLoadingChamp, isLoadingMatchup } = store.championStore;
 
+		//Makes a new array from matchups and adds a property 'upVotePercent' which calculates the percentage of upvotes out of total votes.
+		const addUpvotePercentProp = matchups.map(champ => {
+			return { ...champ, upVotePercent: (champ.up === champ.down) ? 50 : ((champ.up / (champ.up + champ.down)).toFixed(4) * 100) };
+		  });
+
+		//Sorts the new array by upvote percentage. If two champs have the same upvote percentage, then sort by most votes.
+		const sorted = [...addUpvotePercentProp].sort((a, b) => {
+			if (a.upVotePercent === b.upVotePercent) {
+				return (b.up - b.down) - (a.up - a.down);
+			}
+			return b.upVotePercent - a.upVotePercent;
+		});
+
 		return (
 			<div>
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
@@ -168,14 +181,14 @@ export default class ChampionLayout extends React.Component {
 							<div className="matchups-flex">
 								<Matchups
 									title={`${champion.name} is strong vs`}
-									list={matchups}
+									list={sorted}
 									champ={champion}
 									onChange={(item, direction) => this.matchupVote(item, direction)}
 									records={store.userStore.records.matchups}
 								/>
 								<Matchups
 									title={`${champion.name} is weak vs`}
-									list={matchups}
+									list={[...sorted].reverse()}
 									champ={champion}
 									onChange={(item, direction) => this.matchupVote(item, direction)}
 									records={store.userStore.records.matchups}
@@ -199,4 +212,3 @@ export default class ChampionLayout extends React.Component {
 		);
 	}
 }
-

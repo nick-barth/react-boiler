@@ -43,19 +43,13 @@ class Matchups extends React.Component {
 					const duplicates = records.filter(record => record.champions.includes(item.name) && record.champions.includes(champ.name));
 					const canVote = records.length === 0 || duplicates.length === 0;
 
-					//Get total votes
-					const totalVotes = item.up + item.down;
-
-					//Get upvote percentage
-					const upVotePercent = (item.up === item.down) ? 50 : (item.up / totalVotes).toFixed(4) * 100;
-
 					return (
 						<MatchupCard
+							key={item.name}
 							item={item}
+							champ={champ}
 							onChange={onChange}
 							canVote={canVote}
-							totalVotes={totalVotes}
-							upVotePercent={upVotePercent}
 						/>
 					);
 				})}
