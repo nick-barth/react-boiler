@@ -17,8 +17,9 @@ class Spinner extends React.Component {
 
 	render () {
 		return (
-			<div>
-				...loading...
+			<div className="spinner">
+				<div className="spinner__circle"/>
+				<div className="spinner__circle-outer"/>
 			</div>
 		);
 	}

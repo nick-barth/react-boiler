@@ -32,6 +32,7 @@
 	 * Colors
 	 */
 	 --main-color-darker: #b72a31;
+	 --spinner-color: var(--main-color);
 	--color-white: #ffffff;
 	--color-gray-lightest: #fcfcfc;
 	--color-gray-lighter: #f3f3f3;
