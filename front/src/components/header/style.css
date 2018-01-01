@@ -75,8 +75,8 @@
 		margin: 0 0 var(--modular-xl);
 	}
 	.logo__img {
-		width: calc(var(--modular-l) + .2rem);
-		height: calc(var(--modular-l) + .2rem);
+		width: calc(var(--modular-l) + .1rem);
+		height: calc(var(--modular-l) + .1rem);
 	}
 	.logo__text {
 		font-size: var(--modular-l);
@@ -106,8 +106,8 @@
 		box-shadow: var(--box-shadow);
 	}
 	.logo__img {
-		width: calc(var(--modular-xl) + .2rem);
-		height: calc(var(--modular-xl) + .2rem);
+		width: calc(var(--modular-xl) + .1rem);
+		height: calc(var(--modular-xl) + .1rem);
 	}
 	.logo__text {
 		font-size: var(--modular-xl);

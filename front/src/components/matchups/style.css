@@ -6,12 +6,12 @@
 }
 
 .matchups-header {
-    font-size: var(--modular-xl);
+    font-size: var(--modular-xxl);
     font-weight: 600;
     color: var(--main-color);
     text-transform: uppercase;
     text-align: center;
-    margin: 0 0 var(--modular-base);
+    margin: 0 0 var(--modular-xl);
 }
 
 .matchups {
@@ -39,7 +39,7 @@
     text-transform: uppercase;
     color: var(--main-color);
     font-weight: 600;
-    margin: 0 0 var(--modular-l);
+    margin: 0 0 var(--modular-xl);
     background: var(--background-color);
     background-image: linear-gradient(var(--main-color), var(--main-color));
     background-position: 50% 0%;

@@ -2,21 +2,24 @@
     color: var(--main-color);
     margin: 0 0 var(--modular-base);
     font-weight: 600;
-    font-size: calc(var(--modular-l) * .85);
-    text-align: center;
+    font-size: var(--modular-l);
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .form__input-el {
-    background: var(--overlay-background);
-    overflow: hidden;
-    border: 1px solid #d22730;
+    background: var(--background-color);
+	overflow: hidden;
+	border: 1px outset #3f3f3f;
+    border-bottom: 1px solid #d22730;
     min-width: 100%;
     color: var(--secondary-color);
-    text-transform: uppercase;
-    font-size: calc(var(--modular-base) * .85);
+    font-size: var(--modular-s);
     font-family: 'Rajdhani';
     min-height: 4rem;
-    margin: 0 0 var(--modular-s);
+	margin: 0 0 var(--modular-s);
+	box-sizing: border-box;
+	padding: var(--modular-xs) var(--modular-s) var(--modular-s);
 }
 
 .form__input-el:focus {

@@ -72,6 +72,8 @@ class Input extends React.Component {
 					value={value}
 					placeholder={'An easy way to beat this champion is to hit him in the highlighted areas!'}
 					min={type === 'number' ? '0' : null}
+					maxLength={700}
+					rows={9}
 				/>
 			</div>
 		);

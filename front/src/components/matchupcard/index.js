@@ -65,7 +65,7 @@ class MatchupCard extends React.Component {
 						<div className="matchup-card__vote">
 							<div className="matchup-card__vote-container">
 								<div
-									style={{ 'background': `${isUpvoteClicked ? '#d22730' : null }`, 'pointer-events': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
+									style={{ 'background': `${isUpvoteClicked ? '#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
 									className="matchup-card__vote-up-flex"
 									onClick={() => { this.castVote(1, 'isUpvoteClicked'); }}
 								>

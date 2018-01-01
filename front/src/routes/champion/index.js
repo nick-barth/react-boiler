@@ -159,17 +159,9 @@ export default class ChampionLayout extends React.Component {
 		const { store } = this.props;
 		const { matchups, champion, errors, isLoadingChamp, isLoadingMatchup } = store.championStore;
 
-		//Makes a new array from matchups and adds a property 'upVotePercent' which calculates the percentage of upvotes out of total votes.
-		const addUpvotePercentProp = matchups.map(champ => {
-			return { ...champ, upVotePercent: (champ.up === champ.down) ? 50 : ((champ.up / (champ.up + champ.down)).toFixed(4) * 100) };
-		  });
-
-		//Sorts the new array by upvote percentage. If two champs have the same upvote percentage, then sort by most votes.
-		const sorted = [...addUpvotePercentProp].sort((a, b) => {
-			if (a.upVotePercent === b.upVotePercent) {
-				return (b.up - b.down) - (a.up - a.down);
-			}
-			return b.upVotePercent - a.upVotePercent;
+		//Sorts the new array by most net upvotes.
+		const sorted = [...matchups].sort((a, b) => {
+			return (b.up - b.down) - (a.up - a.down);
 		});
 
 		return (
@@ -196,7 +188,9 @@ export default class ChampionLayout extends React.Component {
 								</div>
 						<Tips
 							title={`Tips for ${champion.name}`}
-							list={champion.tips}
+							list={champion.tips.sort((a, b) => {
+								return (b.up - b.down) - (a.up - a.down);
+							  })}
 							records={store.userStore.records.tips}
 							onVote={(item, direction) => this.tipVote(item, direction)}
 							onAdd={(text) => this.addTip(text)}

@@ -1,19 +1,24 @@
 .tips {
-    text-transform: uppercase;
     padding: 0 var(--modular-s);
     font-weight: 300;
     display: flex;
     flex-direction: column;
-    max-width: 27rem;
-    margin: 0 auto 0;
+	margin: 0 auto 0;
+	max-width: 30rem;
+	font-size: var(--modular-s);
+}
+
+.tips .button__button {
+	width: 100%;
 }
 
 .tips__title {
     color: var(--main-color);
     margin: 0 0 var(--modular-base);
     font-weight: 600;
-    font-size: calc(var(--modular-l) * .85);
-    text-align: center;
+    font-size: var(--modular-l);
+	text-align: center;
+	text-transform: uppercase;
 }
 
 .tips__list {
@@ -22,20 +27,16 @@
 }
 
 .tips__tip {
-    padding: var(--modular-s) var(--modular-xs);
-    background: var(--overlay-background);
+	padding: var(--modular-xs) var(--modular-s) var(--modular-s);
+    background: var(--background-color);
     margin-bottom: var(--modular-xs);
     border: 1px outset var(--color-gray-darker);
     border-bottom: solid 1px var(--main-color);
-	list-style:none;
+	list-style: none;
 }
 
 .tips__tip:last-child {
-    margin: 0 0 var(--modular-base);
-}
-
-.tips__tip-name {
-    font-size: calc(var(--modular-base) * .85);
+    margin: 0 0 var(--modular-xl);
 }
 
 .tips__tip-name_big-white-quote {
@@ -82,7 +83,6 @@
 
  @media (--desktop) {
     .tips {
-        max-width: 37rem;
     }
     .tips__title {
         font-size: var(--modular-l);
@@ -91,8 +91,7 @@
         font-size: var(--modular-base);
     }
     .tips__show-more-btn {
-        font-size: calc(var(--modular-base) * .85);
-        padding: calc(var(--modular-base) * .85);
+        padding: var(--modular-base);
     }
     .tips__show-more-btn:hover {
         background-size: 100% 100%;

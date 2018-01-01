@@ -1,7 +1,6 @@
 .footer {
 	padding: var(--modular-s);
 	font-size: var(--modular-s);
-	line-height: 140%;
 	border-top:1px solid var(--main-color);
 	box-shadow: var(--box-shadow);
 	background: var(--background-color);
