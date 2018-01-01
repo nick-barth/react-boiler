@@ -1,7 +1,7 @@
 .header-container {
 	display: flex;
 	background-color: var(--background-color);
-	margin: 0 0 var(--modular-l);
+	margin: 0;
 	border-bottom:1px solid var(--main-color);
 	box-shadow: var(--box-shadow);
 	z-index: 10;
@@ -64,15 +64,13 @@
 }
 
 .header__button__icon {
-	margin: 0 var(--modular-xxxs) 0 0;
+	margin: 0 .3rem 0 0;
+	height: .8rem;
 }
 
 @media (--tablet) {
 	.header {
 		height: 3rem;
-	}
-	.header-container {
-		margin: 0 0 var(--modular-xl);
 	}
 	.logo__img {
 		width: calc(var(--modular-l) + .1rem);
@@ -91,9 +89,6 @@
 		height: var(--modular-base);
 		margin: 0 var(--modular-xs) 0 0;
 	}
-}
-
-@media (--tablet-large) {
 }
 
 @media (--desktop) {

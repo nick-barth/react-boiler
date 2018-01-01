@@ -5,6 +5,8 @@
 	align-items: center;
 	position: relative;
 	opacity: .9;
+	flex-basis: auto;
+	flex-grow: 1;
 }
 
 .spinner__circle {

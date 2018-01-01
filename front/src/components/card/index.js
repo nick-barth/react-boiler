@@ -33,7 +33,7 @@ class Card extends React.Component {
 		return (
 			<Link to={`/champion/${formatChampName(champ.name)}`} className="card">
 				<div className="card__overlay" />
-				<div style={{ 'background-image': `url("images/card/${formatChampName(champ.name)}.jpg")` }} className="card__image-container" />
+				<div style={{ 'backgroundImage': `url("images/card/${formatChampName(champ.name)}.jpg")` }} className="card__image-container" />
 				<div className="card__name">
 					{champ.name}
 				</div>

@@ -4,6 +4,8 @@
 	-ms-grid-columns: repeat(2, 1fr);
 	grid-gap: var(--modular-xxs);
 	margin: 0 0 var(--modular-l);
+	flex-basis: auto;
+	flex-grow: 1;
 }
 
 @media (--tablet) {

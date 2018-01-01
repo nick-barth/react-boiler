@@ -56,7 +56,7 @@ class MatchupCard extends React.Component {
 				<div className="matchup-card__matchup-info">
 					<div className="matchup-card__item" key={item.name}>
 						<Link to={`/champion/${formatChampName(champ.name)}/${formatChampName(item.name)}`} className="matchup-card__link">
-							<div style={{ 'backgroundImage': `url("../images/card/${formatChampName(item.name)}.jpg")` }} className="matchup-card__champ-img-container">
+							<div style={{ 'backgroundImage': `url("/images/card/${formatChampName(item.name)}.jpg")` }} className="matchup-card__champ-img-container">
 								<div className="matchup-card__champ-name">
 									{item.name}
 								</div>
@@ -69,17 +69,17 @@ class MatchupCard extends React.Component {
 									className="matchup-card__vote-up-flex"
 									onClick={() => { this.castVote(1, 'isUpvoteClicked'); }}
 								>
-									<img className="matchup-card__up-arrow" src="/images/icons/down-arrow.svg"/>
+									<img className="matchup-card__up-arrow" src="/images/vote/down-arrow.svg"/>
 									<div className="matchup-card__item-up">
 										{item.up}
 									</div>
 								</div>
 								<div
-									style={{ 'background': `${isDownvoteClicked ? '#d22730' : null }`, 'pointer-events': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
+									style={{ 'background': `${isDownvoteClicked ? '#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
 									className="matchup-card__vote-down-flex"
 									onClick={() => { this.castVote(0, 'isDownvoteClicked'); }}
 								>
-									<img className="matchup-card__down-arrow" src="/images/icons/down-arrow.svg"/>
+									<img className="matchup-card__down-arrow" src="/images/vote/down-arrow.svg"/>
 									<div className="matchup-card__item-down">
 										{item.down}
 									</div>

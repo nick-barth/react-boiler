@@ -15,6 +15,8 @@ import Matchups from 'components/matchups/index.js';
 import Tips from 'components/tips/index.js';
 import Spinner from 'components/spinner/index.js';
 import Banner from 'components/banner/index.js';
+import Adcontainer from 'components/adcontainer/index.js';
+import Advertisement from 'components/adcontainer/advertisement/index.js';
 
 // Utils
 import { unformatChampName } from 'utils/championName';
@@ -167,9 +169,18 @@ export default class ChampionLayout extends React.Component {
 		return (
 			<div>
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
-					<div style={{ 'width': '100%' }}>
+					<div style={{ 'display': 'flex', 'flexWrap': 'wrap' }}>
 						<Banner champ={champion} />
-						<div className="matchups-header">matchups</div>
+						<Adcontainer location="ad-container">
+							<Advertisement ad="ad-vertical-example-2">
+								ad example wow #5
+							</Advertisement>
+							<Advertisement ad="ad-vertical-example-1">
+								ad example wow #6
+							</Advertisement>
+						</Adcontainer>
+						<div style={{ 'flexBasis': 'auto', 'flexGrow': '1' }}>
+							<div className="matchups-header">matchups</div>
 							<div className="matchups-flex">
 								<Matchups
 									title={`${champion.name} is strong vs`}
@@ -186,15 +197,29 @@ export default class ChampionLayout extends React.Component {
 									records={store.userStore.records.matchups}
 								/>
 								</div>
-						<Tips
-							title={`Tips for ${champion.name}`}
-							list={champion.tips.sort((a, b) => {
-								return (b.up - b.down) - (a.up - a.down);
-							  })}
-							records={store.userStore.records.tips}
-							onVote={(item, direction) => this.tipVote(item, direction)}
-							onAdd={(text) => this.addTip(text)}
-						/>
+							<Adcontainer location="ad-container-horizontal">
+								<Advertisement ad="ad-horizontal-example">
+									please enjoy this advertisement, as people do.
+								</Advertisement>
+							</Adcontainer>
+							<Tips
+								title={`Tips for ${champion.name}`}
+								list={champion.tips.sort((a, b) => {
+									return (b.up - b.down) - (a.up - a.down);
+								})}
+								records={store.userStore.records.tips}
+								onVote={(item, direction) => this.tipVote(item, direction)}
+								onAdd={(text) => this.addTip(text)}
+							/>
+						</div>
+						<Adcontainer location="ad-container">
+							<Advertisement ad="ad-vertical-example-2">
+								ad example wow #5
+							</Advertisement>
+							<Advertisement ad="ad-vertical-example-1">
+								ad example wow #6
+							</Advertisement>
+						</Adcontainer>
 					</div>
 				) :null}
 				{errors.length > 0 ? (
@@ -202,6 +227,7 @@ export default class ChampionLayout extends React.Component {
 						No Champion Found
 					</div>
 				) : <Spinner />}
+
 			</div>
 		);
 	}

@@ -8,7 +8,7 @@
     color: var(--main-color);
     font-weight: 600;
     margin: 0 0 var(--modular-xl);
-    background: var(--background-color);
+    background: transparent;
     background-image: linear-gradient(var(--main-color), var(--main-color));
     background-repeat: no-repeat;
     background-position: 50% 0%;
@@ -16,7 +16,9 @@
     line-height: 0;
     cursor: pointer;
     align-self: flex-start;
-    width: 100%;
+	width: 100%;
+	box-shadow: var(--box-shadow-inset);
+
 }
 
 .button__button:hover {

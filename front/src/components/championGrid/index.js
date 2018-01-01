@@ -7,6 +7,8 @@ import React from 'react';
 
 // Components
 import Card from 'components/card/index.js';
+import Adcontainer from 'components/adcontainer/index.js';
+import Advertisement from 'components/adcontainer/advertisement/index.js';
 import Spinner from 'components/spinner/index.js';
 
 /*
@@ -27,19 +29,35 @@ export default class ChampionGrid extends React.Component {
 		const { isLoading, champions } = this.props;
 
 		return (
-			<div style={{ 'width': '100%', 'margin': 'auto' }}>
-			{!isLoading && champions ? (
-				<div className="champion-grid">
-				{champions.map(champ => {
-					return (
-						<Card
-							key={champ.id}
-							champ={champ}
-						/>
-					);
-				})}
-				</div>
-			) : <Spinner />}
+			<div style={{ 'display': 'flex' }}>
+				<Adcontainer location="ad-container">
+					<Advertisement ad="ad-vertical-example-2">
+						ad example wow #5
+					</Advertisement>
+					<Advertisement ad="ad-vertical-example-1">
+						ad example wow #6
+					</Advertisement>
+				</Adcontainer>
+				{!isLoading && champions ? (
+					<div className="champion-grid">
+					{champions.map(champ => {
+						return (
+							<Card
+								key={champ.id}
+								champ={champ}
+							/>
+						);
+					})}
+					</div>
+				) : <Spinner />}
+				<Adcontainer location="ad-container">
+					<Advertisement ad="ad-vertical-example-2">
+						ad example wow #5
+					</Advertisement>
+					<Advertisement ad="ad-vertical-example-1">
+						ad example wow #6
+					</Advertisement>
+				</Adcontainer>
 			</div>
 		);
 	}

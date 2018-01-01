@@ -33,16 +33,8 @@ export default class LandingLayout extends React.Component {
 
 	render () {
 		return (
-			<div className="grid">
+			<div className="app">
 				<Header />
-				<Adcontainer location="ad-container-left">
-					<Advertisement ad="ad-vertical-example-1">
-						ad example wow #1
-					</Advertisement>
-					<Advertisement ad="ad-vertical-example-2">
-						ad example wow #2
-					</Advertisement>
-				</Adcontainer>
 				<div className="layout">
 					<Adcontainer location="ad-container-horizontal">
 						<Advertisement ad="ad-horizontal-example">
@@ -56,14 +48,6 @@ export default class LandingLayout extends React.Component {
 						</Advertisement>
 					</Adcontainer>
 				</div>
-				<Adcontainer location="ad-container-right">
-					<Advertisement ad="ad-vertical-example-2">
-						ad example wow #5
-					</Advertisement>
-					<Advertisement ad="ad-vertical-example-1">
-						ad example wow #6
-					</Advertisement>
-				</Adcontainer>
 				<Footer />
 			</div>
 		);

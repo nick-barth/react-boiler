@@ -55,22 +55,9 @@ a {
 	text-decoration: none;
 }
 
-
-.grid {
+.app {
 	background-image: var(--background-texture);
 	background-repeat: repeat;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: auto;
-	grid-template-areas:
-	"header"
-	"main"
-	"footer";
-	margin: 0;
-}
-
-.layout {
-	grid-area: main;
 }
 
 /***
@@ -82,16 +69,6 @@ a {
 	 :root {
 		 font-size: 20px;
 	 }
-}
-
-@media (--tablet-large) {
-	.grid {
-		grid-template-columns: auto 1fr auto;
-		grid-template-areas:
-		"header header header"
-		"ad-container-left main ad-container-right"
-		"footer footer footer";
-	}
 }
 
 @media (--desktop-large) {

@@ -1,12 +1,12 @@
 .banner {
-    width: 100%;
     display: block;
     position: relative;
     line-height: 0;
     box-shadow: var(--box-shadow);
     border-top: 1px solid #d22730;
     border-bottom: 1px solid #d22730;
-    margin: 0 0 var(--modular-l);
+	margin: 0 0 var(--modular-l);
+	flex-basis: 100%;
 }
 
 .banner__name {

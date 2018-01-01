@@ -1,10 +1,4 @@
-.ad-container-left {
-    grid-area: ad-container-left;
-    display: none;
-}
-
-.ad-container-right {
-    grid-area: ad-container-right;
+.ad-container {
     display: none;
 }
 
@@ -15,8 +9,12 @@
     border: 2px solid white;
 }
 
+.ad-container-horizontal:last-child {
+    margin: 0;
+}
+
 @media (--desktop) {
-	.ad-container-right, .ad-container-left  {
+	.ad-container  {
         display: flex;
         flex-direction: column;
         justify-content: center;

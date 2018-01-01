@@ -9,7 +9,6 @@
 
 .form__input-el {
     background: var(--background-color);
-	overflow: hidden;
 	border: 1px outset #3f3f3f;
     border-bottom: 1px solid #d22730;
     min-width: 100%;
@@ -20,11 +19,14 @@
 	margin: 0 0 var(--modular-s);
 	box-sizing: border-box;
 	padding: var(--modular-xs) var(--modular-s) var(--modular-s);
+	box-shadow: inset 0.1rem 0.7rem 1.5rem rgba(0, 0, 0, 0.35);
 }
 
 .form__input-el:focus {
-    outline: none;
-    box-shadow: var(--box-shadow);
+	border-left: 1px solid #d22730;
+	border-right: 1px solid #d22730;
+	border-top: 1px solid #d22730;
+	outline: none;
 }
 
 @media (--desktop) {
