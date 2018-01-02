@@ -11,7 +11,7 @@
     color: var(--main-color);
     text-transform: uppercase;
     text-align: center;
-    margin: 0 0 var(--modular-xl);
+    margin: 0 0 var(--modular-xxxl);
 }
 
 .matchups {
@@ -40,7 +40,7 @@
     color: var(--main-color);
     font-weight: 600;
     margin: 0 0 var(--modular-xl);
-    background: var(--background-color);
+    background: transparent;
     background-image: linear-gradient(var(--main-color), var(--main-color));
     background-position: 50% 0%;
     background-size: 100% 0%;
@@ -62,9 +62,19 @@
  @media (--tablet-large) {
 	.matchups-flex {
 		flex-direction: row;
+		margin-bottom: 4rem;
+		padding: 0 var(--modular-base);
 	}
 	.matchups {
 		flex-basis: 50%;
+		padding: 0;
+	}
+	.matchups:first-child {
+		flex-basis: 50%;
+		margin-right: var(--modular-xxs);
+	}
+	.matchups__show-more-btn {
+		margin: 0;
 	}
  }
 

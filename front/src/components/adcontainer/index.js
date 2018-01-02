@@ -1,8 +1,9 @@
 import React from 'react';
 
 class Adcontainer extends React.Component {
+
 	static propTypes = {
-		location: React.PropTypes.string.isRequired,
+		classes: React.PropTypes.string.isRequired,
 		children: React.PropTypes.node.isRequired
 	};
 
@@ -12,7 +13,7 @@ class Adcontainer extends React.Component {
 
 	render () {
 		return (
-            <div className={this.props.location}>{this.props.children}</div>
+            <div className={this.props.classes}>{this.props.children}</div>
 		);
 	}
 }

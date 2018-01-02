@@ -7,7 +7,7 @@
 	display: flex;
 	flex-direction: column;
     border: 1px outset var(--color-gray-darker);
-	background: var(--background-color);
+	background: var(--card-color);
 	height: 100%;
 }
 

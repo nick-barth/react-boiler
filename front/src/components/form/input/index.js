@@ -38,6 +38,9 @@ class Input extends React.Component {
 		super(props);
 
 		this.focused = false;
+		this.state = {
+			maxLength: ''
+		};
 	}
 
 	onChange (val) {
@@ -54,9 +57,18 @@ class Input extends React.Component {
 		ReactDOM.findDOMNode(this.refs.input).focus();
 	}
 
+	componentDidMount () {
+		const maxLength = ReactDOM.findDOMNode(this.refs.input).maxLength;
+
+		this.setState(() => ({
+			maxLength: maxLength
+		}));
+	}
+
 	render () {
 
-		const { id, type, onBlur, value } = this.props;
+		const { id, type, onBlur, value, userFeedback } = this.props;
+		const { maxLength } = this.state;
 		const isTextarea = type === 'longtext';
 		const Tag = isTextarea ? 'textarea' : 'input';
 
@@ -75,6 +87,14 @@ class Input extends React.Component {
 					maxLength={700}
 					rows={9}
 				/>
+				<div className="form__feedback">
+					<div className="form__character-indicator">
+						{value.length}/{maxLength}
+					</div>
+					<div className={`form__tip-longer  ${userFeedback ? 'form__user-feedback' : null}`}>
+						{value.length < 80 && value.length > 0 ? 'Tip Must Be Longer' : null}
+					</div>
+				</div>
 			</div>
 		);
 	}

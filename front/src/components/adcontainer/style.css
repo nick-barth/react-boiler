@@ -4,7 +4,7 @@
 
 .ad-container-horizontal {
     display: flex;
-    justify-content: center;
+	justify-content: center;
     margin: 0 0 var(--modular-xl);
     border: 2px solid white;
 }
@@ -12,6 +12,24 @@
 .ad-container-horizontal:last-child {
     margin: 0;
 }
+
+/***
+ * Ad Locations
+ * -
+ */
+
+.ad-container__home {
+	margin-bottom: 0;
+}
+
+.ad-container__champion-index-middle {
+    margin-bottom: var(--modular-xxxl);
+}
+
+/***
+ * Media queries
+ * -
+ */
 
 @media (--desktop) {
 	.ad-container  {

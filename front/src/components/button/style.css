@@ -17,14 +17,6 @@
     cursor: pointer;
     align-self: flex-start;
 	width: 100%;
-	box-shadow: var(--box-shadow-inset);
-
-}
-
-.button__button:hover {
-    background-size: 100% 100%;
-    color: var(--secondary-color);
-    box-shadow: var(--box-shadow);
 }
 
 .button__button:active {
@@ -47,5 +39,10 @@
     .button__button {
         font-size: var(--modular-base);
         padding: var(--modular-base) var(--modular-l);
-    }
+	}
+	.button__button:hover {
+		background-size: 100% 100%;
+		color: var(--secondary-color);
+		box-shadow: var(--box-shadow);
+	}
 }

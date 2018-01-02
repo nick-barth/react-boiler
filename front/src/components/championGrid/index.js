@@ -29,12 +29,12 @@ export default class ChampionGrid extends React.Component {
 		const { isLoading, champions } = this.props;
 
 		return (
-			<div style={{ 'display': 'flex' }}>
-				<Adcontainer location="ad-container">
-					<Advertisement ad="ad-vertical-example-2">
+			<div style={{ 'display': 'flex', 'paddingTop': '5rem' }}>
+				<Adcontainer classes="ad-container">
+					<Advertisement classes="ad-vertical-example-2">
 						ad example wow #5
 					</Advertisement>
-					<Advertisement ad="ad-vertical-example-1">
+					<Advertisement classes="ad-vertical-example-1">
 						ad example wow #6
 					</Advertisement>
 				</Adcontainer>
@@ -50,11 +50,11 @@ export default class ChampionGrid extends React.Component {
 					})}
 					</div>
 				) : <Spinner />}
-				<Adcontainer location="ad-container">
-					<Advertisement ad="ad-vertical-example-2">
+				<Adcontainer classes="ad-container">
+					<Advertisement classes="ad-vertical-example-2">
 						ad example wow #5
 					</Advertisement>
-					<Advertisement ad="ad-vertical-example-1">
+					<Advertisement classes="ad-vertical-example-1">
 						ad example wow #6
 					</Advertisement>
 				</Adcontainer>

@@ -9,6 +9,11 @@
     font-weight: 500;
 }
 
+.vote__item-up, .vote__item-down {
+	display: flex;
+    align-items: center;
+}
+
 .vote__item-up {
 	margin: 0 1rem 0 0;
 }

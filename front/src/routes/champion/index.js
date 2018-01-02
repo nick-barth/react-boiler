@@ -171,15 +171,15 @@ export default class ChampionLayout extends React.Component {
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
 					<div style={{ 'display': 'flex', 'flexWrap': 'wrap' }}>
 						<Banner champ={champion} />
-						<Adcontainer location="ad-container">
-							<Advertisement ad="ad-vertical-example-2">
+						<Adcontainer classes="ad-container">
+							<Advertisement classes="ad-vertical-example-2">
 								ad example wow #5
 							</Advertisement>
-							<Advertisement ad="ad-vertical-example-1">
+							<Advertisement classes="ad-vertical-example-1">
 								ad example wow #6
 							</Advertisement>
 						</Adcontainer>
-						<div style={{ 'flexBasis': 'auto', 'flexGrow': '1' }}>
+						<div style={{ 'flexBasis': 'auto', 'flexGrow': '1', 'maxWidth': '100%'  }}>
 							<div className="matchups-header">matchups</div>
 							<div className="matchups-flex">
 								<Matchups
@@ -197,8 +197,8 @@ export default class ChampionLayout extends React.Component {
 									records={store.userStore.records.matchups}
 								/>
 								</div>
-							<Adcontainer location="ad-container-horizontal">
-								<Advertisement ad="ad-horizontal-example">
+							<Adcontainer classes="ad-container-horizontal ad-container__champion-index-middle">
+								<Advertisement classes="ad-horizontal-example">
 									please enjoy this advertisement, as people do.
 								</Advertisement>
 							</Adcontainer>
@@ -212,11 +212,11 @@ export default class ChampionLayout extends React.Component {
 								onAdd={(text) => this.addTip(text)}
 							/>
 						</div>
-						<Adcontainer location="ad-container">
-							<Advertisement ad="ad-vertical-example-2">
+						<Adcontainer classes="ad-container">
+							<Advertisement classes="ad-vertical-example-2">
 								ad example wow #5
 							</Advertisement>
-							<Advertisement ad="ad-vertical-example-1">
+							<Advertisement classes="ad-vertical-example-1">
 								ad example wow #6
 							</Advertisement>
 						</Adcontainer>
@@ -226,7 +226,7 @@ export default class ChampionLayout extends React.Component {
 					<div>
 						No Champion Found
 					</div>
-				) : <Spinner />}
+				) : null}
 
 			</div>
 		);

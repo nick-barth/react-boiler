@@ -22,6 +22,7 @@
 
 	--background-texture: url(/images/textures/background-texture-large.jpg);
 	--background-color: rgb(19, 19, 19);
+	--card-color: rgba(19, 19, 19, 0.9);
 	--main-color: #d22730;
 	--secondary-color: #e6dbdc;
 	--overlay-background: rgba(0, 0, 0, 0.7);

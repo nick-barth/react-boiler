@@ -36,7 +36,8 @@ class Tips extends React.Component {
 
 		this.state = {
 			text: '',
-			visibleTips: 3
+			visibleTips: 3,
+			userFeedback: false
 		};
 	}
 
@@ -48,7 +49,7 @@ class Tips extends React.Component {
 
 	render () {
 		const { title, list, records, onVote, onAdd } = this.props;
-		const { visibleTips } = this.state;
+		const { visibleTips, userFeedback, text } = this.state;
 
 		return (
 			<div className="tips">
@@ -62,7 +63,7 @@ class Tips extends React.Component {
 
 						return (
 							<li className="tips__tip" key={Math.random()}>
-								<div className="tips_tip-name">
+								<div className="tips__tip-name">
 									{item.tip}
 								</div>
 								<Vote
@@ -86,13 +87,14 @@ class Tips extends React.Component {
 				<Form
 					onSubmit={e => {
 						e.preventDefault();
-						onAdd(this.state.text);
+						onAdd(text);
 					}}
 				>
 					<Form.Input
 						id="tip"
 						type="longtext"
-						value={this.state.text}
+						value={text}
+						userFeedback={userFeedback}
 						onChange={val => this.setState({
 							text: val
 						})}
@@ -100,7 +102,9 @@ class Tips extends React.Component {
 				</Form>
 				<Button
 					submit
-					click={() => onAdd(this.state.text)}
+					click={() => text.length > 80 ? onAdd(text) : text.length > 0 ? this.setState(() => ({
+						userFeedback: true
+					})) : null}
 					text="Submit"
 				/>
 			</div>

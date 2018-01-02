@@ -87,7 +87,7 @@ class MatchupCard extends React.Component {
 							</div>
 							<div className="matchup-card__vote-details">
 								<div className="matchup-card__upvote-percentage">
-									NET SCORE: {item.up - item.down}
+									NET VOTES: {item.up - item.down}
 								</div>
 							</div>
 						</div>
