@@ -37,7 +37,8 @@ class Tips extends React.Component {
 		this.state = {
 			text: '',
 			visibleTips: 3,
-			userFeedback: false
+			userFeedback: false,
+			tipSent: false
 		};
 	}
 
@@ -49,7 +50,7 @@ class Tips extends React.Component {
 
 	render () {
 		const { title, list, records, onVote, onAdd } = this.props;
-		const { visibleTips, userFeedback, text } = this.state;
+		const { visibleTips, userFeedback, text, tipSent } = this.state;
 
 		return (
 			<div className="tips">
@@ -95,18 +96,25 @@ class Tips extends React.Component {
 						type="longtext"
 						value={text}
 						userFeedback={userFeedback}
+						tipSent={tipSent}
 						onChange={val => this.setState({
 							text: val
 						})}
 					/>
 				</Form>
-				<Button
-					submit
-					click={() => text.length > 80 ? onAdd(text) : text.length > 0 ? this.setState(() => ({
-						userFeedback: true
-					})) : null}
-					text="Submit"
-				/>
+				{/* Show the button unless the user has submitted a tip already. */}
+				{!tipSent ?
+					<Button
+						submit
+						click={() => text.length > 80 ? (this.setState(() => ({
+							tipSent: true
+						})), onAdd(text)) : userFeedback ? this.setState(() => ({
+							userFeedback: false
+						})) : this.setState(() => ({
+							userFeedback: true
+						}))}
+						text="Submit"
+					/> : null }
 			</div>
 		);
 	}

@@ -98,7 +98,16 @@
 }
 
 @media (--desktop-large) {
+	.banner__name {
+		font-size: 4rem;
+	}
+	.banner {
+		height: 12rem;
+	}
     .banner__img {
-        height: 10rem;
-    }
+        height: 18rem;
+	}
+	.banner__champ-wrapper {
+		width: 700px;
+	}
 }

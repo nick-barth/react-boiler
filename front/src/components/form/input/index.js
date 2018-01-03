@@ -67,7 +67,7 @@ class Input extends React.Component {
 
 	render () {
 
-		const { id, type, onBlur, value, userFeedback } = this.props;
+		const { id, type, onBlur, value, userFeedback, tipSent } = this.props;
 		const { maxLength } = this.state;
 		const isTextarea = type === 'longtext';
 		const Tag = isTextarea ? 'textarea' : 'input';
@@ -87,12 +87,19 @@ class Input extends React.Component {
 					maxLength={700}
 					rows={9}
 				/>
-				<div className="form__feedback">
+				<div
+					style={{ 'marginBottom': `${tipSent ? '3rem' : '.8rem'}` }}
+					className="form__feedback"
+				>
 					<div className="form__character-indicator">
 						{value.length}/{maxLength}
 					</div>
-					<div className={`form__tip-longer  ${userFeedback ? 'form__user-feedback' : null}`}>
-						{value.length < 80 && value.length > 0 ? 'Tip Must Be Longer' : null}
+					{/* Changes the color of the feedback text depending whether or not tipsent is true and if the user typed more than 80 characters. */}
+					<div style={{ 'color': `${tipSent ? '#2EAF21' : value.length > 80 ? '#2EAF21' : '#d22730'}` }}
+						className={`form__tip-longer  ${userFeedback ? 'form__user-feedback' : null}`}
+					>
+					{/* Gives the user feedback depending on how much they've typed and whether or not tipSent is true. */}
+						{value.length < 80 && value.length > 0 ? 'Tip Must Be Longer' : tipSent ? 'Tip Submitted!' : value.length === 0 ? 'Please enter a tip' :  value.length >= 80 ? 'Ok' : null}
 					</div>
 				</div>
 			</div>
