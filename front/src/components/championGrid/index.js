@@ -29,7 +29,7 @@ export default class ChampionGrid extends React.Component {
 		const { isLoading, champions } = this.props;
 
 		return (
-			<section style={{ 'display': 'flex', 'paddingTop': '5rem' }}>
+			<section style={{ 'display': 'flex', 'paddingTop': '3rem' }}>
 				<Adcontainer classes="ad-container">
 					<Advertisement classes="ad-vertical-example-2">
 						ad example wow #5
