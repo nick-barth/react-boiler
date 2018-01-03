@@ -2,7 +2,7 @@
     color: var(--main-color);
     margin: 0 0 var(--modular-base);
     font-weight: 600;
-    font-size: var(--modular-xxl);
+    font-size: var(--modular-xl);
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -74,7 +74,10 @@
  * -
  */
 
-@media (--desktop) {
+ @media (--tablet-large) {
+	.form__title {
+		font-size: var(--modular-xxl);
+	}
 	.form__input-el {
 		font-size: var(--modular-base);
 	}

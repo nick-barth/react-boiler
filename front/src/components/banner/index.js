@@ -20,16 +20,24 @@ class Banner extends React.Component {
 
 	constructor (props) {
 		super(props);
+		const number = Math.round(Math.random() * 4);
+
+		this.state = {
+			randomBg: number
+		};
 	}
 
 	render () {
 		const { champ } = this.props;
+		const { randomBg } = this.state;
 
 		return (
-                <div className="banner">
-                    <div className="banner__name">{champ.name}</div>
-                    <img className="banner__img" src={`../images/banner/banner-${formatChampName(champ.name)}.jpg`} />
-                </div>
+			<div className="banner" style={{ 'backgroundImage': `url("../images/banner/champion-bg-${randomBg}.jpg")` }}>
+				<div className="banner__name">{champ.name}</div>
+				<div className="banner__champ-wrapper">
+					<img className="banner__img" src={`/images/banner/${formatChampName(champ.name)}-banner.png`} />
+				</div>
+			</div>
 		);
 	}
 }

@@ -6,12 +6,12 @@
 }
 
 .matchups-header {
-    font-size: var(--modular-xxl);
+    font-size: var(--modular-xl);
     font-weight: 600;
     color: var(--main-color);
     text-transform: uppercase;
     text-align: center;
-    margin: 0 0 var(--modular-xxxl);
+    margin: 0 0 var(--modular-xl);
 }
 
 .matchups {
@@ -75,6 +75,10 @@
 	}
 	.matchups__show-more-btn {
 		margin: 0;
+	}
+	.matchups-header {
+		font-size: var(--modular-xxl);
+		margin: 0 0 var(--modular-xxl);
 	}
  }
 

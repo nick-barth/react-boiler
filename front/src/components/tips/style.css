@@ -14,14 +14,14 @@
 }
 
 .tips .button__button:last-child {
-	margin: 0 0 8rem;
+	margin: 0 0 4rem;
 }
 
 .tips__title {
     color: var(--main-color);
     margin: 0 0 var(--modular-base);
     font-weight: 600;
-    font-size: var(--modular-xxl);
+    font-size: var(--modular-xl);
 	text-align: center;
 	text-transform: uppercase;
 }
@@ -88,10 +88,19 @@
  * Media Queries
  */
 
- @media (--desktop) {
+ @media (--tablet-large) {
+	.tips__title {
+		font-size: var(--modular-xxl);
+	}
+	.tips .button__button:last-child {
+		margin: 0 0 8rem;
+	}
     .tips__tip-name {
         font-size: var(--modular-base);
     }
+ }
+
+ @media (--desktop) {
     .tips__show-more-btn {
         padding: var(--modular-base);
     }

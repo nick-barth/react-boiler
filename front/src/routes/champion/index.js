@@ -221,7 +221,7 @@ export default class ChampionLayout extends React.Component {
 							</Advertisement>
 						</Adcontainer>
 					</div>
-				) :null}
+				) :<Spinner />}
 				{errors.length > 0 ? (
 					<div>
 						No Champion Found
