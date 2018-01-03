@@ -195,6 +195,7 @@ export default class ChampionLayout extends React.Component {
 									champ={champion}
 									onChange={(item, direction) => this.matchupVote(item, direction)}
 									records={store.userStore.records.matchups}
+									reversed={true}
 								/>
 								</div>
 							<Adcontainer classes="ad-container-horizontal ad-container__champion-index-middle">

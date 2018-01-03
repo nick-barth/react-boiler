@@ -23,7 +23,8 @@ class MatchupCard extends React.Component {
 		item: React.PropTypes.object,
 		onChange: React.PropTypes.func.isRequired,
 		canVote: React.PropTypes.bool.isRequired,
-		champ: React.PropTypes.object
+		champ: React.PropTypes.object,
+		reversed: React.PropTypes.bool.isRequired
 
 	};
 
@@ -48,7 +49,7 @@ class MatchupCard extends React.Component {
 	 }
 
 	render () {
-		const { item, champ } = this.props;
+		const { item, champ, reversed } = this.props;
 		const { isUpvoteClicked, isDownvoteClicked } = this.state;
 
 		return (
@@ -65,35 +66,38 @@ class MatchupCard extends React.Component {
 						<div className="matchup-card__vote">
 							<div className="matchup-card__vote-container">
 								<div
-									style={{ 'background': `${isUpvoteClicked ? '#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
+									style={{ 'background': `${!reversed && isUpvoteClicked ? '#d22730' : reversed && isDownvoteClicked ? '#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
 									className="matchup-card__vote-up-flex"
-									onClick={() => { this.castVote(1, 'isUpvoteClicked'); }}
+									onClick={() => { reversed ? this.castVote(0, 'isDownvoteClicked') : this.castVote(1, 'isUpvoteClicked'); }}
 								>
 									<img className="matchup-card__up-arrow" src="/images/vote/down-arrow.svg"/>
 									<div className="matchup-card__item-up">
-										{item.up}
+										{reversed ? item.down : item.up}
 									</div>
 								</div>
 								<div
-									style={{ 'background': `${isDownvoteClicked ? '#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
+									style={{ 'background': `${!reversed && isDownvoteClicked ? '#d22730' : reversed && isUpvoteClicked ? '#d22730' : null}`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
 									className="matchup-card__vote-down-flex"
-									onClick={() => { this.castVote(0, 'isDownvoteClicked'); }}
+									onClick={() => { reversed ? this.castVote(1, 'isUpvoteClicked') : this.castVote(0, 'isDownvoteClicked'); }}
 								>
 									<img className="matchup-card__down-arrow" src="/images/vote/down-arrow.svg"/>
 									<div className="matchup-card__item-down">
-										{item.down}
+										{reversed ? item.up : item.down}
 									</div>
 								</div>
 							</div>
 							<div className="matchup-card__vote-details">
 								<div className="matchup-card__upvote-percentage">
-									NET VOTES: {item.up - item.down}
+									NET VOTES: {reversed ? item.down - item.up : item.up - item.down}
 								</div>
 							</div>
 						</div>
 					</div>
 					<div className="matchup-card__details">
-						<Linegraph item={item} />
+						<Linegraph
+							item={item}
+							reversed={reversed}
+						/>
 					</div>
 				</div>
 		</div>

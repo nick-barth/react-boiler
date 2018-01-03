@@ -32,7 +32,7 @@ class Matchups extends React.Component {
 	}
 
 	render () {
-		const { list, title, onChange, records, champ } = this.props;
+		const { list, title, onChange, records, champ, reversed } = this.props;
 
 		return (
 			<div className="matchups">
@@ -50,6 +50,7 @@ class Matchups extends React.Component {
 							champ={champ}
 							onChange={onChange}
 							canVote={canVote}
+							reversed={reversed}
 						/>
 					);
 				})}

@@ -22,33 +22,40 @@ class Vote extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			upVoteClicked: false,
-			downVoteClicked: false
+			upVote: false,
+			downVote: false
 		};
 	}
-	//pass onvote and combine into one method
+	//Call onVote and change the state depending on whether user upvoted or downvoted.
 	castVote (upOrDown) {
-		const { upVote, downVote, canVote } = this.props;
+		const { upVote, downVote } = this.props;
 
-		!this.state[upOrDown] && canVote ? this.setState(() => ({
-			[upOrDown]: !this.state[upOrDown]
-		})) : null;
-		upOrDown === 'upVoteClicked' ? upVote() : downVote();
+		upOrDown === 'upVote' ? (upVote()) : (downVote());
 	}
 
 	render () {
 		const { voteInfo } = this.props;
-		const { downVoteClicked, upVoteClicked } = this.state;
+		const { downVote, upVote } = this.state;
 
 		return (
 			<div className="vote-container">
 				<div className="vote">
-					<div className="vote__item-up" onClick={() => { this.castVote('upVoteClicked'); }}>
-						<img className="vote__up-arrow" src={`/images/vote/${upVoteClicked ? 'up-arrow' : 'down-arrow'}.svg`}/>
+					<div className="vote__item-up" onClick={() => {
+						this.castVote('upVote'); this.setState(() => ({
+							upVote: true
+						}));
+					}}
+					>
+						<img className="vote__up-arrow" src={`/images/vote/${upVote ? 'up-arrow' : 'down-arrow'}.svg`}/>
 						{voteInfo.up}
 					</div>
-					<div className="vote__item-down" onClick={() => {  this.castVote('downVoteClicked'); }}>
-						<img className="vote__down-arrow" src={`/images/vote/${downVoteClicked ? 'up-arrow' : 'down-arrow'}.svg`}/>
+					<div className="vote__item-down" onClick={() => {
+						this.castVote('downVote'); this.setState(() => ({
+							downVote: true
+						}));
+					}}
+					>
+						<img className="vote__down-arrow" src={`/images/vote/${downVote ? 'up-arrow' : 'down-arrow'}.svg`}/>
 						{voteInfo.down}
 					</div>
 				</div>
