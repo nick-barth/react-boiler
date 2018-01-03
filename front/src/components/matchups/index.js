@@ -24,22 +24,33 @@ class Matchups extends React.Component {
 		list: React.PropTypes.array.isRequired,
 		title: React.PropTypes.string.isRequired,
 		onChange: React.PropTypes.func.isRequired,
-		records: React.PropTypes.array.isRequired
+		records: React.PropTypes.array.isRequired,
+		reversed: React.PropTypes.bool.isRequired
 	};
 
 	constructor (props) {
 		super(props);
+		this.state = {
+			visibleMatchups: 3
+		};
+	}
+
+	showMore () {
+		this.setState({
+			visibleMatchups: this.state.visibleMatchups + 5
+		});
 	}
 
 	render () {
 		const { list, title, onChange, records, champ, reversed } = this.props;
+		const { visibleMatchups } = this.state;
 
 		return (
 			<div className="matchups">
 				<div className="matchups__title">
 					{title}
 				</div>
-				{list.map(item => {
+				{list.slice(0, visibleMatchups).map(item => {
 					const duplicates = records.filter(record => record.champions.includes(item.name) && record.champions.includes(champ.name));
 					const canVote = records.length === 0 || duplicates.length === 0;
 
@@ -54,7 +65,13 @@ class Matchups extends React.Component {
 						/>
 					);
 				})}
-					<button className="matchups__show-more-btn">show more</button>
+					{list.length > visibleMatchups ?
+						<button
+							onClick={() => this.showMore()}
+							className="matchups__show-more-btn"
+						>	show more
+						</button> :
+							null}
 			</div>
 		);
 	}
