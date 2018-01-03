@@ -85,7 +85,7 @@ class Input extends React.Component {
 					placeholder={'An easy way to beat this champion is to hit him in the highlighted areas!'}
 					min={type === 'number' ? '0' : null}
 					maxLength={700}
-					rows={9}
+					rows={7}
 				/>
 				<div
 					style={{ 'marginBottom': `${tipSent ? '3rem' : '.8rem'}` }}
@@ -94,12 +94,20 @@ class Input extends React.Component {
 					<div className="form__character-indicator">
 						{value.length}/{maxLength}
 					</div>
-					{/* Changes the color of the feedback text depending whether or not tipsent is true and if the user typed more than 80 characters. */}
-					<div style={{ 'color': `${tipSent ? '#2EAF21' : value.length >= 80 ? '#2EAF21' : '#d22730'}` }}
+					{/* Changes the color of the feedback text depending whether or not tipsent is true and if the user typed more than 60 characters. */}
+					<div style={{ 'color': `${tipSent ? '#2EAF21' : value.length >= 60 ? '#2EAF21' : '#d22730'}` }}
 						className={`form__tip-longer  ${userFeedback ? 'form__user-feedback' : null}`}
 					>
 					{/* Gives the user feedback depending on how much they've typed and whether or not tipSent is true. */}
-						{value.length < 80 && value.length > 0 ? 'Tip Must Be Longer' : tipSent ? 'Tip Submitted!' : value.length === 0 ? 'Please enter a tip' :  value.length >= 80 ? 'Ok' : null}
+						{value.length < 60 && value.length > 0 ?
+							'Tip Must Be Longer' :
+							tipSent ?
+							'Tip Submitted!' :
+							value.length === 0 ?
+							'Please enter a tip' :
+							value.length >= 60 ?
+							'Ok' :
+							null}
 					</div>
 				</div>
 			</div>

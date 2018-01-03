@@ -106,7 +106,7 @@ class Tips extends React.Component {
 				{!tipSent ?
 					<Button
 						submit
-						click={() => text.length > 80 ? (this.setState(() => ({
+						click={() => text.length >= 60 ? (this.setState(() => ({
 							tipSent: true
 						})), onAdd(text)) : userFeedback ? this.setState(() => ({
 							userFeedback: false

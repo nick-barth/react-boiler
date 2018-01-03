@@ -19,7 +19,7 @@
 	left: 0;
     text-transform: uppercase;
     top: 50%;
-    font-weight: 600;
+    font-weight: 700;
     font-size: var(--modular-xxl);
     text-shadow: 1px 1px 8px var(--main-color);
 	padding: 0 0 0 var(--modular-s);
@@ -87,7 +87,8 @@
         padding: 0;
         text-align: center;
         width: 100%;
-        letter-spacing: .5rem;
+		letter-spacing: .5rem;
+		font-size: 3.5rem;
     }
 	.banner__champ-wrapper {
 		width: 350px;

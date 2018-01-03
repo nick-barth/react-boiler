@@ -43,7 +43,7 @@
 }
 
 .tips__tip:last-child {
-    margin: 0 0 var(--modular-xl);
+    margin: 0 0 var(--modular-xxl);
 }
 
 .tips__tip-name_big-white-quote {

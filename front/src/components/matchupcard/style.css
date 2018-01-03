@@ -43,7 +43,7 @@
 	transition: all .2s ease-in;
 	bottom: 0;
 	padding: 0;
-	background: var(--main-color);
+	background: rgba(210, 39, 48, .9);
 	text-shadow: var(--text-shadow);
 	height: 30%;
 	align-items: center;
