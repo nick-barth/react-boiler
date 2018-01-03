@@ -61,6 +61,7 @@
 	background-color: var(--main-color);
 	height: 100%;
 	box-sizing: border-box;
+	padding: 0 var(--modular-xxs);
 }
 
 .header__button__icon {
@@ -81,8 +82,7 @@
 	}
 	.header__button {
 		font-size: var(--modular-base);
-		padding: 0 var(--modular-xs);
-
+		width: 10rem;
 	}
 	.header__icon {
 		width: var(--modular-base);
