@@ -33,3 +33,7 @@ server gonna be @ http://localhost:8080/
 [Node]:https://nodejs.org/download/
 [Gulp]:https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md
 
+# Banner Component
+The backgrounds are from the Quake Champion's site. They can be found in the champ pages header. The backgrounds are randomized using Math.random. 
+A number is selected between 0 and 4, and the matching image is displayed (e.g bg-banner-1.jpg). The champion image's are PNG's found on the same page as the backgrounds. 
+The banner component can be used for both the champion index and matchup index page (to display champ1 VS champ2).
