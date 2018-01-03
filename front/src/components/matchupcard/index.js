@@ -70,7 +70,8 @@ class MatchupCard extends React.Component {
 										'background': `${!reversed && isUpvoteClicked ?
 										'#d22730' :
 										reversed && isDownvoteClicked ?
-										'#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
+										'#d22730' :
+										 null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
 											'none' :
 											'all' }`
 									}}
@@ -87,7 +88,8 @@ class MatchupCard extends React.Component {
 										'background': `${!reversed && isDownvoteClicked ?
 										'#d22730' :
 										reversed && isUpvoteClicked ?
-										'#d22730' : null}`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
+										'#d22730' :
+										 null}`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
 											'none' :
 											'all' }`
 									}}

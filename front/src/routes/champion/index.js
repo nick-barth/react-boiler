@@ -188,6 +188,7 @@ export default class ChampionLayout extends React.Component {
 									champ={champion}
 									onChange={(item, direction) => this.matchupVote(item, direction)}
 									records={store.userStore.records.matchups}
+									reversed={false}
 								/>
 								<Matchups
 									title={`${champion.name} is weak vs`}
