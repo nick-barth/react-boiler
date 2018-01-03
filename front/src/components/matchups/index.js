@@ -37,7 +37,7 @@ class Matchups extends React.Component {
 
 	showMore () {
 		this.setState({
-			visibleMatchups: this.state.visibleMatchups + 5
+			visibleMatchups: this.state.visibleMatchups + 3
 		});
 	}
 

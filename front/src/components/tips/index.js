@@ -53,10 +53,10 @@ class Tips extends React.Component {
 		const { visibleTips, userFeedback, text, tipSent } = this.state;
 
 		return (
-			<div className="tips">
-				<div className="tips__title">
+			<section className="tips">
+				<heading className="tips__title">
 					{title}
-				</div>
+				</heading>
 				<ul className="tips__list">
 					{list.slice(0, visibleTips).map(item => {
 						const duplicates = records.filter(record => record.tip === item.tip);
@@ -115,7 +115,7 @@ class Tips extends React.Component {
 						}))}
 						text="Submit"
 					/> : null }
-			</div>
+			</section>
 		);
 	}
 }

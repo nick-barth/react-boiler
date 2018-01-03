@@ -20,13 +20,13 @@ class Header extends React.Component {
 
 	render () {
 		return (
-			<div className="header-container">
+			<nav className="header-container">
 				<div className="header">
 					<div className="logo">
 						<img className="logo__img" src="/images/header/logo.svg"/>
-						<div className="logo__text">
+						<header className="logo__text">
 							<span className="logo__text_emphasis">QUAKE</span>CHAMPSELECT
-						</div>
+						</header>
 					</div>
 					<Link to={'/'}>
 						<div className="header__button">
@@ -35,7 +35,7 @@ class Header extends React.Component {
 						</div>
 					</Link>
 				</div>
-			</div>
+			</nav>
 
 		);
 	}

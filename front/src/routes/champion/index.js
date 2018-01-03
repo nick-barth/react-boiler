@@ -167,7 +167,7 @@ export default class ChampionLayout extends React.Component {
 		});
 
 		return (
-			<div>
+			<section>
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
 					<div style={{ 'display': 'flex', 'flexWrap': 'wrap' }}>
 						<Banner champ={champion} />
@@ -228,8 +228,7 @@ export default class ChampionLayout extends React.Component {
 						No Champion Found
 					</div>
 				) : null}
-
-			</div>
+			</section>
 		);
 	}
 }

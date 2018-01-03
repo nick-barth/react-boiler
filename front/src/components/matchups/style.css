@@ -58,11 +58,18 @@
  * Media Queries
  */
 
- @media (--tablet-large) {
+@media (--tablet) {
+	.matchups-flex {
+		align-items: center;
+	}
+}
+
+@media (--tablet-large) {
 	.matchups-flex {
 		flex-direction: row;
 		margin-bottom: 4rem;
 		padding: 0 var(--modular-base);
+		align-items: stretch;
 	}
 	.matchups {
 		flex-basis: 50%;
@@ -79,15 +86,15 @@
 		font-size: var(--modular-xxl);
 		margin: 0 0 var(--modular-xxl);
 	}
- }
+}
 
- @media (--desktop) {
-    .matchups__show-more-btn:hover {
-        background-size: 100% 100%;
-        color: var(--secondary-color);
-        box-shadow: var(--box-shadow);
-    }
-    .matchups__show-more-btn:active {
-        transform: translateY(2px);
+@media (--desktop) {
+	.matchups__show-more-btn:hover {
+		background-size: 100% 100%;
+		color: var(--secondary-color);
+		box-shadow: var(--box-shadow);
 	}
- }
+	.matchups__show-more-btn:active {
+		transform: translateY(2px);
+	}
+}

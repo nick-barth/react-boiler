@@ -13,7 +13,7 @@ class Adcontainer extends React.Component {
 
 	render () {
 		return (
-            <div className={this.props.classes}>{this.props.children}</div>
+            <aside className={this.props.classes}>{this.props.children}</aside>
 		);
 	}
 }

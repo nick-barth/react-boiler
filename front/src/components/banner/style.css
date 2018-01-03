@@ -7,7 +7,7 @@
     box-shadow: var(--box-shadow);
     border-top: 1px solid #d22730;
     border-bottom: 1px solid #d22730;
-	margin: 0 0 var(--modular-xxxl);
+	margin: 0 0 3rem;
 	flex-basis: 100%;
 	height: 6rem;
 	background-position: center;
@@ -19,7 +19,7 @@
 	left: 0;
     text-transform: uppercase;
     top: 50%;
-    font-weight: 700;
+    font-weight: 600;
     font-size: var(--modular-xxl);
     text-shadow: 1px 1px 8px var(--main-color);
 	padding: 0 0 0 var(--modular-s);
@@ -89,9 +89,6 @@
         width: 100%;
         letter-spacing: .5rem;
     }
-    .banner {
-        margin: 0 0 var(--modular-xl);
-	}
 	.banner__champ-wrapper {
 		width: 350px;
 	}
@@ -99,7 +96,7 @@
 
 @media (--desktop-large) {
 	.banner__name {
-		font-size: 4rem;
+		font-size: 3.5rem;
 	}
 	.banner {
 		height: 12rem;

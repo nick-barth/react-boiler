@@ -29,7 +29,7 @@ export default class ChampionGrid extends React.Component {
 		const { isLoading, champions } = this.props;
 
 		return (
-			<div style={{ 'display': 'flex', 'paddingTop': '5rem' }}>
+			<section style={{ 'display': 'flex', 'paddingTop': '5rem' }}>
 				<Adcontainer classes="ad-container">
 					<Advertisement classes="ad-vertical-example-2">
 						ad example wow #5
@@ -58,7 +58,7 @@ export default class ChampionGrid extends React.Component {
 						ad example wow #6
 					</Advertisement>
 				</Adcontainer>
-			</div>
+			</section>
 		);
 	}
 }

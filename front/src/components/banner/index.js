@@ -33,7 +33,7 @@ class Banner extends React.Component {
 
 		return (
 			<div className="banner" style={{ 'backgroundImage': `url("../images/banner/champion-bg-${randomBg}.jpg")` }}>
-				<div className="banner__name">{champ.name}</div>
+				<header className="banner__name">{champ.name}</header>
 				<div className="banner__champ-wrapper">
 					<img className="banner__img" src={`/images/banner/${formatChampName(champ.name)}-banner.png`} />
 				</div>
