@@ -95,7 +95,6 @@
 	.card__name {
 		bottom: 0;
 		font-size: var(--modular-l);
-		line-height: var(--modular-xxl);
 	}
 	.card:hover .card__name {
 		transform: translateY(-32px);
@@ -117,6 +116,9 @@
 }
 
 @media (--desktop-large) {
+	.card__name {
+		line-height: var(--modular-xxl);
+	}
 	.card__tag-line {
 		transform: translateY(35px);
 	}
