@@ -66,7 +66,14 @@ class MatchupCard extends React.Component {
 						<div className="matchup-card__vote">
 							<div className="matchup-card__vote-container">
 								<div
-									style={{ 'background': `${!reversed && isUpvoteClicked ? '#d22730' : reversed && isDownvoteClicked ? '#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
+									style={{
+										'background': `${!reversed && isUpvoteClicked ?
+										'#d22730' :
+										reversed && isDownvoteClicked ?
+										'#d22730' : null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
+											'none' :
+											'all' }`
+									}}
 									className="matchup-card__vote-up-flex"
 									onClick={() => { reversed ? this.castVote(0, 'isDownvoteClicked') : this.castVote(1, 'isUpvoteClicked'); }}
 								>
@@ -76,7 +83,14 @@ class MatchupCard extends React.Component {
 									</div>
 								</div>
 								<div
-									style={{ 'background': `${!reversed && isDownvoteClicked ? '#d22730' : reversed && isUpvoteClicked ? '#d22730' : null}`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ? 'none' : 'all' }` }}
+									style={{
+										'background': `${!reversed && isDownvoteClicked ?
+										'#d22730' :
+										reversed && isUpvoteClicked ?
+										'#d22730' : null}`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
+											'none' :
+											'all' }`
+									}}
 									className="matchup-card__vote-down-flex"
 									onClick={() => { reversed ? this.castVote(1, 'isUpvoteClicked') : this.castVote(0, 'isDownvoteClicked'); }}
 								>
