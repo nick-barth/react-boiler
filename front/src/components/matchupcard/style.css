@@ -43,7 +43,7 @@
 	transition: all .2s ease-in;
 	bottom: 0;
 	padding: 0;
-	background: rgba(210, 39, 48, .9);
+	background: var(--card-name-bg);
 	text-shadow: var(--text-shadow);
 	height: 30%;
 	align-items: center;

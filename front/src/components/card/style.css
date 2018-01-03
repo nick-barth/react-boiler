@@ -16,7 +16,7 @@
 	text-transform: uppercase;
 	bottom: 24px;
 	z-index: 20;
-	background: var(--main-color);
+	background: var(--card-name-bg);
 	line-height: var(--modular-l);
 	transition: all .2s ease-in;
 	text-shadow: var(--text-shadow);
@@ -37,7 +37,7 @@
 	text-transform: uppercase;
 	transition: all .2s ease-in;
 	width: 100%;
-	background-color: var(--card-color);
+	background-color: rgba(19, 19, 19, 0.95);
 	z-index: 100;
 	line-height: var(--modular-s);
 	box-sizing: border-box;
