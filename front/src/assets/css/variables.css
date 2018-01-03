@@ -71,4 +71,5 @@
 @custom-media --tablet all and (min-width:600px);
 @custom-media --tablet-large all and (min-width:900px);
 @custom-media --desktop all and (min-width:1200px);
+@custom-media --desktop-medium all and (min-width:1600px);
 @custom-media --desktop-large all and (min-width:1800px);
