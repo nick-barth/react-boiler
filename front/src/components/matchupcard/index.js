@@ -84,7 +84,7 @@ class MatchupCard extends React.Component {
 								>
 									<img className="matchup-card__up-arrow" src="/images/vote/down-arrow.svg"/>
 
-									{/* If reversed is true, vote down instead of up */}
+								{/* If reversed is true, vote down instead of up */}
 									<div className="matchup-card__item-up">
 										{reversed ? item.down : item.up}
 									</div>
@@ -106,6 +106,7 @@ class MatchupCard extends React.Component {
 									onClick={() => { reversed ? this.castVote(1, 'isUpvoteClicked') : this.castVote(0, 'isDownvoteClicked'); }}
 								>
 									<img className="matchup-card__down-arrow" src="/images/vote/down-arrow.svg"/>
+
 							{/* Upvote instead of downvote if reversed is true. */}
 									<div className="matchup-card__item-down">
 										{reversed ? item.up : item.down}
@@ -113,6 +114,7 @@ class MatchupCard extends React.Component {
 								</div>
 							</div>
 							<div className="matchup-card__vote-details">
+
 							{/* Show net votes after upvotes - downvotes or downvotes - upvotes if reversed is true. */}
 								<div className="matchup-card__upvote-percentage">
 									NET VOTES: {reversed ? item.down - item.up : item.up - item.down}

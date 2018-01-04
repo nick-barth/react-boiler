@@ -41,7 +41,8 @@ class Linegraph extends React.Component {
 						style={{ 'width': `${upVotePercent}%`, 'background': `#${barColor}` }}
 						className="line-graph__up-vote-percent"
 					>
-						{/* Changes the position of the upvote percent indicator depending on upvotePercents value */}
+
+					{/* Changes the position of the upvote percent indicator depending on upvotePercents value */}
 						<div
 							style={{
 								'transform': `translateX(${upVotePercent < 23 ?

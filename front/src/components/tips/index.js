@@ -102,7 +102,8 @@ class Tips extends React.Component {
 						})}
 					/>
 				</Form>
-				{/* Show the button unless the user has submitted a tip already. */}
+
+			{/* Show the button unless the user has submitted a tip already. */}
 				{!tipSent ?
 					<Button
 						submit

@@ -94,11 +94,13 @@ class Input extends React.Component {
 					<div className="form__character-indicator">
 						{value.length}/{maxLength}
 					</div>
-					{/* Changes the color of the feedback text depending whether or not tipsent is true and if the user typed more than 60 characters. */}
+
+				{/* Changes the color of the feedback text depending whether or not tipsent is true and if the user typed more than 60 characters. */}
 					<div style={{ 'color': `${tipSent ? '#2EAF21' : value.length >= 60 ? '#2EAF21' : '#d22730'}` }}
 						className={`form__tip-longer  ${userFeedback ? 'form__user-feedback' : null}`}
 					>
-					{/* Gives the user feedback depending on how much they've typed and whether or not tipSent is true. */}
+
+				{/* Gives the user feedback depending on how much they've typed and whether or not tipSent is true. */}
 						{value.length < 60 && value.length > 0 ?
 							'Tip Must Be Longer' :
 							tipSent ?
