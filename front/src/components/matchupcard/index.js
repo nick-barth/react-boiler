@@ -66,8 +66,8 @@ class MatchupCard extends React.Component {
 						<div className="matchup-card__vote">
 							<div className="matchup-card__vote-container">
 
-							{/* Changes the color of the vote button depending on whether or not isUpvoteClicked and isDownvoteclicked are true or false and
-							if reversed is true or false. Also disables pointer events after user votes. */}
+							{/* Changes the color of the upvote button depending on whether or not reversed, isUpvoteClicked, and isDownvoteclicked are true or false.
+							 Also disables pointer events after user votes. */}
 								<div
 									style={{
 										'background': `${!reversed && isUpvoteClicked ?
@@ -107,7 +107,7 @@ class MatchupCard extends React.Component {
 								>
 									<img className="matchup-card__down-arrow" src="/images/vote/down-arrow.svg"/>
 
-							{/* Upvote instead of downvote if reversed is true. */}
+							{/* If reversed is false, vote up instead of down */}
 									<div className="matchup-card__item-down">
 										{reversed ? item.up : item.down}
 									</div>
