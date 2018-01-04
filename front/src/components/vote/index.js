@@ -26,7 +26,7 @@ class Vote extends React.Component {
 			downVote: false
 		};
 	}
-	//Call onVote and change the state depending on whether user upvoted or downvoted.
+	//Call tipVote and change the state to change the color of the arrow, depending on whether user upvoted or downvoted.
 	castVote (upOrDown) {
 		const { upVote, downVote } = this.props;
 

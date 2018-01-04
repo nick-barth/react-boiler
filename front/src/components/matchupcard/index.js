@@ -65,44 +65,55 @@ class MatchupCard extends React.Component {
 						</Link>
 						<div className="matchup-card__vote">
 							<div className="matchup-card__vote-container">
+
+							{/* Changes the color of the vote button depending on whether or not isUpvoteClicked and isDownvoteclicked are true or false and
+							if reversed is true or false. Also disables pointer events after user votes. */}
 								<div
 									style={{
 										'background': `${!reversed && isUpvoteClicked ?
 										'#d22730' :
 										reversed && isDownvoteClicked ?
 										'#d22730' :
-										 null }`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
-											'none' :
-											'all' }`
+										 null }`,
+										'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
+										'none' :
+										'all' }`
 									}}
 									className="matchup-card__vote-up-flex"
 									onClick={() => { reversed ? this.castVote(0, 'isDownvoteClicked') : this.castVote(1, 'isUpvoteClicked'); }}
 								>
 									<img className="matchup-card__up-arrow" src="/images/vote/down-arrow.svg"/>
+
+									{/* If reversed is true, vote down instead of up */}
 									<div className="matchup-card__item-up">
 										{reversed ? item.down : item.up}
 									</div>
 								</div>
+
+							{/* Changes color of downvote button. */}
 								<div
 									style={{
 										'background': `${!reversed && isDownvoteClicked ?
 										'#d22730' :
 										reversed && isUpvoteClicked ?
 										'#d22730' :
-										 null}`, 'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
-											'none' :
-											'all' }`
+										 null}`,
+										'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
+										'none' :
+										'all' }`
 									}}
 									className="matchup-card__vote-down-flex"
 									onClick={() => { reversed ? this.castVote(1, 'isUpvoteClicked') : this.castVote(0, 'isDownvoteClicked'); }}
 								>
 									<img className="matchup-card__down-arrow" src="/images/vote/down-arrow.svg"/>
+							{/* Upvote instead of downvote if reversed is true. */}
 									<div className="matchup-card__item-down">
 										{reversed ? item.up : item.down}
 									</div>
 								</div>
 							</div>
 							<div className="matchup-card__vote-details">
+							{/* Show net votes after upvotes - downvotes or downvotes - upvotes if reversed is true. */}
 								<div className="matchup-card__upvote-percentage">
 									NET VOTES: {reversed ? item.down - item.up : item.up - item.down}
 								</div>

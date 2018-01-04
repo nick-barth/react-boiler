@@ -161,7 +161,7 @@ export default class ChampionLayout extends React.Component {
 		const { store } = this.props;
 		const { matchups, champion, errors, isLoadingChamp, isLoadingMatchup } = store.championStore;
 
-		//Sorts the new array by most net upvotes.
+		//Sorts the matchups by net votes.
 		const sorted = [...matchups].sort((a, b) => {
 			return (b.up - b.down) - (a.up - a.down);
 		});
