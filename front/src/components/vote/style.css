@@ -26,7 +26,7 @@
 	opacity: .8;
 }
 
-.vote__up-arrow {
+.vote__down-arrow {
 	transform: rotate(180deg);
 }
 

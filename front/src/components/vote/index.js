@@ -41,21 +41,21 @@ class Vote extends React.Component {
 			<div className="vote-container">
 				<div className="vote">
 					<div className="vote__item-up" onClick={() => {
-						this.castVote('upVote'); this.setState(() => ({
+						this.castVote('upVote'); !upVote && !downVote ? this.setState(() => ({
 							upVote: true
-						}));
+						})) : null;
 					}}
 					>
-						<img className="vote__up-arrow" src={`/images/vote/${upVote ? 'up-arrow' : 'down-arrow'}.svg`}/>
+						<img className="vote__up-arrow" src={`/images/vote/${upVote ? 'voted' : 'up-arrow'}.svg`}/>
 						{voteInfo.up}
 					</div>
 					<div className="vote__item-down" onClick={() => {
-						this.castVote('downVote'); this.setState(() => ({
+						this.castVote('downVote'); !upVote && !downVote ? this.setState(() => ({
 							downVote: true
-						}));
+						})) : null;
 					}}
 					>
-						<img className="vote__down-arrow" src={`/images/vote/${downVote ? 'up-arrow' : 'down-arrow'}.svg`}/>
+						<img className="vote__down-arrow" src={`/images/vote/${downVote ? 'voted' : 'up-arrow'}.svg`}/>
 						{voteInfo.down}
 					</div>
 				</div>
