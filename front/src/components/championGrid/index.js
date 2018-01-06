@@ -29,7 +29,7 @@ export default class ChampionGrid extends React.Component {
 		const { isLoading, champions } = this.props;
 
 		return (
-			<section style={{ 'display': 'flex', 'paddingTop': '3rem' }}>
+			<div style={{ 'display': 'flex', 'paddingTop': '3rem' }}>
 				<Adcontainer classes="ad-container">
 					<Advertisement classes="ad-vertical-example-2">
 						ad example wow #5
@@ -39,7 +39,7 @@ export default class ChampionGrid extends React.Component {
 					</Advertisement>
 				</Adcontainer>
 				{!isLoading && champions ? (
-					<div className="champion-grid">
+					<main className="champion-grid">
 					{champions.map(champ => {
 						return (
 							<Card
@@ -48,7 +48,7 @@ export default class ChampionGrid extends React.Component {
 							/>
 						);
 					})}
-					</div>
+					</main>
 				) : <Spinner />}
 				<Adcontainer classes="ad-container">
 					<Advertisement classes="ad-vertical-example-2">
@@ -58,7 +58,7 @@ export default class ChampionGrid extends React.Component {
 						ad example wow #6
 					</Advertisement>
 				</Adcontainer>
-			</section>
+			</div>
 		);
 	}
 }

@@ -54,9 +54,9 @@ class Tips extends React.Component {
 
 		return (
 			<section className="tips">
-				<heading className="tips__title">
+				<header className="tips__title">
 					{title}
-				</heading>
+				</header>
 				<ul className="tips__list">
 					{list.slice(0, visibleTips).map(item => {
 						const duplicates = records.filter(record => record.tip === item.tip);

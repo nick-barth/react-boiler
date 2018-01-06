@@ -82,7 +82,7 @@ class MatchupCard extends React.Component {
 									className="matchup-card__vote-up-flex"
 									onClick={() => { reversed ? this.castVote(0, 'isDownvoteClicked') : this.castVote(1, 'isUpvoteClicked'); }}
 								>
-									<img className="matchup-card__up-arrow" src="/images/vote/down-arrow.svg"/>
+									<img className="matchup-card__up-arrow" src="/images/vote/up-arrow.svg"/>
 
 								{/* If reversed is true, vote down instead of up */}
 									<div className="matchup-card__item-up">
@@ -105,7 +105,7 @@ class MatchupCard extends React.Component {
 									className="matchup-card__vote-down-flex"
 									onClick={() => { reversed ? this.castVote(1, 'isUpvoteClicked') : this.castVote(0, 'isDownvoteClicked'); }}
 								>
-									<img className="matchup-card__down-arrow" src="/images/vote/down-arrow.svg"/>
+									<img className="matchup-card__down-arrow" src="/images/vote/up-arrow.svg"/>
 
 							{/* If reversed is false, vote up instead of down */}
 									<div className="matchup-card__item-down">

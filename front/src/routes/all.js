@@ -11,14 +11,14 @@ function Routes () {
 	return (
 		<Router>
 			<App>
-				<main>
+				<section>
 					<Switch>
 						<Route exact path="/" component={LandingIndex}/>
 						<Route path="/champion/:champion" component={ChampionIndex}/>
 						<Route path="/matchup/:champion1/:champion2" component={MatchupIndex}/>
 						<Route component={FourOhFour} />
 					</Switch>
-				</main>
+				</section>
 			</App>
 		</Router>
 	);

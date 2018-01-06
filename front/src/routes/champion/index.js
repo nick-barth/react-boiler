@@ -167,7 +167,7 @@ export default class ChampionLayout extends React.Component {
 		});
 
 		return (
-			<section>
+			<div>
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
 					<div style={{ 'display': 'flex', 'flexWrap': 'wrap' }}>
 						<Banner champ={champion} />
@@ -179,26 +179,28 @@ export default class ChampionLayout extends React.Component {
 								ad example wow #6
 							</Advertisement>
 						</Adcontainer>
-						<div style={{ 'flexBasis': 'auto', 'flexGrow': '1', 'maxWidth': '100%'  }}>
-							<div className="matchups-header">matchups</div>
-							<div className="matchups-flex">
-								<Matchups
-									title={`${champion.name} is strong vs`}
-									list={sorted}
-									champ={champion}
-									onChange={(item, direction) => this.matchupVote(item, direction)}
-									records={store.userStore.records.matchups}
-									reversed={false}
-								/>
-								<Matchups
-									title={`${champion.name} is weak vs`}
-									list={[...sorted].reverse()}
-									champ={champion}
-									onChange={(item, direction) => this.matchupVote(item, direction)}
-									records={store.userStore.records.matchups}
-									reversed={true}
-								/>
+						<main style={{ 'flexBasis': 'auto', 'flexGrow': '1', 'maxWidth': '100%'  }}>
+							<section>
+								<header className="matchups-header">matchups</header>
+								<div className="matchups-flex">
+									<Matchups
+										title={`${champion.name} is strong vs`}
+										list={sorted}
+										champ={champion}
+										onChange={(item, direction) => this.matchupVote(item, direction)}
+										records={store.userStore.records.matchups}
+										reversed={false}
+									/>
+									<Matchups
+										title={`${champion.name} is weak vs`}
+										list={[...sorted].reverse()}
+										champ={champion}
+										onChange={(item, direction) => this.matchupVote(item, direction)}
+										records={store.userStore.records.matchups}
+										reversed={true}
+									/>
 								</div>
+							</section>
 							<Adcontainer classes="ad-container-horizontal ad-container__champion-index-middle">
 								<Advertisement classes="ad-horizontal-example">
 									please enjoy this advertisement, as people do.
@@ -213,7 +215,7 @@ export default class ChampionLayout extends React.Component {
 								onVote={(item, direction) => this.tipVote(item, direction)}
 								onAdd={(text) => this.addTip(text)}
 							/>
-						</div>
+						</main>
 						<Adcontainer classes="ad-container">
 							<Advertisement classes="ad-vertical-example-2">
 								ad example wow #5
@@ -229,7 +231,7 @@ export default class ChampionLayout extends React.Component {
 						No Champion Found
 					</div>
 				) : null}
-			</section>
+			</div>
 		);
 	}
 }
