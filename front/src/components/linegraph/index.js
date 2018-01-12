@@ -29,7 +29,7 @@ class Linegraph extends React.Component {
 			(item.up === item.down) ?
 			50 :
 			((item.down / (item.up + item.down)).toFixed(3) * 100) :
-			 null;
+			null;
 
 	//Changes the color of the bar depending on upVotePercent's value.
 		const barColor = upVotePercent > 60 ? '2EAF21' : upVotePercent > 40 ? 'D67428' : 'd22730';

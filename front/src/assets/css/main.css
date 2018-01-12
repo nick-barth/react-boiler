@@ -67,12 +67,18 @@ a {
 
  @media (--tablet) {
 	 :root {
-		 font-size: 20px;
+		 font-size: 19px;
 	 }
+}
+
+@media (--desktop) {
+	:root {
+		font-size: 20px;
+	}
 }
 
 @media (--desktop-large) {
 	:root {
-		font-size: 22px;
+		font-size: 24px;
 	}
 }
