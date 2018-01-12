@@ -11,7 +11,8 @@
 
 .vote__item-up, .vote__item-down {
 	display: flex;
-    align-items: center;
+	align-items: center;
+	transition: all .2s ease-in;
 }
 
 .vote__item-up {
@@ -28,6 +29,14 @@
 
 .vote__down-arrow {
 	transform: rotate(180deg);
+}
+
+.vote__item-up:active {
+    transform: translateY(2px);
+}
+
+.vote__item-down:active {
+	transform: translateY(2px);
 }
 
 @media (--desktop) {

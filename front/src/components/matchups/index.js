@@ -71,7 +71,7 @@ class Matchups extends React.Component {
 							className="matchups__show-more-btn"
 						>	show more
 						</button> :
-							null}
+						null}
 			</div>
 		);
 	}
