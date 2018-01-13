@@ -103,7 +103,8 @@ class Tips extends React.Component {
 					/>
 				</Form>
 
-			{/* Show the button unless the user has submitted a tip already. If shown, button will only add a tip if it is equal to or longer than 35 characters. */}
+			{/* Show the submit button unless the user has submitted a tip already. If shown, button will only add a tip if it is equal to or longer than 35 characters.
+			Also toggles the userFeedback state on click. This toggles the feedback text animation in the form/input component, which gets the users attention. */}
 				{!tipSent ?
 					<Button
 						submit

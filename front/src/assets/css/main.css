@@ -66,14 +66,20 @@ a {
  */
 
  @media (--tablet) {
-	 :root {
-		 font-size: 19px;
+	:root {
+		font-size: 19px;
 	 }
 }
 
 @media (--desktop) {
 	:root {
 		font-size: 20px;
+	}
+}
+
+@media (--desktop-medium) {
+	:root {
+		font-size: 22px;
 	}
 }
 
