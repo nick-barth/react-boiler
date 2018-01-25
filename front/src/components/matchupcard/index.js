@@ -56,7 +56,7 @@ class MatchupCard extends React.Component {
 			<div className="matchup-card">
 				<div className="matchup-card__matchup-info">
 					<div className="matchup-card__item" key={item.name}>
-						<Link to={`/champion/${formatChampName(champ.name)}/${formatChampName(item.name)}`} className="matchup-card__link">
+						<Link to={`/matchup/${formatChampName(champ.name)}/${formatChampName(item.name)}`} className="matchup-card__link">
 							<div style={{ 'backgroundImage': `url("/images/card/${formatChampName(item.name)}.jpg")` }} className="matchup-card__champ-img-container">
 								<div className="matchup-card__champ-name">
 									{item.name}
