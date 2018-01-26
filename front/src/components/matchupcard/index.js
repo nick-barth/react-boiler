@@ -55,7 +55,7 @@ class MatchupCard extends React.Component {
 		//Disables pointer events after user votes.
 		const pointerEvents = isDownvoted || isUpvoted ? 'matchup-card__pointer-events_disabled' : 'matchup-card__pointer-events_enabled';
 
-		//Changes the color of the upvote button.
+		//Changes the color of the upvote button depending on whether or not reversed, isUpvoted, and isDownvoted are true or false.
 		const upvoteBg = !reversed && isUpvoted ? 'matchup-card__vote_active' : reversed && isDownvoted ? 'matchup-card__vote_active' : null;
 
 		//Changes the color of the downvote button.
@@ -74,9 +74,6 @@ class MatchupCard extends React.Component {
 						</Link>
 						<div className="matchup-card__vote">
 							<div className="matchup-card__vote-container">
-
-								{/* Changes the color of the upvote button depending on whether or not reversed, isUpvoted, and isDownvoted are true or false.
-								 */}
 								<div
 									className={`matchup-card__vote-up-flex ${pointerEvents} ${upvoteBg}`}
 									onClick={() => { reversed ? this.castVote(0, 'isDownvoted') : this.castVote(1, 'isUpvoted'); }}
@@ -88,8 +85,6 @@ class MatchupCard extends React.Component {
 										{reversed ? item.down : item.up}
 									</div>
 								</div>
-
-								{/* Changes color of downvote button. */}
 								<div
 									className={`matchup-card__vote-down-flex ${pointerEvents} ${downvoteBg}`}
 									onClick={() => { reversed ? this.castVote(1, 'isUpvoted') : this.castVote(0, 'isDownvoted'); }}
