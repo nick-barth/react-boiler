@@ -36,7 +36,9 @@ class Tips extends React.Component {
 
 		this.state = {
 			text: '',
-			visibleTips: 3
+			visibleTips: 3,
+			userFeedback: false,
+			tipSent: false
 		};
 	}
 
@@ -48,13 +50,13 @@ class Tips extends React.Component {
 
 	render () {
 		const { title, list, records, onVote, onAdd } = this.props;
-		const { visibleTips } = this.state;
+		const { visibleTips, userFeedback, text, tipSent } = this.state;
 
 		return (
-			<div className="tips">
-				<div className="tips__title">
+			<section className="tips">
+				<header className="tips__title">
 					{title}
-				</div>
+				</header>
 				<ul className="tips__list">
 					{list.slice(0, visibleTips).map(item => {
 						const duplicates = records.filter(record => record.tip === item.tip);
@@ -62,11 +64,12 @@ class Tips extends React.Component {
 
 						return (
 							<li className="tips__tip" key={Math.random()}>
-								<div className="tips_tip-name">
+								<div className="tips__tip-name">
 									{item.tip}
 								</div>
 								<Vote
 									voteInfo={item}
+									canVote={canVote}
 									upVote={canVote ? onVote(item.tip, 1) : () => null}
 									downVote={canVote ? onVote(item.tip, 0) : () => null}
 								/>
@@ -85,24 +88,42 @@ class Tips extends React.Component {
 				<Form
 					onSubmit={e => {
 						e.preventDefault();
-						onAdd(this.state.text);
+						onAdd(text);
 					}}
 				>
 					<Form.Input
 						id="tip"
 						type="longtext"
-						value={this.state.text}
+						value={text}
+						userFeedback={userFeedback}
+						tipSent={tipSent}
 						onChange={val => this.setState({
 							text: val
 						})}
 					/>
 				</Form>
-				<Button
-					submit
-					click={() => onAdd(this.state.text)}
-					text="Submit"
-				/>
-			</div>
+
+			{/* Show the submit button unless the user has submitted a tip already.
+			If shown, button will only add a tip if it is equal to or longer than 35 characters.
+			Also toggles the userFeedback state on click. This toggles the feedback text animation
+			in the form/input component, which gets the users attention. */}
+				{!tipSent ?
+					<Button
+						submit
+						click={() => text.length >= 35 ?
+							(this.setState(() => ({
+								tipSent: true
+							})), onAdd(text)) :
+							userFeedback ?
+							this.setState(() => ({
+								userFeedback: false
+							})) :
+							this.setState(() => ({
+								userFeedback: true
+							}))}
+						text="Submit"
+					/> : null }
+			</section>
 		);
 	}
 }

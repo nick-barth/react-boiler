@@ -1,9 +1,13 @@
+:root {
+	font-size: 18px;
+}
+
 html {
 	font-family: 'Rajdhani', sans-serif;
 	background-color: var(--background-color);
 	color: var(--secondary-color);
 	font-size: var(--modular-base);
-	line-height: 140%;
+	line-height: 1.3;
 	font-weight: 400;
 }
 
@@ -51,31 +55,36 @@ a {
 	text-decoration: none;
 }
 
-
-.grid {
+.app {
 	background-image: var(--background-texture);
 	background-repeat: repeat;
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: auto;
-	grid-template-areas: 
-	"header"
-	"main"
-	"footer";
-	margin: 0 var(--modular-xs);
-	grid-gap: var(--modular-xs);	
 }
 
-.layout {
-	grid-area: main;
+/***
+ * Media queries
+ * -
+ */
+
+ @media (--tablet) {
+	:root {
+		font-size: 19px;
+	 }
 }
 
-@media (--tablet-large) {
-	.grid {
-		grid-template-columns: auto 1fr auto;
-		grid-template-areas: 
-		"header header header"
-		"ad-container-left main ad-container-right"
-		"footer footer footer";
+@media (--desktop) {
+	:root {
+		font-size: 20px;
+	}
+}
+
+@media (--desktop-medium) {
+	:root {
+		font-size: 22px;
+	}
+}
+
+@media (--desktop-large) {
+	:root {
+		font-size: 24px;
 	}
 }

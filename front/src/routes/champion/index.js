@@ -15,6 +15,8 @@ import Matchups from 'components/matchups/index.js';
 import Tips from 'components/tips/index.js';
 import Spinner from 'components/spinner/index.js';
 import Banner from 'components/banner/index.js';
+import Adcontainer from 'components/adcontainer/index.js';
+import Advertisement from 'components/adcontainer/advertisement/index.js';
 
 // Utils
 import { unformatChampName } from 'utils/championName';
@@ -159,46 +161,77 @@ export default class ChampionLayout extends React.Component {
 		const { store } = this.props;
 		const { matchups, champion, errors, isLoadingChamp, isLoadingMatchup } = store.championStore;
 
+		//Sorts the matchups by net votes.
+		const sorted = [...matchups].sort((a, b) => {
+			return (b.up - b.down) - (a.up - a.down);
+		});
+
 		return (
 			<div>
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
-					<div style={{ 'width': '100%' }}>
+					<div style={{ 'display': 'flex', 'flexWrap': 'wrap' }}>
 						<Banner champ={champion} />
-						<div className="matchups-header">matchups</div>
-						<div className="matchups-wrapper">
-							<div className="matchups-flex">
-								<Matchups
-									title={`${champion.name} is strong vs`}
-									list={matchups}
-									champ={champion}
-									onChange={(item, direction) => this.matchupVote(item, direction)}
-									records={store.userStore.records.matchups}
-								/>
-								<Matchups
-									title={`${champion.name} is weak vs`}
-									list={matchups}
-									champ={champion}
-									onChange={(item, direction) => this.matchupVote(item, direction)}
-									records={store.userStore.records.matchups}
-								/>
+						<Adcontainer classes="ad-container">
+							<Advertisement classes="ad-vertical-example-2">
+								ad example wow #5
+							</Advertisement>
+							<Advertisement classes="ad-vertical-example-1">
+								ad example wow #6
+							</Advertisement>
+						</Adcontainer>
+						<main style={{ 'flexBasis': 'auto', 'flexGrow': '1', 'maxWidth': '100%'  }}>
+							<section>
+								<header className="matchups-header">matchups</header>
+								<div className="matchups-flex">
+									<Matchups
+										title={`${champion.name} is strong vs`}
+										list={sorted}
+										champ={champion}
+										onChange={(item, direction) => this.matchupVote(item, direction)}
+										records={store.userStore.records.matchups}
+										reversed={false}
+									/>
+									<Matchups
+										title={`${champion.name} is weak vs`}
+										list={[...sorted].reverse()}
+										champ={champion}
+										onChange={(item, direction) => this.matchupVote(item, direction)}
+										records={store.userStore.records.matchups}
+										reversed={true}
+									/>
 								</div>
-						</div>
-						<Tips
-							title={`Tips for ${champion.name}`}
-							list={champion.tips}
-							records={store.userStore.records.tips}
-							onVote={(item, direction) => this.tipVote(item, direction)}
-							onAdd={(text) => this.addTip(text)}
-						/>
+							</section>
+							<Adcontainer classes="ad-container-horizontal ad-container__champion-index-middle">
+								<Advertisement classes="ad-horizontal-example">
+									please enjoy this advertisement, as people do.
+								</Advertisement>
+							</Adcontainer>
+							<Tips
+								title={`Tips for ${champion.name}`}
+								list={champion.tips.sort((a, b) => {
+									return (b.up - b.down) - (a.up - a.down);
+								})}
+								records={store.userStore.records.tips}
+								onVote={(item, direction) => this.tipVote(item, direction)}
+								onAdd={(text) => this.addTip(text)}
+							/>
+						</main>
+						<Adcontainer classes="ad-container">
+							<Advertisement classes="ad-vertical-example-2">
+								ad example wow #5
+							</Advertisement>
+							<Advertisement classes="ad-vertical-example-1">
+								ad example wow #6
+							</Advertisement>
+						</Adcontainer>
 					</div>
-				) :null}
+				) :<Spinner />}
 				{errors.length > 0 ? (
 					<div>
 						No Champion Found
 					</div>
-				) : <Spinner />}
+				) : null}
 			</div>
 		);
 	}
 }
-

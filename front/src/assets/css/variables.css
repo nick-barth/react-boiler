@@ -7,27 +7,37 @@
 	/*
 	 * Modular Scale
 	 */
-	--modular-xxxs: 0.09rem;
-	--modular-xxs: 0.146rem;
-	--modular-xs: 0.382rem;
-	--modular-s: 0.618rem;
-	--modular-base: 21px;
-	--modular-l: 1.618rem;
-	--modular-xl: 2.618rem;
-	--modular-xxl: 4.236rem;
-	--modular-xxxl: 6.854rem;
+	--modular-xxxs: .41rem;
+	--modular-xxs: .512rem;
+	--modular-xs: .64rem;;
+	--modular-s: .8rem;
+	--modular-base: 1rem;
+	--modular-l: 1.25rem;
+	--modular-xl: 1.563rem;
+	--modular-xxl: 1.953rem;
+	--modular-xxxl: 2.441rem;
 	/*
 	 * Theme
 	 */
 
-	--background-texture: url(/images/textures/background-texture-large.jpg);	
-	--background-color: #191719;
+	--background-texture: url(/images/textures/background-texture-large.jpg);
+	--background-color: rgb(19, 19, 19);
+	--card-color: rgba(19, 19, 19, 0.85);
 	--main-color: #d22730;
+	--card-name-bg: rgba(210, 39, 48, .9);
 	--secondary-color: #e6dbdc;
 	--overlay-background: rgba(0, 0, 0, 0.7);
+	--box-shadow: 0 0 3px 0 var(--main-color);
+	--box-shadow-inset: inset 0.5rem 0.7rem 16px rgba(0, 0, 0, 0.35);
+	--text-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
 	/*
 	 * Colors
 	 */
+	--main-color-darker: #b72a31;
+	--spinner-color: var(--main-color);
+	--color-green: #2EAF21;
+	--color-yellow: #D67428;
+	--color-red: #d22730;
 	--color-white: #ffffff;
 	--color-gray-lightest: #fcfcfc;
 	--color-gray-lighter: #f3f3f3;
@@ -62,10 +72,8 @@
  * -
  */
 
-@custom-media --tablet all and (min-width:681px);
-@custom-media --tablet-large all and (min-width:1024px);
-@custom-media --desktop-small all and (min-width:1100px);
-@custom-media --desktop-medium all and (min-width:1200px);
-@custom-media --desktop-large all and (min-width:1440px);
-@custom-media --desktop-xlarge all and (min-width:1720px);
-@custom-media --desktop-xxlarge all and (min-width:1920px);
+@custom-media --tablet all and (min-width:600px);
+@custom-media --tablet-large all and (min-width:900px);
+@custom-media --desktop all and (min-width:1200px);
+@custom-media --desktop-medium all and (min-width:1600px);
+@custom-media --desktop-large all and (min-width:1800px);

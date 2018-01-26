@@ -1,22 +1,38 @@
-.ad-container-left {
-    grid-area: ad-container-left;
-    display: none;   
-}
-
-.ad-container-right {
-    grid-area: ad-container-right;
+.ad-container {
     display: none;
 }
 
 .ad-container-horizontal {
     display: flex;
-    justify-content: center;
+	justify-content: center;
     margin: 0 0 var(--modular-xl);
     border: 2px solid white;
 }
 
-@media (--desktop-small) {
-	.ad-container-right, .ad-container-left  {
+.ad-container-horizontal:last-child {
+    margin: 0;
+}
+
+/***
+ * Ad Locations
+ * -
+ */
+
+.ad-container__home {
+	margin-bottom: 0;
+}
+
+.ad-container__champion-index-middle {
+    margin-bottom: var(--modular-xxxl);
+}
+
+/***
+ * Media queries
+ * -
+ */
+
+@media (--desktop) {
+	.ad-container  {
         display: flex;
         flex-direction: column;
         justify-content: center;

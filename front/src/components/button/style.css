@@ -8,7 +8,7 @@
     color: var(--main-color);
     font-weight: 600;
     margin: 0 0 var(--modular-xl);
-    background: var(--background-color);
+    background: transparent;
     background-image: linear-gradient(var(--main-color), var(--main-color));
     background-repeat: no-repeat;
     background-position: 50% 0%;
@@ -16,13 +16,7 @@
     line-height: 0;
     cursor: pointer;
     align-self: flex-start;
-    width: 100%;
-}
-
-.button__button:hover {
-    background-size: 100% 100%;
-    color: var(--secondary-color);
-    box-shadow: 0 0 6px 0 var(--main-color);    
+	width: 100%;
 }
 
 .button__button:active {
@@ -41,9 +35,14 @@
     }
 }
 
-@media (--desktop-small) {
+@media (--desktop) {
     .button__button {
-        font-size: calc(var(--modular-base) * .85);
-        padding: var(--modular-base) var(--modular-l);        
-    }
+        font-size: var(--modular-base);
+        padding: var(--modular-base) var(--modular-l);
+	}
+	.button__button:hover {
+		background-size: 100% 100%;
+		color: var(--secondary-color);
+		box-shadow: var(--box-shadow);
+	}
 }

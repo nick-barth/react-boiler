@@ -49,7 +49,7 @@ export default class App extends React.Component {
 		const { champions, championsLoading } = this.state;
 
 		return (
-			<ChampionGrid champions={champions} isLoading={championsLoading} />
+				<ChampionGrid champions={champions} isLoading={championsLoading} />
 		);
 	}
 
