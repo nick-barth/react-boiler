@@ -20,6 +20,7 @@ class Linegraph extends React.Component {
 
 	render () {
 		const { item, reversed } = this.props;
+
 		//Get the percentage of upvotes out of total votes. If reversed is true, then we are actually getting the percentage of downvotes out of total votes.
 		const upVotePercent = !reversed ?
 			(item.up === item.down) ?
