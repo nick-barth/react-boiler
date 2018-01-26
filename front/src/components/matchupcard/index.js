@@ -13,7 +13,7 @@ import { formatChampName } from 'utils/championName';
 import Linegraph from 'components/linegraph/index.js';
 
 /*
- * MATCHUPS
+ * MATCHUPCARD
  * ========
  */
 class MatchupCard extends React.Component {
@@ -51,10 +51,13 @@ class MatchupCard extends React.Component {
 	render () {
 		const { item, champ, reversed } = this.props;
 		const { isUpvoted, isDownvoted } = this.state;
+
 		//Disables pointer events after user votes.
 		const pointerEvents = isDownvoted || isUpvoted ? 'matchup-card__pointer-events_disabled' : 'matchup-card__pointer-events_enabled';
+
 		//Changes the color of the upvote button.
 		const upvoteBg = !reversed && isUpvoted ? 'matchup-card__vote_active' : reversed && isDownvoted ? 'matchup-card__vote_active' : null;
+
 		//Changes the color of the downvote button.
 		const downvoteBg = !reversed && isDownvoted ? 'matchup-card__vote_active' : reversed && isUpvoted ? 'matchup-card__vote_active' : null;
 
