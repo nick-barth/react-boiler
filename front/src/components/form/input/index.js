@@ -24,7 +24,9 @@ class Input extends React.Component {
 		status: React.PropTypes.oneOf(['pristine', 'valid', 'error']).isRequired,
 		onChange: React.PropTypes.func.isRequired,
 		onBlur: React.PropTypes.func.isRequired,
-		value: React.PropTypes.string.isRequired
+		value: React.PropTypes.string.isRequired,
+		tipSent: React.PropTypes.bool.isRequired,
+		userFeedback: React.PropTypes.bool.isRequired
 	};
 
 	static defaultProps = {
@@ -57,20 +59,12 @@ class Input extends React.Component {
 		ReactDOM.findDOMNode(this.refs.input).focus();
 	}
 
-	componentDidMount () {
-		const maxLength = ReactDOM.findDOMNode(this.refs.input).maxLength;
-
-		this.setState(() => ({
-			maxLength: maxLength
-		}));
-	}
-
 	render () {
 
 		const { id, type, onBlur, value, userFeedback, tipSent } = this.props;
-		const { maxLength } = this.state;
 		const isTextarea = type === 'longtext';
 		const Tag = isTextarea ? 'textarea' : 'input';
+		const maxLength = 700;
 
 		return (
 			<div className={`form__input  ${isTextarea ? 'form__input--textarea' : ''} `}>
@@ -84,7 +78,7 @@ class Input extends React.Component {
 					value={value}
 					placeholder={'An easy way to beat this champion is to hit him in the highlighted areas!'}
 					min={type === 'number' ? '0' : null}
-					maxLength={700}
+					maxLength={maxLength}
 					rows={7}
 				/>
 				<div

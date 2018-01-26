@@ -5,12 +5,12 @@
 // Vendors
 import React from 'react';
 
-// Utils
-
 /*
- * MATCHUPS
+ * LINEGRAPH
  * ========
  */
+
+
 class Linegraph extends React.Component {
 
 	static propTypes = {
@@ -20,7 +20,7 @@ class Linegraph extends React.Component {
 
 	render () {
 		const { item, reversed } = this.props;
-	//Get the percentage of upvotes out of total votes. If reversed is true, then we are actually getting the percentage of downvotes out of total votes.
+		//Get the percentage of upvotes out of total votes. If reversed is true, then we are actually getting the percentage of downvotes out of total votes.
 		const upVotePercent = !reversed ?
 			(item.up === item.down) ?
 			50 :
@@ -31,28 +31,21 @@ class Linegraph extends React.Component {
 			((item.down / (item.up + item.down)).toFixed(3) * 100) :
 			null;
 
-	//Changes the color of the bar depending on upVotePercent's value.
-		const barColor = upVotePercent > 60 ? '2EAF21' : upVotePercent > 40 ? 'D67428' : 'd22730';
+		//Changes the color of the bar depending on upVotePercent's value.
+		const barColor = upVotePercent > 60 ? 'line-graph__bar-color_green' : upVotePercent > 40 ? 'line-graph__bar-color_yellow' : 'line-graph__bar-color_red';
+
+		//Changes the position of the upvote percent indicator depending on upvotePercents value.
+		const percentLocation = upVotePercent < 23 ? 'line-graph__up-vote-percent_outside' : 'line-graph__up-vote-percent_inside';
 
 		return (
 			<div className="line-graph-wrapper">
 				<div className="line-graph">
 					<div
-						style={{ 'width': `${upVotePercent}%`, 'background': `#${barColor}` }}
-						className="line-graph__up-vote-percent"
+						style={{ 'width': `${upVotePercent}%` }}
+						className={`line-graph__up-vote-percent ${barColor}`}
 					>
-
-					{/* Changes the position of the upvote percent indicator depending on upvotePercents value */}
 						<div
-							style={{
-								'transform': `translateX(${upVotePercent < 23 ?
-								4.1 :
-								-.2}rem)`,
-								'position': `${upVotePercent < 23 ?
-								'absolute' :
-								'relative'}`
-							}}
-							className="line-graph__up-vote-percent-text"
+							className={`line-graph__up-vote-percent-text ${percentLocation}`}
 						>
 							{upVotePercent.toFixed(1)}% UPVOTES
 						</div>

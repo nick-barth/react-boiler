@@ -30,13 +30,12 @@ class Header extends React.Component {
 					</div>
 					<Link to={'/'}>
 						<div className="header__button">
-								<img className="header__button__icon" src="/images/header/champ-grid-icon.svg"/>
+							<img className="header__button__icon" src="/images/header/champ-grid-icon.svg"/>
 							ALL CHAMPIONS
 						</div>
 					</Link>
 				</div>
 			</nav>
-
 		);
 	}
 }

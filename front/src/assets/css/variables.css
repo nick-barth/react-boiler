@@ -33,8 +33,11 @@
 	/*
 	 * Colors
 	 */
-	 --main-color-darker: #b72a31;
-	 --spinner-color: var(--main-color);
+	--main-color-darker: #b72a31;
+	--spinner-color: var(--main-color);
+	--color-green: #2EAF21;
+	--color-yellow: #D67428;
+	--color-red: #d22730;
 	--color-white: #ffffff;
 	--color-gray-lightest: #fcfcfc;
 	--color-gray-lighter: #f3f3f3;

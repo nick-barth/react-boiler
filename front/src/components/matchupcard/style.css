@@ -109,6 +109,18 @@
 	transform: rotate(180deg);
 }
 
+.matchup-card__pointer-events_disabled {
+	pointer-events: none;
+}
+
+.matchup-card__pointer-events_enabled {
+	pointer-events: all;
+}
+
+.matchup-card__vote_active {
+	background: var(--main-color);
+}
+
  /*
  * Media Queries
  */

@@ -31,26 +31,32 @@ class MatchupCard extends React.Component {
 	constructor (props) {
 		super(props);
 		this.state = {
-			isUpvoteClicked: false,
-			isDownvoteClicked: false
+			isUpvoted: false,
+			isDownvoted: false
 		};
 	}
 
 	//Combines the onChange function with code that handles applying the active CSS for the upvote and downvote arrow's respectively.
 	 castVote (value, upOrDown) {
 		const { item, onChange, canVote } = this.props;
-		const { isDownvoteClicked, isUpvoteClicked } = this.state;
+		const { isDownvoted, isUpvoted } = this.state;
 
-		//If canVote is true, and isUpvoteClicked and isDownvoteClicked are false, then run the onChange function and change the state,
+		//If canVote is true, and isUpvoted and isDownvoted are false, then run the onChange function and change the state,
 		//Which in turn applies the active styling. Otherwise, do nothing.
-		canVote && !isDownvoteClicked && !isUpvoteClicked ? (onChange(item, value), this.setState(prevState => ({
+		canVote && !isDownvoted && !isUpvoted ? (onChange(item, value), this.setState(prevState => ({
 			[upOrDown]: !this.state[upOrDown]
 		}))) : null;
 	 }
 
 	render () {
 		const { item, champ, reversed } = this.props;
-		const { isUpvoteClicked, isDownvoteClicked } = this.state;
+		const { isUpvoted, isDownvoted } = this.state;
+		//Disables pointer events after user votes.
+		const pointerEvents = isDownvoted || isUpvoted ? 'matchup-card__pointer-events_disabled' : 'matchup-card__pointer-events_enabled';
+		//Changes the color of the upvote button.
+		const upvoteBg = !reversed && isUpvoted ? 'matchup-card__vote_active' : reversed && isDownvoted ? 'matchup-card__vote_active' : null;
+		//Changes the color of the downvote button.
+		const downvoteBg = !reversed && isDownvoted ? 'matchup-card__vote_active' : reversed && isUpvoted ? 'matchup-card__vote_active' : null;
 
 		return (
 			<div className="matchup-card">
@@ -66,48 +72,28 @@ class MatchupCard extends React.Component {
 						<div className="matchup-card__vote">
 							<div className="matchup-card__vote-container">
 
-							{/* Changes the color of the upvote button depending on whether or not reversed, isUpvoteClicked, and isDownvoteclicked are true or false.
-							 Also disables pointer events after user votes. */}
+								{/* Changes the color of the upvote button depending on whether or not reversed, isUpvoted, and isDownvoted are true or false.
+								 */}
 								<div
-									style={{
-										'background': `${!reversed && isUpvoteClicked ?
-										'#d22730' :
-										reversed && isDownvoteClicked ?
-										'#d22730' :
-										 null }`,
-										'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
-										'none' :
-										'all' }`
-									}}
-									className="matchup-card__vote-up-flex"
-									onClick={() => { reversed ? this.castVote(0, 'isDownvoteClicked') : this.castVote(1, 'isUpvoteClicked'); }}
+									className={`matchup-card__vote-up-flex ${pointerEvents} ${upvoteBg}`}
+									onClick={() => { reversed ? this.castVote(0, 'isDownvoted') : this.castVote(1, 'isUpvoted'); }}
 								>
 									<img className="matchup-card__up-arrow" src="/images/vote/up-arrow.svg"/>
 
-								{/* If reversed is true, vote down instead of up */}
+									{/* If reversed is true, vote down instead of up */}
 									<div className="matchup-card__item-up">
 										{reversed ? item.down : item.up}
 									</div>
 								</div>
 
-							{/* Changes color of downvote button. */}
+								{/* Changes color of downvote button. */}
 								<div
-									style={{
-										'background': `${!reversed && isDownvoteClicked ?
-										'#d22730' :
-										reversed && isUpvoteClicked ?
-										'#d22730' :
-										 null}`,
-										'pointerEvents': `${isDownvoteClicked || isUpvoteClicked ?
-										'none' :
-										'all' }`
-									}}
-									className="matchup-card__vote-down-flex"
-									onClick={() => { reversed ? this.castVote(1, 'isUpvoteClicked') : this.castVote(0, 'isDownvoteClicked'); }}
+									className={`matchup-card__vote-down-flex ${pointerEvents} ${downvoteBg}`}
+									onClick={() => { reversed ? this.castVote(1, 'isUpvoted') : this.castVote(0, 'isDownvoted'); }}
 								>
 									<img className="matchup-card__down-arrow" src="/images/vote/up-arrow.svg"/>
 
-							{/* If reversed is false, vote up instead of down */}
+									{/* If reversed is false, vote up instead of down */}
 									<div className="matchup-card__item-down">
 										{reversed ? item.up : item.down}
 									</div>
@@ -115,7 +101,7 @@ class MatchupCard extends React.Component {
 							</div>
 							<div className="matchup-card__vote-details">
 
-							{/* Show net votes after upvotes - downvotes or downvotes - upvotes if reversed is true. */}
+								{/* Show net votes after upvotes - downvotes or downvotes - upvotes if reversed is true. */}
 								<div className="matchup-card__upvote-percentage">
 									NET VOTES: {reversed ? item.down - item.up : item.up - item.down}
 								</div>
