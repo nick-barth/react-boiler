@@ -16,7 +16,6 @@ import Tips from 'components/tips/index.js';
 import Spinner from 'components/spinner/index.js';
 import Banner from 'components/banner/index.js';
 import Adcontainer from 'components/adcontainer/index.js';
-import Advertisement from 'components/adcontainer/advertisement/index.js';
 
 // Utils
 import { unformatChampName } from 'utils/championName';
@@ -171,14 +170,6 @@ export default class ChampionLayout extends React.Component {
 				{!isLoadingChamp && !isLoadingMatchup && matchups.length > 0 && champion.name ? (
 					<div style={{ 'display': 'flex', 'flexWrap': 'wrap' }}>
 						<Banner champ={champion} />
-						<Adcontainer classes="ad-container">
-							<Advertisement classes="ad-vertical-example-2">
-								ad example wow #5
-							</Advertisement>
-							<Advertisement classes="ad-vertical-example-1">
-								ad example wow #6
-							</Advertisement>
-						</Adcontainer>
 						<main style={{ 'flexBasis': 'auto', 'flexGrow': '1', 'maxWidth': '100%'  }}>
 							<section>
 								<header className="matchups-header">matchups</header>
@@ -201,11 +192,6 @@ export default class ChampionLayout extends React.Component {
 									/>
 								</div>
 							</section>
-							<Adcontainer classes="ad-container-horizontal ad-container__champion-index-middle">
-								<Advertisement classes="ad-horizontal-example">
-									please enjoy this advertisement, as people do.
-								</Advertisement>
-							</Adcontainer>
 							<Tips
 								title={`Tips for ${champion.name}`}
 								list={champion.tips.sort((a, b) => {
@@ -216,14 +202,6 @@ export default class ChampionLayout extends React.Component {
 								onAdd={(text) => this.addTip(text)}
 							/>
 						</main>
-						<Adcontainer classes="ad-container">
-							<Advertisement classes="ad-vertical-example-2">
-								ad example wow #5
-							</Advertisement>
-							<Advertisement classes="ad-vertical-example-1">
-								ad example wow #6
-							</Advertisement>
-						</Adcontainer>
 					</div>
 				) :<Spinner />}
 				{errors.length > 0 ? (

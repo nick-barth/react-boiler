@@ -36,17 +36,7 @@ export default class LandingLayout extends React.Component {
 			<div className="app">
 				<Header />
 				<div className="layout">
-					<Adcontainer classes="ad-container-horizontal ad-container__home">
-						<Advertisement classes="ad-horizontal-example">
-							horizontal top ad omfg loool
-						</Advertisement>
-					</Adcontainer>
 					{this.props.children}
-					<Adcontainer classes="ad-container-horizontal">
-						<Advertisement classes="ad-horizontal-example">
-							horizontal bottom ad SO RICH
-						</Advertisement>
-					</Adcontainer>
 				</div>
 				<Footer />
 			</div>
